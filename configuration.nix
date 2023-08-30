@@ -268,7 +268,7 @@
     docker
     shotcut
     tor-browser-bundle-bin
-    security.pki.certificateFiles
+    git-credential-manager
     
     # Local derivations
     (callPackage ./tilp.nix { })

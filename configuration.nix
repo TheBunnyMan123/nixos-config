@@ -269,6 +269,7 @@
     shotcut
     tor-browser-bundle-bin
     git-credential-manager
+    github-cli
     
     # Local derivations
     (callPackage ./tilp.nix { })

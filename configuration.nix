@@ -270,6 +270,7 @@
     tor-browser-bundle-bin
     git-credential-manager
     github-cli
+    dotnet
     
     # Local derivations
     (callPackage ./tilp.nix { })

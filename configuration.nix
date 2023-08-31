@@ -271,6 +271,7 @@
     git-credential-manager
     github-cli
     dotnet-runtime
+    browsh
     
     # Local derivations
     (callPackage ./tilp.nix { })

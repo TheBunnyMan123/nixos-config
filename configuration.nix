@@ -273,6 +273,7 @@
     
     # Local derivations
     (callPackage ./tilp.nix { })
+    (callPackage ./icat.nix { })
   ];
 
   # Enable Software

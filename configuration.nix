@@ -1,5 +1,3 @@
-# First run sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-
 { 
   config, 
   pkgs, 
@@ -8,7 +6,10 @@
 }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+    sha256 = "11m1cglhzkj9r0bnjbci3dy4sijsmahdqdzgjnq1hhvdb5a5gpf8";
+  };
 in
 
   

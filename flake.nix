@@ -18,7 +18,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.aspire = import ./bunny/home.nix;
+            home-manager.users.bunny = import ./bunny/home.nix;
           }
 
         ];

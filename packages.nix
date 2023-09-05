@@ -65,4 +65,28 @@
     (callPackage ./tilp.nix { })
     (callPackage ./icat.nix { })
   ];
+  
+  # Get rid of most default packages
+  environment.gnome.excludePackages = with pkgs.gnome; [ 
+    baobab 
+    epiphany 
+    simple-scan 
+    yelp evince 
+    gnome-calculator 
+    gnome-calendar 
+    gnome-characters 
+    gnome-clocks 
+    gnome-contacts 
+    gnome-font-viewer 
+    gnome-logs 
+    gnome-maps 
+    gnome-music 
+    gnome-weather 
+    gnome-disk-utility 
+    pkgs.gnome-tour 
+    cheese 
+    geary 
+    gnome-keyring
+    gnome-software
+  ];
 }

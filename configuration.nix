@@ -21,13 +21,6 @@
     #<home-manager/nixos>
   ];
 
-  
-
-  # Aliases
-  environment.interactiveShellInit = ''
-    alias proton='proton-call -r'
-  '';
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -94,30 +87,6 @@
       noto-fonts-emoji
     ];
   };
-
-  # Get rid of most default packages
-  environment.gnome.excludePackages = with pkgs.gnome; [ 
-    baobab 
-    epiphany 
-    simple-scan 
-    yelp evince 
-    gnome-calculator 
-    gnome-calendar 
-    gnome-characters 
-    gnome-clocks 
-    gnome-contacts 
-    gnome-font-viewer 
-    gnome-logs 
-    gnome-maps 
-    gnome-music 
-    gnome-weather 
-    gnome-disk-utility 
-    pkgs.gnome-tour 
-    cheese 
-    geary 
-    gnome-keyring
-    gnome-software
-  ];
   
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

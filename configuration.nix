@@ -5,14 +5,6 @@
   ...
 }:
 
-let
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-    sha256 = "11m1cglhzkj9r0bnjbci3dy4sijsmahdqdzgjnq1hhvdb5a5gpf8";
-  };
-in
-
-  
 {
   nix = {
     package = pkgs.nixFlakes;
@@ -24,7 +16,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    (import "${home-manager}/nixos")
+    #<home-manager/nixos>
   ];
 
   programs.steam = {
@@ -41,7 +33,10 @@ in
     # Add Firefox GNOME theme directory
     home.file."firefox-gnome-theme" = {
       target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
-      source = (fetchTarball "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz");
+      source = (fetchTarball {
+        url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
+        sha256 = "11m1cglhzkj9r0bnjbci3dy4sijsmahdqdzgjnq1hhvdb5a5gpf8";
+      });
     };
     
     dconf.settings = {
@@ -248,7 +243,7 @@ in
     git
     appimage-run
     gnome.nautilus
-    discord
+    #discord
     libvirt
     yt-dlp
     ffmpeg

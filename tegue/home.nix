@@ -18,8 +18,38 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      enable-hot-corners = true;
     };
-  };
+    "/org/gnome/desktop/notifications" = {
+      show-banners = true;
+      show-in-lock-screen = false;
+    };
+    "/org/gnome/desktop/search-providers" = {
+      disable-external = false;
+    };
+    "/org/freedesktop/tracker/miner/files" = {
+      index-recursive-directories = ['&DESKTOP', '&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS'];
+    };
+    "org/gnome/desktop/background" = {
+      picture-uri = "file:///etc/nixos/NixOS_1440p.png";
+      picture-uri-dark = "file:///etc/nixos/NixOS_1440p.png";
+      primary-color = "#000000000000";
+      secondary-color = "#000000000000";
+    };
+    "/org/gnome/mutter" = {
+      edge-tiling = true;
+    };
+    "/org/gnome/desktop/screensaver" = {
+      lock-enabled = true;
+      lock-delay = uint32 0;
+    };
+    "/org/gnome/desktop/session" = {
+      idle-delay = uint32 300;
+    };
+    "/org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
+      sleep-inactive-battery-type = "nothing";
+    };
       
   programs.firefox = {
     enable = true;

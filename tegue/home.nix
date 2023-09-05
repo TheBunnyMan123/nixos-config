@@ -27,9 +27,6 @@
     "/org/gnome/desktop/search-providers" = {
       disable-external = false;
     };
-    "/org/freedesktop/tracker/miner/files" = {
-      index-recursive-directories = ['&DESKTOP', '&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS'];
-    };
     "org/gnome/desktop/background" = {
       picture-uri = "file:///etc/nixos/NixOS_1440p.png";
       picture-uri-dark = "file:///etc/nixos/NixOS_1440p.png";

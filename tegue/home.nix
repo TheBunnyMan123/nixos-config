@@ -47,6 +47,7 @@
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "nothing";
     };
+  };
       
   programs.firefox = {
     enable = true;

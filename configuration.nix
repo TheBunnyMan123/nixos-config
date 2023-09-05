@@ -7,9 +7,10 @@
   ...
 }:
 
-#let
-#  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-#in
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
+
   
 {
   nix = {
@@ -22,8 +23,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    #(import "${home-manager}/nixos")
-    <home-manager/nixos>
+    (import "${home-manager}/nixos")
   ];
 
   programs.steam = {

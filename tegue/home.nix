@@ -20,11 +20,11 @@
       color-scheme = "prefer-dark";
       enable-hot-corners = true;
     };
-    "/org/gnome/desktop/notifications" = {
+    "org/gnome/desktop/notifications" = {
       show-banners = true;
       show-in-lock-screen = false;
     };
-    "/org/gnome/desktop/search-providers" = {
+    "org/gnome/desktop/search-providers" = {
       disable-external = false;
     };
     "org/gnome/desktop/background" = {
@@ -33,17 +33,17 @@
       primary-color = "#000000000000";
       secondary-color = "#000000000000";
     };
-    "/org/gnome/mutter" = {
+    "org/gnome/mutter" = {
       edge-tiling = true;
     };
-    "/org/gnome/desktop/screensaver" = {
+    "org/gnome/desktop/screensaver" = {
       lock-enabled = true;
-      lock-delay = uint32 0;
+      lock-delay = 0;
     };
-    "/org/gnome/desktop/session" = {
-      idle-delay = uint32 300;
+    "org/gnome/desktop/session" = {
+      idle-delay = 300;
     };
-    "/org/gnome/settings-daemon/plugins/power" = {
+    "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       sleep-inactive-battery-type = "nothing";
     };

@@ -87,7 +87,7 @@
       noto-fonts-emoji
     ];
   };
-  
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

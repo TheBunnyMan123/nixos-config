@@ -2,15 +2,124 @@
   config, 
   pkgs, 
   lib,
+  wrapFirefox,
+  fetchFirefoxAddon,
   ...
 }:
 
-{
+let 
+  customFirefox = pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
+    nixExtensions = [
+      (pkgs.fetchFirefoxAddon {
+        name = "7tv";
+        url = "https://github.com/SevenTV/Extension/releases/download/v3.0.15/7tv-webextension-ext.xpi";
+        sha256 = "HpyYm6lo/U7YUcIHFAy/5qJ2Ji8jvEl28ZrQFacP3jA=";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "ublock-origin";
+        url = "https://github.com/gorhill/uBlock/releases/download/1.51.0/uBlock0_1.51.0.firefox.signed.xpi";
+        sha256 = "8b73468bc233a11dd2895219466381783d19123857dd0b6fd16a01820fca4834";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "sponsorblock";
+        url = "https://github.com/ajayyy/SponsorBlock/releases/download/5.4.18/FirefoxSignedInstaller.xpi";
+        sha256 = "071c9ad146f2539ef523bca41d6907a692939e670d6f1b3dc965b6c76e65568b";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "dark-reader";
+        url = "https://github.com/darkreader/darkreader/releases/download/v4.9.65/darkreader-firefox.xpi";
+        sha256 = "71adeed9c3ca1494c69cfbbdd57da785d948666ed4e4f635013ec3ea7d61061b";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "translate-web-pages";
+        url = "https://github.com/FilipePS/Traduzir-paginas-web/releases/download/v9.9.0.2/TWP_9.9.0.2_Firefox.xpi";
+        sha256 = "35624d33753b1b3d1b88cb56c5e10e27d3cd1b3ea5144d1d6a3554d33708ec54";
+      })
+    ];
+  
+    extraPrefs = ''
+      # https://github.com/yokoffing/Betterfox
+      lockPref("xpinstall.signatures.required", false);
+      lockPref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+      lockPref("dom.security.https_only_mode", true);
+      lockPref("dom.security.https_only_mode_ever_enabled", true);
+      lockPref("privacy.trackingprotection.enabled", true);
+      lockPref("app.update.suppressPrompts", true);
+      lockPref("browser.privatebrowsing.vpnpromourl", "");
+      lockPref("browser.shell.checkDefaultBrowser", false);
+      lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+      lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+      lockPref("browser.preferences.moreFromMozilla", false);
+      lockPref("browser.tabs.tabmanager.enabled", false);
+      lockPref("full-screen-api.transition-duration.enter", "0 0");
+      lockPref("full-screen-api.transition-duration.leave", "0 0");
+      lockPref("full-screen-api.warning.delay", -1);
+      lockPref("full-screen-api.warning.timeout", 0);
+      lockPref("browser.aboutwelcome.enabled", false);
+      lockPref("findbar.highlightAll", true);
+      lockPref("browser.urlbar.suggest.engines", false);
+      lockPref("browser.urlbar.suggest.topsites", false);
+      lockPref("browser.urlbar.suggest.calculator", true);
+      lockPref("browser.urlbar.unitConversion.enabled", true);
+      lockPref("browser.newtabpage.activity-stream.feeds.topsites", false);
+      lockPref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+      lockPref("extensions.pocket.enabled", false);
+      lockPref("browser.download.useDownloadDir", false);
+      lockPref("browser.download.manager.addToRecentDocs", true);
+      lockPref("browser.download.always_ask_before_handling_new_types", true);
+      lockPref("browser.download.autohideButton", false);
+      lockPref("dom.disable_window_move_resize", true);
+      lockPref("layout.css.has-selector.enabled", true);
+      lockPref("browser.contentblocking.category", "standard");
+      lockPref("privacy.query_stripping.enabled", true);
+      lockPref("privacy.query_stripping.enabled.pbmode", true);
+      lockPref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
+      lockPref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+      lockPref("fission.autostart", true);
+      lockPref("security.sandbox.gpu.level", 1);
+      lockPref("network.cookie.cookieBehavior", 5);
+      lockPref("browser.contentblocking.reject-and-isolate-cookies.preferences.ui.enabled", true);
+      lockPref("privacy.partition.network_state", true);
+      lockPref("privacy.partition.serviceWorkers", true);
+      lockPref("privacy.partition.always_partition_third_party_non_cookie_storage", true);
+      lockPref("privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage", false);
+      lockPref("extensions.webcompat.enable_shims", true);
+      lockPref("privacy.purge_trackers.enabled", true);
+      lockPref("browser.send_pings", false);
+      lockPref("privacy.globalprivacycontrol.enabled", true);
+      lockPref("privacy.globalprivacycontrol.functionality.enabled", true);
+    '';
+  
+    extraPolicies = {
+      CaptivePortal = false;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DisableAppUpdate = true;
+      DisableFormHistory = true;
+      DisableProfileRefresh = true;
+      DisableProfileImport = true;
+      DisableSystemAddonUpdate = true;
+      DontCheckDefaultBrowser = true;
+      DisplayBookmarksToolbar = "always";
+      OfferToSaveLogins = false;
+      PromptForDownloadLocation = true;
+      FirefoxHome = {
+        Pocket = false;
+        Snippets = false;
+      };
+      UserMessaging = {
+        ExtensionRecommendations = false;
+        SkipOnboarding = true;
+      };
+    };
+  };
+in {
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     nano
-    firefox
+    customFirefox
     virt-manager
     qemu_kvm
     vscode

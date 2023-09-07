@@ -103,6 +103,7 @@ let
       lockPref("browser.send_pings", false);
       lockPref("privacy.globalprivacycontrol.enabled", true);
       lockPref("privacy.globalprivacycontrol.functionality.enabled", true);
+      lockPref("accessibility.blockautorefresh", true);
     '';
   
     extraPolicies = {

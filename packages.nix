@@ -52,8 +52,8 @@ let
       })
     ];
   
+    # https://github.com/yokoffing/Betterfox
     extraPrefs = ''
-      # https://github.com/yokoffing/Betterfox
       lockPref("xpinstall.signatures.required", false);
       lockPref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
       lockPref("dom.security.https_only_mode", true);

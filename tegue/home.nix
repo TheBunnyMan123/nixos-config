@@ -1,23 +1,12 @@
 {pkgs, ...}:
 
-let
-  buildFirefoxXpiAddon = pkgs.repos.rycee.firefox-addons.buildFirefoxXpiAddon;
-in {
+{
   # The home.stateVersion option does not have a default and must be set
   home.username = "bunny";
   home.homeDirectory = "/home/bunny";
   home.stateVersion = "23.05"; # To figure this out you can comment out the line and see what version it expected.
   programs.home-manager.enable = true;
   # Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
-      
-  # Add Firefox GNOME theme directory
-  home.file."firefox-gnome-theme" = {
-  target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
-  source = (fetchTarball {
-    url = "https://github.com/rafaelmardojai/firefox-gnome-theme/archive/master.tar.gz";
-    sha256 = "11m1cglhzkj9r0bnjbci3dy4sijsmahdqdzgjnq1hhvdb5a5gpf8";
-  });
-  };
       
   dconf.settings = {
     "org/gnome/desktop/interface" = {

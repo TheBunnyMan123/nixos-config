@@ -13,7 +13,7 @@ let
       (pkgs.fetchFirefoxAddon {
         name = "7tv";
         url = "https://github.com/SevenTV/Extension/releases/download/v3.0.15/7tv-webextension-ext.xpi";
-        sha256 = "HpyYm6lo/U7YUcIHFAy/5qJ2Ji8jvEl28ZrQFacP3jA=";
+        sha256 = "1e9c989ba968fd4ed851c207140cbfe6a276262f23bc4976f19ad015a70fde30";
       })
       (pkgs.fetchFirefoxAddon {
         name = "ublock-origin";
@@ -34,6 +34,21 @@ let
         name = "translate-web-pages";
         url = "https://github.com/FilipePS/Traduzir-paginas-web/releases/download/v9.9.0.2/TWP_9.9.0.2_Firefox.xpi";
         sha256 = "35624d33753b1b3d1b88cb56c5e10e27d3cd1b3ea5144d1d6a3554d33708ec54";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "return-youtube-dislikes";
+        url = "https://github.com/TheBunnyMan123/return-youtube-dislike/releases/download/v3.0.0.10/return_youtube_dislikes-3.0.0.10.xpi";
+        sha256 = "bcf4a5d271341a3dab3337bd6d5328f762c8b6b3447562316c166f902be3ad84";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "bypass-paywalls";
+        url = "https://github.com/iamadamdev/bypass-paywalls-chrome/releases/download/v1.8.1/bypass-paywalls-firefox.xpi";
+        sha256 = "ac1a1d1e9c91f048e8800d218cb124924f25fb32c0dc1843e8ffac29b0554412";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "enhancer-for-youtube";
+        url = "https://addons.mozilla.org/firefox/downloads/file/4157491/enhancer_for_youtube-2.0.121.xpi";
+        sha256 = "baaba2f8eef7166c1bee8975be63fc2c28d65f0ee48c8a0d1c1744b66db8a2ad";
       })
     ];
   

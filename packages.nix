@@ -187,7 +187,8 @@ in {
     dotnet-runtime
     browsh
     baobab
-    wine
+    wine64
+    winetricks
 
     # Local derivations
     (callPackage ./tilp.nix { })
@@ -216,6 +217,5 @@ in {
     geary 
     gnome-keyring
     gnome-software
-    winetricks
   ];
 }

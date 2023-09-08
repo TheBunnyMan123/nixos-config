@@ -41,14 +41,14 @@ let
         sha256 = "bcf4a5d271341a3dab3337bd6d5328f762c8b6b3447562316c166f902be3ad84";
       })
       (pkgs.fetchFirefoxAddon {
-        name = "bypass-paywalls";
-        url = "https://github.com/iamadamdev/bypass-paywalls-chrome/releases/download/v1.8.1/bypass-paywalls-firefox.xpi";
-        sha256 = "ac1a1d1e9c91f048e8800d218cb124924f25fb32c0dc1843e8ffac29b0554412";
-      })
-      (pkgs.fetchFirefoxAddon {
         name = "enhancer-for-youtube";
         url = "https://addons.mozilla.org/firefox/downloads/file/4157491/enhancer_for_youtube-2.0.121.xpi";
         sha256 = "baaba2f8eef7166c1bee8975be63fc2c28d65f0ee48c8a0d1c1744b66db8a2ad";
+      })
+      (pkgs.fetchFirefoxAddon {
+        name = "emoji";
+        url = "https://github.com/Sav22999/emoji/releases/download/3.19/emoji-firefox-3-19.zip";
+        sha256 = "3483c6e4767065f9e859cfd9b2756bdc46f3a9034e25dc422c3f21033447628f";
       })
     ];
   
@@ -104,6 +104,8 @@ let
       lockPref("privacy.globalprivacycontrol.enabled", true);
       lockPref("privacy.globalprivacycontrol.functionality.enabled", true);
       lockPref("accessibility.blockautorefresh", true);
+      lockPref("network. http. redirection-limit", 10);
+      lockPref("extensions.update.enabled", false);
     '';
   
     extraPolicies = {

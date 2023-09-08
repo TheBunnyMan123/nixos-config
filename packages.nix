@@ -187,7 +187,8 @@ in {
     dotnet-runtime
     browsh
     baobab
-    
+    wine
+
     # Local derivations
     (callPackage ./tilp.nix { })
     (callPackage ./icat.nix { })

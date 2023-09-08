@@ -216,5 +216,6 @@ in {
     geary 
     gnome-keyring
     gnome-software
+    winetricks
   ];
 }

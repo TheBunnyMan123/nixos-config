@@ -187,7 +187,7 @@ in {
     dotnet-runtime
     browsh
     baobab
-    wine64
+    wineWowPackages.stable
     winetricks
 
     # Local derivations

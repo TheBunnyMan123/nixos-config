@@ -57,7 +57,7 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
     (pkgs.fetchFirefoxAddon {
       name = "hexagontab-manifest-v3";
       url = "https://github.com/TheBunnyMan123/hexagonTab-Manifest-V3/releases/download/v4.1.0/hexagontab-4.1.0.xpi";
-      sha256 = "33a8d534a696a35ef5fed88c76a585c5d9f23f733d754c959d566a4d016b06fc";
+      sha256 = "d5c046966cb0464e54538d59ca3d2144058b3f399579401f2d01d045167f54bd";
     })
   ];
 

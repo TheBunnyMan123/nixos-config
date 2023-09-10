@@ -7,9 +7,7 @@
   ...
 }:
 
-let 
-  #customFirefox = import ./packages/firefox.nix;
-in {
+{
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
@@ -61,7 +59,6 @@ in {
     tor-browser-bundle-bin
     git-credential-manager
     github-cli
-    dotnet-runtime
     browsh
     baobab
     wineWowPackages.stable
@@ -71,7 +68,7 @@ in {
     # Local Packages
     (callPackage ./packages/tilp.nix { })
     (callPackage ./packages/icat.nix { })
-    (import ./packages/firefox.nix)
+    (callPackage ./packages/firefox.nix { })
   ];
   
   # Get rid of most default packages

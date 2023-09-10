@@ -50,6 +50,11 @@ let
         url = "https://github.com/Sav22999/emoji/releases/download/3.19/emoji-firefox-3-19.zip";
         sha256 = "3483c6e4767065f9e859cfd9b2756bdc46f3a9034e25dc422c3f21033447628f";
       })
+      (pkgs.fetchFirefoxAddon {
+        name = "decentraleyes";
+        url = "https://git.synz.io/Synzvato/decentraleyes/uploads/7002db0e9630a4d7ffcb0a8f57af35cb/Decentraleyes.v2.0.18-firefox.xpi";
+        sha256 = "f8f031ef91c02a1cb1a6552acd02b8f488693400656b4047d68f03ba0a1078d9";
+      })
     ];
   
     # https://github.com/yokoffing/Betterfox

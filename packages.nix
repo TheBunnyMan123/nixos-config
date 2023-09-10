@@ -64,6 +64,7 @@
     wineWowPackages.stable
     winetricks
     chromium
+    dotnetPackages.Nuget
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })

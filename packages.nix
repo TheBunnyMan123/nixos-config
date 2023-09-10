@@ -55,6 +55,11 @@ let
         url = "https://git.synz.io/Synzvato/decentraleyes/uploads/7002db0e9630a4d7ffcb0a8f57af35cb/Decentraleyes.v2.0.18-firefox.xpi";
         sha256 = "f8f031ef91c02a1cb1a6552acd02b8f488693400656b4047d68f03ba0a1078d9";
       })
+      (pkgs.fetchFirefoxAddon {
+        name = "hexagontab";
+        url = "https://addons.mozilla.org/firefox/downloads/file/3949057/hexagontab-4.1.0.xpi";
+        sha256 = "33a8d534a696a35ef5fed88c76a585c5d9f23f733d754c959d566a4d016b06fc";
+      })
     ];
   
     # https://github.com/yokoffing/Betterfox
@@ -111,6 +116,7 @@ let
       lockPref("accessibility.blockautorefresh", true);
       lockPref("network. http. redirection-limit", 10);
       lockPref("extensions.update.enabled", false);
+      lockPref("browser.ssb.enabled", true);
     '';
   
     extraPolicies = {
@@ -142,6 +148,7 @@ in {
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     nano
+    nodejs
     customFirefox
     virt-manager
     qemu_kvm

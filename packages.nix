@@ -201,6 +201,7 @@ in {
     baobab
     wineWowPackages.stable
     winetricks
+    chromium
 
     # Local derivations
     (callPackage ./tilp.nix { })

@@ -56,8 +56,8 @@ let
         sha256 = "f8f031ef91c02a1cb1a6552acd02b8f488693400656b4047d68f03ba0a1078d9";
       })
       (pkgs.fetchFirefoxAddon {
-        name = "hexagontab";
-        url = "https://addons.mozilla.org/firefox/downloads/file/3949057/hexagontab-4.1.0.xpi";
+        name = "hexagontab-manifest-v3";
+        url = "https://github.com/TheBunnyMan123/hexagonTab-Manifest-V3/releases/download/v4.1.0/hexagontab-4.1.0.xpi";
         sha256 = "33a8d534a696a35ef5fed88c76a585c5d9f23f733d754c959d566a4d016b06fc";
       })
     ];

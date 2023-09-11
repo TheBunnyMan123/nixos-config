@@ -70,6 +70,7 @@
     (callPackage ./packages/tilp.nix { })
     (callPackage ./packages/icat.nix { })
     (callPackage ./packages/firefox.nix { })
+    (callPackage ./packages/calculator.nix { })
   ];
   
   # Get rid of most default packages

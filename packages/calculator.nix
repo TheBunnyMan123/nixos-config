@@ -1,23 +1,13 @@
-{ fetchFromGitHub
-, buildDotnetModule
+{ 
+  appimageTools, 
+  fetchurl
 }:
 
-buildDotnetModule rec {
+appimageTools.wrapType2 { # or wrapType1
   name = "Calculator";
-  version = "1.0.1";
-
-  src = fetchFromGitHub {
-    owner = "TheBunnyMan123";
-    repo = name;
-    rev = "v${version}";
-    sha256 = "";
+  src = fetchurl {
+    url = "https://github.com/TheBunnyMan123/Calculator/releases/download/v1.0.1/Calculator-x86_64.AppImage";
+    hash = "sha256-JVXq3ByYf96dkU1nxA3tJvI+gIv71/wfrWA7cUGqQ9I=";
   };
-
-  projectFile = "Calculator/Calculator.csproj"
-
-  # meta = with lib; {
-  #   homepage = "some_homepage";
-  #   description = "some_description";
-  #   license = licenses.mit;
-  # };
+  extraPkgs = pkgs: with pkgs; [ ];
 }

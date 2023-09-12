@@ -48,7 +48,7 @@
     pkgs.gnome3.gnome-tweaks
     libreoffice
     python3Full
-    dotnet-sdk
+    dotnetCorePackages.sdk_6_0
     python3
     headsetcontrol
     gnomeExtensions.headsetcontrol
@@ -65,12 +65,22 @@
     winetricks
     chromium
     dotnetPackages.Nuget
+    # icu
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })
     (callPackage ./packages/icat.nix { })
     (callPackage ./packages/firefox.nix { })
     (callPackage ./packages/calculator.nix { })
+    (
+      pkgs.makeDesktopItem {
+        name = "calculator";
+        desktopName = "Calculator";
+        exec = "Calculator";
+        terminal = false;
+      }
+
+    )
   ];
   
   # Get rid of most default packages

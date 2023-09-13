@@ -77,6 +77,7 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      corefonts
     ];
   };
 

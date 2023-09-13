@@ -81,6 +81,16 @@
       }
 
     )
+    (callPackage ./packages/timer.nix { })
+    (
+      pkgs.makeDesktopItem {
+        name = "timer";
+        desktopName = "Timer";
+        exec = "Timer";
+        terminal = false;
+      }
+
+    )
   ];
   
   # Get rid of most default packages

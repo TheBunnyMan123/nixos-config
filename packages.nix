@@ -29,7 +29,7 @@
     git
     appimage-run
     gnome.nautilus
-    #discord
+    discord
     libvirt
     yt-dlp
     ffmpeg
@@ -47,9 +47,14 @@
     hashcat
     pkgs.gnome3.gnome-tweaks
     libreoffice
-    python3Full
+    python311Full
+    python311Packages.pip
+    python311Packages.platformdirs
+    python311Packages.pyqt6
+    python311Packages.joblib
+    python311Packages.setuptools
+    samba4Full
     dotnetCorePackages.sdk_6_0
-    python3
     headsetcontrol
     gnomeExtensions.headsetcontrol
     distrobox

@@ -29,7 +29,7 @@
     git
     appimage-run
     gnome.nautilus
-    discord
+#    discord
     libvirt
     yt-dlp
     ffmpeg
@@ -70,7 +70,7 @@
     winetricks
     chromium
     dotnetPackages.Nuget
-    # icu
+    anbox
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })
@@ -121,4 +121,6 @@
     gnome-keyring
     gnome-software
   ];
+
+  programs.adb.enable = true;
 }

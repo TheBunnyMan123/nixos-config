@@ -43,7 +43,7 @@
   users.users.bunny = {
     isNormalUser = true;
     description = "bunny";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "docker" "adbusers" ];
     packages = with pkgs; [
       # Single User Packages
     ];

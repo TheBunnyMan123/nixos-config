@@ -58,6 +58,7 @@
     dotnetCorePackages.sdk_6_0
     headsetcontrol
     gnomeExtensions.headsetcontrol
+    gnomeExtensions.removable-drive-menu
     distrobox
     gimp
     docker
@@ -72,6 +73,7 @@
     chromium
     dotnetPackages.Nuget
     anbox
+    neofetch
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })

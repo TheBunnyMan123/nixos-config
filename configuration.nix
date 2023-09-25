@@ -63,17 +63,17 @@
         monospace = [
           "Noto Sans Mono"
           "Noto Color Emoji"
-          "emoji"
+          "FiraCode"
         ];
         sansSerif = [
           "Noto Sans"
           "Noto Color Emoji"
-          "emoji"
+          "FiraCode"
         ];
         serif = [
           "Noto Serif"
           "Noto Color Emoji"
-          "emoji"
+          "FiraCode"
         ];
       };
     };
@@ -82,6 +82,7 @@
       noto-fonts-cjk
       noto-fonts-emoji
       corefonts
+      nerdfonts
     ];
   };
 

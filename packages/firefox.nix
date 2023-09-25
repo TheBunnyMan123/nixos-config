@@ -59,6 +59,11 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
       url = "https://github.com/TheBunnyMan123/hexagonTab-Manifest-V3/releases/download/v4.1.0/hexagontab-4.1.0.xpi";
       sha256 = "d5c046966cb0464e54538d59ca3d2144058b3f399579401f2d01d045167f54bd";
     })
+    (pkgs.fetchFirefoxAddon {
+      name = "ruffle";
+      url = "https://github.com/ruffle-rs/ruffle/releases/download/nightly-2023-09-25/ruffle-nightly-2023_09_25-web-extension-firefox-unsigned.xpi";
+      sha256 = "sha256-JBR8973B/7/87ILk02dJksHwljU/ozOfL388lBgAXuI=";
+    })
   ];
 
   # https://github.com/yokoffing/Betterfox

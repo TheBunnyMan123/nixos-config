@@ -44,8 +44,8 @@
           info " ​ ​  " font
           info " ​ ​  󰉼 " theme
           info " ​ ​  󰀻 " icons
-          info " ​ ​ 󰊠 " packages 
-      #    info " ​ ​  󰅐 " uptime
+      #    info " ​ ​ 󰊠 " packages 
+          info " ​ ​  󰅐 " uptime
       #    info " ​ ​   " gpu_driver  # Linux/macOS only
       #    info " ​ ​  " cpu_usage
       #    info " ​ ​ 󰝚 " song

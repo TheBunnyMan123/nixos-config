@@ -80,6 +80,7 @@
     (callPackage ./packages/icat.nix { })
     (callPackage ./packages/firefox.nix { })
     (callPackage ./packages/calculator.nix { })
+    (callPackage ./packages/nerdls.nix { })
     (
       pkgs.makeDesktopItem {
         name = "calculator";

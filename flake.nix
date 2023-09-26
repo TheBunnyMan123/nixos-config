@@ -16,6 +16,7 @@
         modules = [
           ./configuration.nix
           ./host-specific/desktop/hardware-configuration.nix
+          ./host-specific/desktop/stateVersion.nix
           ./services.nix
           ./packages.nix
           ./host-specific/nvidia-drivers.nix
@@ -36,6 +37,7 @@
         modules = [
           ./configuration.nix
           ./host-specific/laptop/hardware-configuration.nix
+          ./host-specific/laptop/stateVersion.nix
           ./services.nix
           ./packages.nix
           

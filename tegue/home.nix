@@ -43,8 +43,8 @@
           info " ​ ​  " term_font
           info " ​ ​  " font
           info " ​ ​  󰉼 " theme
-          info " ​ ​  󰀻 " icons
-      #    info " ​ ​ 󰊠 " packages 
+      #    info " ​ ​  󰀻 " icons
+          info " ​ ​  " packages 
           info " ​ ​  󰅐 " uptime
       #    info " ​ ​   " gpu_driver  # Linux/macOS only
       #    info " ​ ​  " cpu_usage
@@ -63,7 +63,7 @@
       os_arch="off"
       uptime_shorthand="on"
       memory_percent="on"
-      package_managers="tiny"
+      package_managers="off"
       shell_path="off"
       shell_version="on"
       speed_type="bios_limit"

@@ -14,7 +14,7 @@
     sha256 = "sha256-Nxduete9bGMtBI61o341WI7qRrT/Jj/jRX0PpDwJAVw=";
   };
 
-  nugetDeps = ./deps.nix;
+  nugetDeps = ./deps-nerdls.nix;
   projectFile = "nerdls.csproj";
 }
 

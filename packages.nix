@@ -19,6 +19,7 @@
     vscode
     flatpak
     vlc
+    mono5
     gnome-photos
     gnome.gnome-screenshot
     gnome-console

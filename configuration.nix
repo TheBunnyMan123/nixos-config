@@ -14,7 +14,8 @@
   };
 
   environment.interactiveShellInit = ''
-    alias ls='nerdls'
+    alias ls="nerdls"
+    alias nls="nerdls"
   '';
 
   services.udev.extraRules = ''

@@ -75,6 +75,7 @@
     dotnetPackages.Nuget
     anbox
     neofetch
+    blender
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })

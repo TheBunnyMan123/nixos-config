@@ -23,13 +23,19 @@
     alias ls="nerdls"
     alias nls="nerdls"
   '';
+  programs.bash.promptInit = ''
+    prompt() {
+      PS1="$(powerline-rs --shell bash $?)"
+    }
+    PROMPT_COMMAND=prompt
+  '';
 
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666"
   '';
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.default = "http://user:password@proxy:porlst/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.

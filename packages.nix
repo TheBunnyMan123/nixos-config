@@ -80,6 +80,7 @@
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     obs-studio
+    powerline-rs
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })

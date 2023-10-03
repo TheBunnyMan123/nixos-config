@@ -25,7 +25,7 @@
   '';
   programs.bash.promptInit = ''
     prompt() {
-      PS1="$(powerline-rs --shell bash $?)"
+      PS1="\n $(powerline-rs --shell bash --newline $?)"
     }
     PROMPT_COMMAND=prompt
   '';

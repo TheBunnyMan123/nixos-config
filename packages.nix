@@ -23,7 +23,6 @@
     mono5
     gnome-photos
     gnome.gnome-screenshot
-    gnome-console
     gnome.gnome-system-monitor
     gparted
     gnomeExtensions.clipboard-indicator
@@ -81,6 +80,7 @@
     xdg-desktop-portal-gtk
     obs-studio
     powerline-rs
+    tilix
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })

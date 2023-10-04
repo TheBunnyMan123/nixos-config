@@ -5,6 +5,21 @@ keyrings-selected=['pkcs11:model=p11-kit-trust;manufacturer=PKCS%2311%20Kit;seri
 height=476
 width=600
 
+[com/gexperts/Tilix]
+auto-hide-mouse=true
+close-with-last-session=false
+enable-wide-handle=false
+middle-click-close=true
+sidebar-on-right=false
+tab-position='top'
+terminal-title-style='small'
+
+[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-transparency-percent=27
+dim-transparency-percent=0
+scroll-on-output=false
+visible-name='Default'
+
 [org/freedesktop/tracker/miner/files]
 index-recursive-directories=['&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS', '&DESKTOP']
 index-single-directories=['&DOWNLOAD', '$HOME']
@@ -27,7 +42,7 @@ is-maximized=false
 window-size=(960, 600)
 
 [org/gnome/control-center]
-last-panel='power'
+last-panel='wifi'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -278,7 +293,7 @@ app-picker-layout=[{'Utilities': <{'position': <0>}>, '69c10b18-dc2e-4b78-b0da-b
 command-history=['pmi action hibernate', 'hibernate', 'r']
 disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com']
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'HeadsetControl@lauinger-clan.de', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['firefox.desktop', 'torbrowser.desktop', 'org.gnome.Console.desktop', 'org.gnome.Nautilus.desktop', 'thunderbird.desktop']
+favorite-apps=['firefox.desktop', 'torbrowser.desktop', 'org.gnome.Nautilus.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop']
 last-selected-power-profile='power-saver'
 remember-mount-password=false
 welcome-dialog-last-shown-version='44.1'
@@ -293,6 +308,15 @@ locations=@av []
 check-timestamp=int64 1693319156
 first-run=false
 flatpak-purge-timestamp=int64 1693442147
+
+[org/gnome/terminal/legacy]
+always-check-default-terminal=true
+new-terminal-mode='window'
+
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(23,20,33)'
+foreground-color='rgb(208,207,204)'
+use-theme-colors=true
 
 [org/gnome/tweaks]
 show-extensions-notice=false
@@ -327,9 +351,9 @@ show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=163
-sort-column='modified'
+sort-column='name'
 sort-directories-first=false
-sort-order='descending'
+sort-order='ascending'
 type-format='category'
 window-position=(26, 23)
 window-size=(1366, 689)

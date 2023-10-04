@@ -267,14 +267,14 @@
       enable-wide-handle=false;
       middle-click-close=true;
       sidebar-on-right=false;
-      tab-position='top';
+      tab-position="top";
       terminal-title-style="small";
     };
     "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
       background-transparency-percent=27;
       dim-transparency-percent=0;
       scroll-on-output=false;
-      visible-name='Default';
+      visible-name="Default";
     };
   };
 }

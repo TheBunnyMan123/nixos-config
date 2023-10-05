@@ -175,4 +175,31 @@
   ];
 
   programs.adb.enable = true;
+
+  programs.git.config = {
+    init = {
+      defaultBranch = "main";
+    };
+    url = {
+      "https://github.com/" = {
+        insteadOf = [
+          "gh:"
+          "github:"
+        ];
+      };
+      "https://gitlab.com/" = {
+        insteadOf = [
+          "gl:"
+          "gitlab:"
+        ];
+      };
+    };
+    safe = {
+      directory = "/etc/nixos";
+    };
+    user = {
+      email = "bunnymcnair@gmail.com";
+    	name = "Tegue";
+    };
+  };
 }

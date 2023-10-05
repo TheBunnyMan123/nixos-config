@@ -22,8 +22,9 @@
   environment.interactiveShellInit = ''
     alias ls="nerdls"
     alias nls="nerdls"
-    alias nrs="nixos-rebuild switch"
-    alias nrsf="nixos-rebuild switch --flake "
+    alias nrs="sudo nixos-rebuild switch"
+    alias nrsf="sudo nixos-rebuild switch --flake "
+    alias icat24="icat -m 24bit "
   '';
   programs.bash.promptInit = ''
     prompt() {

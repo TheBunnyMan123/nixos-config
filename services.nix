@@ -81,15 +81,15 @@
     device = "nodev"; #/dev/sda";
 
     theme = pkgs.stdenv.mkDerivation {
-      pname = "distro-grub-themes";
-      version = "3.1";
+      pname = "xenlism-grub-themes";
+      version = "1.0";
       src = pkgs.fetchFromGitHub {
-        owner = "AdisonCavani";
-        repo = "distro-grub-themes";
-        rev = "v3.1";
-        hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
+        owner = "TheBunnyMan123";
+        repo = "xenlism-grub-themes-nixos-only";
+        rev = "v1.0";
+        hash = "sha256-KE2sY7JhIjmHBfoMR1cqrulhKBTfKV6OohrFcHsxZ0Q";
       };
-      installPhase = "cp -r customize/nixos $out";
+      installPhase = "cp -r xenlism-grub-4k-nixos/Xenlism-Nixos/ $out";
     };
     extraEntries = ''
       menuentry "Reboot" {
@@ -97,6 +97,9 @@
       }
       menuentry "Poweroff" {
         halt
+      }
+      menuentry "Exit" {
+        exit
       }
     '';
   };

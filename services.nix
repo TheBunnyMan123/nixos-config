@@ -69,7 +69,27 @@
   programs.dconf.enable = true;
   
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader = {
+  efi = {
+    canTouchEfiVariables = true;
+#    efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+  };
+  grub = {
+    enable = true;
+    efiSupport = true;
+#    efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+    device = "nodev"; #/dev/sda";
+
+    extraEntries = ''
+      menuentry "Reboot" {
+        reboot
+      }
+      menuentry "Poweroff" {
+        halt
+      }
+    '';
+  };
+};
 
   networking.hostName = "NixOS"; # Define your hostname.
   networking.wireless.enable = false;  # Enables wireless support via wpa_supplicant.

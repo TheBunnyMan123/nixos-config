@@ -89,7 +89,7 @@
         rev = "v1.0";
         hash = "sha256-KE2sY7JhIjmHBfoMR1cqrulhKBTfKV6OohrFcHsxZ0Q";
       };
-      installPhase = "cp -r xenlism-grub-4k-nixos/Xenlism-Nixos/ $out";
+      installPhase = "cp -r xenlism-grub-1080p-nixos/Xenlism-Nixos/ $out";
     };
     extraEntries = ''
       menuentry "Reboot" {

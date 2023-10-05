@@ -20,6 +20,7 @@
           ./services.nix
           ./packages.nix
           ./host-specific/nvidia-drivers.nix
+          ./packages/chromium.nix
 
           # User Specific
           home-manager.nixosModules.home-manager {

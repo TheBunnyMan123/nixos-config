@@ -71,7 +71,6 @@
     baobab
     wineWowPackages.stable
     winetricks
-    chromium
     dotnetPackages.Nuget
     anbox
     neofetch

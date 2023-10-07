@@ -37,6 +37,7 @@
     ffmpeg
     home-manager
     wget
+    chromium
     curl
     nssmdns
     citra-canary
@@ -200,5 +201,24 @@
       email = "bunnymcnair@gmail.com";
     	name = "Tegue";
     };
+  };
+
+    programs.chromium = {
+    enable = true;
+    extraOpts = {
+      "BrowserSignin" = 0;
+      "SyncDisabled" = true;
+      "PasswordManagerEnabled" = false;
+      "SpellcheckEnabled" = true;
+      "SpellcheckLanguage" = [
+        "en-US"
+      ];
+      "HttpsOnlyMode" = "force_enabled";
+    };
+    extensions = [
+      "dapfmaempgppekcneleonmpoebhkfaol" # https somewhere
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
+    ];
   };
 }

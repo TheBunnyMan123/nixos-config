@@ -88,6 +88,7 @@
     (callPackage ./packages/firefox.nix { })
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/nerdls.nix { })
+    (callPackage ./packages/flatpak.nix { })
     (
       pkgs.makeDesktopItem {
         name = "calculator";
@@ -105,7 +106,6 @@
         exec = "Timer";
         terminal = false;
       }
-
     )
 
     # Missing Desktop Icons

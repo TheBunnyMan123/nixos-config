@@ -8,7 +8,7 @@ appimageTools.wrapType2 { # or wrapType1
 
   src = fetchurl {
     url = "https://github.com/TurboWarp/desktop/releases/download/v1.9.3/TurboWarp-linux-x86_64-1.9.3.AppImage";
-    hash = "sha256-ERwX4UtAe/lsnfcglfThUjYwjxHLsqJ3yTZC3TRNGzc=";
+    hash = "sha256-PI8vAQtAoMKXPELper9SPgVJL8q+rU8JEWu1VUVPKkY=";
   };
   extraPkgs = pkgs: with pkgs; [ ];
 }

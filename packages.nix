@@ -87,8 +87,9 @@
     (callPackage ./packages/icat.nix { })
     (callPackage ./packages/firefox.nix { })
     (callPackage ./packages/calculator.nix { })
+    (callPackage ./packages/timer.nix { })
     (callPackage ./packages/nerdls.nix { })
-    (callPackage ./packages/flatpak.nix { })
+    (callPackage ./packages/turbowarp-appimage.nix { })
     (
       pkgs.makeDesktopItem {
         name = "calculator";
@@ -98,12 +99,19 @@
       }
 
     )
-    (callPackage ./packages/timer.nix { })
     (
       pkgs.makeDesktopItem {
         name = "timer";
         desktopName = "Timer";
         exec = "Timer";
+        terminal = false;
+      }
+    )
+    (
+      pkgs.makeDesktopItem {
+        name = "turbowarp";
+        desktopName = "TurboWarp";
+        exec = "TurboWarp";
         terminal = false;
       }
     )

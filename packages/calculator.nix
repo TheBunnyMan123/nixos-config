@@ -1,13 +1,23 @@
-{ 
-  appimageTools, 
-  fetchurl
+{
+  fetchFromGitHub,
+  buildDotnetModule,
+  pkgs
 }:
+ 
+ buildDotnetModule rec {
+  name = "calculator";
+  version = "1.0.2";
 
-appimageTools.wrapType2 { # or wrapType1
-  name = "Calculator";
-  src = fetchurl {
-    url = "https://github.com/TheBunnyMan123/Calculator/releases/download/v1.0.1/Calculator-x86_64.AppImage";
-    hash = "sha256-JVXq3ByYf96dkU1nxA3tJvI+gIv71/wfrWA7cUGqQ9I=";
+  src = fetchFromGitHub {
+    owner = "TheBunnyMan123";
+    repo = name;
+    rev = "v${version}";
+    sha256 = "sha256-2igzSEE8wqdYW/4CR1JpWJY4f+WcMtz0OtFiZUtr8t4=";
   };
-  extraPkgs = pkgs: with pkgs; [ ];
+
+  runtimeDeps = [ pkgs.fontconfig pkgs.xorg.libX11 pkgs.xorg.libICE pkgs.xorg.libSM ];
+
+  nugetDeps = ./deps-calc.nix;
+  projectFile = "Calculator.csproj";
 }
+

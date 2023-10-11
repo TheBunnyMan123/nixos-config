@@ -1,13 +1,24 @@
-{ 
-  appimageTools, 
-  fetchurl
+{
+  fetchFromGitHub,
+  buildDotnetModule,
+  pkgs
 }:
+ 
+ buildDotnetModule rec {
+  name = "timer";
+  version = "1.0.1";
 
-appimageTools.wrapType2 { # or wrapType1
-  name = "Timer";
-  src = fetchurl {
-    url = "https://github.com/TheBunnyMan123/Timer/releases/download/v1.0.0/Timer-x86_64.AppImage";
-    hash = "sha256-ERwX4UtAe/lsnfcglfThUjYwjxHLsqJ3yTZC3TRNGzc=";
+  src = fetchFromGitHub {
+    owner = "TheBunnyMan123";
+    repo = name;
+    rev = "v${version}";
+    sha256 = "sha256-6M2b+VxPgWy3oPQygKQ2z+JYoGy2YxL9l1iyd78eOHI=";
   };
-  extraPkgs = pkgs: with pkgs; [ ];
+
+  runtimeDeps = [ pkgs.fontconfig pkgs.xorg.libX11 pkgs.xorg.libICE pkgs.xorg.libSM ];
+
+  nugetDeps = ./deps-timer.nix;
+
+  projectFile = "Timer.csproj";
 }
+

@@ -89,24 +89,8 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     (callPackage ./packages/nerdls.nix { })
+    (callPackage ./packages/icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
-    (
-      pkgs.makeDesktopItem {
-        name = "calculator";
-        desktopName = "Calculator";
-        exec = "Calculator";
-        terminal = false;
-      }
-
-    )
-    (
-      pkgs.makeDesktopItem {
-        name = "timer";
-        desktopName = "Timer";
-        exec = "Timer";
-        terminal = false;
-      }
-    )
     (
       pkgs.makeDesktopItem {
         name = "turbowarp";

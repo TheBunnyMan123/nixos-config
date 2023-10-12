@@ -89,7 +89,6 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     (callPackage ./packages/nerdls.nix { })
-    (callPackage ./packages/icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
     (
       pkgs.makeDesktopItem {

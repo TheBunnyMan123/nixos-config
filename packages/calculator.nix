@@ -16,7 +16,8 @@
         desktopName = "Calculator";
         exec = "Calculator";
         icon = "com.thekillerbunny.calculator";
-        categories = [ "Utility" "X-Accessory"];
+        categories = [ "Utility" "X-GNOME-Utilities"];
+        type="Application";
         terminal = false;
       }
     )

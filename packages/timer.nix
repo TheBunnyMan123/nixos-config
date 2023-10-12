@@ -16,7 +16,8 @@
         desktopName = "Timer";
         exec = "Timer";
         icon = "com.thekillerbunny.timer";
-        categories = [ "Utility" "X-Accessory"];
+        categories = [ "Utility" "X-GNOME-Utilities"];
+        type="Application";
         terminal = false;
       }
     )

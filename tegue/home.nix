@@ -15,11 +15,11 @@
     enable = true;
     theme = {
       name = "Sweet";
-      # package = (pkgs.callPackage ../packages/sweet-theme.nix { });
+      package = (pkgs.callPackage ../packages/sweet-theme.nix { });
     };
     iconTheme = {
       name = "candy-icons";
-      # package = (pkgs.callPackage ../packages/candy-icons.nix { });
+      package = (pkgs.callPackage ../packages/candy-icons.nix { });
     };
   };
 

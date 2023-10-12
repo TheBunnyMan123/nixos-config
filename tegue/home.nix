@@ -11,6 +11,18 @@
   # Neofetch
   #
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Sweet";
+      # package = (pkgs.callPackage ../packages/sweet-theme.nix { });
+    };
+    iconTheme = {
+      name = "candy-icons";
+      # package = (pkgs.callPackage ../packages/candy-icons.nix { });
+    };
+  };
+
   home.file.".config/neofetch/config.conf" = {
     enable = true;
     text = ''
@@ -196,9 +208,9 @@
       text-scaling-factor = 1.0;
       font-hinting = "slight";
       font-antialiasing = "grayscale";
-      icon-theme = "Adwaita";
+      icon-theme = "candy-icons";
       cursor-theme = "Adwaita";
-      gtk-theme = "Adwaita-dark";
+      # gtk-theme = "Sweet";
       clock-show-weekday = true;
       clock-show-date = true;
       clock-show-seconds = false;

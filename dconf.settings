@@ -1,9 +1,9 @@
 [apps/seahorse/listing]
-keyrings-selected=['pkcs11:model=p11-kit-trust;manufacturer=PKCS%2311%20Kit;serial=1;token=ca-bundle.crt']
+keyrings-selected=['secret-service:///org/freedesktop/secrets/collection/login']
 
 [apps/seahorse/windows/key-manager]
 height=476
-width=600
+width=1074
 
 [com/gexperts/Tilix]
 auto-hide-mouse=true
@@ -42,23 +42,23 @@ is-maximized=false
 window-size=(960, 600)
 
 [org/gnome/control-center]
-last-panel='wifi'
+last-panel='background'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
-folder-children=['Utilities', 'YaST', '69c10b18-dc2e-4b78-b0da-b68fa0a3588c', '0e24b805-4abf-4548-bd0c-9192d291b74f', 'cd6514fe-3584-43a2-ab36-7feb23d2d844']
+folder-children=['Utilities', 'YaST', '69c10b18-dc2e-4b78-b0da-b68fa0a3588c', '0e24b805-4abf-4548-bd0c-9192d291b74f', 'cd6514fe-3584-43a2-ab36-7feb23d2d844', 'ae2ac51b-25b1-4cd7-a133-b307b15ab247', 'eacb09e2-545c-4a2d-b990-56c59d94b385', 'a74eb046-fd1b-45ef-b0e7-c3cc28163da1']
 
 [org/gnome/desktop/app-folders/folders/0e24b805-4abf-4548-bd0c-9192d291b74f]
-apps=['vlc.desktop', 'org.gnome.Totem.desktop', 'org.gnome.Photos.desktop', 'gimp.desktop', 'org.shotcut.Shotcut.desktop', 'spotify.desktop', 'fr.handbrake.ghb.desktop']
+apps=['vlc.desktop', 'org.gnome.Totem.desktop', 'org.gnome.Photos.desktop', 'gimp.desktop', 'org.shotcut.Shotcut.desktop', 'spotify.desktop', 'fr.handbrake.ghb.desktop', 'blender.desktop', 'com.obsproject.Studio.desktop', 'chrome-agimnkijcaahngcdmfeangaknmldooml-Default.desktop', 'ruffle.desktop']
 name='Media'
 translate=false
 
 [org/gnome/desktop/app-folders/folders/69c10b18-dc2e-4b78-b0da-b68fa0a3588c]
-apps=['calc.desktop', 'base.desktop', 'draw.desktop', 'impress.desktop', 'math.desktop', 'writer.desktop', 'startcenter.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop']
+apps=['calc.desktop', 'base.desktop', 'draw.desktop', 'impress.desktop', 'math.desktop', 'writer.desktop', 'startcenter.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'turbowarp.desktop', 'code-fix.desktop']
 name='Office'
 
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.citra_emu.citra.desktop', 'tilp.desktop', 'gparted.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.Settings.desktop', 'cups.desktop', 'com.github.tchx84.Flatseal.desktop', 'virt-manager.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Software.desktop']
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.citra_emu.citra.desktop', 'tilp.desktop', 'gparted.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.Settings.desktop', 'cups.desktop', 'com.github.tchx84.Flatseal.desktop', 'virt-manager.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Software.desktop', 'winetricks.desktop', 'chromium-browser.desktop']
 categories=['X-GNOME-Utilities']
 name='X-GNOME-Utilities.directory'
 translate=true
@@ -68,9 +68,24 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
+[org/gnome/desktop/app-folders/folders/a74eb046-fd1b-45ef-b0e7-c3cc28163da1]
+apps=['appimagekit-bluebook.desktop', 'wine-Programs-Bluebook.desktop', 'fedora-txsecurebrowser.desktop']
+name='Stuff'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/ae2ac51b-25b1-4cd7-a133-b307b15ab247]
+apps=['timer.desktop', 'calculator.desktop']
+name='My apps'
+translate=false
+
 [org/gnome/desktop/app-folders/folders/cd6514fe-3584-43a2-ab36-7feb23d2d844]
-apps=['citra-qt.desktop', 'org.prismlauncher.PrismLauncher.desktop', 'steam.desktop', 'discord.desktop']
+apps=['citra-qt.desktop', 'org.prismlauncher.PrismLauncher.desktop', 'steam.desktop', 'discord.desktop', 'discord-fix.desktop']
 name='Games'
+
+[org/gnome/desktop/app-folders/folders/eacb09e2-545c-4a2d-b990-56c59d94b385]
+apps=['waydroid.org.lineageos.jelly.desktop', 'waydroid.org.fdroid.fdroid.desktop', 'waydroid.com.android.calculator2.desktop', 'waydroid.org.lineageos.etar.desktop', 'waydroid.com.android.camera2.desktop', 'waydroid.com.android.contacts.desktop', 'waydroid.com.android.deskclock.desktop', 'waydroid.com.android.documentsui.desktop', 'waydroid.com.amazon.venezia.desktop', 'waydroid.org.mozilla.firefox.desktop', 'waydroid.cu.axel.smartdock.desktop', 'waydroid.com.android.settings.desktop', 'waydroid.com.rovio.angrybirdsstella.desktop', 'Waydroid.desktop', 'waydroid.com.android.gallery3d.desktop', 'waydroid.org.lineageos.eleven.desktop', 'waydroid.net.mm2d.android.orientationfaker.desktop', 'waydroid.org.lineageos.recorder.desktop', 'waydroid.com.rovio.BadPiggiesHD.desktop', 'waydroid.com.android.inputmethod.latin.desktop', 'waydroid.com.aurora.store.desktop']
+name='Android'
+translate=false
 
 [org/gnome/desktop/background]
 color-shading-type='solid'
@@ -101,8 +116,8 @@ font-hinting='slight'
 font-name='Noto Sans 11'
 gtk-enable-primary-paste=false
 gtk-key-theme='Default'
-gtk-theme='Adwaita-dark'
-icon-theme='Adwaita'
+gtk-theme='Sweet'
+icon-theme='candy-icons'
 locate-pointer=true
 monospace-font-name='Source Code Pro 10'
 show-battery-percentage=true
@@ -289,7 +304,7 @@ sleep-inactive-ac-type='nothing'
 sleep-inactive-battery-type='nothing'
 
 [org/gnome/shell]
-app-picker-layout=[{'Utilities': <{'position': <0>}>, '69c10b18-dc2e-4b78-b0da-b68fa0a3588c': <{'position': <1>}>, '0e24b805-4abf-4548-bd0c-9192d291b74f': <{'position': <2>}>, 'cd6514fe-3584-43a2-ab36-7feb23d2d844': <{'position': <3>}>, 'arch.desktop': <{'position': <4>}>, 'nixos-manual.desktop': <{'position': <5>}>, 'fedora.desktop': <{'position': <6>}>, 'firefox.desktop': <{'position': <7>}>, 'org.turbowarp.TurboWarp.desktop': <{'position': <8>}>, 'fedora-txsecurebrowser.desktop': <{'position': <9>}>}]
+app-picker-layout=[{'Utilities': <{'position': <0>}>, '69c10b18-dc2e-4b78-b0da-b68fa0a3588c': <{'position': <1>}>, '0e24b805-4abf-4548-bd0c-9192d291b74f': <{'position': <2>}>, 'cd6514fe-3584-43a2-ab36-7feb23d2d844': <{'position': <3>}>, 'eacb09e2-545c-4a2d-b990-56c59d94b385': <{'position': <4>}>, 'ae2ac51b-25b1-4cd7-a133-b307b15ab247': <{'position': <5>}>, 'a74eb046-fd1b-45ef-b0e7-c3cc28163da1': <{'position': <6>}>, 'nixos-manual.desktop': <{'position': <7>}>}]
 command-history=['pmi action hibernate', 'hibernate', 'r']
 disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com']
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'HeadsetControl@lauinger-clan.de', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
@@ -340,8 +355,8 @@ view-type='list'
 window-size=(859, 374)
 
 [org/gtk/settings/color-chooser]
-custom-colors=[(0.17837319819819822, 0.17796666666666669, 0.19, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0)]
-selected-color=(true, 0.17837319819819822, 0.17796666666666669, 0.19, 1.0)
+custom-colors=[(0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0), (0.17837319819819822, 0.17796666666666669, 0.19, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0)]
+selected-color=(true, 0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0)
 
 [org/gtk/settings/file-chooser]
 clock-format='12h'
@@ -355,7 +370,7 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(26, 23)
+window-position=(0, 32)
 window-size=(1366, 689)
 
 [org/virt-manager/virt-manager]

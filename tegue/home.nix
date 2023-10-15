@@ -14,8 +14,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Sweet";
-      package = (pkgs.callPackage ../packages/sweet-theme.nix { });
+      name = "Sweet-Dark";
+      package = pkgs.sweet; # (pkgs.callPackage ../packages/sweet-theme.nix { });
     };
     iconTheme = {
       name = "candy-icons";
@@ -167,6 +167,26 @@
 
   # dconf
   dconf.settings = {
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      animation-time = 0.2;
+      autohide = true;
+      autohide-in-fullscreen = false;
+      background-opacity = 0.8;
+      dash-max-icon-size = 48;
+      dock-position = "BOTTOM";
+      height-fraction = 0.45;
+      hide-delay = 0.2;
+      icon-size-fixed = false;
+      intellihide = true;
+      intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
+      multi-monitor = false;
+      preferred-monitor = -2;
+      preferred-monitor-by-connector = "DP-1";
+      pressure-threshold = 100.0;
+      preview-size-scale = 0.0;
+      require-pressure-to-show = true;
+      show-dock-urgent-notify = true;
+    };
     "org/gnome/mutter" = {
       edge-tiling = true;
       overlay-key = "Super_L";

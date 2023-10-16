@@ -83,6 +83,13 @@
     powerline-rs
     tilix
     sweet
+    scanmem
+    superTux
+    superTuxKart
+    extremetuxracer
+    pingus
+    ugtrain
+    # supertux-editor
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })
@@ -91,8 +98,6 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     (callPackage ./packages/nerdls.nix { })
-    (callPackage ./packages/sweet-cursors.nix { })
-    # (callPackage ./packages/sweet-theme.nix { })
     (callPackage ./packages/candy-icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
     (

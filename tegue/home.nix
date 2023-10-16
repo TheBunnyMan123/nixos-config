@@ -174,14 +174,13 @@
       background-opacity = 0.8;
       dash-max-icon-size = 48;
       dock-position = "BOTTOM";
-      height-fraction = 0.45;
+      height-fraction = 0.35;
       hide-delay = 0.2;
       icon-size-fixed = false;
       intellihide = true;
       intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
-      multi-monitor = false;
+      multi-monitor = true;
       preferred-monitor = -2;
-      preferred-monitor-by-connector = "DP-1";
       pressure-threshold = 100.0;
       preview-size-scale = 0.0;
       require-pressure-to-show = true;

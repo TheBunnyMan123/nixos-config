@@ -30,7 +30,7 @@
     gnome.gnome-themes-extra
     git
     appimage-run
-    gnome.nautilus
+    nemo
     discord
     libvirt
     yt-dlp
@@ -165,6 +165,7 @@
     geary 
     gnome-keyring
     gnome-software
+    nautilus
   ];
 
   programs.adb.enable = true;

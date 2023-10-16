@@ -27,10 +27,11 @@
     gparted
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
     gnome.gnome-themes-extra
     git
     appimage-run
-    nemo
+    cinnamon.nemo
     discord
     libvirt
     yt-dlp
@@ -81,6 +82,14 @@
     obs-studio
     powerline-rs
     tilix
+    sweet
+    scanmem
+    superTux
+    superTuxKart
+    extremetuxracer
+    pingus
+    ugtrain
+    # supertux-editor
 
     # Local Packages
     (callPackage ./packages/tilp.nix { })
@@ -89,7 +98,6 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     (callPackage ./packages/nerdls.nix { })
-    (callPackage ./packages/sweet-theme.nix { })
     (callPackage ./packages/candy-icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
     (
@@ -148,6 +156,7 @@
     baobab 
     epiphany 
     simple-scan 
+    pkgs.gnome-console
     yelp evince 
     gnome-calculator 
     gnome-calendar 
@@ -162,6 +171,7 @@
     gnome-disk-utility 
     pkgs.gnome-tour 
     cheese 
+    nautilus
     geary 
     gnome-keyring
     gnome-software

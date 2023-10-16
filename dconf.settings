@@ -1,10 +1,3 @@
-[apps/seahorse/listing]
-keyrings-selected=['secret-service:///org/freedesktop/secrets/collection/login']
-
-[apps/seahorse/windows/key-manager]
-height=476
-width=1074
-
 [com/gexperts/Tilix]
 auto-hide-mouse=true
 close-with-last-session=false
@@ -13,6 +6,7 @@ middle-click-close=true
 sidebar-on-right=false
 tab-position='top'
 terminal-title-style='small'
+theme-variant='dark'
 
 [com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
 background-transparency-percent=27
@@ -20,21 +14,26 @@ dim-transparency-percent=0
 scroll-on-output=false
 visible-name='Default'
 
-[org/freedesktop/tracker/miner/files]
-index-recursive-directories=['&DOCUMENTS', '&MUSIC', '&PICTURES', '&VIDEOS', '&DESKTOP']
-index-single-directories=['&DOWNLOAD', '$HOME']
+[org/compiz/profiles/unity/plugins/unityshell]
+edge-responsiveness=0.0
+launcher-hide-mode=0
+
+[org/gnome/Connections]
+first-run=false
 
 [org/gnome/Console]
-font-scale=1.0
-last-window-size=(658, 459)
-shell=['bash']
+font-scale=0.99999999999999989
+last-window-size=(735, 512)
 theme='night'
 
+[org/gnome/Geary]
+migrated-config=true
+
 [org/gnome/TextEditor]
-last-save-directory='file:///etc/nixos'
+last-save-directory='file:///home/bunny'
 
 [org/gnome/Totem]
-active-plugins=['apple-trailers', 'skipto', 'save-file', 'rotation', 'screensaver', 'movie-properties', 'screenshot', 'recent', 'mpris', 'open-directory', 'variable-rate', 'autoload-subtitles', 'vimeo']
+active-plugins=['mpris', 'movie-properties', 'screensaver', 'screenshot', 'rotation', 'skipto', 'apple-trailers', 'open-directory', 'recent', 'variable-rate', 'vimeo', 'autoload-subtitles', 'save-file']
 subtitle-encoding='UTF-8'
 
 [org/gnome/baobab/ui]
@@ -43,23 +42,49 @@ window-size=(960, 600)
 
 [org/gnome/control-center]
 last-panel='background'
-window-state=(980, 640, false)
+window-state=(736, 537, false)
 
 [org/gnome/desktop/app-folders]
-folder-children=['Utilities', 'YaST', '69c10b18-dc2e-4b78-b0da-b68fa0a3588c', '0e24b805-4abf-4548-bd0c-9192d291b74f', 'cd6514fe-3584-43a2-ab36-7feb23d2d844', 'ae2ac51b-25b1-4cd7-a133-b307b15ab247', 'eacb09e2-545c-4a2d-b990-56c59d94b385', 'a74eb046-fd1b-45ef-b0e7-c3cc28163da1']
+folder-children=['Utilities', 'YaST', '229b4a5f-f97f-4ae6-a0b6-8eed2adc3d26', '494a07a3-a441-4a26-898d-b0ce84d077f2', '9dcb4661-3965-46c3-b6c6-55f0beb88485', '33d2282c-3580-4de8-b520-04d7e0b6fa5e', '10a3375d-22ed-45a3-9f22-75c9ab126ff9', 'e76e3a57-838b-45b5-b71f-38988e52f466', '6521ccdc-4858-4bab-b3e8-5a8fd851449b', '9ac146ff-b0c4-447d-a5d1-22b4838b29b8']
 
-[org/gnome/desktop/app-folders/folders/0e24b805-4abf-4548-bd0c-9192d291b74f]
-apps=['vlc.desktop', 'org.gnome.Totem.desktop', 'org.gnome.Photos.desktop', 'gimp.desktop', 'org.shotcut.Shotcut.desktop', 'spotify.desktop', 'fr.handbrake.ghb.desktop', 'blender.desktop', 'com.obsproject.Studio.desktop', 'chrome-agimnkijcaahngcdmfeangaknmldooml-Default.desktop', 'ruffle.desktop']
+[org/gnome/desktop/app-folders/folders/10a3375d-22ed-45a3-9f22-75c9ab126ff9]
+apps=['code.desktop', 'org.gnome.TextEditor.desktop', 'discord-fix.desktop', 'discord.desktop']
+name='Text'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/229b4a5f-f97f-4ae6-a0b6-8eed2adc3d26]
+apps=['Steam Linux Runtime - Sniper.desktop', 'Super Auto Pets.desktop', 'Steam Linux Runtime - Soldier.desktop', 'Proton Experimental.desktop', 'Proton 7.0.desktop', 'steam.desktop', 'SAS Zombie Assault 4.desktop', 'Raft.desktop', 'Prison Architect.desktop', 'Scrap Mechanic.desktop', 'Trailmakers.desktop', 'Unrailed!.desktop', 'Slime Rancher.desktop', 'net.kuribo64.melonDS.desktop', "Garry's Mod.desktop", 'org.prismlauncher.PrismLauncher.desktop', 'Quaver.desktop', 'Terraria.desktop', 'citra-qt.desktop']
+name='Games'
+
+[org/gnome/desktop/app-folders/folders/33d2282c-3580-4de8-b520-04d7e0b6fa5e]
+apps=['vlc.desktop', 'org.gnome.Totem.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.Photos.desktop', 'org.shotcut.Shotcut.desktop', 'org.gnome.eog.desktop', 'Source Filmmaker.desktop', 'gimp.desktop', 'blender.desktop', 'org.jellyfin.JellyfinServer.desktop']
 name='Media'
 translate=false
 
-[org/gnome/desktop/app-folders/folders/69c10b18-dc2e-4b78-b0da-b68fa0a3588c]
-apps=['calc.desktop', 'base.desktop', 'draw.desktop', 'impress.desktop', 'math.desktop', 'writer.desktop', 'startcenter.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'turbowarp.desktop', 'code-fix.desktop']
-name='Office'
+[org/gnome/desktop/app-folders/folders/494a07a3-a441-4a26-898d-b0ce84d077f2]
+apps=['org.gnome.Extensions.desktop', 'gparted.desktop', 'nvidia-settings.desktop', 'cups.desktop', 'torbrowser.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.seahorse.Application.desktop', 'tilp.desktop', 'org.gnome.Settings.desktop', 'gnome-system-monitor.desktop', 'com.belmoussaoui.Authenticator.desktop', 'org.raspberrypi.rpi-imager.desktop', 'org.kde.isoimagewriter.desktop', 'com.github.tchx84.Flatseal.desktop', 'calculator.desktop', 'timer.desktop', 'archlinux-firefoxdeveloperedition.desktop', 'com.github.Matoking.protontricks.desktop', 'org.gnome.baobab.desktop']
+name='Utilities'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/6521ccdc-4858-4bab-b3e8-5a8fd851449b]
+apps=['chrome-agimnkijcaahngcdmfeangaknmldooml-Default.desktop', 'chrome-mbjafbmjpcimpkkihihoideiofnoalmh-Default.desktop', 'chrome-lgnggepjiihbfdbedefdhcffnmhcahbm-Default.desktop', 'chromium-browser.desktop']
+name='Chromium'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/9ac146ff-b0c4-447d-a5d1-22b4838b29b8]
+apps=['net.brinkervii.grapejuice.desktop', 'net.brinkervii.grapejuice.robloxapp.desktop', 'wine-Programs-Roblox-Roblox Studio.desktop', 'net.brinkervii.grapejuice.robloxstudio.desktop']
+name='GrapeJuice'
+translate=false
+
+[org/gnome/desktop/app-folders/folders/9dcb4661-3965-46c3-b6c6-55f0beb88485]
+apps=['fedora.desktop', 'fedora-txsecurebrowser.desktop']
+name='Other OS'
+translate=false
 
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.citra_emu.citra.desktop', 'tilp.desktop', 'gparted.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.Settings.desktop', 'cups.desktop', 'com.github.tchx84.Flatseal.desktop', 'virt-manager.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Software.desktop', 'winetricks.desktop', 'chromium-browser.desktop']
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Evince.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
 categories=['X-GNOME-Utilities']
+excluded-apps=['org.gnome.FileRoller.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.Console.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.eog.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Connections.desktop', 'org.gnome.baobab.desktop', 'com.gexperts.Tilix.desktop', 'calculator.desktop', 'timer.desktop']
 name='X-GNOME-Utilities.directory'
 translate=true
 
@@ -68,27 +93,11 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
-[org/gnome/desktop/app-folders/folders/a74eb046-fd1b-45ef-b0e7-c3cc28163da1]
-apps=['appimagekit-bluebook.desktop', 'wine-Programs-Bluebook.desktop', 'fedora-txsecurebrowser.desktop']
-name='Stuff'
-translate=false
-
-[org/gnome/desktop/app-folders/folders/ae2ac51b-25b1-4cd7-a133-b307b15ab247]
-apps=['timer.desktop', 'calculator.desktop']
-name='My apps'
-translate=false
-
-[org/gnome/desktop/app-folders/folders/cd6514fe-3584-43a2-ab36-7feb23d2d844]
-apps=['citra-qt.desktop', 'org.prismlauncher.PrismLauncher.desktop', 'steam.desktop', 'discord.desktop', 'discord-fix.desktop']
-name='Games'
-
-[org/gnome/desktop/app-folders/folders/eacb09e2-545c-4a2d-b990-56c59d94b385]
-apps=['waydroid.org.lineageos.jelly.desktop', 'waydroid.org.fdroid.fdroid.desktop', 'waydroid.com.android.calculator2.desktop', 'waydroid.org.lineageos.etar.desktop', 'waydroid.com.android.camera2.desktop', 'waydroid.com.android.contacts.desktop', 'waydroid.com.android.deskclock.desktop', 'waydroid.com.android.documentsui.desktop', 'waydroid.com.amazon.venezia.desktop', 'waydroid.org.mozilla.firefox.desktop', 'waydroid.cu.axel.smartdock.desktop', 'waydroid.com.android.settings.desktop', 'waydroid.com.rovio.angrybirdsstella.desktop', 'Waydroid.desktop', 'waydroid.com.android.gallery3d.desktop', 'waydroid.org.lineageos.eleven.desktop', 'waydroid.net.mm2d.android.orientationfaker.desktop', 'waydroid.org.lineageos.recorder.desktop', 'waydroid.com.rovio.BadPiggiesHD.desktop', 'waydroid.com.android.inputmethod.latin.desktop', 'waydroid.com.aurora.store.desktop']
-name='Android'
-translate=false
+[org/gnome/desktop/app-folders/folders/e76e3a57-838b-45b5-b71f-38988e52f466]
+apps=['startcenter.desktop', 'math.desktop', 'writer.desktop', 'impress.desktop', 'base.desktop', 'calc.desktop', 'draw.desktop']
+name='Office'
 
 [org/gnome/desktop/background]
-color-shading-type='solid'
 picture-options='zoom'
 picture-uri='file:///etc/nixos/NixOS_1440p.png'
 picture-uri-dark='file:///etc/nixos/NixOS_1440p.png'
@@ -98,7 +107,11 @@ secondary-color='#000000000000'
 [org/gnome/desktop/calendar]
 show-weekdate=false
 
+[org/gnome/desktop/file-sharing]
+require-password='always'
+
 [org/gnome/desktop/input-sources]
+show-all-sources=false
 sources=[('xkb', 'us')]
 xkb-options=['terminate:ctrl_alt_bksp']
 
@@ -116,25 +129,29 @@ font-hinting='slight'
 font-name='Noto Sans 11'
 gtk-enable-primary-paste=false
 gtk-key-theme='Default'
-gtk-theme='Sweet'
+gtk-theme='Sweet-Dark'
 icon-theme='candy-icons'
 locate-pointer=true
 monospace-font-name='Source Code Pro 10'
-show-battery-percentage=true
 text-scaling-factor=1.0
-
-[org/gnome/desktop/media-handling]
-autorun-x-content-ignore=@as []
-autorun-x-content-open-folder=@as []
-autorun-x-content-start-app=['x-content/ostree-repository']
+toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-console', 'firefox', 'thunderbird', 'org-gnome-nautilus', 'xdg-desktop-portal-gnome', 'org-kde-k3b', 'gnome-network-panel', 'gnome-power-panel', 'code', 'writer', 'org-gnome-texteditor', 'org-gnome-settings']
+application-children=['org-gnome-console', 'gnome-power-panel', 'firefox', 'org-gnome-nautilus', 'virt-manager', 'gnome-printers-panel', 'org-gnome-software', 'thunderbird', 'org-prismlauncher-prismlauncher', 'discord', 'org-gnome-eog', 'spotify', 'code', 'steam', 'com-google-chrome', 'org-gnome-fileroller', 'xdg-desktop-portal-gnome', 'org-gimp-gimp', 'org-turbowarp-turbowarp', 'org-gnome-texteditor', 'io-github-bugadinho-corky-robloxstudio', 'org-gnome-connections', 'org-gnome-totem', 'gnome-network-panel', 'vlc', 'org-gnome-tweaks', 'com-obsproject-studio', 'org-gnome-baobab']
 show-banners=true
 show-in-lock-screen=false
 
 [org/gnome/desktop/notifications/application/code]
 application-id='code.desktop'
+
+[org/gnome/desktop/notifications/application/com-google-chrome]
+application-id='com.google.Chrome.desktop'
+
+[org/gnome/desktop/notifications/application/com-obsproject-studio]
+application-id='com.obsproject.Studio.desktop'
+
+[org/gnome/desktop/notifications/application/discord]
+application-id='discord.desktop'
 
 [org/gnome/desktop/notifications/application/firefox]
 application-id='firefox.desktop'
@@ -145,32 +162,68 @@ application-id='gnome-network-panel.desktop'
 [org/gnome/desktop/notifications/application/gnome-power-panel]
 application-id='gnome-power-panel.desktop'
 
+[org/gnome/desktop/notifications/application/gnome-printers-panel]
+application-id='gnome-printers-panel.desktop'
+
+[org/gnome/desktop/notifications/application/io-github-bugadinho-corky-robloxstudio]
+application-id='io.github.bugadinho.Corky.robloxstudio.desktop'
+
+[org/gnome/desktop/notifications/application/org-gimp-gimp]
+application-id='org.gimp.GIMP.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-baobab]
+application-id='org.gnome.baobab.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-connections]
+application-id='org.gnome.Connections.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-console]
 application-id='org.gnome.Console.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-eog]
+application-id='org.gnome.eog.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-fileroller]
+application-id='org.gnome.FileRoller.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
-[org/gnome/desktop/notifications/application/org-gnome-settings]
-application-id='org.gnome.Settings.desktop'
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-texteditor]
 application-id='org.gnome.TextEditor.desktop'
 
-[org/gnome/desktop/notifications/application/org-kde-k3b]
-application-id='org.kde.k3b.desktop'
+[org/gnome/desktop/notifications/application/org-gnome-totem]
+application-id='org.gnome.Totem.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-tweaks]
+application-id='org.gnome.tweaks.desktop'
+
+[org/gnome/desktop/notifications/application/org-prismlauncher-prismlauncher]
+application-id='org.prismlauncher.PrismLauncher.desktop'
+
+[org/gnome/desktop/notifications/application/org-turbowarp-turbowarp]
+application-id='org.turbowarp.TurboWarp.desktop'
+
+[org/gnome/desktop/notifications/application/spotify]
+application-id='spotify.desktop'
+
+[org/gnome/desktop/notifications/application/steam]
+application-id='steam.desktop'
 
 [org/gnome/desktop/notifications/application/thunderbird]
 application-id='thunderbird.desktop'
 
-[org/gnome/desktop/notifications/application/writer]
-application-id='writer.desktop'
+[org/gnome/desktop/notifications/application/virt-manager]
+application-id='virt-manager.desktop'
+
+[org/gnome/desktop/notifications/application/vlc]
+application-id='vlc.desktop'
 
 [org/gnome/desktop/notifications/application/xdg-desktop-portal-gnome]
 application-id='xdg-desktop-portal-gnome.desktop'
-
-[org/gnome/desktop/peripherals/keyboard]
-numlock-state=false
 
 [org/gnome/desktop/peripherals/mouse]
 accel-profile='adaptive'
@@ -178,28 +231,39 @@ accel-profile='adaptive'
 [org/gnome/desktop/peripherals/touchpad]
 click-method='fingers'
 disable-while-typing=false
-tap-to-click=true
-two-finger-scrolling-enabled=true
 
-[org/gnome/desktop/privacy]
-old-files-age=uint32 30
-recent-files-max-age=-1
+[org/gnome/desktop/remote-desktop/rdp]
+enable=true
+tls-cert='/home/bunny/.local/share/gnome-remote-desktop/rdp-tls.crt'
+tls-key='/home/bunny/.local/share/gnome-remote-desktop/rdp-tls.key'
+view-only=false
 
 [org/gnome/desktop/screensaver]
-color-shading-type='solid'
 lock-delay=0
 lock-enabled=true
 picture-options='zoom'
-picture-uri='file:///home/bunny/.local/share/backgrounds/2023-09-05-17-02-30-NixOS_1440p.png'
-primary-color='#000000000000'
-secondary-color='#000000000000'
 
 [org/gnome/desktop/search-providers]
 disable-external=false
-sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/desktop/session]
 idle-delay=300
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
+event-sounds=true
+theme-name='__custom'
+
+[org/gnome/desktop/wm/preferences]
+action-double-click-titlebar='toggle-maximize'
+action-middle-click-titlebar='minimize'
+action-right-click-titlebar='menu'
+auto-raise=true
+button-layout='appmenu:close'
+focus-mode='click'
+mouse-button-modifier='<Super>'
+resize-with-right-button=false
+titlebar-font='Noto Sans Semi-Bold 11'
 
 [org/gnome/desktop/wm/prefrences]
 action-double-click-titlebar='toggle-maximize'
@@ -216,7 +280,7 @@ ask-for-default=false
 
 [org/gnome/epiphany/state]
 is-maximized=false
-window-size=(1024, 736)
+window-size=(1024, 768)
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -230,7 +294,7 @@ list-mode='as-folder'
 name-column-width=250
 show-path=false
 sort-method='name'
-sort-type='ascending'
+sort-type='descending'
 
 [org/gnome/file-roller/ui]
 sidebar-width=200
@@ -238,16 +302,16 @@ window-height=480
 window-width=600
 
 [org/gnome/gnome-system-monitor]
-current-tab='resources'
+current-tab='disks'
 maximized=false
 network-total-in-bits=false
 show-dependencies=false
 show-whose-processes='user'
-window-state=(700, 500, 50, 50)
+window-state=(700, 500, 26, 23)
 
 [org/gnome/gnome-system-monitor/disktreenew]
 col-6-visible=true
-col-6-width=290
+col-6-width=0
 
 [org/gnome/input-sources]
 show-all-sources=false
@@ -259,10 +323,7 @@ edge-tiling=true
 overlay-key='Super_L'
 
 [org/gnome/nautilus/compression]
-default-compression-format='tar.xz'
-
-[org/gnome/nautilus/list-view]
-default-zoom-level='large'
+default-compression-format='zip'
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -272,78 +333,105 @@ search-view='list-view'
 show-create-link=true
 
 [org/gnome/nautilus/window-state]
-initial-size=(890, 555)
+initial-size=(885, 550)
 maximized=false
 
-[org/gnome/nm-applet/eap/107b713e-5db6-4e82-86bc-e1c812f5a89b]
-ignore-ca-cert=true
-ignore-phase2-ca-cert=false
-
-[org/gnome/nm-applet/eap/345977ba-ce8a-4ad4-8453-d8e4238085fd]
-ignore-ca-cert=true
-ignore-phase2-ca-cert=false
-
-[org/gnome/nm-applet/eap/94daaa44-50d9-410e-a3d9-6d5fb20b2812]
-ignore-ca-cert=true
-ignore-phase2-ca-cert=false
-
-[org/gnome/nm-applet/eap/ec1b158b-d75b-41e0-9456-57a8caee492f]
-ignore-ca-cert=false
-ignore-phase2-ca-cert=false
-
-[org/gnome/nm-applet/eap/fae3eb7f-2d81-4050-b294-7232408025a3]
-ignore-ca-cert=true
-ignore-phase2-ca-cert=false
+[org/gnome/portal/filechooser/com.google.Chrome]
+last-folder-path='/home/bunny'
 
 [org/gnome/portal/filechooser/org.turbowarp.TurboWarp]
-last-folder-path='/home/bunny'
+last-folder-path='/home/bunny/Documents'
 
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='hibernate'
 sleep-inactive-ac-type='nothing'
-sleep-inactive-battery-type='nothing'
+
+[org/gnome/settings-daemon/plugins/sharing/gnome-user-share-webdav]
+enabled-connections=['8c62838f-7517-4fdd-a683-f55a6252a61d']
+
+[org/gnome/settings-daemon/plugins/sharing/rygel]
+enabled-connections=['8c62838f-7517-4fdd-a683-f55a6252a61d']
 
 [org/gnome/shell]
-app-picker-layout=[{'Utilities': <{'position': <0>}>, '69c10b18-dc2e-4b78-b0da-b68fa0a3588c': <{'position': <1>}>, '0e24b805-4abf-4548-bd0c-9192d291b74f': <{'position': <2>}>, 'cd6514fe-3584-43a2-ab36-7feb23d2d844': <{'position': <3>}>, 'eacb09e2-545c-4a2d-b990-56c59d94b385': <{'position': <4>}>, 'ae2ac51b-25b1-4cd7-a133-b307b15ab247': <{'position': <5>}>, 'a74eb046-fd1b-45ef-b0e7-c3cc28163da1': <{'position': <6>}>, 'nixos-manual.desktop': <{'position': <7>}>}]
-command-history=['pmi action hibernate', 'hibernate', 'r']
-disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com']
-enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'HeadsetControl@lauinger-clan.de', 'drive-menu@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['firefox.desktop', 'torbrowser.desktop', 'org.gnome.Nautilus.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop']
-last-selected-power-profile='power-saver'
-remember-mount-password=false
+app-picker-layout=[{'229b4a5f-f97f-4ae6-a0b6-8eed2adc3d26': <{'position': <0>}>, '33d2282c-3580-4de8-b520-04d7e0b6fa5e': <{'position': <1>}>, '494a07a3-a441-4a26-898d-b0ce84d077f2': <{'position': <2>}>, '10a3375d-22ed-45a3-9f22-75c9ab126ff9': <{'position': <3>}>, 'e76e3a57-838b-45b5-b71f-38988e52f466': <{'position': <4>}>, '9ac146ff-b0c4-447d-a5d1-22b4838b29b8': <{'position': <5>}>, 'org.turbowarp.TurboWarp.desktop': <{'position': <6>}>, 'nixos-manual.desktop': <{'position': <7>}>, 'winetricks.desktop': <{'position': <8>}>, '6521ccdc-4858-4bab-b3e8-5a8fd851449b': <{'position': <9>}>, 'com.obsproject.Studio.desktop': <{'position': <10>}>, 'ruffle.desktop': <{'position': <11>}>, 'Waydroid.desktop': <{'position': <12>}>, 'org.gnome.Console.desktop': <{'position': <13>}>, 'virt-manager.desktop': <{'position': <14>}>, 'turbowarp.desktop': <{'position': <15>}>}]
+command-history=['r']
+disable-user-extensions=false
+disabled-extensions=['workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'HeadsetControl@lauinger-clan.de', 'clipboard-indicator@tudmotu.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'desktopicons-neo@darkdemon', 'gtk4-ding@smedius.gitlab.com', 'dash-to-dock@micxgx.gmail.com']
+favorite-apps=['firefox.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop', 'nemo.desktop', 'spotify.desktop', 'code-fix.desktop', 'org.gnome.Connections.desktop']
+last-selected-power-profile='performance'
 welcome-dialog-last-shown-version='44.1'
 
 [org/gnome/shell/extensions/HeadsetControl]
-show-systemindicator=false
+headsetcontrol-executable='headsetcontrol'
+option-battery='-b'
+option-capabilities='-?'
+option-chatmix='-m'
+option-inactive-time='-i'
+option-led='-l'
+option-rotate-mute='-r'
+option-sidetone='-s'
+option-voice='-v'
+show-systemindicator=true
+
+[org/gnome/shell/extensions/clipboard-indicator]
+enable-keybindings=false
+
+[org/gnome/shell/extensions/dash-to-dock]
+animation-time=0.20000000000000001
+autohide=true
+autohide-in-fullscreen=false
+background-opacity=0.80000000000000004
+dash-max-icon-size=48
+dock-position='BOTTOM'
+height-fraction=0.45000000000000001
+hide-delay=0.20000000000000001
+icon-size-fixed=false
+intellihide=true
+intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+multi-monitor=false
+preferred-monitor=-2
+preferred-monitor-by-connector='DP-1'
+pressure-threshold=100.0
+preview-size-scale=0.0
+require-pressure-to-show=true
+show-dock-urgent-notify=true
+
+[org/gnome/shell/extensions/gtk4-ding]
+dark-text-in-labels=true
+show-drop-place=false
+show-link-emblem=false
+use-nemo=true
+
+[org/gnome/shell/extensions/user-theme]
+name='Sweet-Dark'
+
+[org/gnome/shell/keybindings]
+switch-to-application-1=@as []
+switch-to-application-2=@as []
+switch-to-application-3=@as []
+switch-to-application-4=@as []
+switch-to-application-5=@as []
+switch-to-application-6=@as []
+switch-to-application-7=@as []
+switch-to-application-8=@as []
+switch-to-application-9=@as []
 
 [org/gnome/shell/world-clocks]
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1693319156
+check-timestamp=int64 1693654093
 first-run=false
-flatpak-purge-timestamp=int64 1693442147
-
-[org/gnome/terminal/legacy]
-always-check-default-terminal=true
-new-terminal-mode='window'
-
-[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
-background-color='rgb(23,20,33)'
-foreground-color='rgb(208,207,204)'
-use-theme-colors=true
+flatpak-purge-timestamp=int64 1693636033
 
 [org/gnome/tweaks]
 show-extensions-notice=false
 
-[org/gtk/gtk4/settings/color-chooser]
-custom-colors=[(1.0, 0.0, 0.0, 1.0), (1.0, 1.0, 0.0, 1.0), (0.0, 1.0, 0.0, 1.0)]
-selected-color=(true, 1.0, 0.0, 0.0, 1.0)
-
 [org/gtk/gtk4/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=140
@@ -352,11 +440,7 @@ sort-directories-first=false
 sort-order='ascending'
 type-format='category'
 view-type='list'
-window-size=(859, 374)
-
-[org/gtk/settings/color-chooser]
-custom-colors=[(0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0), (0.17837319819819822, 0.17796666666666669, 0.19, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0)]
-selected-color=(true, 0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0)
+window-size=(859, 560)
 
 [org/gtk/settings/file-chooser]
 clock-format='12h'
@@ -366,24 +450,64 @@ show-hidden=false
 show-size-column=true
 show-type-column=true
 sidebar-width=163
-sort-column='name'
+sort-column='modified'
 sort-directories-first=false
-sort-order='ascending'
+sort-order='descending'
 type-format='category'
-window-position=(0, 32)
-window-size=(1366, 689)
+window-position=(26, 23)
+window-size=(1231, 902)
+
+[org/nemo/preferences]
+tooltips-in-icon-view=false
+
+[org/nemo/window-state]
+geometry='800x550+30+26'
+maximized=false
+sidebar-bookmark-breakpoint=0
+start-with-sidebar=true
 
 [org/virt-manager/virt-manager]
 manager-window-height=550
 manager-window-width=550
 
+[org/virt-manager/virt-manager/confirm]
+forcepoweroff=true
+unapplied-dev=true
+
 [org/virt-manager/virt-manager/connections]
 autoconnect=['qemu:///system']
 uris=['qemu:///system']
 
+[org/virt-manager/virt-manager/conns/qemu:system]
+window-size=(800, 600)
+
+[org/virt-manager/virt-manager/details]
+show-toolbar=true
+
+[org/virt-manager/virt-manager/paths]
+media-default='/run/media/bunny/Ventoy/OSimages'
+
+[org/virt-manager/virt-manager/urls]
+isos=['/run/media/bunny/Ventoy/OSimages/Windows 10 22H2.iso', '/run/media/bunny/Ventoy/OSimages/Windows 11 22H2.iso', '/run/media/bunny/Ventoy/Installers/Windows/Windows 7 (x64).iso']
+
 [org/virt-manager/virt-manager/vmlist-fields]
 disk-usage=false
 network-traffic=false
+
+[org/virt-manager/virt-manager/vms/1a0459e239f9431c9507457b1fe3766e]
+autoconnect=1
+scaling=1
+vm-window-size=(800, 676)
+
+[org/virt-manager/virt-manager/vms/5511022187814d20beffa085e5faaa16]
+autoconnect=1
+scaling=1
+vm-window-size=(1024, 837)
+
+[org/virt-manager/virt-manager/vms/e8ec6dd279594167aa1901b56bb7ef3e]
+autoconnect=1
+scaling=1
+vm-window-size=(1024, 810)
 
 [settings-daemon/plugins/power]
 power-button-action='hibernate'
@@ -411,20 +535,3 @@ option-voice='-v'
 ose-colors=true
 ose-logging=true
 ose-notifications=false
-
-[system/proxy]
-autoconfig-url='http://10.9.147.131:8081/proxy.pac'
-ignore-hosts=@as []
-mode='none'
-
-[system/proxy/http]
-host=''
-port=8080
-
-[system/proxy/https]
-host=''
-port=8070
-
-[system/proxy/socks]
-host=''
-port=9150

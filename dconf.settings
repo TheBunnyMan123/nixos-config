@@ -17,9 +17,17 @@ terminal-title-style='small'
 theme-variant='dark'
 
 [com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-transparency-percent=27
+background-color='#151505051414'
+background-transparency-percent=21
+badge-color-set=false
+bold-color-set=false
+cursor-colors-set=false
 dim-transparency-percent=0
+foreground-color='#FFFFFF'
+highlight-colors-set=false
+palette=['#2E3436', '#FFFF00002E2E', '#0000FFFF3838', '#FFFF63630000', '#0000A3A3FFFF', '#CCCC0000FFFF', '#0000FFFFDDDD', '#777776767B7B', '#555753', '#FFFF36365A5A', '#4F4FFFFF7676', '#FFFF78782222', '#5555C2C2FFFF', '#E5E57F7FFFFF', '#6C6CFFFFEBEB', '#C0C0BFBFBCBC']
 scroll-on-output=false
+use-theme-colors=true
 visible-name='Default'
 
 [org/freedesktop/tracker/miner/files]
@@ -312,7 +320,7 @@ sleep-inactive-battery-type='nothing'
 [org/gnome/shell]
 app-picker-layout=[{'Utilities': <{'position': <0>}>, '69c10b18-dc2e-4b78-b0da-b68fa0a3588c': <{'position': <1>}>, '0e24b805-4abf-4548-bd0c-9192d291b74f': <{'position': <2>}>, 'cd6514fe-3584-43a2-ab36-7feb23d2d844': <{'position': <3>}>, 'eacb09e2-545c-4a2d-b990-56c59d94b385': <{'position': <4>}>, 'ae2ac51b-25b1-4cd7-a133-b307b15ab247': <{'position': <5>}>, 'a74eb046-fd1b-45ef-b0e7-c3cc28163da1': <{'position': <6>}>, 'nixos-manual.desktop': <{'position': <7>}>}]
 command-history=['pmi action hibernate', 'hibernate', 'r']
-disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com']
+disabled-extensions=['window-list@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com']
 enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-indicator@tudmotu.com', 'HeadsetControl@lauinger-clan.de', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com']
 favorite-apps=['firefox.desktop', 'nemo.desktop', 'torbrowser.desktop', 'thunderbird.desktop', 'com.gexperts.Tilix.desktop']
 last-selected-power-profile='power-saver'
@@ -341,6 +349,9 @@ pressure-threshold=100.0
 preview-size-scale=0.0
 require-pressure-to-show=true
 show-dock-urgent-notify=true
+
+[org/gnome/shell/extensions/user-theme]
+name='Sweet-Dark'
 
 [org/gnome/shell/world-clocks]
 locations=@av []
@@ -381,8 +392,8 @@ view-type='list'
 window-size=(859, 374)
 
 [org/gtk/settings/color-chooser]
-custom-colors=[(0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0), (0.17837319819819822, 0.17796666666666669, 0.19, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0)]
-selected-color=(true, 0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0)
+custom-colors=[(1.0, 0.21333333333333337, 0.3549333333333331, 1.0), (1.0, 0.08333333333333337, 0.24999999999999989, 1.0), (0.93725490196078431, 0.16078431372549021, 0.16078431372549021, 1.0), (0.80666666666666675, 0.029577777777777748, 0.17182455743879493, 1.0), (0.80000000000000004, 0.0, 0.0, 1.0), (0.94901960784313721, 0.27450980392156865, 0.050980392156862744, 1.0), (0.17837319819819822, 0.17796666666666669, 0.19, 1.0), (0.20000000000000001, 0.20000000000000001, 0.20000000000000001, 1.0)]
+selected-color=(true, 1.0, 0.21333333333333337, 0.3549333333333331, 1.0)
 
 [org/gtk/settings/file-chooser]
 clock-format='12h'
@@ -400,6 +411,8 @@ window-position=(0, 32)
 window-size=(1366, 689)
 
 [org/nemo/window-state]
+geometry='800x550+50+82'
+maximized=false
 sidebar-bookmark-breakpoint=0
 start-with-sidebar=true
 

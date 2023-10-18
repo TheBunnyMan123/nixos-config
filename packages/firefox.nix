@@ -64,11 +64,11 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
       url = "https://github.com/ruffle-rs/ruffle/releases/download/nightly-2023-09-25/ruffle-nightly-2023_09_25-web-extension-firefox-unsigned.xpi";
       sha256 = "sha256-JBR8973B/7/87ILk02dJksHwljU/ozOfL388lBgAXuI=";
     })
-    # (pkgs.fetchFirefoxAddon {
-    #   name = "sweet";
-    #   url = "https://addons.mozilla.org/firefox/downloads/file/3365502/sweet_dark-4.0.xpi";
-    #   sha256 = "sha256-KkvqWzguf+z3m8Fmcxlac8+PL1MqAMooRTNfiSOyZJM=";
-    # })
+    (pkgs.fetchFirefoxAddon {
+      name = "sweet";
+      url = "https://addons.mozilla.org/firefox/downloads/file/3365502/sweet_dark-4.0.xpi";
+      sha256 = "sha256-KkvqWzguf+z3m8Fmcxlac8+PL1MqAMooRTNfiSOyZJM=";
+    })
   ];
 
   # https://github.com/yokoffing/Betterfox

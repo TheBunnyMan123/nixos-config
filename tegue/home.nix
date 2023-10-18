@@ -302,10 +302,18 @@
       terminal-title-style="small";
     };
     "com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d" = {
-      background-transparency-percent=27;
-      dim-transparency-percent=0;
-      scroll-on-output=false;
-      visible-name="Default";
+      background-color = "#151505051414";
+      background-transparency-percent = 21;
+      badge-color-set = false;
+      bold-color-set = false;
+      cursor-colors-set = false;
+      dim-transparency-percent = 0;
+      foreground-color = "#FFFFFF";
+      highlight-colors-set = false;
+      palette = ["#2E3436" "#FFFF00002E2E" "#0000FFFF3838" "#FFFF63630000" "#0000A3A3FFFF" "#CCCC0000FFFF" "#0000FFFFDDDD" "#777776767B7B" "#555753" "#FFFF36365A5A" "#4F4FFFFF7676" "#FFFF78782222" "#5555C2C2FFFF" "#E5E57F7FFFFF" "#6C6CFFFFEBEB" "#C0C0BFBFBCBC"];
+      scroll-on-output = false;
+      use-theme-colors = true;
+      visible-name = "Default";
     };
   };
 }

@@ -69,6 +69,11 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
       url = "https://addons.mozilla.org/firefox/downloads/file/3365502/sweet_dark-4.0.xpi";
       sha256 = "sha256-KkvqWzguf+z3m8Fmcxlac8+PL1MqAMooRTNfiSOyZJM=";
     })
+    (pkgs.fetchFirefoxAddon {
+      name = "twitch5";
+      url = "https://addons.mozilla.org/firefox/downloads/file/4171740/twitch_5-2022.2.7.1.xpi";
+      sha256 = "sha256-8O3b2STIkEyo33t58HesKHePa3h9UGiuV6PamuVtDho=";
+    })
   ];
 
   # https://github.com/yokoffing/Betterfox

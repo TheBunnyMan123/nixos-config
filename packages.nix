@@ -88,7 +88,7 @@
     superTuxKart
     extremetuxracer
     pingus
-    ugtrain
+    prismlauncher
     # supertux-editor
 
     # Local Packages

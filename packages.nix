@@ -105,7 +105,7 @@
     (callPackage ./packages/nerdls.nix { })
     (callPackage ./packages/candy-icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
-    (callPackage ./packages/waydroid-script.nix { })
+    # (callPackage ./packages/waydroid-script.nix { })
     (
       pkgs.makeDesktopItem {
         name = "turbowarp";

@@ -18,7 +18,7 @@ let
   };
 
   resetprop = stdenv.mkDerivation {
-    pname = "resetprop";
+    name = "resetprop";
     inherit version src;
     dontBuild = true;
     installPhase = ''
@@ -41,8 +41,7 @@ in python311Packages.buildPythonApplication rec {
   postPatch = let
     setup = substituteAll {
       src = ./setup.py;
-      inherit pname;
-      desc = meta.description;
+      inherit name;
       version = builtins.replaceStrings [ "-" ] [ "." ]
         (lib.strings.removePrefix "unstable-" version);
     };

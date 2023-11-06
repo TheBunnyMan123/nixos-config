@@ -58,6 +58,9 @@
     python311Packages.pyqt6
     python311Packages.joblib
     python311Packages.setuptools
+    python311Packages.tqdm
+    python311Packages.requests
+    python311Packages.inquirerpy
     samba4Full
     dotnetCorePackages.sdk_6_0
     headsetcontrol
@@ -86,7 +89,7 @@
     sweet
     scanmem
     superTux
-    photoqt
+    gnome-photos
     superTuxKart
     extremetuxracer
     pingus
@@ -102,6 +105,7 @@
     (callPackage ./packages/nerdls.nix { })
     (callPackage ./packages/candy-icons.nix { })
     (callPackage ./packages/turbowarp-appimage.nix { })
+    (callPackage ./packages/waydroid-script.nix { })
     (
       pkgs.makeDesktopItem {
         name = "turbowarp";
@@ -158,7 +162,6 @@
     baobab 
     epiphany 
     simple-scan 
-    pkgs.gnome-photos
     totem
     pkgs.gnome-console
     yelp evince 

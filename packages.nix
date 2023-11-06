@@ -12,6 +12,8 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     keepassxc
+    prismlauncher
+    vim
     ruffle
     git-secrets
     nano
@@ -21,11 +23,7 @@
     vscode
     flatpak
     vlc
-    vim
     mono5
-    gnome-photos
-    gnome.gnome-screenshot
-    gnome.gnome-system-monitor
     gparted
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.appindicator
@@ -53,6 +51,7 @@
     hashcat
     pkgs.gnome3.gnome-tweaks
     libreoffice
+    mate.mate-system-monitor
     python311Full
     python311Packages.pip
     python311Packages.platformdirs
@@ -87,6 +86,7 @@
     sweet
     scanmem
     superTux
+    photoqt
     superTuxKart
     extremetuxracer
     pingus
@@ -158,8 +158,11 @@
     baobab 
     epiphany 
     simple-scan 
+    pkgs.gnome-photos
+    totem
     pkgs.gnome-console
     yelp evince 
+    gnome-screenshot
     gnome-calculator 
     gnome-calendar 
     gnome-characters 
@@ -174,6 +177,7 @@
     pkgs.gnome-tour 
     cheese 
     nautilus
+    gnome-system-monitor
     geary 
     gnome-keyring
     gnome-software

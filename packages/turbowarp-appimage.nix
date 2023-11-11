@@ -26,6 +26,6 @@ appimageTools.wrapType2 { # or wrapType1
     install -m 444 -D ${appimageContents}/turbowarp-desktop.desktop -t $out/share/applications
     substituteInPlace $out/share/applications/turbowarp-desktop.desktop \
       --replace 'Exec=AppRun' 'Exec=${pname} --use-gl=desktop'
-    cp -r ${appimageContents}/usr/share/icons $out/share
+    cp -r ${appimageContents}/usr/share/* $out/share
   '';
 }

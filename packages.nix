@@ -11,102 +11,86 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    keepassxc
-    prismlauncher
+    # CLI apps
+    inetutils
+    temurin-jre-bin-17
+    busybox
+    (callPackage ./packages/icat.nix { })
     vim
-    ruffle
-    git-secrets
     nano
-    nodejs
-    virt-manager
-    qemu_kvm
-    vscode
-    flatpak
-    vlc
-    mono5
-    gparted
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-dock
-    gnome.gnome-themes-extra
     git
     appimage-run
-    cinnamon.nemo
-    discord
-    libvirt
     yt-dlp
     ffmpeg
-    home-manager
-    wget
-    chromium
-    curl
-    nssmdns
-    citra-canary
-    steam
-    pmutils
-    p7zip
-    thunderbird
-    gnome.gnome-remote-desktop
-    spotify
-    hashcat
-    pkgs.gnome3.gnome-tweaks
-    libreoffice
-    mate.mate-system-monitor
-    python311Full
-    python311Packages.pip
-    python311Packages.platformdirs
-    python311Packages.pyqt6
-    python311Packages.joblib
-    python311Packages.setuptools
-    python311Packages.tqdm
-    python311Packages.requests
-    python311Packages.inquirerpy
-    samba4Full
-    dotnetCorePackages.sdk_6_0
-    headsetcontrol
-    gnomeExtensions.headsetcontrol
-    gnomeExtensions.removable-drive-menu
-    distrobox
-    gimp
-    docker
-    shotcut
-    tor-browser-bundle-bin
-    git-credential-manager
-    github-cli
-    browsh
-    baobab
-    wineWowPackages.stable
-    winetricks
-    dotnetPackages.Nuget
-    anbox
     neofetch
-    blender
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    obs-studio
-    powerline-rs
-    tilix
-    sweet
-    scanmem
-    superTux
-    gnome-photos
-    superTuxKart
-    extremetuxracer
-    pingus
-    prismlauncher
-    # supertux-editor
+    headsetcontrol
+    distrobox
+    docker
+    github-cli
 
-    # Local Packages
-    (callPackage ./packages/tilp.nix { })
-    (callPackage ./packages/icat.nix { })
+    # Needed GUI apps
+    keepassxc
     (callPackage ./packages/firefox.nix { })
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
-    (callPackage ./packages/nerdls.nix { })
-    (callPackage ./packages/candy-icons.nix { })
-    (callPackage ./packages/turbowarp-appimage.nix { })
+    cinnamon.nemo
+    thunderbird
+    gnome.gnome-remote-desktop
+    spotify
+    libreoffice
+    tor-browser-bundle-bin
 
-    # Missing Desktop Icons
+    # Terminal
+    powerline-rs
+    tilix
+
+    # Code
+    (callPackage ./packages/turbowarp-appimage.nix { })
+    vscode
+    (callPackage ./packages/tilp.nix { })
+    dotnetCorePackages.sdk_6_0
+    dotnetPackages.Nuget
+
+    # GNOME stuff
+    gnomeExtensions.clipboard-indicator
+    gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
+    pkgs.gnome3.gnome-tweaks
+    gnome.gnome-themes-extra
+    gnomeExtensions.headsetcontrol
+    gnomeExtensions.removable-drive-menu
+    sweet
+    (callPackage ./packages/candy-icons.nix { })
+
+    # Media
+    gimp
+    obs-studio
+    vlc
+    gnome-photos
+    blender
+
+    # Games
+    prismlauncher
+    ruffle
+    superTux
+    discord
+    citra-canary
+    steam
+
+    # General Usefulness
+    xdg-desktop-portal-gtk
+    flatpak
+    mono5
+    gparted
+    home-manager
+    wineWowPackages.stable
+    winetricks
+    
+    (callPackage ./packages/nerdls.nix { })
+    
+    
+
+    # Desktop Icons
     (
       pkgs.makeDesktopItem {
         name = "ruffle";

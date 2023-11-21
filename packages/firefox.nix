@@ -12,7 +12,7 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
     (pkgs.fetchFirefoxAddon {
       name = "7tv";
       url = "https://github.com/SevenTV/Extension/releases/download/v3.0.15/7tv-webextension-ext.xpi";
-      sha256 = "1e9c989ba968fd4ed851c207140cbfe6a276262f23bc4976f19ad015a70fde30";
+      sha256 = "sha256-cfsu0KCKPtma5I1QtQHFhlft2K+85MB+KAo98jFsB04=";
     })
     (pkgs.fetchFirefoxAddon {
       name = "ublock-origin";
@@ -38,11 +38,6 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
       name = "return-youtube-dislikes";
       url = "https://github.com/TheBunnyMan123/return-youtube-dislike/releases/download/v3.0.0.10/return_youtube_dislikes-3.0.0.10.xpi";
       sha256 = "bcf4a5d271341a3dab3337bd6d5328f762c8b6b3447562316c166f902be3ad84";
-    })
-    (pkgs.fetchFirefoxAddon {
-      name = "enhancer-for-youtube";
-      url = "https://addons.mozilla.org/firefox/downloads/file/4157491/enhancer_for_youtube-2.0.121.xpi";
-      sha256 = "baaba2f8eef7166c1bee8975be63fc2c28d65f0ee48c8a0d1c1744b66db8a2ad";
     })
     (pkgs.fetchFirefoxAddon {
       name = "emoji";

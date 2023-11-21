@@ -79,6 +79,7 @@
 
     # General Usefulness
     xdg-desktop-portal-gtk
+    xdg-desktop-portal
     flatpak
     mono5
     gparted

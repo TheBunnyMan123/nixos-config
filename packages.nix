@@ -1,3 +1,4 @@
+
 { 
   config, 
   pkgs, 
@@ -11,8 +12,14 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    # Lets try something
+    glibc
+    blockbench-electron
+    gnome.zenity
+
     # CLI apps
     inetutils
+    rivalcfg
     temurin-jre-bin-17
     busybox
     (callPackage ./packages/icat.nix { })
@@ -70,12 +77,12 @@
     blender
 
     # Games
-    prismlauncher
     ruffle
     superTux
     discord
     citra-canary
     steam
+    prismlauncher
 
     # General Usefulness
     xdg-desktop-portal-gtk

@@ -16,8 +16,8 @@ pkgs.wrapFirefox pkgs.firefox-esr-unwrapped{
     })
     (pkgs.fetchFirefoxAddon {
       name = "ublock-origin";
-      url = "https://github.com/gorhill/uBlock/releases/download/1.51.0/uBlock0_1.51.0.firefox.signed.xpi";
-      sha256 = "8b73468bc233a11dd2895219466381783d19123857dd0b6fd16a01820fca4834";
+      url = "https://github.com/gorhill/uBlock/releases/download/1.53.5rc13/uBlock0_1.53.5rc13.firefox.signed.xpi";
+      sha256 = "sha256-umwLvKozCkFscjcLgRyBeVnXG8j+AFNKPHIRn3N63YU=";
     })
     (pkgs.fetchFirefoxAddon {
       name = "sponsorblock";

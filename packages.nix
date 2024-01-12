@@ -14,7 +14,7 @@
   #  wget
     # Lets try something
     glibc
-    blockbench-electron
+    #blockbench-electron
     gnome.zenity
 
     # CLI apps

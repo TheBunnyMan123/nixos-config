@@ -87,44 +87,48 @@ pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped{#firefox-esr-unwrapped{
       };
       "uBlock0@raymondhill.net" = {
         installation_mode = "force_installed";
-        install_url = "https://addons.mozilla.org/firefox/downloads/file/4216633/ublock_origin-1.55.0.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        default_area = "menupanel";
       };
       "addon@darkreader.org" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/darkreader/darkreader/releases/download/v4.9.65/darkreader-firefox.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+        default_area = "menupanel";
       };
-      "moz-addon-prod@7tv.app" = {
+      "moz-addon@7tv.app" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/SevenTV/Extension/releases/download/v3.0.15/7tv-webextension-ext.xpi";
-      };
-      "Sweet-Dark" = {
-        installation_mode = "force_installed";
-        install_url = "https://addons.mozilla.org/firefox/downloads/file/3365502/sweet_dark-4.0.xpi";
+        install_url = "https://github.com/SevenTV/Extension/releases/download/nightly-release/7tv-webextension-ext.xpi";
+        default_area = "menupanel";
       };
       "emoji@saveriomorelli.com" = { # Emoji
         installation_mode = "force_installed";
-        install_url = "https://github.com/Sav22999/emoji/releases/download/3.19/emoji-firefox-3-19.zip";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/emoji-sav/latest.xpi";
         default_area = "navbar";
       };
       "trasnslate-web-pages" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/FilipePS/Traduzir-paginas-web/releases/download/v9.9.0.2/TWP_9.9.0.2_Firefox.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi";
+        default_area = "menupanel";
       };
-      "sponsorBlockerBETA@ajay.app" = {
+      "sponsorBlocker@ajay.app" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/ajayyy/SponsorBlock/releases/download/5.4.29/FirefoxSignedInstaller.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+        default_area = "menupanel";
       };
       "return-youtube-dislike" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/TheBunnyMan123/return-youtube-dislike/releases/download/v3.0.0.10/return_youtube_dislikes-3.0.0.10.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
+        default_area = "menupanel";
       };
       "ruffle" = {
         installation_mode = "force_installed";
-        install_url = "https://github.com/ruffle-rs/ruffle/releases/download/nightly-2024-01-12/ruffle-nightly-2024_01_12-web-extension-firefox-unsigned.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ruffle_rs/latest.xpi";
+        default_area = "menupanel";
       };
-      "twitch5@coolcmd" = {
+      "ttv-lol-pro-(twitch-adblock)" = {
         installation_mode = "force_installed";
-        install_url = "https://addons.mozilla.org/firefox/downloads/file/4171740/twitch_5-2022.2.7.1.xpi";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/ttv-lol-pro/latest.xpi";
+        default_area = "menupanel";
       };
     };
     CaptivePortal = false;

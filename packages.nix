@@ -17,7 +17,7 @@
     temurin-jre-bin-17
     busybox
     (callPackage ./packages/icat.nix { })
-    vim
+    neovim
     nano
     git
     yt-dlp
@@ -40,7 +40,7 @@
     tilix
 
     # Code
-    vim
+    neovim
     (callPackage ./packages/tilp.nix { })
     dotnetCorePackages.sdk_8_0
     dotnetPackages.Nuget

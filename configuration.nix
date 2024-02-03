@@ -20,18 +20,22 @@
   #};
 
   environment.interactiveShellInit = ''
-    alias ls="nerdls"
-    alias nls="nerdls"
-    alias nrs="sudo nixos-rebuild switch"
     alias nrsf="sudo nixos-rebuild switch --flake "
-    alias icat24="icat -m 24bit "
   '';
-  programs.bash.promptInit = ''
-    prompt() {
-      PS1="\n $(powerline-rs --shell bash --newline $?)"
-    }
-    PROMPT_COMMAND=prompt
-  '';
+  programs.bash = {
+    promptInit = ''
+      prompt() {
+        PS1="\n $(powerline-rs --shell bash --newline $?)"
+      }
+      PROMPT_COMMAND=prompt
+    '';
+    shellInit = ''
+      if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+        exec tmux
+      fi
+    '';
+  };
+  
 
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666"

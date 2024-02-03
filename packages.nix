@@ -17,8 +17,6 @@
     temurin-jre-bin-17
     busybox
     (callPackage ./packages/icat.nix { })
-    neovim
-    nano
     git
     yt-dlp
     ffmpeg
@@ -37,10 +35,9 @@
 
     # Terminal
     powerline-rs
-    tilix
+    gnome-console
 
     # Code
-    neovim
     (callPackage ./packages/tilp.nix { })
     dotnetCorePackages.sdk_8_0
     dotnetPackages.Nuget
@@ -122,6 +119,16 @@
     gnome-software
     nautilus
   ];
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = false;
+  };
 
   programs.adb.enable = true;
 

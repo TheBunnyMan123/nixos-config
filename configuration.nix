@@ -22,19 +22,19 @@
   environment.interactiveShellInit = ''
     alias nrsf="sudo nixos-rebuild switch --flake "
     
+    GREEN=\\[\\033[32m\\]
+    WHITE=\\[\\033[37m\\]
+    CYAN=\\[\\033[36m\\]
+    MAGENTABOLD=\\[\\033[35\;1m\\]
+
+    RESETANSI=\\[\\033[0m\\]
+
+    export PS1="$RESETANSI$GREEN$USER$WHITE: $CYAN$PWD\n$MAGENTABOLD> $RESETANSI"
+
     if [ -x "''$(command -v tmux)" ] && [ -n "''${DISPLAY}" ] && [ -z "''${TMUX}" ]; then
       exec tmux new-session -A -s ''${USER} >/dev/null 2>&1
     fi
-  '';
-  programs.bash = {
-    promptInit = ''
-      prompt() {
-        PS1="\n $(powerline-rs --shell bash --newline $?)"
-      }
-      PROMPT_COMMAND=prompt
-    '';
-  };
-  
+  '';  
 
   services.udev.extraRules = ''
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0666"

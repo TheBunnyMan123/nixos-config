@@ -35,7 +35,7 @@
 
     # Terminal
     powerline-rs
-    gnome-terminal
+    tilix
 
     # Code
     (callPackage ./packages/tilp.nix { })

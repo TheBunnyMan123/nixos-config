@@ -10,27 +10,19 @@
 
 {
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    # Lets try something
-    glibc
     #blockbench-electron
     gnome.zenity
 
     # CLI apps
-    inetutils
-    rivalcfg
     temurin-jre-bin-17
     busybox
     (callPackage ./packages/icat.nix { })
     vim
     nano
     git
-    appimage-run
     yt-dlp
     ffmpeg
     neofetch
-    headsetcontrol
     distrobox
     docker
     github-cli
@@ -41,11 +33,7 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     cinnamon.nemo
-    thunderbird
-    gnome.gnome-remote-desktop
     spotify
-    libreoffice
-    tor-browser-bundle-bin
 
     # Terminal
     powerline-rs
@@ -55,17 +43,11 @@
     (callPackage ./packages/turbowarp-appimage.nix { })
     vscode
     (callPackage ./packages/tilp.nix { })
-    dotnetCorePackages.sdk_6_0
+    dotnetCorePackages.sdk_8_0
     dotnetPackages.Nuget
 
     # GNOME stuff
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.appindicator
-    gnomeExtensions.dash-to-dock
     pkgs.gnome3.gnome-tweaks
-    gnome.gnome-themes-extra
-    gnomeExtensions.headsetcontrol
-    gnomeExtensions.removable-drive-menu
     sweet
     (callPackage ./packages/candy-icons.nix { })
 
@@ -74,13 +56,9 @@
     obs-studio
     vlc
     gnome-photos
-    blender
 
     # Games
-    ruffle
-    superTux
     discord
-    citra-canary
     steam
     prismlauncher
 
@@ -92,11 +70,7 @@
     gparted
     home-manager
     wineWowPackages.stable
-    winetricks
-    
     (callPackage ./packages/nerdls.nix { })
-    
-    
 
     # Desktop Icons
     (
@@ -142,7 +116,6 @@
   
   # Get rid of most default packages
   environment.gnome.excludePackages = with pkgs.gnome; [ 
-    baobab 
     epiphany 
     simple-scan 
     totem

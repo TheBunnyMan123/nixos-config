@@ -40,8 +40,7 @@
     tilix
 
     # Code
-    (callPackage ./packages/turbowarp-appimage.nix { })
-    vscode
+    vim
     (callPackage ./packages/tilp.nix { })
     dotnetCorePackages.sdk_8_0
     dotnetPackages.Nuget
@@ -91,25 +90,6 @@
         genericName = "All-in-one cross-platform voice and text chat for gamers";
         categories = [ "Network" "InstantMessaging" ];
         mimeTypes = [ "x-scheme-handler/discord" ];
-      }
-    )
-    (
-      pkgs.makeDesktopItem {
-        name = "code-fix";
-        desktopName = "VS Code Wayland Fix";
-        comment = "Code Editing. Redefined.";
-        genericName = "Text Editor";
-        exec = "code --use-gl=desktop %F";
-        icon = "vscode";
-        startupNotify = true;
-        categories = [ "Utility" "TextEditor" "Development" "IDE" ];
-        mimeTypes = [ "text/plain" "inode/directory" ];
-        keywords = [ "vscode" ];
-        actions.new-empty-window = {
-          name = "New Empty Window";
-          exec = "code --use-gl=desktop --new-window %F";
-          icon = "vscode";
-      };
       }
     )
   ];

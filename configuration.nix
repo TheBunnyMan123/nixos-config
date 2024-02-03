@@ -21,6 +21,9 @@
 
   environment.interactiveShellInit = ''
     alias nrsf="sudo nixos-rebuild switch --flake "
+    if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+      exec tmux new-session -A -s ${USER} >/dev/null 2>&1
+    fi
   '';
   programs.bash = {
     promptInit = ''
@@ -28,11 +31,6 @@
         PS1="\n $(powerline-rs --shell bash --newline $?)"
       }
       PROMPT_COMMAND=prompt
-    '';
-    shellInit = ''
-      if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-        exec tmux
-      fi
     '';
   };
   

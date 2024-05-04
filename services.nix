@@ -8,11 +8,18 @@
 {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+
+    layout = "us";
+    xkbVariant = "";
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -26,9 +33,6 @@
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
   services.flatpak.enable = true;
-  
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  services.xserver.desktopManager.xterm.enable = false;
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   

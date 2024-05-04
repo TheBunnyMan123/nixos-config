@@ -28,7 +28,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.bunny = import ./bunny/home.nix;
           }
-
         ];
       };
 

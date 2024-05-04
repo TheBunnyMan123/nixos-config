@@ -10,53 +10,40 @@
 
 {
   environment.systemPackages = with pkgs; [
-    #blockbench-electron
-    gnome.zenity
+    # XFCE Plugins
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.xfce4-whiskermenu-plugin
+    xfce.xfce4-clipman-plugin
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-screensaver
+    networkmanagerapplet
 
     # CLI apps
-    temurin-jre-bin-17
     busybox
     (callPackage ./packages/icat.nix { })
     git
     yt-dlp
     ffmpeg
-    neofetch
+    fastfetch
     distrobox
     docker
     github-cli
 
     # Needed GUI apps
     keepassxc
-    (callPackage ./packages/firefox.nix { })
+    firefox-devedition-bin
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
-    cinnamon.nemo
     spotify
-
-    # Terminal
-    powerline-rs
-    tilix
-
-    # Code
-    (callPackage ./packages/tilp.nix { })
-    dotnetCorePackages.sdk_8_0
-    dotnetPackages.Nuget
-
-    # GNOME stuff
-    pkgs.gnome3.gnome-tweaks
-    sweet
-    (callPackage ./packages/candy-icons.nix { })
 
     # Media
     gimp
     obs-studio
     vlc
-    gnome-photos
 
     # Games
-    discord
     steam
-    prismlauncher
 
     # General Usefulness
     xdg-desktop-portal-gtk
@@ -66,58 +53,6 @@
     gparted
     home-manager
     wineWowPackages.stable
-    (callPackage ./packages/nerdls.nix { })
-
-    # Desktop Icons
-    (
-      pkgs.makeDesktopItem {
-        name = "ruffle";
-        desktopName = "Ruffle";
-        exec = "ruffle_desktop";
-        terminal = false;
-      }
-    )
-    (
-      pkgs.makeDesktopItem {
-        name = "discord-fix";
-        desktopName = "Discord Wayland Fix";
-        exec = "Discord --use-gl=desktop";
-        terminal = false;
-        icon="discord";
-        genericName = "All-in-one cross-platform voice and text chat for gamers";
-        categories = [ "Network" "InstantMessaging" ];
-        mimeTypes = [ "x-scheme-handler/discord" ];
-      }
-    )
-  ];
-  
-  # Get rid of most default packages
-  environment.gnome.excludePackages = with pkgs.gnome; [ 
-    epiphany 
-    simple-scan 
-    totem
-    pkgs.gnome-console
-    yelp evince 
-    gnome-screenshot
-    gnome-calculator 
-    gnome-calendar 
-    gnome-characters 
-    gnome-clocks 
-    gnome-contacts 
-    gnome-font-viewer 
-    gnome-logs 
-    gnome-maps 
-    gnome-music 
-    gnome-weather 
-    gnome-disk-utility 
-    pkgs.gnome-tour 
-    cheese 
-    nautilus
-    gnome-system-monitor
-    geary 
-    gnome-keyring
-    gnome-software
-    nautilus
   ];
 
   programs.neovim = {
@@ -132,34 +67,7 @@
 
   programs.adb.enable = true;
 
-  programs.git.config = {
-    init = {
-      defaultBranch = "main";
-    };
-    url = {
-      "https://github.com/" = {
-        insteadOf = [
-          "gh:"
-          "github:"
-        ];
-      };
-      "https://gitlab.com/" = {
-        insteadOf = [
-          "gl:"
-          "gitlab:"
-        ];
-      };
-    };
-    safe = {
-      directory = "/etc/nixos";
-    };
-    user = {
-      email = "bunnymcnair@gmail.com";
-    	name = "Tegue";
-    };
-  };
-
-    programs.chromium = {
+  programs.chromium = {
     enable = true;
     extraOpts = {
       "BrowserSignin" = 0;

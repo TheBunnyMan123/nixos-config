@@ -6,10 +6,9 @@
 }:
 
 {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  # Enable the GNOME Desktop Environment.
   services.xserver = {
     enable = true;
     desktopManager = {
@@ -17,12 +16,6 @@
       xfce.enable = true;
     };
 
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
     layout = "us";
     xkbVariant = "";
   };

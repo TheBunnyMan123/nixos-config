@@ -20,6 +20,7 @@
     networkmanagerapplet
 
     # CLI apps
+    zsh
     busybox
     (callPackage ./packages/icat.nix { })
     git
@@ -29,6 +30,7 @@
     distrobox
     docker
     github-cli
+    tmux neovim zoxide fzf stow eza bat w3m alacritty keepassxc syncthing
 
     # Needed GUI apps
     keepassxc
@@ -36,6 +38,7 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     spotify
+    discord
 
     # Media
     gimp

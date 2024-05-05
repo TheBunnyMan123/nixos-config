@@ -28,7 +28,13 @@
   services.flatpak.enable = true;
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  
+
+  services.syncthing = {
+    enable = true;
+    user = "bunny";
+    configDir = "/home/bunny/.config/syncthing";
+  };
+
   services.avahi = {
     nssmdns4 = true;
     enable = true;

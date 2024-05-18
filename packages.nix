@@ -18,6 +18,7 @@
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-screensaver
     networkmanagerapplet
+    flameshot
 
     # CLI apps
     zsh
@@ -87,5 +88,11 @@
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
     ];
+  };
+
+  programs.gnupg = {
+    package = pkgs.gnupg;
+
+    agent.enable = true;
   };
 }

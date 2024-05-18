@@ -16,12 +16,16 @@
       xfce.enable = true;
     };
 
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
@@ -65,7 +69,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  services.xserver.libinput.enable = true;
+  services.libinput = {
+    enable = true;
+    touchpad.middleEmulation = false;
+  };
   
   # Virtual Machines
   virtualisation.libvirtd.enable = true;

@@ -61,7 +61,7 @@
   users.users.root = {
     uid = 0;
     hashedPassword = "$6$11Y5D09eZP3MYzY3$6T58kS.xDX2JiH5EbMYDuNAQWv/v3zCnqveeyeRETkRKpKFWWUg2SeZhLvSax9LAKBlnzppDwV/p8bFhfD7nZ/";
-  }
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

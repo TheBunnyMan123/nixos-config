@@ -25,7 +25,10 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+  };
 
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
@@ -50,8 +53,6 @@
       workstation = true;
     };
   };
-
-
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -120,7 +121,11 @@
   
   # Enable networking
   networking.networkmanager.enable = true;
-  
+ 
+   # Disable wait online as it's causing trouble at rebuild
+   # See: https://github.com/NixOS/nixpkgs/issues/180175
+   systemd.services.NetworkManager-wait-online.enable = false;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play

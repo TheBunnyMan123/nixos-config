@@ -60,7 +60,7 @@
   };
   users.users.root = {
     uid = 0;
-    hashedPassword = "$6$11Y5D09eZP3MYzY3$6T58kS.xDX2JiH5EbMYDuNAQWv/v3zCnqveeyeRETkRKpKFWWUg2SeZhLvSax9LAKBlnzppDwV/p8bFhfD7nZ/";
+    hashedPassword = "$y$j9T$wj5nIdEQTV9AfppeOttps.$W5/rstohwAw1ZizDMRC9/FxdpcmFQDSpZbU30vqVgR4";
   };
 
   # Allow unfree packages

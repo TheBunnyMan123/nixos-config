@@ -19,7 +19,7 @@
     xfce.xfce4-screensaver
     networkmanagerapplet
     flameshot
-
+    
     # CLI apps
     zsh
     busybox
@@ -39,7 +39,9 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     spotify
-    discord
+    (pkgs.discord.override {
+      withVencord = true;
+    })
 
     # Media
     gimp

@@ -19,6 +19,7 @@
     xfce.xfce4-screensaver
     networkmanagerapplet
     flameshot
+    catppuccin-cursors.macchiatoBlue
     
     # CLI apps
     zsh

@@ -74,7 +74,14 @@
     enable = true;
     touchpad.middleEmulation = false;
   };
-  
+ 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      ''0 15 * * 1,3,5,6   bunny   yt-dlp "https://twitch.tv/filian" --cookies-from-browser firefox --wait-for-video 20 -o /home/bunny/Videos/filian''
+    ];
+  };
+
   # Virtual Machines
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;

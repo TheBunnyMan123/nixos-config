@@ -40,9 +40,7 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     spotify
-    (pkgs.discord.override {
-      withVencord = true;
-    })
+    vesktop
 
     # Media
     gimp

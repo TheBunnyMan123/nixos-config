@@ -40,7 +40,7 @@
     (callPackage ./packages/calculator.nix { })
     (callPackage ./packages/timer.nix { })
     spotify
-    vesktop
+#    vesktop
 
     # Media
     gimp

@@ -55,7 +55,6 @@
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -78,7 +77,7 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      ''0 15 * * 1,3,5,6   bunny   yt-dlp "https://twitch.tv/filian" --cookies-from-browser firefox --wait-for-video 20 -o /home/bunny/Videos/filian''
+      ''0 15 * * 1,3,5,6   bunny   yt-dlp "https://twitch.tv/filian" --cookies-from-browser firefox --wait-for-video 20 -o "/home/bunny/Videos/filian/filian-%(timestamp)s.%(ext)s"''
     ];
   };
 
@@ -140,4 +139,40 @@
   };
 
   hardware.steam-hardware.enable = true;
+
+  networking.nat.enable  = true;
+  networking.nat.internalInterfaces  = ["ve-+"];
+  networking.nat.externalInterface  = "wlp4s0";
+  networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
+
+  containers.nathantailnet = {
+    autoStart = true;
+    privateNetwork = false;
+
+    bindMounts = {
+      "/hostshare" = {
+        hostPath = "/containershare/nathantailnet";
+        isReadOnly = false;
+      };
+    };
+    
+    config = {config, pkgs, lib, ...}: {
+      users = {
+        mutableUsers = false;
+
+        users.bunny = {
+          isNormalUser = true;
+          home = "/home/bunny";
+          extraGroups = [ "wheel" ];
+          hashedPassword = "$6$qnBIWuhaDxEII3WZ$.c3vcTwTNXQ8gDPy0RNdm5IgQ5LGd3hYpSRaBs6Kjj6jhN5gD56hFAPnyRzTp8HW4/mTCD87NhsjfctS8C3Yt0";
+        };
+      };
+
+      services.tailscale = {
+        useRoutingFeatures = "both";
+        enable = true;
+        port = 41642;
+      };
+    };
+  };
 }

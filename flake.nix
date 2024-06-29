@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager, nathan }: {
     
     nixosConfigurations = {  
       NixOS-Desktop = nixpkgs.lib.nixosSystem {

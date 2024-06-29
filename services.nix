@@ -33,7 +33,7 @@
   virtualisation.docker.enable = true;
   virtualisation.waydroid.enable = true;
   services.flatpak.enable = true;
-
+  services.sshd.enable = true;
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   services.syncthing = {

@@ -5,12 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nathan.url = "github:poollovernathan/nixos";
     hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
   };
 
-  outputs = { self, nixpkgs, home-manager, systems, hardware, nathan, ... } @inputs:
+  outputs = { self, nixpkgs, home-manager, systems, hardware, ... } @inputs:
   let
     inherit (self) outputs;
 
@@ -61,7 +60,6 @@
         system = "x86_64-linux"; 
         modules = [
           ./hosts/desktop
-          nathan.nixosModules.nathan
         ];
 
         specialArgs = {

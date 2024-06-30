@@ -13,9 +13,7 @@
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    config.experimental-features = ["nix-command" "flakes"];
   };
 
   time.timeZone = "America/Chicago";

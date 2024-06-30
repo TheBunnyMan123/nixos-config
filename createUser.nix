@@ -1,6 +1,6 @@
 {
   name,
-  description,
+  description ? "",
   hashedPassword,
   shell ? pkgs: pkgs.bashInteractive,
   canSudo ? false,
@@ -29,4 +29,4 @@
       inherit uid;
     } // extraConfig;
   };
-};
+}

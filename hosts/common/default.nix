@@ -9,11 +9,10 @@
     ./services.nix
     ./users.nix
   ];
-  specialArgs = {inherit createUser;};
 
   nix = {
     package = pkgs.nixFlakes;
-    config.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = ["nix-command" "flakes"];
   };
 
   time.timeZone = "America/Chicago";

@@ -15,7 +15,6 @@
     ./hardware-configuration.nix
     ./packages.nix
   ];
-  specialArgs = {inherit createUser;};
 
   system.stateVersion = "23.05";
 }

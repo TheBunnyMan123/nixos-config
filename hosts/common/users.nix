@@ -46,7 +46,9 @@
           eza
           bat
           w3m
+          zoxide
           jdk21
+          espeak-ng
         ];
       }
     )

@@ -24,7 +24,7 @@
 
       inherit home;
       inherit description;
-      inherit (if packages != [] then packages else with pkgs; [zsh neovim coreutils-full]);
+      inherit packages;
       inherit hashedPassword;
       inherit shell;
       inherit uid;

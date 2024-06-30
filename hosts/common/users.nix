@@ -16,6 +16,10 @@
         uid = 0;
         home = "/root";
         description = "System administrator";
+        packages = with pkgs; [
+          neovim
+          coreutils-full
+        ]
       }
     ) (
       createUser {

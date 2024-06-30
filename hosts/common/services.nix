@@ -30,6 +30,10 @@
   virtualisation.docker.enable = true;
   programs.dconf.enable = true;
 
-  services.sshd.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "no";
+  };
+
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }

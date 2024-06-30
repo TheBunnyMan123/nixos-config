@@ -16,5 +16,7 @@
     ./packages.nix
   ];
 
+  users.users.nathan.extraGroups = lib.mkForce [];
+
   system.stateVersion = "23.05";
 }

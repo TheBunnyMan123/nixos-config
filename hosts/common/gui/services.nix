@@ -34,14 +34,12 @@
     pulse.enable = true;
     jack.enable = true;
 
-    media-session.enable = true;
+    wireplumber.enable = true;
   };
   services.libinput = {
     enable = true;
     touchpad.middleEmulation = false;
   };
-
-  
 
   networking.hostName = "NixOS-Desktop";
   networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.

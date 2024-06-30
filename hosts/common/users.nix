@@ -14,6 +14,8 @@
         shell = pkgs.bash;
         systemUser = true;
         uid = 0;
+        home = "/root";
+        description = "System administrator";
       }
     ) (
       createUser {
@@ -26,11 +28,12 @@
         uid = 1000;
         description = "TheKillerBunny / TheBunnyMan123";
         linger = true;
+        home = "/home/bunny";
       
         packages = with pkgs; [
           zsh
           coreutils-full
-          (callPackage ../packages/icat.nix { })
+          (callPackage ../../packages/icat.nix { })
           git
           ffmpeg
           fastfetch

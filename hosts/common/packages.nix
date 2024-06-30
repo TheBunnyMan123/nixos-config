@@ -28,4 +28,6 @@
 
     agent.enable = true;
   };
+
+  programs.zsh.enable = true;
 }

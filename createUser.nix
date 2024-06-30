@@ -5,7 +5,8 @@
   shell ? pkgs: pkgs.bashInteractive,
   canSudo ? false,
   systemUser ? false,
-  packages ? pkgs: with pkgs; [zsh neovim nano coreutils-full],
+  packages ? [],
+  home,
   groups ? [],
   uid,
   extraConfig ? {},
@@ -19,11 +20,11 @@
   config = {
     users.users.${name} = {
       isNormalUser = !systemUser;
-      home = "/home/${name}";
       extraGroups = groups ++ (if canSudo then ["wheel"] else []);
 
+      inherit home;
       inherit description;
-      inherit packages;
+      inherit (if packages != [] then packages else with pkgs; [zsh neovim coreutils-full]);
       inherit hashedPassword;
       inherit shell;
       inherit uid;

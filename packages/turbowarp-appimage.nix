@@ -12,7 +12,7 @@ let
   src = fetchurl {
     url = "https://github.com/TurboWarp/desktop/releases/download/v${version}/TurboWarp-linux-x86_64-${version}.AppImage";
     name = "${name}.AppImage";
-    hash = "sha256-PI8vAQtAoMKXPELper9SPgVJL8q+rU8JEWu1VUVPKkY=";
+    hash = "sha256-5mPLnUzc3vxkv+QfkmOte1bvS59pODhELxt9mjwW2Iw=";
   };
   appimageContents = appimageTools.extractType2 { inherit name src; };
 in

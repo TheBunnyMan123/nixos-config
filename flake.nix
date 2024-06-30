@@ -6,50 +6,92 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nathan.url = "github:poollovernathan/nixos";
+    hardware.url = "github:nixos/nixos-hardware";
   };
-  
-  outputs = { self, nixpkgs, home-manager, nathan }: {
-    
-    nixosConfigurations = {  
-      NixOS-Desktop = nixpkgs.lib.nixosSystem {
-          
-        system = "x86_64-linux"; 
-        modules = [
-          ./configuration.nix
-          ./host-specific/desktop/hardware-configuration.nix
-          ./host-specific/desktop/stateVersion.nix
-          ./services.nix
-          ./packages.nix
-          ./host-specific/nvidia-drivers.nix
-          ./packages/chromium.nix
 
-          nathan.nixosModules.nathan
+  outputs = { self, nixpkgs, home-manager, nathan, ... }:
+  let
+    lib = nixpkgs.lib // home-manager.lib;
+    pkgsFor = lib.genAttrs (import systems) (
+      system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+    );
+  in rec {
+    createUser = {
+      name,
+      description,
+      hashedPassword,
+      shell ? pkgs: pkgs.bashInteractive,
+      canSudo ? false,
+      systemUser ? false,
+      packages ? pkgs: with pkgs; [zsh neovim nano coreutils-full],
+      groups ? [],
+      uid,
+      extraConfig ? {},
+      linger ? false
+    }: args@{
+      pkgs,
+      lib,
+      config,
+      ...
+    }: {
+      config = {
+        users.users.${name} = {
+          isNormalUser = !systemUser;
+          home = "/home/${name}";
+          extraGroups = groups ++ (if canSudo then ["wheel"] else []);
 
-          # User Specific
-#          home-manager.nixosModules.home-manager {
-#            home-manager.useGlobalPkgs = true;
-#            home-manager.useUserPackages = true;
-#            home-manager.users.bunny = import ./home.nix;
-#          }
+          inherit description;
+          inherit packages;
+          inherit hashedPassword;
+          inherit shell;
+          inherit uid;
+        } // extraConfig;
+      };
+    };
+
+    nixosModules = {
+      bunny-sshworthy = createUser {
+        name = "bunny";
+        hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
+        shell = pkgs.zsh;
+        systemUser = false;
+        uid = 26897;
+        description = "TheKillerBunny / TheBunnyMan123";
+
+        packages = with pkgs; [
+          zsh
+          coreutils-full
+          (callPackage ./packages/icat.nix { })
+          (callPackage ./packages/asciidots.nix { })
+          git
+          ffmpeg
+          fastfetch
+          github-cli
+          tmux
+          neovim
+          zoxide
+          fzf
+          stow
+          eza
+          bat
+          w3m
+          jdk21
         ];
       };
+    };
 
-      NixOS-Laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations = {  
+      Desktop = lib.nixosSystem {
           
         system = "x86_64-linux"; 
         modules = [
-          ./configuration.nix
-          ./host-specific/laptop/hardware-configuration.nix
-          ./host-specific/laptop/stateVersion.nix
-          ./services.nix
-          ./packages.nix
-          
-          # User Specific
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.bunny = import ./bunny/home.nix;
-          }
+          ./hosts/desktop
+
+          nathan.nixosModules.nathan
         ];
       };
     };

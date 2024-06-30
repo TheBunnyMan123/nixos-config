@@ -1,16 +1,16 @@
 with import <nixpkgs> {};
+with pkgs.python3Packages;
 
-let
-	py = python36;
-	pyPkgs = py.pkgs;
-in stdenv.mkDerivation rec {
-  name = "env";
-  env = buildEnv { name = name; paths = buildInputs; };
-  buildInputs = with pyPkgs; [
-    py
-    virtualenv
-    pip
-    click
-    pytest
-  ];
+buildPythonPackage rec {
+  name = "asciidots";
+  version = "1.3.4";
+
+  src = fetchFromGitHub {
+    owner = "aaronjanse";
+    repo = name;
+    rev = "${version}";
+    sha256 = "sha256-+fwSDGlBLRSvnPH8GABrv0E25YaYTQEhnPcxOhH8u/U=";
+  };
+
+  propagatedBuildInputs = [ click ];
 }

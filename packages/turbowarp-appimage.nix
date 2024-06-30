@@ -7,7 +7,7 @@
 
 let 
   pname = "TurboWarp";
-  version = "1.9.3";
+  version = "1.12.3";
   name = "${pname}-${version}";
   src = fetchurl {
     url = "https://github.com/TurboWarp/desktop/releases/download/v${version}/TurboWarp-linux-x86_64-${version}.AppImage";

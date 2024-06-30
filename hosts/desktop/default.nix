@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  createUser,
   ...
 }: {
   imports = [
@@ -8,7 +9,7 @@
     inputs.hardware.nixosModules.common-gpu-nvidia
     inputs.hardware.nixosModules.common-pc-ssd
 
-    ../common
+    ../common {inherit createUser;}
     ../common/gaming
     ../common/gui
     ./hardware-configuration.nix

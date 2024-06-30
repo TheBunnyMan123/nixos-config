@@ -1,12 +1,12 @@
 {
   pkgs,
   inputs,
-  outputs,
+  createUser,
   ...
 }: {
   users.mutableUsers = false;
 
-  outputs.createUser {
+  createUser {
     name = "root";
     hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
     shell = pkgs.bash;
@@ -14,7 +14,7 @@
     uid = 0;
   }
 
-  outputs.createUser {
+  createUser {
     name = "bunny";
     hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
     shell = pkgs.zsh;

@@ -1,13 +1,13 @@
 {
   pkgs,
   inputs,
-  outputs,
+  createUser,
   ...
 }: {
   imports = [
     ./packages.nix
     ./services.nix
-    ./users.nix {inherit outputs}
+    ./users.nix {inherit createUser;}
   ];
 
   nix = {

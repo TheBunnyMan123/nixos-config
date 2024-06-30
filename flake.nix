@@ -7,10 +7,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nathan.url = "github:poollovernathan/nixos";
     hardware.url = "github:nixos/nixos-hardware";
+    systems.url = "github:nix-systems/default-linux";
   };
 
-  outputs = { self, nixpkgs, home-manager, nathan, ... }:
+  outputs = { self, nixpkgs, home-manager, systems, hardware, nathan, ... } @inputs:
   let
+    inherit (self) outputs;
+
     lib = nixpkgs.lib // home-manager.lib;
     pkgsFor = lib.genAttrs (import systems) (
       system:
@@ -57,12 +60,12 @@
       bunny-sshworthy = createUser {
         name = "bunny";
         hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
-        shell = pkgs.zsh;
+        shell = pkgs: pkgs.zsh;
         systemUser = false;
         uid = 26897;
         description = "TheKillerBunny / TheBunnyMan123";
 
-        packages = with pkgs; [
+        packages = pkgs: with pkgs; [
           zsh
           coreutils-full
           (callPackage ./packages/icat.nix { })
@@ -86,10 +89,9 @@
 
     nixosConfigurations = {  
       Desktop = lib.nixosSystem {
-          
         system = "x86_64-linux"; 
         modules = [
-          ./hosts/desktop
+          ./hosts/desktop {inherit inputs createUser;}
 
           nathan.nixosModules.nathan
         ];

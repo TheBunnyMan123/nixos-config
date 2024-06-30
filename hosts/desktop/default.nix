@@ -9,12 +9,13 @@
     inputs.hardware.nixosModules.common-gpu-nvidia
     inputs.hardware.nixosModules.common-pc-ssd
 
-    ../common {inherit createUser;}
+    ../common
     ../common/gaming
     ../common/gui
     ./hardware-configuration.nix
     ./packages.nix
   ];
+  specialArgs = {inherit createUser;};
 
   system.stateVersion = "23.05";
 }

@@ -23,7 +23,38 @@
         }
     );
   in rec {
-    createUser = import ./createUser.nix;
+    createUser = {
+      name,
+      description,
+      hashedPassword,
+      shell ? pkgs: pkgs.bashInteractive,
+      canSudo ? false,
+      systemUser ? false,
+      packages ? pkgs: with pkgs; [zsh neovim nano coreutils-full],
+      groups ? [],
+      uid,
+      extraConfig ? {},
+      linger ? false
+    }: args@{
+      pkgs,
+      lib,
+      config,
+      ...
+    }: {
+      config = {
+        users.users.${name} = {
+          isNormalUser = !systemUser;
+          home = "/home/${name}";
+          extraGroups = groups ++ (if canSudo then ["wheel"] else []);
+
+          inherit description;
+          inherit packages;
+          inherit hashedPassword;
+          inherit shell;
+          inherit uid;
+        } // extraConfig;
+      };
+    };
 
     nixosModules = {
       bunny-sshworthy = createUser {
@@ -61,12 +92,12 @@
         system = "x86_64-linux"; 
         modules = [
           ./hosts/desktop
-
           nathan.nixosModules.nathan
         ];
-	extraSpecialArgs = {
+
+        specialArgs = {
           inherit inputs outputs createUser;
-	};
+        };
       };
     };
   };

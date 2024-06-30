@@ -8,7 +8,7 @@
 
   createUser {
     name = "root";
-    hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
+    hashedPassword = "$y$j9T$r7Q60T/F48oyLnK8OnVXT.$cbSoNXPw3WbC9nW.nvQ5VpXYmwC3HmIuQoykavM4lGD";
     shell = pkgs.bash;
     systemUser = true;
     uid = 0;
@@ -16,7 +16,7 @@
 
   createUser {
     name = "bunny";
-    hashedPassword = "$y$j9T$2fn61ZNkFqA9SC..wecPl/$mB/FcaC8bt04pMYQJy8GFXXF/wmt1Z7OWmjetmDP4B6";
+    hashedPassword = "$y$j9T$yk.0wI1bKFcSByKp3QYZI/$xFSdjqnJygu4ut6NyY5bfIsBDPSoSrIoNATs9vVD29B";
     shell = pkgs.zsh;
     canSudo = true;
     groups = ["networkmanager" "libvirtd" "docker" "adbusers"];

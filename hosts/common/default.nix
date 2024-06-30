@@ -7,14 +7,12 @@
   imports = [
     ./packages.nix
     ./services.nix
-    ./users.nix {inherit createUser;}
+    ./users.nix
   ];
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    config.experimental-features = ["nix-command" "flakes"];
   };
 
   time.timeZone = "America/Chicago";

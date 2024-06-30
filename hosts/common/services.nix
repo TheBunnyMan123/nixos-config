@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   services.tailscale = {
@@ -32,7 +33,7 @@
 
   services.openssh = {
     enable = true;
-    settings.PermitRootLogin = "no";
+    settings.PermitRootLogin = lib.mkForce "no";
   };
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];

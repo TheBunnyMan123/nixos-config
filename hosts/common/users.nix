@@ -19,7 +19,7 @@
         packages = with pkgs; [
           neovim
           coreutils-full
-        ]
+        ];
       }
     ) (
       createUser {

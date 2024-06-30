@@ -3,14 +3,13 @@
   fetchFromGitHub,
   python3Packages,
   ...
-}: python3Packages.buildPythonPackage rec {
+}: python3Packages.buildPythonApplication rec {
   pname = "asciidots";
-  name = "asciidots";
   version = "1.3.4";
 
   src = fetchFromGitHub {
     owner = "aaronjanse";
-    repo = name;
+    repo = pname;
     rev = "${version}";
     sha256 = "sha256-+fwSDGlBLRSvnPH8GABrv0E25YaYTQEhnPcxOhH8u/U=";
   };

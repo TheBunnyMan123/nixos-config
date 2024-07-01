@@ -100,6 +100,73 @@
             };
           };
 
+          programs.fastfetch = {
+            enable = true;
+            
+            settings = {
+              logo = {
+                source = "nixos_small";
+                padding = {
+                  right = 1;
+                };
+              };
+
+              display = {
+                binaryPrefix = "si";
+                color = "blue";
+                separator = "  ";
+              };
+
+              modules = [
+                "host"
+                "os"
+                "uptime"
+                "break"
+                "gpu"
+                "cpu"
+                "memory"
+              ];
+            };
+          };
+
+          programs.vscode = {
+            enable = true;
+            enableUpdateCheck = false;
+            package = pkgs.vscodium;
+
+            extensions = with pkgs.vscode-extensions; [
+              mhutchie.git-graph
+              jnoortheen.nix-ide
+              aaron-bond.better-comments
+              catppuccin.catppuccin-vsc-icons
+              catppuccin.catppuccin-vsc
+            ];
+
+            userSettings = {
+              "workbench.colorTheme" = "Catppuccin Macchiato";
+              "workbench.iconTheme" = "catppuccin-macchiato";
+            };
+          };
+
+          programs.zoxide = {
+            enable = true;
+            enableZshIntegration = true;
+
+            options = [
+              "--cmd cd"
+            ];
+          };
+
+          programs.eza = {
+            enable = true;
+            icons = true;
+            git = true;
+
+            extraOptions = [
+              "--color=always"
+            ];
+          };
+
           programs.bat = {
             enable = true;
             catppuccin = {
@@ -120,7 +187,7 @@
             enable = true;
             defaultEditor = true;
 
-            plugins = pkgs: with pkgs.vimPlugins; [
+            plugins = with pkgs.vimPlugins; [
               {
                 plugin = which-key-nvim;
                 config = ''
@@ -194,11 +261,11 @@
             mouse = true;
             prefix = "C-Space";
             secureSocket = true;
-            shell = pkgs: "${pkgs.zsh}/bin/zsh";
+            shell = "${pkgs.zsh}/bin/zsh";
             terminal = "screen-256color";
             extraConfig = ''set -sg terminal-overrides ",*:RGB"'';
 
-            plugins = pkgs: with pkgs.tmuxPlugins; [
+            plugins = with pkgs.tmuxPlugins; [
               sensible
               vim-tmux-navigator
 

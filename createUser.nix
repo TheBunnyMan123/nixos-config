@@ -10,11 +10,13 @@
   groups ? [],
   uid,
   extraConfig ? {},
+  extraHomeConfig ? {},
   linger ? false
 }: args@{
   pkgs,
   lib,
   config,
+  homeStateVersion,
   ...
 }: {
   config = {
@@ -29,5 +31,9 @@
       inherit shell;
       inherit uid;
     } // extraConfig;
+
+    home-manager.users.${name} = {
+      home.stateVersion = homeStateVersion;
+    } // extraHomeConfig;
   };
 }

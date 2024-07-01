@@ -15,6 +15,8 @@
     settings.experimental-features = ["nix-command" "flakes"];
   };
 
+  home-manager.backupFileExtension = ".home-manager.bak";
+
   time.timeZone = "America/Chicago";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -41,17 +43,6 @@
       #    efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
       device = "nodev"; #/dev/sda";
 
-      theme = pkgs.stdenv.mkDerivation {
-        pname = "xenlism-grub-themes";
-        version = "1.0";
-        src = pkgs.fetchFromGitHub {
-          owner = "TheBunnyMan123";
-          repo = "xenlism-grub-themes-nixos-only";
-          rev = "v1.0";
-          hash = "sha256-KE2sY7JhIjmHBfoMR1cqrulhKBTfKV6OohrFcHsxZ0Q";
-        };
-        installPhase = "cp -r xenlism-grub-1080p-nixos/Xenlism-Nixos/ $out";
-      };
       extraEntries = ''
         menuentry "Reboot" {
           reboot

@@ -42,4 +42,10 @@
       nerdfonts
     ];
   };
+
+  catppuccin = {
+    flavor = "macchiato";
+    accent = "blue";
+    enable = true;
+  };
 }

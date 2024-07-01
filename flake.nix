@@ -41,6 +41,8 @@
           zsh
           coreutils-full
           (callPackage ../../packages/icat.nix { })
+          (callPackage ../../packages/remote.nix { })
+          sshfs
           git
           ffmpeg
           fastfetch
@@ -142,17 +144,13 @@
                 type = "lua";
               }
               {
-                plugin = nvim-treesitter;
+                plugin = nvim-treesitter.withAllGrammars;
                 config = ''
                   local configs = require("nvim-treesitter.configs")
 
                   configs.setup({
-                    ensure_installed = { "c", "lua", "json", "vim", "vimdoc", "query", "java", "c_sharp", "nix" },
-                    sync_install = true,
                     highlight = { enable = true },
                     indent = { enable = false },
-                    auto_install = true,
-                    parser_install_dir = "/home/bunny/.cache/nvim-treesitter/parsers",
                   })
                 '';
                 type = "lua";

@@ -7,6 +7,8 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+
+    openFirewall = true;
   };
 
   services.syncthing = {
@@ -35,6 +37,4 @@
     enable = true;
     settings.PermitRootLogin = lib.mkForce "no";
   };
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }

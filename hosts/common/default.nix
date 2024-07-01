@@ -15,6 +15,33 @@
     settings.experimental-features = ["nix-command" "flakes"];
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      # ssh
+      22
+      
+      # http(s)
+      80
+      443
+
+      # Minecraft
+      25565
+
+      # SyncThing
+      22000
+    ];
+    allowedUDPPorts = [
+      # Minecraft
+      25565
+
+      # SyncThing
+      22000
+      21027
+    ];
+  };
+
+
   home-manager.backupFileExtension = ".home-manager.bak";
 
   time.timeZone = "America/Chicago";

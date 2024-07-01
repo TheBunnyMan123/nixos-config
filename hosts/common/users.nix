@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   createUser,
+  fok-quote,
   ...
 }: {
   users.mutableUsers = false;
@@ -55,6 +56,7 @@
           vscodium
           prismlauncher
           gcc
+          fok-quote.packages.${pkgs.system}.default
         ];
 
         extraHomeConfig = {
@@ -248,6 +250,11 @@
               ${builtins.readFile(../../extrafiles/zsh/envvars.sh)}
               ${builtins.readFile(../../extrafiles/zsh/funcs.sh)}
               ${builtins.readFile(../../extrafiles/zsh/prompt.sh)}
+
+              if (( $+commands[fok-quote] ))
+              then
+                fok-quote
+              fi
             '';
 
             syntaxHighlighting = {

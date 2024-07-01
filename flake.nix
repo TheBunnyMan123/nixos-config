@@ -8,9 +8,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
+    fok-quote.url = "github:fokohetman/fok-quote";
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, systems, hardware, ... } @inputs:
+  outputs = { self, catppuccin, nixpkgs, home-manager, systems, hardware, fok-quote, ... } @inputs:
   let
     inherit (self) outputs;
 
@@ -57,6 +58,7 @@
           vscodium
           prismlauncher
           gcc
+          fok-quote.packages."${system}".default
         ];
 
         extraHomeConfig = {
@@ -250,6 +252,11 @@
               ${builtins.readFile(../../extrafiles/zsh/envvars.sh)}
               ${builtins.readFile(../../extrafiles/zsh/funcs.sh)}
               ${builtins.readFile(../../extrafiles/zsh/prompt.sh)}
+
+              if (( $+commands[fok-quote] ))
+              then
+                fok-quote
+              fi
             '';
 
             syntaxHighlighting = {
@@ -275,7 +282,7 @@
         ];
 
         specialArgs = let homeStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion;
+          inherit inputs outputs createUser homeStateVersion fok-quote;
         };
       };
     };

@@ -39,11 +39,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1719797939,
-        "narHash": "sha256-+R+5PyVCGnIYmQWfPaNvqc4JafPxLrgXYPsgXgnD40A=",
+        "lastModified": 1719799315,
+        "narHash": "sha256-u0+JXMC1iDKHBJvXGCQsgLbRIt6crkuejnZKCZ6OreU=",
         "owner": "fokohetman",
         "repo": "fok-quote",
-        "rev": "d3037f68960ed78b417e408e0070f78edf1b8c18",
+        "rev": "52a207c2b6e2f092e2d33082ef2b57b02555ab65",
         "type": "github"
       },
       "original": {

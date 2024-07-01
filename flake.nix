@@ -226,7 +226,7 @@
 
             autosuggestion = {
               enable = true;
-              highlight = "fg=#ff00ff,bg=cyan,bold,underline";
+              highlight = "fg=cyan,bg=black,underline";
             };
             history = {
               extended = true;

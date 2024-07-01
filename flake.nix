@@ -132,9 +132,9 @@
           programs.vscode = {
             enable = true;
             enableUpdateCheck = false;
-            package = pkgs.vscodium;
+            package = pkgs: pkgs.vscodium;
 
-            extensions = with pkgs.vscode-extensions; [
+            extensions = pkgs: with pkgs.vscode-extensions; [
               mhutchie.git-graph
               jnoortheen.nix-ide
               aaron-bond.better-comments
@@ -187,7 +187,7 @@
             enable = true;
             defaultEditor = true;
 
-            plugins = with pkgs.vimPlugins; [
+            plugins = pkgs: with pkgs.vimPlugins; [
               {
                 plugin = which-key-nvim;
                 config = ''
@@ -261,11 +261,11 @@
             mouse = true;
             prefix = "C-Space";
             secureSocket = true;
-            shell = "${pkgs.zsh}/bin/zsh";
+            shell = pkgs: "${pkgs.zsh}/bin/zsh";
             terminal = "screen-256color";
             extraConfig = ''set -sg terminal-overrides ",*:RGB"'';
 
-            plugins = with pkgs.tmuxPlugins; [
+            plugins = pkgs: with pkgs.tmuxPlugins; [
               sensible
               vim-tmux-navigator
 

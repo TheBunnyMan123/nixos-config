@@ -23,7 +23,7 @@
     gimp
     obs-studio
     vlc
-    # vesktop (broken at time of commenting)
+    vesktop
 
     xdg-desktop-portal-gtk
     xdg-desktop-portal

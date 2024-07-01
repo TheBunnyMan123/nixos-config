@@ -36,26 +36,17 @@
         home = "/home/bunny";
       
         packages = with pkgs; [
-          zsh
           coreutils-full
           (callPackage ../../packages/icat.nix { })
           (callPackage ../../packages/remote.nix { })
           sshfs
-          git
           ffmpeg
-          fastfetch
           github-cli
-          tmux
-          zoxide
           fzf
           stow
-          eza
-          bat
           w3m
-          zoxide
           jdk21
           espeak-ng
-          vscodium
           prismlauncher
           gcc
           fok-quote.packages.${pkgs.system}.default
@@ -96,6 +87,73 @@
               flavor = "macchiato";
               enable = true;
             };
+          };
+
+          programs.fastfetch = {
+            enable = true;
+            
+            settings = {
+              logo = {
+                source = "nixos_small";
+                padding = {
+                  right = 1;
+                };
+              };
+
+              display = {
+                binaryPrefix = "si";
+                color = "blue";
+                separator = "  ";
+              };
+
+              modules = [
+                "host"
+                "os"
+                "uptime"
+                "break"
+                "gpu"
+                "cpu"
+                "memory"
+              ];
+            };
+          };
+
+          programs.vscode = {
+            enable = true;
+            enableUpdateCheck = false;
+            package = pkgs.vscodium;
+
+            extensions = with pkgs.vscode-extensions; [
+              mhutchie.git-graph
+              jnoortheen.nix-ide
+              aaron-bond.better-comments
+              catppuccin.catppuccin-vsc-icons
+              catppuccin.catppuccin-vsc
+            ];
+
+            userSettings = {
+              "workbench.colorTheme" = "Catppuccin Macchiato";
+              "workbench.iconTheme" = "catppuccin-macchiato";
+            };
+          };
+
+          programs.zoxide = {
+            enable = true;
+            enableZshIntegration = true;
+
+            options = [
+              "--cmd cd"
+            ];
+          };
+
+          programs.eza = {
+            enable = true;
+            icons = true;
+            git = true;
+
+            extraOptions = [
+              "--color=always"
+            ];
           };
 
           programs.bat = {

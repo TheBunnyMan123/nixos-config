@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  createUser,
+  systemStateVersion,
   lib,
   ...
 }: {
@@ -17,7 +17,5 @@
     ./packages.nix
   ];
 
-  home-manager.users.root.home.stateVersion = "23.05";
-  home-manager.users.bunny.home.stateVersion = "23.05";
-  system.stateVersion = "23.05";
+  system.stateVersion = systemStateVersion;
 }

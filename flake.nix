@@ -346,8 +346,8 @@
           ./hosts/desktop
         ];
 
-        specialArgs = let homeStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion fok-quote;
+        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
         };
       };
     };

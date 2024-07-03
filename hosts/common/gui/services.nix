@@ -57,9 +57,4 @@
   };
 
   hardware.steam-hardware.enable = true;
-
-  networking.nat.enable = true;
-  networking.nat.internalInterfaces = [ "ve-+" ];
-  networking.nat.externalInterface = "wlp4s0";
-  networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
 }

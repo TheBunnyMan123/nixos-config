@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./containers.nix
     ./packages.nix
     ./services.nix
     ./users.nix
@@ -30,6 +31,9 @@
 
       # SyncThing
       22000
+
+      # SFTP Container
+      2222
     ];
     allowedUDPPorts = [
       # Minecraft

@@ -23,6 +23,20 @@
         ];
       }
     ) (
+    #   createUser {
+    #     name = "sftp";
+    #     hashedPassword = "$y$j9T$BejZDD5/cGX.8MD1jza7./$Pw1nQKOMHo0LZSShkS1P8ezp8G1bVZOKBQ2wFtW/Sw.";
+    #     shell = pkgs.bash;
+    #     systemUser = true;
+    #     uid = 1;
+    #     home = "/var/lib/sftp/sftp";
+    #     description = "SFTP User";
+    #     packages = with pkgs; [];
+    #     extraConfig = {
+    #       createHome = true;
+    #     };
+    #   }
+    # ) (
       createUser {
         name = "bunny";
         hashedPassword = "$y$j9T$yk.0wI1bKFcSByKp3QYZI/$xFSdjqnJygu4ut6NyY5bfIsBDPSoSrIoNATs9vVD29B";

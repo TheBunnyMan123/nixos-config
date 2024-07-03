@@ -14,7 +14,6 @@
   linger ? false
 }: args@{
   pkgs,
-  lib,
   config,
   homeStateVersion,
   ...
@@ -33,7 +32,7 @@
     } // extraConfig;
 
     home-manager.users.${name} = {
-      home.stateVersion = homeStateVersion;
+      #home.stateVersion = homeStateVersion;
     } // extraHomeConfig;
   };
 }

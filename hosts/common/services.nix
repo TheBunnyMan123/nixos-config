@@ -36,18 +36,5 @@
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = lib.mkForce "no";
-    # extraConfig = ''
-      # Match User sftp
-      # ChrootDirectory /var/lib/sftp
-    # '';
   };
-
-  # fileSystems."/var/lib/sftp/nix" = {
-  #   device = "/nix";
-  #   options = ["bind"];
-  # };
-  # fileSystems."/var/lib/sftp/run" = {
-  #   device = "/run";
-  #   options = ["bind"];
-  # };
 }

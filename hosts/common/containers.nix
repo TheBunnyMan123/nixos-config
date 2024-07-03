@@ -66,7 +66,7 @@
             X11Forwarding no
             AllowTcpForwarding no
             AllowAgentForwarding no
-            ForceCommand internal-sftp -d /upload
+            ForceCommand internal-sftp -d /%u
         '';
       };
 
@@ -76,42 +76,6 @@
         firewall = {
           enable = true;
           allowedTCPPorts = [ 2222 ];
-        };
-        # Use systemd-resolved inside the container
-        # Workaround for bug https://github.com/NixOS/nixpkgs/issues/162686
-        useHostResolvConf = lib.mkForce false;
-      };
-
-      services.resolved.enable = true;
-    };
-  };
-
-  containers.bunny-sshsworthy-test = {
-    autoStart = true;
-    privateNetwork = true;
-    hostAddress = "192.168.100.10";
-    localAddress = "192.168.100.11";
-    hostAddress6 = "fc00::1";
-    localAddress6 = "fc00::2";
-
-    bindMounts = {
-      "/upload" = {
-        hostPath = "/sftp";
-        isReadOnly = false;
-      };
-    };
-
-    config = { outputs, config, pkgs, lib, stateVersion, ... }: {
-      imports = [
-        outputs.nixosModules.bunny-sshworthy
-      ];
-
-      system.stateVersion = systemStateVersion;
-
-      networking = {
-        firewall = {
-          enable = true;
-          allowedTCPPorts = [ 80 443 ];
         };
         # Use systemd-resolved inside the container
         # Workaround for bug https://github.com/NixOS/nixpkgs/issues/162686

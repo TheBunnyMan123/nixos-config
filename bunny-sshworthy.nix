@@ -1,63 +1,49 @@
 {
   pkgs,
-  inputs,
   createUser,
-  fok-quote,
   homeStateVersion,
+  fok-quote,
   ...
 }: {
-  users.mutableUsers = false;
-
   imports = [
     (
-      createUser {
-        name = "root";
-        hashedPassword = "$y$j9T$r7Q60T/F48oyLnK8OnVXT.$cbSoNXPw3WbC9nW.nvQ5VpXYmwC3HmIuQoykavM4lGD";
-        shell = pkgs.bash;
-        systemUser = true;
-        uid = 0;
-        home = "/root";
-        description = "System administrator";
-        packages = with pkgs; [
-          neovim
-          coreutils-full
-        ];
-        extraHomeConfig = {
-          home.stateVersion = homeStateVersion;
-        };
-      }
-    ) (
       createUser {
         name = "bunny";
         hashedPassword = "$y$j9T$yk.0wI1bKFcSByKp3QYZI/$xFSdjqnJygu4ut6NyY5bfIsBDPSoSrIoNATs9vVD29B";
         shell = pkgs.zsh;
-        canSudo = true;
-        groups = ["networkmanager" "libvirtd" "docker" "adbusers"];
         systemUser = false;
-        uid = 1000;
+        uid = 26897;
         description = "TheKillerBunny / TheBunnyMan123";
         linger = true;
         home = "/home/bunny";
       
         packages = with pkgs; [
+          zsh
           coreutils-full
-          (callPackage ../../packages/icat.nix { })
-          (callPackage ../../packages/remote.nix { })
+          (callPackage ./packages/icat.nix { })
+          (callPackage ./packages/remote.nix { })
           sshfs
+          git
           ffmpeg
+          fastfetch
           github-cli
+          tmux
+          zoxide
           fzf
           stow
+          eza
+          bat
           w3m
+          zoxide
           jdk21
           espeak-ng
+          vscodium
           prismlauncher
           gcc
-          fok-quote.packages.${pkgs.system}.default
+          fok-quote.packages."${system}".default
         ];
 
         extraHomeConfig = {
-          home.stateVersion = homeStateVersion;
           catppuccin = {
             flavor = "macchiato";
             accent = "blue";
@@ -307,10 +293,10 @@
               autoload -Uz vcs_info
               precmd() { vcs_info }
 
-              ${builtins.readFile(../../extrafiles/zsh/aliases.sh)}
-              ${builtins.readFile(../../extrafiles/zsh/envvars.sh)}
-              ${builtins.readFile(../../extrafiles/zsh/funcs.sh)}
-              ${builtins.readFile(../../extrafiles/zsh/prompt.sh)}
+              ${builtins.readFile(./extrafiles/zsh/aliases.sh)}
+              ${builtins.readFile(./extrafiles/zsh/envvars.sh)}
+              ${builtins.readFile(./extrafiles/zsh/funcs.sh)}
+              ${builtins.readFile(./extrafiles/zsh/prompt.sh)}
 
               if (( $+commands[fok-quote] ))
               then
@@ -330,6 +316,4 @@
       }
     )
   ];
-
-  environment.pathsToLink = [ "/share/zsh" ];
 }

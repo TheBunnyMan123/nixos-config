@@ -20,19 +20,16 @@
 }: {
   config = {
     users.users.${name} = {
-      imports = [extraConfig];
-      config = {
-        isNormalUser = !systemUser;
-        extraGroups = groups ++ (if canSudo then ["wheel"] else []);
+      isNormalUser = !systemUser;
+      extraGroups = groups ++ (if canSudo then ["wheel"] else []);
 
-        inherit home;
-        inherit description;
-        inherit packages;
-        inherit hashedPassword;
-        inherit shell;
-        inherit uid;
-      };
-    };
+      inherit home;
+      inherit description;
+      inherit packages;
+      inherit hashedPassword;
+      inherit shell;
+      inherit uid;
+    } // extraConfig;
 
     home-manager.users.${name} = {
       imports = [extraHomeConfig];

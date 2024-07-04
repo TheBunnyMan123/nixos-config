@@ -32,7 +32,8 @@
     } // extraConfig;
 
     home-manager.users.${name} = {
-      #home.stateVersion = homeStateVersion;
-    } // extraHomeConfig;
+      imports = [extraHomeConfig];
+      #config.home.stateVersion = homeStateVersion;
+    };
   };
 }

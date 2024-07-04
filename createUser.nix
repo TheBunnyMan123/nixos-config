@@ -20,19 +20,23 @@
 }: {
   config = {
     users.users.${name} = {
-      isNormalUser = !systemUser;
-      extraGroups = groups ++ (if canSudo then ["wheel"] else []);
+      imports = [extraConfig];
+      config = {
+        isNormalUser = !systemUser;
+        extraGroups = groups ++ (if canSudo then ["wheel"] else []);
 
-      inherit home;
-      inherit description;
-      inherit packages;
-      inherit hashedPassword;
-      inherit shell;
-      inherit uid;
-    } // extraConfig;
+        inherit home;
+        inherit description;
+        inherit packages;
+        inherit hashedPassword;
+        inherit shell;
+        inherit uid;
+      };
+    };
 
     home-manager.users.${name} = {
-      #home.stateVersion = homeStateVersion;
-    } // extraHomeConfig;
+      imports = [extraHomeConfig];
+      #config.home.stateVersion = homeStateVersion;
+    };
   };
 }

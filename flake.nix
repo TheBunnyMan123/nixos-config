@@ -45,13 +45,5 @@
         };
       };
     };
-
-    checks =
-      lib.foldl' lib.recursiveUpdate {}
-      (lib.mapAttrsToList (name: value: let
-        inherit (value.config.system.build) toplevel;
-      in {
-        ${toplevel.system}.${name} = toplevel;
-      }) nixosConfigurations);
   };
 }

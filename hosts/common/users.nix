@@ -181,6 +181,15 @@
             enable = true;
             defaultEditor = true;
 
+            extraPackages = with pkgs; [
+              # Language Servers
+              omnisharp-roslyn # C#
+              java-language-server # Java
+              vscode-langservers-extracted # HTML/CSS/JSON/ESLint
+              nixd # Nix
+              lua-language-server # Lua
+            ];
+
             plugins = with pkgs.vimPlugins; [
               {
                 plugin = which-key-nvim;
@@ -216,7 +225,137 @@
                 '';
                 type = "lua";
               }
+              {
+                plugin = lsp-zero-nvim;
+                config = ''
+                  local lsp_zero = require('lsp-zero')
 
+                  lsp_zero.on_attach(function(client, bufnr)
+                    -- see :help lsp-zero-keybindings
+                    -- to learn the available actions
+                    lsp_zero.default_keymaps({buffer = bufnr})
+                  end)
+                '';
+                type = "lua";
+              }
+              {
+                plugin = nvim-lspconfig;
+                config = ''
+                  local lspconfig = require('lspconfig')
+                  local capabilities = vim.lsp.protocol.make_client_capabilities()
+                  
+                  capabilities.textDocument.completion.completionItem.snippetSupport = true
+                  
+                  lspconfig.java_language_server.setup{}
+                  lspconfig.nixd.setup{}
+
+                  lspconfig.html.setup {
+                    capabilities = capabilities,
+                  }
+                  lspconfig.jsonls.setup {
+                    capabilities = capabilities,
+                  }
+                  lspconfig.cssls.setup {
+                    capabilities = capabilities,
+                  }
+                  lspconfig.eslint.setup({
+                    on_attach = function(client, bufnr)
+                      vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = bufnr,
+                        command = "EslintFixAll",
+                      })
+                    end,
+                  })
+                  lspconfig.lua_ls.setup {
+                    on_init = function(client)
+                      local path = client.workspace_folders[1].name
+                      if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
+                        return
+                      end
+
+                      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                        workspace = {
+                          checkThirdParty = false,
+                          library = {
+                            vim.env.VIMRUNTIME
+                          }
+                        }
+                      })
+                    end,
+                    settings = {
+                      Lua = {}
+                    }
+                  }
+                  lspconfig.omnisharp.setup {
+                    cmd = { "dotnet", "/path/to/omnisharp/OmniSharp.dll" },
+                
+                    settings = {
+                      FormattingOptions = {
+                        EnableEditorConfigSupport = true,
+                        OrganizeImports = nil,
+                      },
+                      MsBuild = {
+                        LoadProjectsOnDemand = nil,
+                      },
+                      RoslynExtensionsOptions = {
+                        EnableAnalyzersSupport = nil,
+                        EnableImportCompletion = nil,
+                        AnalyzeOpenDocumentsOnly = nil,
+                      },
+                      Sdk = {
+                        IncludePrereleases = true,
+                      },
+                    },
+                  }
+                '';
+                type = "lua";
+              }
+              {
+                plugin = nvim-cmp;
+                config = ''
+                  local cmp = require('cmp')
+                  local cmp_action = require('lsp-zero').cmp_action()
+
+                  cmp.setup({
+                    mapping = cmp.mapping.preset.insert({
+                      -- `Enter` key to confirm completion
+                      ['<CR>'] = cmp.mapping.confirm({select = false}),
+                  
+                      -- Ctrl+Space to trigger completion menu
+                      ['<C-Space'] = cmp.mapping.complete(),
+                  
+                      -- Navigate between snippet placeholder
+                      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+                      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+                  
+                      -- Scroll up and down in the completion documentation
+                      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                      ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                    }),
+                    snippet = {
+                      expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                      end,
+                    },
+                    sources = cmp.config.sources({
+                      { name = 'nvim_lsp' },
+                      { name = 'snippy' },
+                    }, {
+                      { name = 'buffer' },
+                    })
+                  })
+                '';
+                type = "lua";
+              }
+
+              cmp-snippy
+              cmp-nvim-lsp
+              cmp-buffer
+              cmp-path
+              cmp-cmdline
+              nvim-snippy
+              vim-snippets
+              omnisharp-extended-lsp-nvim
               luasnip
               telescope-nvim
             ];

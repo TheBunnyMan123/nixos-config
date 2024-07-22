@@ -11,18 +11,11 @@
     fok-quote.url = "github:fokohetman/fok-quote";
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, systems, hardware, fok-quote, ... } @inputs:
+  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, ... } @inputs:
   let
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
-    pkgsFor = lib.genAttrs (import systems) (
-      system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        }
-    );
   in rec {
     createUser = import ./createUser.nix;
 

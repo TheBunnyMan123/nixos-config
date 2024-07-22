@@ -188,6 +188,7 @@
               vscode-langservers-extracted # HTML/CSS/JSON/ESLint
               nixd # Nix
               lua-language-server # Lua
+              bash-language-server # Bash
             ];
 
             plugins = with pkgs.vimPlugins; [
@@ -248,7 +249,7 @@
                   
                   lspconfig.java_language_server.setup{}
                   lspconfig.nixd.setup{}
-
+                  lspconfig.bashls.setup{}
                   lspconfig.html.setup {
                     capabilities = capabilities,
                   }

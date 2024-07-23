@@ -169,12 +169,14 @@
 
             extraPackages = with pkgs; [
               # Language Servers
-              omnisharp-roslyn # C#
-              java-language-server # Java
+              jdt-language-server # Java
               vscode-langservers-extracted # HTML/CSS/JSON/ESLint
               nixd # Nix
               lua-language-server # Lua
               bash-language-server # Bash
+              # C/C++
+              bear
+              ccls
             ];
 
             plugins = with pkgs.vimPlugins; [
@@ -188,7 +190,10 @@
             
                   local wk = require("which-key")
                   wk.register({
-                    ["<leader>tr"] = { ":Ex<CR>", "File Tree" },
+                    ["<leader>tr"] = { ":NvimTreeFocus<CR>", "File Tree" },
+                  }, { mode = "n" })
+                  wk.register({
+                    ["<leader>ctr"] = { ":NvimTreeClose<CR>", "Close File Tree" },
                   }, { mode = "n" })
 
                   wk.register({
@@ -196,6 +201,9 @@
                   }, { mode = "n" })
                   wk.register({
                     ["<leader>gf"] = { ":Telescope git_files<CR>", "Git Files" },
+                  }, { mode = "n" })
+                  wk.register({
+                    ["<leader>ff"] = { ":buffers<CR>", "Buffers" },
                   }, { mode = "n" })
                 '';
                 type = "lua";
@@ -233,7 +241,7 @@
                   
                   capabilities.textDocument.completion.completionItem.snippetSupport = true
                   
-                  lspconfig.java_language_server.setup{}
+                  lspconfig.ccls.setup{}
                   lspconfig.nixd.setup{}
                   lspconfig.bashls.setup{}
                   lspconfig.html.setup {
@@ -273,27 +281,16 @@
                       Lua = {}
                     }
                   }
-                  lspconfig.omnisharp.setup {
-                    cmd = { "dotnet", "/path/to/omnisharp/OmniSharp.dll" },
-                
-                    settings = {
-                      FormattingOptions = {
-                        EnableEditorConfigSupport = true,
-                        OrganizeImports = nil,
-                      },
-                      MsBuild = {
-                        LoadProjectsOnDemand = nil,
-                      },
-                      RoslynExtensionsOptions = {
-                        EnableAnalyzersSupport = nil,
-                        EnableImportCompletion = nil,
-                        AnalyzeOpenDocumentsOnly = nil,
-                      },
-                      Sdk = {
-                        IncludePrereleases = true,
-                      },
-                    },
-                  }
+                '';
+                type = "lua";
+              }
+              {
+                plugin = nvim-jdtls;
+                config = ''
+                  require('jdtls').start_or_attach({
+                    cmd = {'${pkgs.jdt-language-server}/bin/jdtls'},
+                    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+		              })
                 '';
                 type = "lua";
               }
@@ -335,6 +332,14 @@
                 type = "lua";
               }
 
+              {
+                plugin = nvim-tree-lua;
+                config = ''
+                  require("nvim-tree").setup{}
+                '';
+                type = "lua";
+              }
+              
               cmp-snippy
               cmp-nvim-lsp
               cmp-buffer
@@ -342,7 +347,6 @@
               cmp-cmdline
               nvim-snippy
               vim-snippets
-              omnisharp-extended-lsp-nvim
               luasnip
               telescope-nvim
             ];

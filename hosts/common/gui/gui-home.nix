@@ -38,17 +38,9 @@
 
             "hyprland/workspaces" = {
               active-only = false;
-              format = "{windows}";
+              format = "{icon}";
+              tooltip-format = "{windows}";
               format-window-separator = " ";
-              window-rewrite-default = "";
-              window-rewrite = {
-                kitty = "";
-                firefox = "";
-                vesktop = "";
-                codium = "󰨞";
-                keepassxc = "";
-                spotify = "󰓇";
-              };
             };
             "bluetooth" = {
               format = "󰂯 {status}";
@@ -195,6 +187,8 @@
             margin-left: 3px;
             margin-right: 3px;
             padding: 0;
+            background-color: @base;
+            border-radius: 100px;
           }
           #workspaces button * {
             padding: 0;

@@ -43,6 +43,7 @@
               format-window-separator = " ";
             };
             "bluetooth" = {
+              on-click = "xterm -class netman -e bluetuith";
               format = "󰂯 {status}";
               format-disabled = "󰂲";
               format-connected = "󰂱 {num_connections} connected";
@@ -92,6 +93,8 @@
                 phone-muted = "";
               };
               scroll-step = 1;
+              max-volume = 100;
+              on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             };
             "tray" = {
               icon-size = 15;
@@ -100,8 +103,8 @@
             "clock" = {
               timezone = "America/Chicago";
               tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-              format-alt = " {:%d/%m/%Y}";
-              format = "󰥔 {:%H:%M}";
+              format-alt = "  {:%m/%d/%Y}";
+              format = "󰥔  {:%I:%M %p}";
             };
             "battery" = {
              states = {

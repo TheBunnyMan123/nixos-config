@@ -22,6 +22,7 @@
     distrobox
     docker
     kanata
+    bluetuith
   ];
 
   programs.gnupg = {

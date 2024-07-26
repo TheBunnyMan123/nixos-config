@@ -17,19 +17,18 @@
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
         monospace = [
-          "Noto Sans Mono"
+          "MesloLGS Nerd Font"
           "Noto Color Emoji"
-          "FiraCode"
         ];
         sansSerif = [
           "Noto Sans"
           "Noto Color Emoji"
-          "FiraCode"
+          "MesloLGS Nerd Font"
         ];
         serif = [
           "Noto Serif"
           "Noto Color Emoji"
-          "FiraCode"
+          "MesloLGS Nerd Font"
         ];
       };
     };

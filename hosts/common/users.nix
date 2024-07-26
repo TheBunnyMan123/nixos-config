@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   inputs,
   createUser,
@@ -40,6 +41,7 @@
         home = "/home/bunny";
       
         packages = with pkgs; [
+          yazi
           coreutils-full
           (callPackage ../../packages/icat.nix { })
           (callPackage ../../packages/remote.nix { })
@@ -53,12 +55,21 @@
           espeak-ng
           prismlauncher
           gcc
+          imagemagick
           gpp
+          libsForQt5.qtstyleplugin-kvantum
           fok-quote.packages.${pkgs.system}.default
         ];
 
         extraHomeConfig = {
-          home.stateVersion = homeStateVersion;
+          home = {
+            stateVersion = homeStateVersion;
+            sessionVariables = {
+              QT_STYLE_OVERRIDE = "kvantum";
+              GTK_USE_PORTAL = 1;
+            };
+          };
+
           catppuccin = {
             flavor = "macchiato";
             accent = "blue";
@@ -87,11 +98,28 @@
             enable = true;
           };
 
-          programs.alacritty = {
+          programs.kitty = {
             enable = true;
             catppuccin = {
               flavor = "macchiato";
               enable = true;
+            };
+            font = {
+              name = "monospace";
+              size = 11;
+            };
+            shellIntegration = {
+              enableZshIntegration = true;
+              mode = "no-rc";
+            };
+          };
+
+          programs.yazi = {
+            enable = true;
+            enableZshIntegration = true;
+            catppuccin = {
+              enable = true;
+              flavor = "macchiato";
             };
           };
 
@@ -355,6 +383,7 @@
                 type = "lua";
               }
               
+              markdown-preview-nvim
               cmp-snippy
               cmp-nvim-lsp
               cmp-buffer
@@ -401,7 +430,7 @@
             prefix = "C-Space";
             secureSocket = true;
             shell = "${pkgs.zsh}/bin/zsh";
-            terminal = "screen-256color";
+            terminal = "xterm-kitty";
             extraConfig = ''set -sg terminal-overrides ",*:RGB"'';
 
             plugins = with pkgs.tmuxPlugins; [

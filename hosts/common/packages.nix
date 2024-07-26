@@ -21,6 +21,7 @@
     syncthing
     distrobox
     docker
+    kanata
   ];
 
   programs.gnupg = {

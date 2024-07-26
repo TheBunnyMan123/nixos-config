@@ -9,9 +9,16 @@
     hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
     fok-quote.url = "github:fokohetman/fok-quote";
+    nur.url = "github:nix-community/NUR";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, ... } @inputs:
+  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, nur, ... } @inputs:
   let
     inherit (self) outputs;
 
@@ -29,6 +36,7 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
+          nur.nixosModules.nur
           {home-manager.users.bunny.imports = [catppuccin.homeManagerModules.catppuccin];}
           ./hosts/desktop
         ];

@@ -21,6 +21,8 @@
     };
   };
 
+  programs.hyprland.enable = true;
+
   services.printing.enable = true;
   services.flatpak.enable = true;
 

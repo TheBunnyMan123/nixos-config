@@ -191,7 +191,10 @@
             border-radius: 100px;
           }
           #workspaces button.active {
-            background-color: @surface0;
+            background-color: @lavender;
+          }
+          #workspaces button.active * {
+            color: @base;
           }
           #workspaces button * {
             padding: 0;

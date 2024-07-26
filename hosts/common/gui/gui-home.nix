@@ -190,6 +190,9 @@
             background-color: @base;
             border-radius: 100px;
           }
+          #workspaces button.active {
+            background-color: @surface0;
+          }
           #workspaces button * {
             padding: 0;
             margin: 0;

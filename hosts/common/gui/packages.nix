@@ -12,6 +12,7 @@
     waybar
     swaynotificationcenter
     grim
+    slurp
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

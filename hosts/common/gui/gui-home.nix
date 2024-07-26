@@ -317,6 +317,8 @@
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, wofi --show drun"
+            ''$mod, S, exec, grim -g "$(slurp)"''
+            "$mod, D, fullscreen,"
             
             # Dwindle
             "$mod, P, pseudo,"

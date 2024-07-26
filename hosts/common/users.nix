@@ -221,22 +221,22 @@
                   vim.g.mapleader = " "
             
                   local wk = require("which-key")
-                  wk.register({
-                    { "<leader>tr", ":NvimTreeFocus<CR>", desc = "File Tree" },
-                  }, { mode = "n" })
-                  wk.register({
-                    { "<leader>ctr", ":NvimTreeClose<CR>" desc = "Close File Tree" },
-                  }, { mode = "n" })
+                  wk.add(
+                    { "<leader>tr", ":NvimTreeFocus<CR>", desc = "File Tree" }
+                  )
+                  wk.add(
+                    { "<leader>ctr", ":NvimTreeClose<CR>", desc = "Close File Tree" }
+                  )
 
-                  wk.register({
-                    { "<leader>ff", ":Telescope find_files<CR>", desc = "Find Files" },
-                  }, { mode = "n" })
-                  wk.register({
-                    { "<leader>gf", ":Telescope git_files<CR>", desc = "Git Files" },
-                  }, { mode = "n" })
-                  wk.register({
-                    "<leader>ff", ":buffers<CR>", desc = "Buffers" },
-                  }, { mode = "n" })
+                  wk.add(
+                    { "<leader>ff", ":Telescope find_files<CR>", desc = "Find Files" }
+                  )
+                  wk.add(
+                    { "<leader>gf", ":Telescope git_files<CR>", desc = "Git Files" }
+                  )
+                  wk.add(
+                    { "<leader>ff", ":buffers<CR>", desc = "Buffers" }
+                  )
                 '';
                 type = "lua";
               }

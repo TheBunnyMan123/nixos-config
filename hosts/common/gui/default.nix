@@ -6,6 +6,7 @@
   imports = [
     ./packages.nix
     ./services.nix
+    ./gui-home.nix
   ];
 
   fonts = {

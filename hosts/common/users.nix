@@ -81,17 +81,6 @@
             };
           };
 
-          gtk.catppuccin = {
-            flavor = "macchiato";
-            accent = "blue";
-            enable = true;
-            icon = {
-              flavor = "macchiato";
-              accent = "blue";
-              enable = true;
-            };
-          };
-
           qt.style.catppuccin = {
             flavor = "macchiato";
             accent = "blue";
@@ -233,20 +222,20 @@
             
                   local wk = require("which-key")
                   wk.register({
-                    ["<leader>tr"] = { ":NvimTreeFocus<CR>", "File Tree" },
+                    { "<leader>tr", ":NvimTreeFocus<CR>", desc = "File Tree" },
                   }, { mode = "n" })
                   wk.register({
-                    ["<leader>ctr"] = { ":NvimTreeClose<CR>", "Close File Tree" },
+                    { "<leader>ctr", ":NvimTreeClose<CR>" desc = "Close File Tree" },
                   }, { mode = "n" })
 
                   wk.register({
-                    ["<leader>ff"] = { ":Telescope find_files<CR>", "Find Files" },
+                    { "<leader>ff", ":Telescope find_files<CR>", desc = "Find Files" },
                   }, { mode = "n" })
                   wk.register({
-                    ["<leader>gf"] = { ":Telescope git_files<CR>", "Git Files" },
+                    { "<leader>gf", ":Telescope git_files<CR>", desc = "Git Files" },
                   }, { mode = "n" })
                   wk.register({
-                    ["<leader>ff"] = { ":buffers<CR>", "Buffers" },
+                    "<leader>ff", ":buffers<CR>", desc = "Buffers" },
                   }, { mode = "n" })
                 '';
                 type = "lua";

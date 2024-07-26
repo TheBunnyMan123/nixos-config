@@ -12,7 +12,6 @@
     enable = true;
     desktopManager = {
       xterm.enable = false;
-      xfce.enable = true;
     };
 
     xkb = {
@@ -22,6 +21,7 @@
   };
 
   programs.hyprland.enable = true;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   services.printing.enable = true;
   services.flatpak.enable = true;

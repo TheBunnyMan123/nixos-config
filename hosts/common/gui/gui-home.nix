@@ -346,6 +346,7 @@
           windowrulev2 = [
             "suppressevent maximize, class:.*"
             "float, class:(netman)"
+            "float, initialTitle:Picture-in-Picture"
           ];
 
           env = [

@@ -58,6 +58,7 @@
           imagemagick
           gpp
           libsForQt5.qtstyleplugin-kvantum
+          qt6Packages.qtstyleplugin-kvantum
           fok-quote.packages.${pkgs.system}.default
         ];
 
@@ -81,10 +82,13 @@
             };
           };
 
-          qt.style.catppuccin = {
-            flavor = "macchiato";
-            accent = "blue";
-            enable = true;
+          qt.style = {
+            name = "kvantum";
+            catppuccin = {
+              flavor = "macchiato";
+              accent = "blue";
+              enable = true;
+            };
           };
 
           programs.kitty = {

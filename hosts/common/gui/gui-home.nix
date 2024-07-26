@@ -284,6 +284,8 @@
             gaps_in = 5;
             gaps_out = 20;
             border_size = 2;
+            "col.inactive_border" = "$crust";
+            "col.active_border" = "$mauve";
             resize_on_border = false;
             allow_tearing = false;
             layout = "dwindle";
@@ -357,6 +359,7 @@
             "$mod, F, exec, firefox-developer-edition"
             "$mod, Q, exec, kitty"
             "$mod, C, killactive,"
+            "$mod SHIFT, C, exit,"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, wofi --show drun"

@@ -9,6 +9,8 @@
     ./gui-home.nix
   ];
 
+  security.pam.services.hyprlock = {};
+
   fonts = {
     enableDefaultPackages = true;
     fontDir.enable = true;

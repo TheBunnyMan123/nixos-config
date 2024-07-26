@@ -13,6 +13,10 @@
     swaynotificationcenter
     grim
     slurp
+    clipse
+    wl-clipboard
+    hypridle
+    hyprlock
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

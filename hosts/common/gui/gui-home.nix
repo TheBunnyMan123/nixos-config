@@ -20,6 +20,27 @@
         };
       };
 
+      services = {
+        hypridle = {
+          enable = true;
+          settings = {
+            general = {
+              after_sleep_cmd = "hyprctl dispatch dpms on";
+              ignore_dbus_inhibit = false;
+              lock_cmd = "hyprlock";
+            };
+
+            listener = [
+              {
+                timeout = 1200; # 20 minutes. Turns off screen
+                on-timeout = "hyprctl dispatch dpms off";
+                on-resume = "hyprctl dispatch dpms on";
+              }
+            ];
+          };
+        };
+      };
+
       programs.waybar = {
         enable = true;
         catppuccin = {
@@ -33,7 +54,7 @@
             height = 43;
 
             modules-left = ["hyprland/workspaces"];
-            modules-center = ["clock" "pulseaudio" "battery"];
+            modules-center = ["clock" "pulseaudio" "custom/clipboard" "custom/poweroff"]; 
             modules-right = ["network" "bluetooth" "cpu" "memory" "disk" "battery" "tray"];
 
             "hyprland/workspaces" = {
@@ -41,6 +62,15 @@
               format = "{icon}";
               tooltip-format = "{windows}";
               format-window-separator = " ";
+            };
+            "idle_inhibitor" = {
+              format = "{icon}";
+              tooltip-format-activated = "Inhibiting Idle";
+              tooltip-format-deactivated = "Not Inhibiting Idle";
+              format-icons = {
+                activated = "󰈈";
+                deactivated = "󰈉";
+              };
             };
             "bluetooth" = {
               on-click = "xterm -class netman -e bluetuith";
@@ -96,6 +126,10 @@
               max-volume = 100;
               on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             };
+            "custom/poweroff" = {
+              format = "󰐥";
+              on-click = "shutdown";
+            };
             "tray" = {
               icon-size = 15;
               spacing = 3;
@@ -117,6 +151,10 @@
               max-volume = 100.0;
               reverse-scrolling = 1;
               format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+            };
+            "custom/clipboard" = {
+              format = "󰅍";
+              on-click = "kitty --class netman -e clipse";
             };
           };
         };
@@ -252,12 +290,14 @@
           };
 
           exec-once = [
+            "hypridle"
             "waybar"
             "swaync"
             "[workspace 1 silent] kitty"
             "[workspace 1 silent] keepassxc"
             "[workspace 3 silent] vesktop"
             "[workspace 2 silent] firefox-developer-edition"
+            "clipse -listen"
           ];
 
           decoration = {

@@ -162,6 +162,7 @@
           * {
             color: @text;
             font-family: sans-serif;
+            transition: 0.5s;
           }
 
           window#waybar {
@@ -235,6 +236,12 @@
             background-color: @lavender;
           }
           #workspaces button.active * {
+            color: @base;
+          }
+          #workspaces button:hover {
+            background-color: @text;
+          }
+          #workspaces button:hover * {
             color: @base;
           }
           #workspaces button * {

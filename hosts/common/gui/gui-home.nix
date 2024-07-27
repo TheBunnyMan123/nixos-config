@@ -378,10 +378,10 @@
             "$mod, O, togglesplit,"
 
             # Movement
-            "$mod, H, movefocus, r"
+            "$mod, L, movefocus, r"
             "$mod, J, movefocus, d"
             "$mod, K, movefocus, u"
-            "$mod, L, movefocus, l"
+            "$mod, H, movefocus, l"
             "$mod, right, movefocus, r"
             "$mod, down, movefocus, d"
             "$mod, up, movefocus, u"

@@ -16,6 +16,7 @@
     clipse
     wl-clipboard
     hypridle
+    grimblast
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

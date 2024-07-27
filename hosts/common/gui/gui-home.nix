@@ -363,7 +363,7 @@
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, wofi --show drun"
-            ''$mod, S, exec, grim -g "$(slurp)"''
+            "$mod, S, exec, grimblast --freeze copysave area"
             "$mod, D, fullscreen,"
             
             # Dwindle

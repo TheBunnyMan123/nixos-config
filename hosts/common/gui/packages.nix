@@ -17,6 +17,8 @@
     wl-clipboard
     hypridle
     grimblast
+    nwg-look
+    kdeconnect
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })
@@ -31,6 +33,7 @@
     libsForQt5.qtstyleplugin-kvantum
     easyeffects
 
+    xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk
     xdg-desktop-portal
     flatpak

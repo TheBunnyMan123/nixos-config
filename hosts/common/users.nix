@@ -68,6 +68,7 @@
             sessionVariables = {
               QT_STYLE_OVERRIDE = "kvantum";
               GTK_USE_PORTAL = 1;
+              WLR_NO_HARDWARE_CURSORS = 1;
             };
           };
 
@@ -465,7 +466,7 @@
             };
 
             initExtraFirst = ''
-              if (( $+commands[tmux] ))
+              if [[ "$(tty)" != "/dev/tty2" ]]
               then
                 test -z "$TMUX" && (tmux attach &> /dev/null || tmux new-session)
               fi

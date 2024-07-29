@@ -16,6 +16,11 @@
     settings.experimental-features = ["nix-command" "flakes"];
   };
 
+  qt = {
+    enable = true;
+    style = "kvantum";
+  };
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
@@ -35,6 +40,10 @@
       # SFTP Container
       2222
     ];
+
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
     allowedUDPPorts = [
       # Minecraft
       25565
@@ -42,6 +51,10 @@
       # SyncThing
       22000
       21027
+    ];
+
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
     ];
   };
 

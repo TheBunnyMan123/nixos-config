@@ -19,14 +19,20 @@
   
   home-manager.users.bunny.wayland.windowManager.hyprland.extraConfig = ''
     env = LIBVA_DRIVER_NAME,nvidia
-env = XDG_SESSION_TYPE,wayland
-env = GBM_BACKEND,nvidia-drm
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+    env = XDG_SESSION_TYPE,wayland
+    env = GBM_BACKEND,nvidia-drm
+    env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
-cursor {
-    no_hardware_cursors = true
-}
+    cursor {
+      no_hardware_cursors = true
+    }
   '';
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "bunny";
+  };
 
   system.stateVersion = systemStateVersion;
 }

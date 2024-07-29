@@ -8,15 +8,11 @@
       gtk = {
         enable = true;
         cursorTheme = {
-          name = "catppuccin-macchiato-blue";
+          name = "catppuccin-macchiato-blue-cursors";
           package = pkgs.catppuccin-cursors.macchiatoBlue;
         };
-        gtk2.extraConfig = "gtk-application-prefer-dark-theme=1";
-        gtk3.extraConfig = {
-          gtk-application-prefer-dark-theme=1;
-        };
-        gtk4.extraConfig = {
-          gtk-application-prefer-dark-theme=1;
+        font = {
+          name = "sans-serif";
         };
       };
 
@@ -128,7 +124,7 @@
             };
             "custom/poweroff" = {
               format = "󰐥";
-              on-click = "shutdown";
+              on-click = "shutdown now";
             };
             "tray" = {
               icon-size = 15;
@@ -274,6 +270,13 @@
         '';
       };
 
+      programs.zsh.initExtraFirst = ''
+        if [[ "$(tty)" == "/dev/tty2" ]]
+        then
+          exec Hyprland
+        fi
+      '';
+
       wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -302,6 +305,7 @@
             "hypridle"
             "waybar"
             "swaync"
+            "nwg-look"
             "[workspace 1 silent] kitty"
             "[workspace 1 silent] keepassxc"
             "[workspace 3 silent] vesktop"
@@ -413,7 +417,10 @@
           env = [
             "XCURSOR_SIZE,24"
             "HYPRCURSOR_SIZE,24"
+            "XCURSOR_THEME,catppuccin-macchiato-blue-cursors"
+            "HYPRCURSOR_THEME,catppuccin-macchiato-blue-cursors"
             "MOZ_ENABLE_WAYLAND,1"
+            "WLR_NO_HARDWARE_CURSORS,1"
           ];
 
           cursor = {

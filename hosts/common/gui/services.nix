@@ -13,6 +13,9 @@
     desktopManager = {
       xterm.enable = false;
     };
+    displayManager = {
+      lightdm.enable = false;
+    };
 
     xkb = {
       layout = "us";

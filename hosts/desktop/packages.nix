@@ -9,6 +9,9 @@
     yt-dlp
     ffmpeg
     egl-wayland
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
   ];
 
   programs.adb.enable = true;

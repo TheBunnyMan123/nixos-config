@@ -18,7 +18,6 @@
     hypridle
     grimblast
     nwg-look
-    kdeconnect
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

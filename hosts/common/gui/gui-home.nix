@@ -305,11 +305,10 @@
             "hypridle"
             "waybar"
             "swaync"
-            "nwg-look"
-            "[workspace 1 silent] kitty"
-            "[workspace 1 silent] keepassxc"
-            "[workspace 3 silent] vesktop"
-            "[workspace 2 silent] firefox-developer-edition"
+            "[workspace 1 silent] sleep 5 && kitty"
+            "[workspace 1 silent] sleep 5 && keepassxc"
+            "[workspace 3 silent] sleep 5 && vesktop"
+            "[workspace 2 silent] sleep 5 && firefox-developer-edition"
             "clipse -listen"
           ];
 

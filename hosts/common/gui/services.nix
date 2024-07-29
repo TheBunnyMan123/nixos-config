@@ -8,21 +8,6 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-    };
-    displayManager = {
-      lightdm.enable = false;
-    };
-
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 

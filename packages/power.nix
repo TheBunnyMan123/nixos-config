@@ -27,6 +27,7 @@ stdenv.mkDerivation {
         bashInteractive
         toybox
         dialog
+        systemd
       ])}
   '';
 }

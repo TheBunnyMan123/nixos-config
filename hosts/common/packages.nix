@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     (callPackage ../../packages/icat.nix { })
     (callPackage ../../packages/asciidots.nix { })
+    (callPackage ../../packages/power.nix { })
     coreutils-full
     git
     fastfetch

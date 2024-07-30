@@ -124,7 +124,7 @@
             };
             "custom/poweroff" = {
               format = "󰐥";
-              on-click = "shutdown now";
+              on-click = "xterm -class netman -e power-menu";
             };
             "tray" = {
               icon-size = 15;

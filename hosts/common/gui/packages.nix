@@ -18,6 +18,7 @@
     hypridle
     grimblast
     nwg-look
+    xterm
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

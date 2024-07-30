@@ -92,6 +92,17 @@
             };
           };
 
+          programs.git = {
+            enable = true;
+            userName = "TheBunnyMan123";
+            userEmail = "bunny@thekillerbunny.com";
+          };
+
+          programs.gh = {
+            enable = true;
+            gitCredentialHelper.enable = true;
+          };
+
           programs.kitty = {
             enable = true;
             catppuccin = {

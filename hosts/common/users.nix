@@ -96,6 +96,15 @@
             enable = true;
             userName = "TheBunnyMan123";
             userEmail = "bunny@thekillerbunny.com";
+            includes = [
+              {
+                contents = {
+                  safe = {
+                    directory = "/etc/nixos";
+                  };
+                };
+              }
+            ];
           };
 
           programs.gh = {

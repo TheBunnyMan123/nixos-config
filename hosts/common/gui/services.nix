@@ -31,7 +31,6 @@
     touchpad.middleEmulation = false;
   };
 
-  networking.hostName = "NixOS-Desktop";
   networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
 
   networking.networkmanager.enable = true;

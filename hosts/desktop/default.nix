@@ -16,6 +16,8 @@
     ./hardware-configuration.nix
     ./packages.nix
   ];
+
+  networking.hostName = "NixOS-Desktop";
   
   home-manager.users.bunny.wayland.windowManager.hyprland.extraConfig = ''
     env = LIBVA_DRIVER_NAME,nvidia

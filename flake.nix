@@ -45,6 +45,20 @@
           inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
         };
       };
+      Laptop = lib.nixosSystem {
+        system = "x86_64-linux"; 
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          nur.nixosModules.nur
+          {home-manager.users.bunny.imports = [catppuccin.homeManagerModules.catppuccin];}
+          ./hosts/laptop
+        ];
+
+        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
+        };
+      };
     };
   };
 }

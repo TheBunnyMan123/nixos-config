@@ -3,19 +3,16 @@
   pkgs,
   fok-quote,
   homeStateVersion,
-  catppuccin,
-  nur,
+  inputs,
   home-manager,
   ...
 }:
 {
   home-manager.users.bunny.imports = [
-    catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
   imports = [
-    nur.nixosModules.nur
-
     (
       createUser {
         name = "bunny";
@@ -164,8 +161,8 @@
               mhutchie.git-graph
               jnoortheen.nix-ide
               aaron-bond.better-comments
-              catppuccin.catppuccin-vsc-icons
-              catppuccin.catppuccin-vsc
+              pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
+              pkgs.vscode-extensions.catppuccin.catppuccin-vsc
             ];
 
             userSettings = {

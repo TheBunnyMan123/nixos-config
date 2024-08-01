@@ -3,17 +3,18 @@
   pkgs,
   fok-quote,
   homeStateVersion,
-  inputs,
+  catppuccin,
+  nur,
   home-manager,
   ...
 }:
 {
   home-manager.users.bunny.imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    catppuccin.homeManagerModules.catppuccin
   ];
 
   imports = [
-    inputs.nur.nixosModules.nur
+    nur.nixosModules.nur
 
     (
       createUser {

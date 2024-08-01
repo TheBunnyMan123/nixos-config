@@ -48,8 +48,6 @@
         modules = [
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
-          nur.nixosModules.nur
-          {home-manager.users.bunny.imports = [catppuccin.homeManagerModules.catppuccin];}
           ./hosts/laptop
         ];
 

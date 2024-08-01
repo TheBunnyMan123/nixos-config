@@ -27,7 +27,7 @@
     createUser = import ./createUser.nix;
 
     nixosModules = {
-      bunny-sshworthy = import ./bunny-sshworthy.nix;
+      bunny = import ./bunny.nix;
     };
 
     nixosConfigurations = {  

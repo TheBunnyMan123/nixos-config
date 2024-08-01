@@ -24,6 +24,7 @@
     docker
     kanata
     bluetuith
+    nodePackages.wrangler
   ];
 
   programs.gnupg = {

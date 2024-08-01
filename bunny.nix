@@ -472,12 +472,14 @@
             };
 
             initExtraFirst = ''
-              if (( ! $+commands[Hyprland] ))
+              if (( $+commands[Hyprland] ))
               then
                 if [[ "$(tty)" != "/dev/tty1" ]]
                 then
                   test -z "$TMUX" && (tmux attach &> /dev/null || tmux new-session)
                 fi
+              else
+                test -z "$TMUX" && (tmux attach &> /dev/null || tmux new-session)
               fi
             '';
             initExtra = ''

@@ -271,7 +271,7 @@
       };
 
       programs.zsh.initExtraFirst = ''
-        if [[ "$(tty)" == "/dev/tty2" ]]
+        if [[ "$(tty)" == "/dev/tty1" ]]
         then
           exec Hyprland
         fi

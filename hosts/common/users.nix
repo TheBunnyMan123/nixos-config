@@ -1,9 +1,7 @@
 {
-  config,
   pkgs,
-  inputs,
+  outputs,
   createUser,
-  fok-quote,
   homeStateVersion,
   ...
 }: {
@@ -29,7 +27,7 @@
       }
     )
 
-    ../../bunny.nix
+    outputs.nixosModules.bunny
   ];
 
   environment.pathsToLink = [ "/share/zsh" ];

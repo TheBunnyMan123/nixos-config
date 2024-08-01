@@ -3,14 +3,22 @@
   pkgs,
   fok-quote,
   homeStateVersion,
+  inputs,
+  home-manager,
   ...
 }:
 {
+  home-manager.users.bunny.imports = [
+    inputs.catppuccin.homeManagerModules.catppuccin
+  ];
+
   imports = [
+    inputs.nur.nixosModules.nur
+
     (
       createUser {
         name = "bunny";
-        hashedPassword = "$y$j9T$yk.0wI1bKFcSByKp3QYxFSdjqnJygu4ut6NyY5bfIsBDPSoSrIoNATs9vVD29B";
+        hashedPassword = "$y$j9T$E4hYDO/sYjg3hYSTroc5W0$oTFU06Ubm0evVrs/rDlpxQF.RQe8bcBPwPsWxpSe8yC";
         shell = pkgs.zsh;
         canSudo = true;
         groups = ["networkmanager" "libvirtd" "docker" "adbusers"];
@@ -40,7 +48,7 @@
           libsForQt5.qtstyleplugin-kvantum
           qt6Packages.qtstyleplugin-kvantum
           fok-quote.packages.${pkgs.system}.default
-  ];
+        ];
 
         extraHomeConfig = {
           home = {

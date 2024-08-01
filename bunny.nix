@@ -472,7 +472,7 @@
             };
 
             initExtraFirst = ''
-              if (( $+commands[Hyprland] ))
+              if (( ! $+commands[Hyprland] ))
               then
                 if [[ "$(tty)" != "/dev/tty1" ]]
                 then

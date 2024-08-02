@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
@@ -9,6 +8,7 @@
     (callPackage ../../packages/icat.nix { })
     (callPackage ../../packages/asciidots.nix { })
     (callPackage ../../packages/power.nix { })
+    (callPackage ../../packages/nixos.nix { })
     coreutils-full
     git
     fastfetch

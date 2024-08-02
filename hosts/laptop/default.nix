@@ -14,6 +14,12 @@
     ./packages.nix
   ];
 
+  home-manager.users.bunny.wayland.windowManager.hyprland.settings = {
+    monitor = [
+      "eDP-1,1920x1200@60.00Hz,0x0,1"
+    ];
+  };
+
   services.fwupd.enable = true;
   networking.hostName = "NixOS-Laptop";
   

@@ -373,7 +373,7 @@
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, wofi --show drun"
-            "$mod, S, exec, grimblast --freeze copysave area"
+            ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"screenshot %m-%d-%y-%H-%M-%S.png")"' ''
             "$mod, D, fullscreen,"
             
             # Dwindle

@@ -21,3 +21,6 @@ alias espeak="espeak -a 200 -g 0 -k 16 -p 46"
 alias espeak-ng="espeak-ng -a 200 -g 0 -k 16 -p 46"
 
 alias start="./start.sh"
+
+alias yt-dlp="yt-dlp --download-archive ./yt-dlp-archive -o \"%(playlist_index)s - %(title)s [%(id)s].%(ext)s\" --merge-output-format mkv --write-description --embed-chapters --sub-lang en --embed-subs --embed-metadata --embed-info-json"
+

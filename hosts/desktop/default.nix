@@ -19,16 +19,23 @@
 
   networking.hostName = "NixOS-Desktop";
   
-  home-manager.users.bunny.wayland.windowManager.hyprland.extraConfig = ''
-    env = LIBVA_DRIVER_NAME,nvidia
-    env = XDG_SESSION_TYPE,wayland
-    env = GBM_BACKEND,nvidia-drm
-    env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+  home-manager.users.bunny.wayland.windowManager.hyprland = {
+    extraConfig = ''
+      env = LIBVA_DRIVER_NAME,nvidia
+      env = XDG_SESSION_TYPE,wayland
+      env = GBM_BACKEND,nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
-    cursor {
-      no_hardware_cursors = true
-    }
-  '';
+      cursor {
+        no_hardware_cursors = true
+      }
+    '';
+    settings = {
+      monitor = [
+        "DP-1,1920x1080@143.86Hz,0x0,1"
+      ];
+    };
+  };
 
   services.jellyfin = {
     enable = true;

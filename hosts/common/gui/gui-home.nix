@@ -298,7 +298,7 @@
             "col.active_border" = "$mauve";
             resize_on_border = false;
             allow_tearing = false;
-            layout = "dwindle";
+            layout = "master";
           };
 
           exec-once = [
@@ -331,9 +331,8 @@
             };
           };
 
-          dwindle = {
-            pseudotile = true;
-            preserve_split = true;
+          master = {
+            #
           };
 
           input = {
@@ -365,7 +364,7 @@
             # Volume
             ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
             ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-
+            "bind=$mod, N, layoutmsg, swapwithmaster master"
             "$mod, F, exec, firefox-developer-edition"
             "$mod, Q, exec, kitty"
             "$mod, C, killactive,"
@@ -410,6 +409,7 @@
           windowrulev2 = [
             "suppressevent maximize, class:.*"
             "float, class:(netman)"
+            "workspace 3, class:(vesktop)"
             "float, initialTitle:Picture-in-Picture"
             "size 544 306, initialTitle:Picture-in-Picture"
             "move 1350 80, initialTitle:Picture-in-Picture"

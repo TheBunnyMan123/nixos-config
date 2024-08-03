@@ -373,7 +373,7 @@
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, wofi --show drun"
-            ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"screenshot %m-%d-%y-%H-%M-%S.png")"' ''
+            ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"$HOME/Pictures/scrn-%m-%d-%y-%H-%M-%S.png")"' ''
             "$mod, D, fullscreen,"
             
             # Movement

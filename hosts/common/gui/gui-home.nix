@@ -306,7 +306,8 @@
             "waybar"
             "swaync"
             "[workspace 1 silent] sleep 5 && kitty"
-            "[workspace 1 silent] sleep 5 && keepassxc"
+            "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
+            "[workspace 2 silent] sleep 7 && keepassxc"
             "[workspace 3 silent] sleep 5 && vesktop"
             "[workspace 2 silent] sleep 5 && firefox-developer-edition"
             "clipse -listen"
@@ -375,10 +376,6 @@
             ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"screenshot %m-%d-%y-%H-%M-%S.png")"' ''
             "$mod, D, fullscreen,"
             
-            # Dwindle
-            "$mod, P, pseudo,"
-            "$mod, O, togglesplit,"
-
             # Movement
             "$mod, L, movefocus, r"
             "$mod, J, movefocus, d"

@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
     flameshot
-    wofi
+    rofi-wayland
     waybar
     swaynotificationcenter
     grim

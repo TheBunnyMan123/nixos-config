@@ -37,6 +37,29 @@
         };
       };
 
+      programs.rofi = {
+        enable = true;
+        package = pkgs.rofi-wayland;
+        catppuccin = {
+          enable = true;
+          flavor = "macchiato";
+        };
+        extraConfig = {
+            modi = "run,drun,window";
+            icon-theme = "Oranchelo";
+            show-icons = true;
+            terminal = "kitty";
+            drun-display-format = "{icon} {name}";
+            location = 0;
+            disable-history = false;
+            hide-scrollbar = true;
+            display-drun = "   Apps ";
+            display-run = "   Run ";
+            display-window = " 󰕰  Window";
+            sidebar-mode = true;
+        };
+      };
+
       programs.waybar = {
         enable = true;
         catppuccin = {
@@ -372,7 +395,7 @@
             "$mod SHIFT, C, exit,"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
-            "$mod, R, exec, wofi --show drun"
+            "$mod, R, exec, rofi -show drun"
             ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"$HOME/Pictures/scrn-%m-%d-%y-%H-%M-%S.png")"' ''
             "$mod, D, fullscreen,"
             

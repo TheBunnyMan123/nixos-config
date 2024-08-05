@@ -8,8 +8,8 @@
       gtk = {
         enable = true;
         cursorTheme = {
-          name = "catppuccin-macchiato-blue-cursors";
-          package = pkgs.catppuccin-cursors.macchiatoBlue;
+          name = "catppuccin-mocha-blue-cursors";
+          package = pkgs.catppuccin-cursors.mochaMauve;
         };
         font = {
           name = "sans-serif";
@@ -42,7 +42,7 @@
         package = pkgs.rofi-wayland;
         catppuccin = {
           enable = true;
-          flavor = "macchiato";
+          flavor = "mocha";
         };
         extraConfig = {
             modi = "run,drun,window";
@@ -64,7 +64,7 @@
         enable = true;
         catppuccin = {
           enable = true;
-          flavor = "macchiato";
+          flavor = "mocha";
         };
         settings = {
           mainBar = {
@@ -307,11 +307,15 @@
         systemd.variables = ["--all"];
         catppuccin = {
           enable = true;
-          flavor = "macchiato";
-          accent = "blue";
+          flavor = "mocha";
+          accent = "mauve";
         };
         settings = {
           "$mod" = "SUPER";
+
+          misc = {
+            force_default_wallpaper = 2;
+          };
 
           general = {
             gaps_in = 5;
@@ -438,8 +442,8 @@
           env = [
             "XCURSOR_SIZE,24"
             "HYPRCURSOR_SIZE,24"
-            "XCURSOR_THEME,catppuccin-macchiato-blue-cursors"
-            "HYPRCURSOR_THEME,catppuccin-macchiato-blue-cursors"
+            "XCURSOR_THEME,catppuccin-mocha-blue-cursors"
+            "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors"
             "MOZ_ENABLE_WAYLAND,1"
             "WLR_NO_HARDWARE_CURSORS,1"
           ];

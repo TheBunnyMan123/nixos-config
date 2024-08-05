@@ -59,12 +59,12 @@
           };
 
           catppuccin = {
-            flavor = "macchiato";
-            accent = "blue";
+            flavor = "mocha";
+            accent = "mauve";
             enable = true;
             pointerCursor = {
-              flavor = "macchiato";
-              accent = "blue";
+              flavor = "mocha";
+              accent = "mauve";
               enable = true;
             };
           };
@@ -72,8 +72,8 @@
           qt.style = {
             name = "kvantum";
             catppuccin = {
-              flavor = "macchiato";
-              accent = "blue";
+              flavor = "mocha";
+              accent = "mauve";
               enable = true;
             };
           };
@@ -101,7 +101,7 @@
           programs.kitty = {
             enable = true;
             catppuccin = {
-              flavor = "macchiato";
+              flavor = "mocha";
               enable = true;
             };
             font = {
@@ -119,7 +119,7 @@
             enableZshIntegration = true;
             catppuccin = {
               enable = true;
-              flavor = "macchiato";
+              flavor = "mocha";
             };
           };
 
@@ -167,7 +167,7 @@
 
             userSettings = {
               "workbench.colorTheme" = "Catppuccin Macchiato";
-              "workbench.iconTheme" = "catppuccin-macchiato";
+              "workbench.iconTheme" = "catppuccin-mocha";
             };
           };
 
@@ -193,7 +193,7 @@
           programs.bat = {
             enable = true;
             catppuccin = {
-              flavor = "macchiato";
+              flavor = "mocha";
               enable = true;
             };
           };
@@ -201,7 +201,7 @@
           programs.btop = {
             enable = true;
             catppuccin = {
-              flavor = "macchiato";
+              flavor = "mocha";
               enable = true;
             };
           };
@@ -418,7 +418,7 @@
             '';
  
             catppuccin = {
-              flavor = "macchiato";
+              flavor = "mocha";
               enable = true;
             };
           };
@@ -448,7 +448,7 @@
             ];
 
             catppuccin = {
-              flavor = "macchiato";
+              flavor = "mocha";
               enable = true;
             };
           };
@@ -500,7 +500,7 @@
             syntaxHighlighting = {
               enable = true;
               catppuccin = {
-                flavor = "macchiato";
+                flavor = "mocha";
                 enable = true;
               };
             };

@@ -27,7 +27,6 @@
     gimp
     obs-studio
     vlc
-    vesktop
     libsForQt5.qtstyleplugin-kvantum
     easyeffects
 

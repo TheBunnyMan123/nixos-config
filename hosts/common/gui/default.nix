@@ -9,6 +9,16 @@
     ./gui-home.nix
   ];
 
+  fileSystems."/home/bunny/.config/vesktop/settings" = {
+    device = "/home/bunny/.config/Vencord/settings";
+    options = [ "bind" ];
+  };
+
+  fileSystems."/home/bunny/.config/vesktop/themes" = {
+    device = "/home/bunny/.config/Vencord/themes";
+    options = [ "bind" ];
+  };
+
   security.pam.services.hyprlock = {};
 
   fonts = {

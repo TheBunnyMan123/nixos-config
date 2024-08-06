@@ -28,6 +28,7 @@
 
     nixosModules = {
       bunny = import ./bunny.nix;
+      vencord = import ./modules/vencord.nix;
     };
 
     nixosConfigurations = {  

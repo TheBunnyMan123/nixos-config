@@ -4,12 +4,13 @@
   fok-quote,
   homeStateVersion,
   inputs,
-  home-manager,
+  outputs,
   ...
 }:
 {
   home-manager.users.bunny.imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
+    outputs.nixosModules.vencord
   ];
 
   imports = [
@@ -55,6 +56,146 @@
               QT_STYLE_OVERRIDE = "kvantum";
               GTK_USE_PORTAL = 1;
               WLR_NO_HARDWARE_CURSORS = 1;
+            };
+          };
+
+          nixpkgs.config.allowUnfree = true;
+
+          programs.vencord = {
+            enable = true;
+            package = pkgs.vencord;
+            themes = {
+              catppuccin = pkgs.fetchurl {
+                url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
+                hash = "sha256-VzMa52efUJKyEQcn3GcFG9vR6JaXhouH+OBcIS987fg=";
+              };
+            };
+            plugins = {
+              AutomodContext.enabled = true;
+              BetterRoleContext.enabled = true;
+              CopyEmojiMarkdown = {
+                enabled = true;
+                copyUnicode = true;
+              };
+              CopyUserURLs.enabled = true;
+              Dearrow = {
+                enabled = true;
+                hideButton = false;
+                replaceElements = 0;
+              };
+              ForceOwnerCrown.enabled = true;
+              FriendsSince.enabled = true;
+              MessageLoggerEnhanced.enabled = true;
+              ImplicitRelationships.enabled = true;
+              KeepCurrentChannel.enabled = true;
+              MessageLinkEmbeds = {
+                enabled = true;
+                listMode = "blacklist";
+                idList = "";
+                automodEmbeds = "never";
+              };
+              MoreUserTags = {
+                enabled = true;
+                tagSettings = {
+                  WEBHOOK = {
+                    text = "WebHook";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  OWNER = {
+                    text = "Owner";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  ADMINISTRATOR = {
+                    text = "Admin";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  MODERATOR_STAFF = {
+                    text = "Staff";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  MODERATOR = {
+                    text = "Mod";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  VOICE_MODERATOR = {
+                    text = "VC Mod";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                  CHAT_MODERATOR = {
+                    text = "Chat Mod";
+                    showInChat = true;
+                    showInNotChat = true;
+                  };
+                };
+              };
+              MutualGroupDMs.enabled = true;
+              NoOnboardingDelay.enabled = true;
+              NormalizeMessageLinks.enabled = true;
+              PartyMode = {
+                enabled = true;
+                superIntensePartyMode = 1;
+              };
+              PictureInPicture.enabled = true;
+              PlatformIndicators = {
+                enabled = true;
+                colorMobileIndicator = true;
+                list = true;
+                badges = true;
+                messages = true;
+              };
+              RelationshipNotifier.enabled = true;
+              Summaries = {
+                enabled = true;
+                summaryExpiryThresholdDays = 3;
+              };
+              ShowHiddenThings = {
+                enabled = true;
+                showTimeouts = true;
+                showInvitesPaused = true;
+                showModView = true;
+                disableDiscoveryFilters = true;
+                disableDisallowedDiscoveryFilters = true;
+              };
+              SilentTyping = {
+                enabled = true;
+                showIcon = true;
+                contextMenu = true;
+                isEnabled = true;
+              };
+              TypingTweaks = {
+                enabled = true;
+                alternativeFormatting = true;
+                showRoleColors = true;
+                showAvatars = true;
+              };
+              ValidReply.enabled = true;
+              ValidUser.enabled = true;
+              ViewRaw.enabled = true;
+              VoiceDownload.enabled = true;
+              NoTrack = {
+                enabled = true;
+                disableAnalytics = true;
+              };
+              Settings = {
+                enabled = true;
+                settingsLocation = "abboveNitro";
+              };
+              FixSpotifyEmbeds = true;
+              FixYoutubeEmbeds = true;
+              YoutubeAdBlock = {
+                enabled = true;
+              };
+              NewPluginsManager.enabled = true;
+            };
+            userPlugins = {
+              NewPluginsManager = "github:sqaaakoi/vc-newpluginsmanager/6f6fa79ea1dabaebf3c176eb1e61a4a80c6d9f97";
+              MessageLoggerEnhanced = "github:syncxv/vc-message-logger-enhanced/3fb2fe04b8e38813290309836983309a83ffe00c";
             };
           };
 

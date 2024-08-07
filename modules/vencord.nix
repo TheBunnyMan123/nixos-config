@@ -108,8 +108,18 @@ in {
       }) vencord.themes);
     programs.vencord.postPatch = lib.concatLines (lib.optional (vencord.userPlugins != {}) "mkdir -p src/userplugins" ++ lib.mapAttrsToList (name: path: "cp ${lib.escapeShellArg path} src/userplugins/${lib.escapeShellArg name} -r") vencord.userPlugins);
     home.packages =
-      lib.optional vencord.enable (pkgs.discord.override {withVencord = true; vencord = applyPostPatch vencord.package;})
+      lib.optional vencord.enable (applyPostPatch vencord.package)
       ++ lib.optional vesktop.enable (applyPostPatch vesktop.package);
+    home.file.vencordLink = lib.mkIf vesktop.enable {
+      enable = vencord.enable;
+      source = "${applyPostPatch vencord.package}";
+      target = ".config/vesktop/vencordDist";
+    };
+    home.file.vencordLink2 = lib.mkIf vesktop.enable {
+      enable = vencord.enable;
+      source = "${applyPostPatch vencord.package}";
+      target = ".config/vesktop/sessionData/vencordFiles";
+    };
   }; 
 }
 

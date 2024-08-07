@@ -436,7 +436,7 @@
             "workspace 3, class:(vesktop)"
             "float, initialTitle:Picture-in-Picture"
             "size 544 306, initialTitle:Picture-in-Picture"
-            "move 1350 80, initialTitle:Picture-in-Picture"
+            "move 1340 80, initialTitle:Picture-in-Picture"
           ];
 
           env = [

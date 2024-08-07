@@ -191,6 +191,7 @@
               YoutubeAdblock.enabled = true;
               WatchTogetherAdblock.enabled = true;
               NewPluginsManager.enabled = true;
+              NoProfileThemes.enabled = true;
             };
             userPlugins = {
               NewPluginsManager = "github:sqaaakoi/vc-newpluginsmanager/6f6fa79ea1dabaebf3c176eb1e61a4a80c6d9f97";

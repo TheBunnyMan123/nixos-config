@@ -184,13 +184,12 @@
               };
               Settings = {
                 enabled = true;
-                settingsLocation = "abboveNitro";
+                settingsLocation = "aboveNitro";
               };
-              FixSpotifyEmbeds = true;
-              FixYoutubeEmbeds = true;
-              YoutubeAdBlock = {
-                enabled = true;
-              };
+              FixSpotifyEmbeds.enabled = true;
+              FixYoutubeEmbeds.enabled = true;
+              YoutubeAdblock.enabled = true;
+              WatchTogetherAdblock.enabled = true;
               NewPluginsManager.enabled = true;
             };
             userPlugins = {

@@ -69,6 +69,10 @@
                 url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
                 hash = "sha256-VzMa52efUJKyEQcn3GcFG9vR6JaXhouH+OBcIS987fg=";
               };
+              squarecorners = pkgs.fetchurl {
+                url = "https://gist.githubusercontent.com/TheBunnyMan123/6315b2b6db6096ae8485736b4ebbceff/raw/squarecorners.theme.css";
+                hash = "sha256-ZL1QFWmdT0903YdAlaEEhmAvOJDfh59Fl+C/KiDWnpM=";
+              };
             };
             plugins = {
               AutomodContext.enabled = true;

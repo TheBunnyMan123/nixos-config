@@ -16,7 +16,8 @@
 
   home-manager.users.bunny.wayland.windowManager.hyprland.settings = {
     monitor = [
-      "eDP-1,1920x1200@60.00Hz,0x0,1"
+      "eDP-1,2256x1504@60.00Hz,0x0,1.33333"
+      #"eDP-1,1920x1200@60.00Hz,0x0,1"
     ];
   };
 

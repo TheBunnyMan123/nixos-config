@@ -67,7 +67,7 @@
             themes = {
               catppuccin = pkgs.fetchurl {
                 url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
-                hash = "sha256-VzMa52efUJKyEQcn3GcFG9vR6JaXhouH+OBcIS987fg=";
+                hash = "sha256-OaQofvUCGD50/LPu7tf3zZ9/GEktGCoeZ3J4ujtCcTE=";
               };
               squarecorners = pkgs.fetchurl {
                 url = "https://gist.githubusercontent.com/TheBunnyMan123/6315b2b6db6096ae8485736b4ebbceff/raw/squarecorners.theme.css";

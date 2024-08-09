@@ -165,8 +165,8 @@
                 critical = 15;
               };
               format = "{icon} {capacity}%";
-              format-charging = "󰂄";
-              format-alt = "{icon}";
+              format-charging = "󰂄 {capacity}%";
+              format-alt = "{icon} {capacity}%";
               max-volume = 100.0;
               reverse-scrolling = 1;
               format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];

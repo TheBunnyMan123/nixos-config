@@ -9,7 +9,7 @@
         enable = true;
         settings = {
           exec-once = [
-            "steam -silent"
+            "sleep 5 && steam -silent"
           ];
         };
       };

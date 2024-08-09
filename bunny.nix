@@ -71,7 +71,7 @@
               };
               squarecorners = pkgs.fetchurl {
                 url = "https://gist.githubusercontent.com/TheBunnyMan123/6315b2b6db6096ae8485736b4ebbceff/raw/squarecorners.theme.css";
-                hash = "sha256-ZL1QFWmdT0903YdAlaEEhmAvOJDfh59Fl+C/KiDWnpM=";
+                hash = "sha256-sLAwWkv/7osL3oubsYldqivzFPPJMFkZCvAenv6oC1s=";
               };
             };
             plugins = {
@@ -196,6 +196,19 @@
               WatchTogetherAdblock.enabled = true;
               NewPluginsManager.enabled = true;
               NoProfileThemes.enabled = true;
+              ColorSighted.enabled = true;
+              BetterFolders = {
+                enabled = true;
+                sidebar = true;
+                sidebarAnim = true;
+                closeAllFolders = true;
+                closeAllHomeButton = true;
+                closeOthers = true;
+                forceOpen = true;
+                keepIcons = true;
+                showFolderIcon = 1;
+              };
+              PlainFolderIcon.enabled = true;
             };
             userPlugins = {
               NewPluginsManager = "github:sqaaakoi/vc-newpluginsmanager/6f6fa79ea1dabaebf3c176eb1e61a4a80c6d9f97";

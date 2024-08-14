@@ -74,7 +74,7 @@
 
             modules-left = ["hyprland/workspaces"];
             modules-center = ["clock" "pulseaudio" "custom/clipboard" "custom/poweroff"]; 
-            modules-right = ["network" "bluetooth" "cpu" "memory" "disk" "battery" "tray"];
+            modules-right = ["network" "bluetooth" "cpu" "memory" "disk" "idle_inhibitor" "battery" "tray"];
 
             "hyprland/workspaces" = {
               active-only = false;
@@ -87,8 +87,8 @@
               tooltip-format-activated = "Inhibiting Idle";
               tooltip-format-deactivated = "Not Inhibiting Idle";
               format-icons = {
-                activated = "󰈈";
-                deactivated = "󰈉";
+                activated = "󰖨";
+                deactivated = "󰢠";
               };
             };
             "bluetooth" = {
@@ -235,7 +235,7 @@
           #disk {
             color: @blue;
           }
-          #battery {
+          #idle_inhibitor {
             color: @mauve;
           }
 

@@ -17,6 +17,7 @@
     grimblast
     nwg-look
     xterm
+    caffeine-ng
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

@@ -141,10 +141,6 @@
               MutualGroupDMs.enabled = true;
               NoOnboardingDelay.enabled = true;
               NormalizeMessageLinks.enabled = true;
-              PartyMode = {
-                enabled = true;
-                superIntensePartyMode = 1;
-              };
               PictureInPicture.enabled = true;
               PlatformIndicators = {
                 enabled = true;
@@ -375,10 +371,11 @@
             extraPackages = with pkgs; [
               # Language Servers
               jdt-language-server # Java
-              vscode-langservers-extracted # HTML/SS/JSON/ESLint
+              vscode-langservers-extracted # HTML/CSS/JSON/ESLint
               nixd # Nix
               lua-language-server # Lua
               bash-language-server # Bash
+              omnisharp-roslyn # C#
               # C/C++
               bear
               ccls
@@ -536,7 +533,24 @@
                 '';
                 type = "lua";
               }
+              {
+                plugin = omnisharp-extended-lsp-nvim;
+                config = ''
+                  local config = {
+                    handlers = {
+                      ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                      ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+                      ["textDocument/references"] = require('omnisharp_extended').references_handler,
+                      ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
+                    },
 
+                    cmd = { "${pkgs.omnisharp-roslyn}/bin/OmniSharp" }
+                  }
+
+                  require'lspconfig'.omnisharp.setup(config)
+                '';
+                type = "lua";
+              }
               {
                 plugin = nvim-tree-lua;
                 config = ''

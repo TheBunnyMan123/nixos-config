@@ -7,6 +7,8 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+    extraUpFlags = [ "--ssh" "--advertise-exit-node" "--accept-dns=false" ];
+    authKeyFile = "/run/secrets/tailscale_key";
 
     openFirewall = true;
   };

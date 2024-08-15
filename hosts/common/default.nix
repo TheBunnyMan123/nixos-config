@@ -23,34 +23,112 @@
     style = "kvantum";
   };
 
-  networking.firewall = {
+  services.resolved = {
+    enable = false;
+  };
+  services.adguardhome = {
     enable = true;
-    allowedTCPPorts = [
-      # ssh
-      22
+    settings = {
+      http = {
+        address = "127.0.0.1:80";
+      };
+      auth_attempts = 3;
+      dns = {
+        bind_hosts = [
+          "127.0.0.1"
+          "::1"
+        ];
+
+        upstream_dns = ["1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
+        bootstrap_dns = ["1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
+      };
+      filtering = {
+        rewrites = [
+          {
+            domain = "adguard.int.tkbunny.net";
+            answer = "127.0.0.1";
+          }
+        ];
+      };
+      filters = [
+        {
+          enabled = true;
+          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt";
+        }
+        {
+          enabled = true;
+          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt";
+        }
+        {
+          enabled = true;
+          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_10.txt";
+        }
+        {
+          enabled = true;
+          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt";
+        }
+        {
+          enabled = true;
+          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_12.txt";
+        }
+      ];
+    };
+    mutableSettings = false;
+  };
+
+  networking = {
+    wireless = {
+      enable = true;
+      networks = {
+        "Nacho WiFi" = {
+          pskRaw = "68ab5f9da6b1f9483e4ab7cd0bfc56359d733ef32d735a9b11140aac9985e327";
+        };
+      };
+    };
+
+    nameservers = ["127.0.0.1"];
+    search = ["kamori-ghoul.ts.net" "int.tkbunny.net"];
+
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ve-+" ];
+      externalInterface = "wlp4s0";
+      enableIPv6 = true;
+    };
+
+    hosts = {
+      # "127.0.0.2" = [ "pihole.int.tkbunny.net" ];
+    };
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        # ssh
+        22
       
-      # http(s)
-      80
-      443
+        # http(s)
+        80
+        443
 
-      # Minecraft
-      25565
+        # Minecraft
+        25565
 
-      # SyncThing
-      22000
+        # SyncThing
+        22000
 
-      # SFTP Container
-      2222
-    ];
+        # SFTP Container
+        2222
+      ];
 
-    allowedUDPPorts = [
-      # Minecraft
-      25565
+      allowedUDPPorts = [
+        # Minecraft
+        25565
 
-      # SyncThing
-      22000
-      21027
-    ];
+        # SyncThing
+        22000
+        21027
+      ];
+    };
   };
 
 

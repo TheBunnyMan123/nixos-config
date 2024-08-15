@@ -25,6 +25,7 @@
     kanata
     bluetuith
     nodePackages.wrangler
+    adguardhome
   ];
 
   programs.gnupg = {

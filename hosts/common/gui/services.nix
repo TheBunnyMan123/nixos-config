@@ -31,9 +31,7 @@
     touchpad.middleEmulation = false;
   };
 
-  networking.wireless.enable = false; # Enables wireless support via wpa_supplicant.
-
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
 
   # Disable wait online as it's causing trouble at rebuild
   # See: https://github.com/NixOS/nixpkgs/issues/180175

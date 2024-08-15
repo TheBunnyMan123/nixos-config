@@ -26,6 +26,7 @@
     bluetuith
     nodePackages.wrangler
     adguardhome
+    nginx
   ];
 
   programs.gnupg = {

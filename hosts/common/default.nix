@@ -30,8 +30,9 @@
     enable = true;
     settings = {
       http = {
-        address = "127.0.0.1:80";
+        address = "127.0.0.1:3000";
       };
+      http_proxy = "127.0.0.1:80";
       auth_attempts = 3;
       dns = {
         bind_hosts = [
@@ -46,7 +47,7 @@
         rewrites = [
           {
             domain = "adguard.int.tkbunny.net";
-            answer = "127.0.0.1";
+            answer = "127.0.0.9";
           }
         ];
       };
@@ -76,6 +77,29 @@
     mutableSettings = false;
   };
 
+  boot.kernel.sysctl = { "vm.swappiness" = 5; };
+
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    virtualHosts."adguard.int.tkbunny.net" = {
+      listen = [
+        {
+          addr = "127.0.0.9";
+          port = 80;
+        }
+      ];
+
+      locations."/" = {
+        proxyPass = "http://127.0.0.2:3000";
+        extraConfig = ''
+          proxy_pass_header Authorization;
+        '';
+      };
+    };
+  };
+
   networking = {
     wireless = {
       enable = true;
@@ -96,9 +120,9 @@
       enableIPv6 = true;
     };
 
-    hosts = {
-      # "127.0.0.2" = [ "pihole.int.tkbunny.net" ];
-    };
+#    extraHosts = ''
+#      127.0.0.2:3000 adguard.int.tkbunny.net
+#    '';
 
     firewall = {
       enable = true;

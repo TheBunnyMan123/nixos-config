@@ -3,6 +3,12 @@
   inputs,
   ...
 }: {
+  users.users.bunny.packages = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
+    prismlauncher
+    imagemagick
+  ];
   home-manager.users = {
     bunny = {
       programs.vscode = {

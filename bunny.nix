@@ -40,13 +40,10 @@
           w3m
           jdk21
           espeak-ng
-          prismlauncher
           gcc
-          imagemagick
           gpp
-          libsForQt5.qtstyleplugin-kvantum
-          qt6Packages.qtstyleplugin-kvantum
           fok-quote.packages.${pkgs.system}.default
+          codeberg-cli
         ];
 
         extraHomeConfig = {

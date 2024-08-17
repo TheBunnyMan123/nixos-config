@@ -23,82 +23,7 @@
     style = "kvantum";
   };
 
-  services.resolved = {
-    enable = false;
-  };
-  services.adguardhome = {
-    enable = true;
-    settings = {
-      http = {
-        address = "127.0.0.1:3000";
-      };
-      http_proxy = "127.0.0.1:80";
-      auth_attempts = 3;
-      dns = {
-        bind_hosts = [
-          "127.0.0.1"
-          "::1"
-        ];
-
-        upstream_dns = ["1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
-        bootstrap_dns = ["1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4"];
-      };
-      filtering = {
-        rewrites = [
-          {
-            domain = "adguard.int.tkbunny.net";
-            answer = "127.0.0.9";
-          }
-        ];
-      };
-      filters = [
-        {
-          enabled = true;
-          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt";
-        }
-        {
-          enabled = true;
-          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt";
-        }
-        {
-          enabled = true;
-          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_10.txt";
-        }
-        {
-          enabled = true;
-          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt";
-        }
-        {
-          enabled = true;
-          url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_12.txt";
-        }
-      ];
-    };
-    mutableSettings = false;
-  };
-
   boot.kernel.sysctl = { "vm.swappiness" = 5; };
-
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-    virtualHosts."adguard.int.tkbunny.net" = {
-      listen = [
-        {
-          addr = "127.0.0.9";
-          port = 80;
-        }
-      ];
-
-      locations."/" = {
-        proxyPass = "http://127.0.0.2:3000";
-        extraConfig = ''
-          proxy_pass_header Authorization;
-        '';
-      };
-    };
-  };
 
   networking = {
     wireless = {
@@ -110,7 +35,7 @@
       };
     };
 
-    nameservers = ["127.0.0.1"];
+    nameservers = ["1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" "100.100.100.100"];
     search = ["kamori-ghoul.ts.net" "int.tkbunny.net"];
 
     nat = {
@@ -120,9 +45,9 @@
       enableIPv6 = true;
     };
 
-#    extraHosts = ''
-#      127.0.0.2:3000 adguard.int.tkbunny.net
-#    '';
+    hosts = {
+      "100.93.17.11" = [ "server.int.tkbunny.net" ];
+    };
 
     firewall = {
       enable = true;

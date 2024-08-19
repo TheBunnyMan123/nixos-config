@@ -6,4 +6,4 @@ then
 fi
 export PAGER=w3m
 
-PATH=$PATH:$HOME/.local/bin
+PATH="$HOME/.local/bin:$PATH"

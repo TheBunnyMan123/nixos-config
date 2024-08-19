@@ -30,8 +30,9 @@
         packages = with pkgs; [
           yazi
           coreutils-full
-          (callPackage ./packages/icat.nix { })
-          (callPackage ./packages/remote.nix { })
+          (callPackage ./packages/icat.nix      { })
+          (callPackage ./packages/remote.nix    { })
+          (callPackage ./packages/protonhax.nix { })
           sshfs
           ffmpeg
           github-cli

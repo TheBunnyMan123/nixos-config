@@ -13,6 +13,24 @@
     openFirewall = true;
   };
 
+#  systemd.services.setprivCopy = {
+#    enable = true;
+#
+#    wantedBy = ["multi-user.target"];
+#
+#    path = with pkgs; [ bash busybox ];
+#    serviceConfig = {
+#      ExecStart = ''
+#        mkdir -p /home/1000/.local/bin
+#        chown bunny /home/bunny/.local/bin
+#        sudo rm /home/bunny/.local/bin/setpriv
+#        sudo cp ${pkgs.busybox}/bin/setpriv /home/bunny/.local/bin/setpriv
+#        sudo chown root /home/bunny/.local/bin/setpriv
+#        sudo chmod u+s,a+x /home/bunny/.local/bin/setpriv
+#     '';
+#    };
+#  };
+
   services.syncthing = {
     enable = true;
     user = "bunny";

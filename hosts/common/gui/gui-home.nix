@@ -56,7 +56,7 @@
           };
           squarecorners = pkgs.fetchurl {
             url = "https://gist.githubusercontent.com/TheBunnyMan123/6315b2b6db6096ae8485736b4ebbceff/raw/squarecorners.theme.css";
-            hash = "sha256-sLAwWkv/7osL3oubsYldqivzFPPJMFkZCvAenv6oC1s=";
+            hash = "sha256-AdiIfmq0Vc6VlmlanvIUnkNlvOjLciwdpZxtAYYXtCQ=";
           };
         };
         plugins = {

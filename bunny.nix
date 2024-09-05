@@ -59,8 +59,6 @@
 
           nixpkgs.config.allowUnfree = true;
 
-          
-
           catppuccin = {
             flavor = "mocha";
             accent = "mauve";
@@ -80,11 +78,6 @@
                 };
               }
             ];
-          };
-
-          programs.gh = {
-            enable = true;
-            gitCredentialHelper.enable = true;
           };
 
           programs.yazi = {

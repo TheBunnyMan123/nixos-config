@@ -54,12 +54,9 @@
             url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
             hash = "sha256-OaQofvUCGD50/LPu7tf3zZ9/GEktGCoeZ3J4ujtCcTE=";
           };
-          squarecorners = pkgs.fetchurl {
-            url = "https://gist.githubusercontent.com/TheBunnyMan123/6315b2b6db6096ae8485736b4ebbceff/raw/squarecorners.theme.css";
-            hash = "sha256-AdiIfmq0Vc6VlmlanvIUnkNlvOjLciwdpZxtAYYXtCQ=";
-          };
         };
         plugins = {
+          Experiments.enabled = true;
           AutomodContext.enabled = true;
           BetterRoleContext.enabled = true;
           CopyEmojiMarkdown = {
@@ -642,6 +639,7 @@
           windowrulev2 = [
             "suppressevent maximize, class:.*"
             "float, class:(netman)"
+            "tile, initialClass:([Mm]inecraft.*)"
             "workspace 3, class:(vesktop)"
             "float, initialTitle:Picture-in-Picture"
             "size 544 306, initialTitle:Picture-in-Picture"

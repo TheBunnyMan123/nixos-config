@@ -9,6 +9,10 @@
     ./gui-home.nix
   ];
 
+  boot.plymouth = {
+    enable = true;
+  };
+
   fileSystems."/home/bunny/.config/vesktop/settings" = {
     device = "/home/bunny/.config/Vencord/settings";
     options = [ "bind" ];

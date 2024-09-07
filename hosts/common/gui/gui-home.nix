@@ -506,6 +506,18 @@
         fi
       '';
 
+      services.hyprpaper = {
+        enable = true;
+        settings = {
+          ipc = "off";
+          splash = false;
+          splash_offset = 2.0;
+
+          preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
+          wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
+        };
+      };
+
       wayland.windowManager.hyprland = {
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;

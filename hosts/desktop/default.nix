@@ -17,6 +17,8 @@
     ./packages.nix
   ];
 
+  hardware.nvidia.open = true;
+
   networking.hostName = "NixOS-Desktop";
   
   home-manager.users.bunny.wayland.windowManager.hyprland = {

@@ -19,12 +19,15 @@
     nwg-look
     xterm
     caffeine-ng
+    vulkan-tools
+    nautilus
+    par2cmdline-turbo
+
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })
     (callPackage ../../../packages/turbowarp-appimage.nix { })
     spotify
-    firefox-devedition-bin
     keepassxc
     gimp
     obs-studio

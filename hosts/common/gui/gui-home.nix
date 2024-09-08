@@ -1,8 +1,11 @@
 {
   pkgs,
   inputs,
+  outputs,
   ...
-}: {
+}: let
+  inherit (outputs.nixosModules) buildFirefoxAddon;
+in {
   users.users.bunny.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
@@ -27,6 +30,189 @@
         userSettings = {
           "workbench.colorTheme" = "Catppuccin Mocha";
           "workbench.iconTheme" = "catppuccin-mocha";
+        };
+      };
+
+      programs.firefox = {
+        enable = true;
+        package = pkgs.firefox-esr;
+        languagePacks = [
+          "en-US"
+        ];
+        nativeMessagingHosts = [
+          pkgs.keepassxc
+        ];
+        profiles = {
+          default = {
+            bookmarks = [
+              {
+                name = "Viewport Resizer";
+                url = ''javascript:(function(){var frame=document.createElement("iframe"),bodyHtml=document.body.innerHTML,headHtml=document.head.innerHTML;frame.addEventListener("load",(function(){var e=frame.contentWindow.document;e.body.attributes=document.body.attributes,e.head.attributes=document.head.attributes,e.head.innerHTML=headHtml,e.body.innerHTML=bodyHtml}));var widthBox=document.createElement("input");widthBox.type="number",widthBox.value=1e3,widthBox.style.width="60px",widthBox.style.height="15px",widthBox.style.fontSize="14px",widthBox.style.fontFamily="sans-serif";var xText=document.createElement("span");xText.style.fontSize="14px",xText.innerHTML=" x ",xText.style.fontFamily="sans-serif";var heightBox=document.createElement("input");function resizeFrame(){frame.width=widthBox.value,frame.height=heightBox.value}heightBox.type="number",heightBox.value=800,heightBox.style.width="60px",heightBox.style.height="15px",heightBox.style.fontSize="14px",heightBox.style.fontFamily="sans-serif",resizeFrame(),widthBox.addEventListener("change",resizeFrame),heightBox.addEventListener("change",resizeFrame),document.body.appendChild(frame),document.body.removeChild(frame),document.body.innerHTML="",document.body.appendChild(widthBox),document.body.appendChild(xText),document.body.appendChild(heightBox),document.body.appendChild(document.createElement("br")),document.body.appendChild(frame);}());'';
+              }
+            ];
+            extensions = [
+              (buildFirefoxAddon {
+                name = "keepassxc";
+                version = "1.9.3";
+                url = "https://github.com/keepassxreboot/keepassxc-browser/releases/download/1.9.3/keepassxc-browser_1.9.3_firefox.zip";
+                hash = "sha256-+Z3DW7GXpqBxSTiQBPEH9E/uxCYkq9Ad/3yUGwKyKgI=";
+                fixedExtid = "keepassxc-browser@keepassxc.org";
+              })
+              (buildFirefoxAddon {
+                name = "ublock";
+                version = "1.59.0";
+                url = "https://github.com/gorhill/uBlock/releases/download/1.59.0/uBlock0_1.59.0.firefox.signed.xpi";
+                hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
+              })
+              (buildFirefoxAddon {
+                name = "7tv";
+                version = "3.1.1";
+                url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
+                hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
+              })
+              (buildFirefoxAddon {
+                name = "sponsorblock";
+                version = "5.7";
+                url = "https://github.com/ajayyy/SponsorBlock/releases/download/5.7/FirefoxSignedInstaller.xpi";
+                hash = "sha256-ZP1ygz9pkai4/RQ6IP/Sty0NN2sDiDA7d7Ke8GyZmy0=";
+              })
+              (buildFirefoxAddon {
+                name = "stylus";
+                version = "1.5.51";
+                url = "https://addons.mozilla.org/firefox/downloads/file/4338993/styl_us-1.5.51.xpi";
+                hash = "sha256-TXwYSvLYH0DDXzPHfEBA3EIFkI289l58mfr9fSbkgU8=";
+              })
+              (buildFirefoxAddon {
+                name = "dearrow";
+                version = "1.7.1";
+                url = "https://github.com/ajayyy/DeArrow/releases/download/1.7.1/FirefoxSignedInstaller.xpi";
+                hash = "sha256-xwAMcMT8zG6byAOAAT3rHMmAdyjeNG1vVjZkITcu9ug=";
+              })
+            ];
+            settings = {
+              # new tab and extensions
+              "browser.aboutConfig.showWarning" = false;
+              "browser.startup.page" = 1;
+              "browser.startup.homepage" = "about:home";
+              "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+              "browser.newtabpage.activity-stream.telemetry" = false;
+              "browser.newtabpage.activity-stream.feeds.snippets" = false;
+              "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+              "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+              "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
+              "browser.newtabpage.activity-stream.showSponsored" = false;
+              "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+              "browser.newtabpage.activity-stream.default.sites" = "";
+              
+              # use mozilla geolocation
+              "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+              "geo.provider.use_gpsd" = false;
+              "geo.provider.use_geoclue" = false;
+              "browser.region.network.url" = false;
+              "browser.region.update.enabled" = false;
+              
+              # I forgor
+              "intl.accept_languages" = "en-US, en";
+              "javascript.use_us_english_locale" = true;
+
+              # Auto Update & Extension Reccomendations
+              "app.update.auto" = false;
+              "extensions.getAddons.showPane" = false;
+              "extensions.htmlaboutaddons.recommendations.enabled" = false;
+              "browser.discovery.enabled" = false;
+
+              # telemetry
+              "datareporting.policy.dataSubmissionEnabled" = false;
+              "datareporting.healthreport.uploadEnabled" = false;
+              "toolkit.telemetry.enabled" = false;
+              "toolkit.telemetry.unified" = false;
+              "toolkit.telemetry.server" = "data:,";
+              "toolkit.telemetry.archive.enabled" = false;
+              "toolkit.telemetry.newProfilePing.enabled" = false;
+              "toolkit.telemetry.shutdownPingSender.enabled" = false;
+              "toolkit.telemetry.updatePing.enabled" = false;
+              "toolkit.telemetry.bhrPing.enabled" = false;
+              "toolkit.telemetry.firstShutdownPing.enabled" = false;
+              "toolkit.telemetry.coverage.opt-out" = true;
+              "toolkit.coverage.opt-out" = true;
+              "toolkit.coverage.endpoint.base" = "";
+              "browser.ping-centre.telemetry" = false;
+              "beacon.enabled" = false;
+
+              # Studies
+              "app.shield.optoutstudies.enabled" = false;
+              "app.normandy.enabled" = false;
+              "app.normandy.api_url" = "";
+
+              # Crash reports
+              "breakpad.reportURL" = "";
+              "browser.tabs.crashReporting.sendReport" = false;
+
+              # Passwords
+              "signon.rememberSignons" = false;
+              "signon.autofillForms" = false;
+              "signon.formlessCapture.enabled" = false;
+
+              # HTTPS
+              "dom.security.https_only_mode" = true;
+              "dom.security.https_only_mode_send_http_background_request" = false;
+              "browser.xul.error_pages.expert_bad_cert" = true;
+              "security.tls.enable_0rtt_data" = false;
+              "security.OCSP.require" = true;
+              "security.pki.sha1_enforcement_level" = 1;
+              "security.cert_pinning.enforcement_level" = 2;
+              "security.remote_settings.crlite_filters.enabled" = true;
+              "security.pki.crlite_mode" = 2;
+
+              # Referer
+              "network.http.referer.XOriginPolicy" = 2;
+              "network.http.referer.XOriginTrimmingPolicy" = 2;
+
+              # A/V
+              "media.peerconnection.enabled" = false;
+              "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+              "media.peerconnection.ice.default_address_only" = true;
+              "media.peerconnection.ice.no_host" = true;
+              "media.autoplay.default" = 5;
+
+              # UI
+              "dom.disable_open_during_load" = true;
+              "dom.popup_allowed_events" = "click dblclick mousedown pointerdown";
+              "extensions.pocket.enabled" = false;
+              "extensions.Screenshots.disabled" = true;
+              "pdfjs.enableScripting" = false;
+
+              # Extensions
+              "extensions.enabledScopes" = 5;
+              "extensions.webextensions.restrictedDomains" = "";
+              "extensions.postDownloadThirdPartyPrompt" = false;
+              "extensions.autoDisableScopes" = 0;
+              "xpinstall.signatures.required" = false;
+
+              # Shutdown Settings
+              "network.cookie.lifetimePolicy" = 2;
+              "privacy.sanitize.sanitizeOnShutdown" = true;
+              "privacy.clearOnShutdown.cache" = true;
+              "privacy.clearOnShutdown.cookies" = true;
+              "privacy.clearOnShutdown.downloads" = true;
+              "privacy.clearOnShutdown.formdata" = true;
+              "privacy.clearOnShutdown.history" = true;
+              "privacy.clearOnShutdown.offlineApps" = true;
+              "privacy.clearOnShutdown.sessions" = true;
+              "privacy.clearOnShutdown.sitesettings" = false;
+              "privacy.sanitize.timeSpan" = 0;
+
+              # Fingerprinting
+              "privacy.resistFingerprinting" = true;
+              "privacy.window.maxInnerWidth" = 1600;
+              "privacy.window.maxInnerHeight" = 900;
+              "privacy.resistFingerprinting.block_mozAddonManager" = true;
+              "browser.display.use_system_colors" = false;
+              "browser.startup.blankWindow" = false;
+            };
+            id = 0;
+            isDefault = true;
+          };
         };
       };
 
@@ -554,7 +740,7 @@
             "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
             "[workspace 2 silent] sleep 7 && keepassxc"
             "[workspace 3 silent] sleep 5 && vesktop"
-            "[workspace 2 silent] sleep 5 && firefox-developer-edition"
+            "[workspace 2 silent] sleep 5 && firefox-esr"
             "clipse -listen"
           ];
 
@@ -611,7 +797,7 @@
             ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
             ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
             "bind=$mod, N, layoutmsg, swapwithmaster master"
-            "$mod, F, exec, firefox-developer-edition"
+            "$mod, F, exec, firefox-esr"
             "$mod, Q, exec, kitty"
             "$mod, C, killactive,"
             "$mod SHIFT, C, exit,"

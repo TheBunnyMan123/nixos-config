@@ -49,6 +49,11 @@
     touchpad.middleEmulation = false;
   };
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   networking.networkmanager.enable = false;
 
   # Disable wait online as it's causing trouble at rebuild

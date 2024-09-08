@@ -1,7 +1,7 @@
 {
   description = "Flake for NixOS";
   
-  inputs = {
+  inputs = rec {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
     home-manager.url = "github:nix-community/home-manager";
@@ -22,6 +22,37 @@
   let
     inherit (self) outputs;
 
+      buildFirefoxAddon = lib.makeOverridable (
+        {
+          pkgs ? nixpkgs.legacyPackages."x86_64-linux" ,
+          fetchFirefoxAddon ? pkgs.fetchFirefoxAddon,
+          stdenv ? pkgs.stdenv,
+          name,
+          version,
+          url,
+          hash,
+          fixedExtid ? null,
+          ...
+        }:
+        let
+          extid = if fixedExtid == null then "nixos@${name}" else fixedExtid;
+        in stdenv.mkDerivation {
+          inherit name version;
+
+          src = fetchFirefoxAddon { inherit url hash name; fixedExtid = extid; };
+
+          preferLocalBuild = true;
+          allowSubstitutes = true;
+
+          buildCommand = ''
+            dist="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+            mkdir -p "$dist"
+            ls $src
+            install -v -m644 "$src/${extid}.xpi" "$dist/${extid}.xpi"
+          '';
+        }
+      );
+    
     lib = nixpkgs.lib // home-manager.lib;
   in rec {
     createUser = import ./createUser.nix;
@@ -29,6 +60,7 @@
     nixosModules = {
       bunny = import ./bunny.nix;
       vencord = import ./modules/vencord.nix;
+      inherit buildFirefoxAddon;
     };
 
     nixosConfigurations = {  

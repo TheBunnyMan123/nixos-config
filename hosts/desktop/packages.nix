@@ -12,6 +12,7 @@
     pkgs.jellyfin
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
+    restic
   ];
 
   programs.adb.enable = true;

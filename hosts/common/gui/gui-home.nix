@@ -236,9 +236,9 @@ in {
         enable = true;
         package = pkgs.vencord;
         themes = {
-          catppuccin = pkgs.fetchurl {
-            url = "https://catppuccin.github.io/discord/dist/catppuccin-mocha-mauve.theme.css";
-            hash = "sha256-OaQofvUCGD50/LPu7tf3zZ9/GEktGCoeZ3J4ujtCcTE=";
+          system24-catppuccin-mocha = pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/refact0r/system24/9d480b7e3bc0dac994a9c496b63d6875368f9a98/theme/flavors/catppuccin-mocha.theme.css";
+            hash = "sha256-e8/3bEYL/Wl9VZENWkusi50inal0ApQOKjpmS8T852Y=";
           };
         };
         plugins = {
@@ -362,7 +362,7 @@ in {
           NoProfileThemes.enabled = true;
           ColorSighted.enabled = true;
           BetterFolders = {
-            enabled = true;
+            enabled = false; # Currently broken
             sidebar = true;
             sidebarAnim = true;
             closeAllFolders = true;

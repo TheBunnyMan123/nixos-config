@@ -33,6 +33,7 @@ in {
         };
       };
 
+      home.file.".mozilla/firefox/default/chrome".source = "${../../../extrafiles/firefox-chrome}";
       programs.firefox = {
         enable = true;
         package = pkgs.firefox-esr;
@@ -44,13 +45,102 @@ in {
         ];
         profiles = {
           default = {
-            bookmarks = [
-              {
-                name = "Viewport Resizer";
-                url = ''javascript:(function(){var frame=document.createElement("iframe"),bodyHtml=document.body.innerHTML,headHtml=document.head.innerHTML;frame.addEventListener("load",(function(){var e=frame.contentWindow.document;e.body.attributes=document.body.attributes,e.head.attributes=document.head.attributes,e.head.innerHTML=headHtml,e.body.innerHTML=bodyHtml}));var widthBox=document.createElement("input");widthBox.type="number",widthBox.value=1e3,widthBox.style.width="60px",widthBox.style.height="15px",widthBox.style.fontSize="14px",widthBox.style.fontFamily="sans-serif";var xText=document.createElement("span");xText.style.fontSize="14px",xText.innerHTML=" x ",xText.style.fontFamily="sans-serif";var heightBox=document.createElement("input");function resizeFrame(){frame.width=widthBox.value,frame.height=heightBox.value}heightBox.type="number",heightBox.value=800,heightBox.style.width="60px",heightBox.style.height="15px",heightBox.style.fontSize="14px",heightBox.style.fontFamily="sans-serif",resizeFrame(),widthBox.addEventListener("change",resizeFrame),heightBox.addEventListener("change",resizeFrame),document.body.appendChild(frame),document.body.removeChild(frame),document.body.innerHTML="",document.body.appendChild(widthBox),document.body.appendChild(xText),document.body.appendChild(heightBox),document.body.appendChild(document.createElement("br")),document.body.appendChild(frame);}());'';
-              }
-            ];
+            bookmarks = [];
+            search = {
+              force = true;
+              default = "Startpage";
+
+              engines = {
+                "Google".metaData.hidden = true;
+                "Bing".metaData.hidden = true;
+                "DuckDuckGo".metaData.hidden = true;
+
+                "Startpage" = {
+                  urls = [
+                    {
+                      template = "https://www.startpage.com/search?";
+                      params = [
+                        {
+                          name = "q";
+                          value = "{searchTerms}";
+                        }
+                        {
+                          name = "prfe"; # Prefrences
+                          value = "bc3209305886c353223c0b24bbbd4b264f6723e204a7c160c995ef160d825ee6e453891cee1ad4284c542e46e44ec96b3d5d0f3b4541dc6e6b49dd3dccf1c6ef535346957054d55b5ebc8d40";
+                        }
+                      ];
+                    }
+                  ];
+
+                  iconUpdateURL = "https://www.startpage.com/favicon.ico";
+                  updateInterval = 7 * 24 * 60 * 60 * 1000; # every week
+                  definedAliases = [ "@sp" ];
+                };
+                "NixOS Wiki" = {
+                  urls = [
+                    {
+                      template = "https://wiki.nixos.org/index.php?";
+                      params = [
+                        {
+                          name = "search";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@nw" ];
+                };
+                "Nix Packages" = {
+                  urls = [
+                    {
+                      template = "https://search.nixos.org/packages?";
+                      params = [
+                        {
+                          name = "channel";
+                          value = "unstable";
+                        }
+                        {
+                          name = "query";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@np" ];
+                };
+                "NixOS Options" = {
+                  urls = [
+                    {
+                      template = "https://search.nixos.org/options?";
+                      params = [
+                        {
+                          name = "channel";
+                          value = "unstable";
+                        }
+                        {
+                          name = "query";
+                          value = "{searchTerms}";
+                        }
+                      ];
+                    }
+                  ];
+
+                  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                  definedAliases = [ "@no" ];
+                };
+              };
+            };
             extensions = [
+              (buildFirefoxAddon {
+                name = "sidebery";
+                version = "5.2.0.9";
+                url = "https://github.com/mbnuqw/sidebery/releases/download/v5.2.0/sidebery-5.2.0.9.xpi";
+                hash = "sha256-iF/2SE5bYy9mJU8lCGm8IXW0pugxxDtepFbqInDNaHE=";
+              })
               (buildFirefoxAddon {
                 name = "keepassxc";
                 version = "1.9.3";
@@ -90,6 +180,11 @@ in {
               })
             ];
             settings = {
+              # Misc
+              "browser.display.windows.non_native_menus" = 0;
+              "browser.tabs.inTitlebar" = 0;
+              "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
               # new tab and extensions
               "browser.aboutConfig.showWarning" = false;
               "browser.startup.page" = 1;

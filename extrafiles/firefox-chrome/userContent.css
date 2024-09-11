@@ -1,0 +1,24 @@
+@import "palette.css";
+
+#root.root {
+  /* Sidebery */
+  --frame-bg: var(--ctp-base) !important;
+  --frame-el-overlay-selected-bg: var(--ctp-overlay0) !important;
+  --toolbar-bg: var(--ctp-base) !important;
+  --tabs-activated-bg: var(--ctp-surface1) !important;
+  --toolbar-el-overlay-selected-border: var(--uc-highlight-color) !important;
+  --toolbar-el-overlay-selected-bg: var(--ctp-overlay0) !important;
+  --frame-el-overlay-selected-border: var(--toolbar-el-overlay-selected-border) !important;
+  --nav-btn-accent: var(--toolbar-el-overlay-selected-border) !important;
+  --scroll-progress-bg: var(--toolbar-el-overlay-selected-border) !important;
+
+  --blue: var(--ctp-blue) !important;
+  --turquoise: var(--ctp-teal) !important;
+  --green: var(--ctp-green) !important;
+  --yellow: var(--ctp-yellow) !important;
+  --orange: var(--ctp-peach) !important;
+  --red: var(--ctp-red) !important;
+  --pink: var(--ctp-pink) !important;
+  --purple: var(--ctp-mauve) !important;
+}
+

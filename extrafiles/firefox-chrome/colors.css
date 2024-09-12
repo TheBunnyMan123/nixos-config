@@ -1,18 +1,5 @@
 @import "palette.css";
 
-@-moz-document url("about:newtab"), url("about:home")
-{
-  :root[lwt-newtab-brighttext] {
-    --newtab-background-color: var(--uc-base-color) !important;
-  }
-  .top-sites,.personalizeButtonWrapper {
-    display: none !important;
-  }
-  .wordmark {
-    fill: var(--uc-inverted-color) !important;
-  }
-}
-
 :root {
   --panel-background: var(--uc-base-color) !important;
   --panel-border-color: var(--ctp-crust) !important;

@@ -22,3 +22,15 @@
   --purple: var(--ctp-mauve) !important;
 }
 
+@-moz-document url("about:newtab"), url("about:home")
+{
+  :root[lwt-newtab-brighttext] {
+    --newtab-background-color: var(--uc-base-color) !important;
+  }
+  .top-sites,.personalizeButtonWrapper {
+    display: none !important;
+  }
+  .wordmark {
+    fill: var(--uc-inverted-color) !important;
+  }
+}

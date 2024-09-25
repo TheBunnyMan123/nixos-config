@@ -16,9 +16,10 @@
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, nur, ... } @inputs:
+  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, nur, impermanence, ... } @inputs:
   let
     inherit (self) outputs;
 

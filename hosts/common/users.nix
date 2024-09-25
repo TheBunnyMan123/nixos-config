@@ -3,6 +3,7 @@
   outputs,
   createUser,
   homeStateVersion,
+  inputs,
   ...
 }: {
   users.mutableUsers = false;
@@ -22,7 +23,23 @@
           coreutils-full
         ];
         extraHomeConfig = {
+          imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
           home.stateVersion = homeStateVersion;
+          home.persistence."/persistent/home/bunny" = {
+            allowOther = true;
+            directories = [
+              "Pictures"
+              "Sync"
+              "Internet Archive"
+              "Camera"
+              "tsfunnel"
+              ".local/share"
+              "persist"
+              "GOG Games"
+              "Games"
+              ".config/syncthing"
+            ];
+          };
         };
       }
     )

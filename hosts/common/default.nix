@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  createUser,
+  lib,
   ...
 }: {
   imports = [
@@ -9,7 +9,45 @@
     ./packages.nix
     ./services.nix
     ./users.nix
+    inputs.impermanence.nixosModules.impermanence
   ];
+
+  fileSystems."/" = {
+    device = lib.mkForce "none";
+    fsType = lib.mkForce "tmpfs";
+    options = [ "size=3G" "mode=755" ];
+  };
+
+  fileSystems."/home/bunny" = {
+    device = "none";
+    fsType = "tmpfs";
+    options = [ "size=3G" "mode=755" ];
+  };
+
+  fileSystems."/persistent" = {
+    device = "/dev/root_vg/root";
+    neededForBoot = true;
+    fsType = "ext4";
+    options = [ "subvol=persistent" ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/root_vg/root";
+    fsType = "ext4";
+    options = [ "subvol=nix" ];
+  };
+
+  environment.persistence."/persistent" = {
+    enable = true;  # NB: Defaults to true, not needed
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/bluetooth"
+      "/var/lib/nixos"
+      "/var/lib/systemd/coredump"
+      {directory = "/etc/nixos"; mode = "0777";}
+    ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 

@@ -33,7 +33,7 @@
               "Internet Archive"
               "Camera"
               "tsfunnel"
-              ".local/share"
+              ".local"
               "persist"
               "GOG Games"
               "Games"

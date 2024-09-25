@@ -28,13 +28,11 @@
     device = "/dev/root_vg/root";
     neededForBoot = true;
     fsType = "ext4";
-    options = [ "subvol=persistent" ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/root_vg/root";
     fsType = "ext4";
-    options = [ "subvol=nix" ];
   };
 
   environment.persistence."/persistent" = {

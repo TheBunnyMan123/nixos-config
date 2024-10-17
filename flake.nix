@@ -9,7 +9,7 @@
     hardware.url = "github:nixos/nixos-hardware";
     systems.url = "github:nix-systems/default-linux";
     fok-quote.url = "github:fokohetman/fok-quote";
-    nur.url = "github:nix-community/NUR";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";

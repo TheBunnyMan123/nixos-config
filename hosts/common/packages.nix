@@ -17,6 +17,7 @@
     neovim
     fzf
     eza
+    rcs
     bat
     w3m
     jdk21

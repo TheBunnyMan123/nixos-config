@@ -154,12 +154,12 @@ in {
                 url = "https://github.com/gorhill/uBlock/releases/download/1.59.0/uBlock0_1.59.0.firefox.signed.xpi";
                 hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
               })
-              (buildFirefoxAddon {
-                name = "7tv";
-                version = "3.1.1";
-                url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
-                hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
-              })
+              #(buildFirefoxAddon {
+              #  name = "7tv";
+              #  version = "3.1.1";
+              #  url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
+              #  hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
+              #})
               (buildFirefoxAddon {
                 name = "sponsorblock";
                 version = "5.7";
@@ -425,6 +425,7 @@ in {
             disableDiscoveryFilters = true;
             disableDisallowedDiscoveryFilters = true;
           };
+          ShowHiddenChannels.enabled = true;
           SilentTyping = {
             enabled = true;
             showIcon = true;

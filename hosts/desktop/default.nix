@@ -13,6 +13,7 @@
     ../common
     ../common/gaming
     ../common/gui
+    ../common/server
     ./hardware-configuration.nix
     ./packages.nix
   ];

@@ -12,29 +12,6 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  fileSystems."/" = {
-    device = lib.mkForce "none";
-    fsType = lib.mkForce "tmpfs";
-    options = [ "size=3G" "mode=755" ];
-  };
-
-  fileSystems."/home/bunny" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=3G" "mode=755" ];
-  };
-
-  fileSystems."/persistent" = {
-    device = "/dev/root_vg/root";
-    neededForBoot = true;
-    fsType = "ext4";
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/root_vg/root";
-    fsType = "ext4";
-  };
-
   environment.persistence."/persistent" = {
     enable = true;  # NB: Defaults to true, not needed
     hideMounts = true;
@@ -95,9 +72,6 @@
         80
         443
 
-        # Minecraft
-        25565
-
         # SyncThing
         22000
 
@@ -106,9 +80,6 @@
       ];
 
       allowedUDPPorts = [
-        # Minecraft
-        25565
-
         # SyncThing
         22000
         21027

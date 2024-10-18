@@ -12,18 +12,6 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  environment.persistence."/persistent" = {
-    enable = true;  # NB: Defaults to true, not needed
-    hideMounts = true;
-    directories = [
-      "/var/log"
-      "/var/lib/bluetooth"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-      {directory = "/etc/nixos"; mode = "0777";}
-    ];
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   nix = {
@@ -36,6 +24,8 @@
     style = "kvantum";
   };
 
+  services.libinput.touchpad.disableWhileTyping = false;
+
   boot.kernel.sysctl = { "vm.swappiness" = 5; };
 
   networking = {
@@ -44,6 +34,9 @@
       networks = {
         "Nacho WiFi" = {
           pskRaw = "68ab5f9da6b1f9483e4ab7cd0bfc56359d733ef32d735a9b11140aac9985e327";
+        };
+        "Secret Bathroom Camera #3" = {
+          psk = "hotspots";
         };
       };
     };

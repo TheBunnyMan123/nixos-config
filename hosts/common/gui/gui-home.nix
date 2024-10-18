@@ -561,9 +561,16 @@ in {
             height = 43;
 
             modules-left = ["hyprland/workspaces"];
-            modules-center = ["clock" "pulseaudio" "custom/clipboard" "custom/poweroff"]; 
+            modules-center = ["clock" "pulseaudio" "custom/brightness" "custom/clipboard" "custom/poweroff"]; 
             modules-right = ["network" "bluetooth" "cpu" "memory" "disk" "idle_inhibitor" "battery" "tray"];
 
+            "custom/brightness" = {
+              exec = "while true; do brightnessctl | grep -oE \"[0-9]+%\"; done";
+              restart-interval = 10;
+              on-scroll-up = "brightnessctl set 5%+";
+              on-scroll-down = "brightnessctl set 5%-";
+              format = "󰖨  {}";
+            };
             "hyprland/workspaces" = {
               active-only = false;
               format = "{icon}";
@@ -706,6 +713,10 @@ in {
           }
           #pulseaudio.muted {
             color: @red;
+          }
+
+          #custom-brightness {
+            color: @yellow;
           }
 
           #network {
@@ -893,6 +904,9 @@ in {
             # Volume
             ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
             ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+            ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
             "bind=$mod, N, layoutmsg, swapwithmaster master"
             "$mod, F, exec, firefox-esr"
             "$mod, Q, exec, kitty"

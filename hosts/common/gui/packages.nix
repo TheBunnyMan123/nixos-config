@@ -23,6 +23,7 @@
     nautilus
     par2cmdline-turbo
 
+    brightnessctl
 
     (callPackage ../../../packages/calculator.nix { })
     (callPackage ../../../packages/timer.nix { })

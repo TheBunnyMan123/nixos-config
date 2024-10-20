@@ -22,7 +22,7 @@
   outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, nur, impermanence, ... } @inputs:
   let
     inherit (self) outputs;
-
+    inherit catppuccin;
       buildFirefoxAddon = lib.makeOverridable (
         {
           pkgs ? nixpkgs.legacyPackages."x86_64-linux" ,
@@ -86,6 +86,18 @@
         ];
 
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
+        };
+      };
+      Server = lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          ./hosts/server
+        ];
+
+        specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
           inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
         };
       };

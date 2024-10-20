@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Available Services</title>
+  </head>
+  <body>
+    <ul>
+      <li><a port="8096">Jellyfin</a></li>
+      <li><a port="8384">Syncthing</a></li>
+    </ul>
+    
+    <style>
+    </style>
+    <script>
+      document.querySelectorAll("a").forEach((elem) => {
+        elem.href = (window.location.hostname+":"+elem.attributes.port.value)
+        elem.innerHTML = elem.innerHTML + " - " + (window.location.hostname+":"+elem.attributes.port.value)
+      })
+    </script>
+  </body>
+</html>

@@ -16,6 +16,11 @@
   ];
 
   networking.hostName = "NixOS-Server";
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "bunny";
+  };
 
   system.stateVersion = systemStateVersion;
 }

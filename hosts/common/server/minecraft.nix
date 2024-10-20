@@ -29,6 +29,7 @@
           AuriaFoxGirl = "93ab815f-92ab-4ea0-a768-c576896c52a8";
         };
         serverProperties = {
+          enable-command-block = true;
           server-port = 25565;
           difficulty = "hard";
           gamemode = "creative";
@@ -41,11 +42,9 @@
           "config/paper-world-defaults.yml" = ../../../extrafiles/paper-world-defaults.yml;
         };
         symlinks = {
-          "plugins/FastAsyncWorldEdit/config.yml" = ../../../extrafiles/FAWE-Config.yml;
           "plugins/ViaVersion/config.yml" = ../../../extrafiles/VIA-Config.yml;
           "plugins/ServerListPlus/ServerListPlus.yml" = ../../../extrafiles/ServerListPlus.yml;
           "plugins/ServerListPlus.jar" = pkgs.fetchurl { url = "https://github.com/Minecrell/ServerListPlus/releases/download/3.5.0/ServerListPlus-3.5.0-Universal.jar"; sha256 = "sha256-D0FjUTQbMkLw1ldtJeqyHFJor8POi/1SPE+kO44BKEQ="; };
-          "plugins/FastAsyncWorldEdit.jar" = pkgs.fetchurl { url = "https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.11.2/FastAsyncWorldEdit-Bukkit-2.11.2.jar"; sha256 = "sha256-ImQomcDpeoFq27vP9xSoXbWuVTqNCKv2bw8L7wnJPc0="; };
           "plugins/PlayIt.jar" = pkgs.fetchurl { url = "https://github.com/playit-cloud/playit-minecraft-plugin/releases/latest/download/playit-minecraft-plugin.jar"; sha256 = "sha256-NoFhXy7b/sDh8VjPUjN5BVQ+KL/GJIIjqYws1Fh+GJI="; };
           "plugins/CoreProtect.jar" = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/Lu3KuzdV/versions/llmrc4cl/CoreProtect-22.4.jar"; sha256 = "sha256-Ly+hxZU0SwcXakYfPlPhTqiEBxngkr7gUg1744CsPlU="; };
           "plugins/SimpleVoiceChat.jar" = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/h0gk30sM/voicechat-bukkit-2.5.24.jar"; sha256 = "sha256-aPkx9Wpc9Zkmg2twWU98NpQuHNv12HI0p2lsV4y4wLY="; };

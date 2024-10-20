@@ -8,7 +8,10 @@
     enable = true;
     useRoutingFeatures = "both";
     extraUpFlags = [ "--ssh" "--advertise-exit-node" "--accept-dns=false" ];
-    authKeyFile = "/run/secrets/tailscale_key";
+    authKeyFile = pkgs.writeTextFile {
+      name = "tailscale-key";
+      text = "tskey-auth-kLYmJ1kfwb11CNTRL-EceifYchdHAfpYuZPU7xHApWnSp9hPm6K";
+    };
 
     openFirewall = true;
   };

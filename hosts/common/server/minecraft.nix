@@ -61,6 +61,12 @@
                 bypassPlayerLimit = true;
               }
               {
+                uuid = "6bdfb381-ee28-47f3-94b8-38c21fd721c1";
+                name = "TheOneOfSharks";
+                level= 4;
+                bypassPlayerLimit = true;
+              }
+              {
                 uuid = "584fb77d-5c02-468b-a5ba-4d62ce8eabe2";
                 name = "4P5";
                 level = 4;

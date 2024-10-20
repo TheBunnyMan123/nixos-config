@@ -44,11 +44,13 @@
         symlinks = {
           "plugins/ViaVersion/config.yml" = ../../../extrafiles/VIA-Config.yml;
           "plugins/ServerListPlus/ServerListPlus.yml" = ../../../extrafiles/ServerListPlus.yml;
+          "plugins/MinecraftDashboard/accounts.yml" = ../../../extrafiles/mc-accounts.yml;
           "plugins/ServerListPlus.jar" = pkgs.fetchurl { url = "https://github.com/Minecrell/ServerListPlus/releases/download/3.5.0/ServerListPlus-3.5.0-Universal.jar"; sha256 = "sha256-D0FjUTQbMkLw1ldtJeqyHFJor8POi/1SPE+kO44BKEQ="; };
           "plugins/PlayIt.jar" = pkgs.fetchurl { url = "https://github.com/playit-cloud/playit-minecraft-plugin/releases/latest/download/playit-minecraft-plugin.jar"; sha256 = "sha256-NoFhXy7b/sDh8VjPUjN5BVQ+KL/GJIIjqYws1Fh+GJI="; };
           "plugins/CoreProtect.jar" = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/Lu3KuzdV/versions/llmrc4cl/CoreProtect-22.4.jar"; sha256 = "sha256-Ly+hxZU0SwcXakYfPlPhTqiEBxngkr7gUg1744CsPlU="; };
           "plugins/SimpleVoiceChat.jar" = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/h0gk30sM/voicechat-bukkit-2.5.24.jar"; sha256 = "sha256-aPkx9Wpc9Zkmg2twWU98NpQuHNv12HI0p2lsV4y4wLY="; };
           "plugins/ViaVersion.jar" = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/P1OZGk5p/versions/R6MNWQmm/ViaVersion-5.0.3.jar"; sha256 = "sha256-INTyYb1/VFGB0RHhMLPy4vH9RUXpZju0ZM8nC0DhnXg="; };
+          "plugins/MCDash.jar" = pkgs.fetchurl { url = "https://github.com/gnmyt/MCDash/releases/download/v1.1.7/MCDash-1.1.7.jar"; sha256 = "sha256-7a/99HzfxAxbaePBB4gPbT0cjYnc33+u975SO95hRfA="; };
           "ops.json" = pkgs.writeTextFile {
             name = "ops.json";
             text = builtins.toJSON [

@@ -1,4 +1,7 @@
-{...}: {
+{
+  lib,
+  ...
+}: {
   imports = [
     ./minecraft.nix
   ];
@@ -7,6 +10,8 @@
     enable = true;
     openFirewall = true;
   };
+
+  home-manager.users.bunny.programs.tmux.terminal = lib.mkForce "xterm";
 
   services.static-web-server = {
     enable = true;

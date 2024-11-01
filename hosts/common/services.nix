@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs,
+  config,
   lib,
   ...
 }: {
@@ -15,6 +15,15 @@
 
     openFirewall = true;
   };
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    #xt_mark
+    #xt_comment
+    #xt_multiport
+  ];
+  boot.initrd.availableKernelModules = ["xt_mark" "xt_comment" "xt_multiport"];
+  boot.initrd.kernelModules = ["xt_mark" "xt_comment" "xt_multiport"];
+  boot.kernelModules = ["xt_mark" "xt_comment" "xt_multiport"];
 
 #  systemd.services.setprivCopy = {
 #    enable = true;

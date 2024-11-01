@@ -2,6 +2,7 @@
   description = "Flake for NixOS";
   
   inputs = rec {
+    figmanager.url = "github:Figura-Goofballs/FigManager";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
     home-manager.url = "github:nix-community/home-manager";
@@ -65,7 +66,7 @@
     };
 
     nixosConfigurations = {  
-      Desktop = lib.nixosSystem {
+      Desktop = lib.nixosSystem rec {
         system = "x86_64-linux"; 
         modules = [
           catppuccin.nixosModules.catppuccin
@@ -74,10 +75,10 @@
         ];
 
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
         };
       };
-      Laptop = lib.nixosSystem {
+      Laptop = lib.nixosSystem rec {
         system = "x86_64-linux"; 
         modules = [
           catppuccin.nixosModules.catppuccin
@@ -86,10 +87,10 @@
         ];
 
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
         };
       };
-      Server = lib.nixosSystem {
+      Server = lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = [
           catppuccin.nixosModules.catppuccin
@@ -98,7 +99,7 @@
         ];
 
         specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote;
+          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
         };
       };
     };

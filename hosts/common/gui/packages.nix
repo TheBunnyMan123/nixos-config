@@ -35,6 +35,7 @@
     vlc
     libsForQt5.qtstyleplugin-kvantum
     easyeffects
+    inkscape
 
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk

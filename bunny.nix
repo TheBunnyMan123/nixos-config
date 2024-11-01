@@ -194,7 +194,10 @@
                     { "<leader>gf", ":Telescope git_files<CR>", desc = "Git Files" }
                   )
                   wk.add(
-                    { "<leader>ff", ":buffers<CR>", desc = "Buffers" }
+                    { "<leader>bf", ":buffers<CR>", desc = "Buffers" }
+                  )
+                  wk.add(
+                   { "<leader>ut", ":UndotreeToggle<CR>", desc = "Toggle Undo Tree" }
                   )
                 '';
                 type = "lua";
@@ -323,27 +326,72 @@
                 type = "lua";
               }
               {
-                plugin = omnisharp-extended-lsp-nvim;
+                plugin = nvim-tree-lua;
                 config = ''
-                  local config = {
-                    handlers = {
-                      ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
-                      ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
-                      ["textDocument/references"] = require('omnisharp_extended').references_handler,
-                      ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
-                    },
-
-                    cmd = { "${pkgs.omnisharp-roslyn}/bin/OmniSharp" }
-                  }
-
-                  require'lspconfig'.omnisharp.setup(config)
+                  require("nvim-tree").setup{}
                 '';
                 type = "lua";
               }
               {
-                plugin = nvim-tree-lua;
+                plugin = catppuccin-nvim;
                 config = ''
-                  require("nvim-tree").setup{}
+                  require("catppuccin").setup({
+                    flavour = "auto", -- latte, frappe, macchiato, mocha
+                    background = { -- :h background
+                      light = "latte",
+                      dark = "mocha",
+                    },
+                    transparent_background = false, -- disables setting the background color.
+                    show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+                    term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+                    dim_inactive = {
+                      enabled = false, -- dims the background color of inactive window
+                      shade = "dark",
+                      percentage = 0.15, -- percentage of the shade to apply to the inactive window
+                    },
+                    no_italic = false, -- Force no italic
+                    no_bold = false, -- Force no bold
+                    no_underline = false, -- Force no underline
+                    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+                      comments = { "italic" }, -- Change the style of comments
+                      conditionals = { "italic" },
+                      loops = {},
+                      functions = {},
+                      keywords = {},
+                      strings = {},
+                      variables = {},
+                      numbers = {},
+                      booleans = {},
+                      properties = {},
+                      types = {},
+                      operators = {},
+                      -- miscs = {}, -- Uncomment to turn off hard-coded styles
+                    },
+                    color_overrides = {},
+                    custom_highlights = {},
+                    default_integrations = true,
+                    integrations = {
+                      cmp = true,
+                      gitsigns = true,
+                      nvimtree = true,
+                      treesitter = true,
+                      notify = false,
+                      mini = {
+                        enabled = true,
+                        indentscope_color = "",
+                      },
+                      -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+                    },
+                  })
+
+                -- setup must be called before loading
+                  vim.cmd.colorscheme "catppuccin"
+                  '';
+                type = "lua";
+              }
+              {
+                plugin = undotree;
+                config = ''
                 '';
                 type = "lua";
               }

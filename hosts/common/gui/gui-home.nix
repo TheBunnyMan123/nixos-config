@@ -795,8 +795,8 @@ in {
             gaps_in = 5;
             gaps_out = 20;
             border_size = 2;
-            "col.inactive_border" = "#000000";
-            "col.active_border" = "#ffffff";
+            "col.inactive_border" = "rgba(000000ff)";
+            "col.active_border" = "rgba(ffffffff)";
             resize_on_border = false;
             allow_tearing = false;
             layout = "master";
@@ -849,12 +849,12 @@ in {
             bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
             animation = [
-              "windows, 1, 7, myBezier"
-              "windowsOut, 1, 7, default, popin 80%"
-              "border, 1, 10, default"
-              "borderangle, 1, 8, default"
-              "fade, 1, 7, default"
-              "workspaces, 1, 6, default"
+              "windows, 0, 0, myBezier"
+              "windowsOut, 0, 0, default, popin 80%"
+              "border, 0, 0, default"
+              "borderangle, 0, 0, default"
+              "fade, 0, 0, default"
+              "workspaces, 0, 0, default"
             ];
           };
 

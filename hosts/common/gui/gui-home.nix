@@ -854,7 +854,7 @@ in {
               "border, 0, 0, default"
               "borderangle, 0, 0, default"
               "fade, 0, 0, default"
-              "workspaces, 0, 0, default"
+              "workspaces, 1, 4, default"
             ];
           };
 

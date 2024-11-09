@@ -1,25 +1,34 @@
 @import "palette.css";
 
 #root.root {
+  * {
+    font-family: monospace;
+  }
+
   /* Sidebery */
-  --frame-bg: var(--ctp-base) !important;
-  --frame-el-overlay-selected-bg: var(--ctp-overlay0) !important;
-  --toolbar-bg: var(--ctp-base) !important;
-  --tabs-activated-bg: var(--ctp-surface1) !important;
+  --frame-bg: var(--uc-base-color) !important;
+  --frame-el-overlay-selected-bg: #595959 !important;
+  --toolbar-bg: var(--uc-base-color) !important;
+  --tabs-activated-bg: #373737 !important;
   --toolbar-el-overlay-selected-border: var(--uc-highlight-color) !important;
-  --toolbar-el-overlay-selected-bg: var(--ctp-overlay0) !important;
+  --toolbar-el-overlay-selected-bg: #595959 !important;
   --frame-el-overlay-selected-border: var(--toolbar-el-overlay-selected-border) !important;
   --nav-btn-accent: var(--toolbar-el-overlay-selected-border) !important;
   --scroll-progress-bg: var(--toolbar-el-overlay-selected-border) !important;
+  --tabs-count-font: 0.5625rem monospace !important;
+  --tabs-font: 0.9375rem monospace !important;
+  --bookmarks-folder-font: 0.9375rem monospace !important;
+  --bookmarks-bookmark-font: 0.9375rem monospace !important;
+  --ctx-menu-font: 0.875rem monospace !important;
 
-  --blue: var(--ctp-blue) !important;
-  --turquoise: var(--ctp-teal) !important;
-  --green: var(--ctp-green) !important;
-  --yellow: var(--ctp-yellow) !important;
-  --orange: var(--ctp-peach) !important;
-  --red: var(--ctp-red) !important;
-  --pink: var(--ctp-pink) !important;
-  --purple: var(--ctp-mauve) !important;
+  --blue: var(--uc-identity-color-blue) !important;
+  --turquoise: var(--uc-identity-color-turqoise) !important;
+  --green: var(--uc-identity-color-green) !important;
+  --yellow: var(--uc-identity-color-yellow) !important;
+  --orange: var(--uc-identity-color-orange) !important;
+  --red: var(--uc-identity-color-red) !important;
+  --pink: var(--uc-identity-color-pink) !important;
+  --purple: var(--uc-identity-color-purple) !important;
 }
 
 @-moz-document url("about:newtab"), url("about:home")

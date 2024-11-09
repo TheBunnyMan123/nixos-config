@@ -14,25 +14,8 @@ in {
   ];
   home-manager.users = {
     bunny = {
-      programs.vscode = {
-        enable = true;
-        enableUpdateCheck = false;
-        package = pkgs.vscodium;
-
-        extensions = with pkgs.vscode-extensions; [
-          mhutchie.git-graph
-          jnoortheen.nix-ide
-          aaron-bond.better-comments
-          pkgs.vscode-extensions.catppuccin.catppuccin-vsc-icons
-          pkgs.vscode-extensions.catppuccin.catppuccin-vsc
-        ];
-
-        userSettings = {
-          "workbench.colorTheme" = "Catppuccin Mocha";
-          "workbench.iconTheme" = "catppuccin-mocha";
-        };
-      };
-
+      home.file.".config/vesktop/settings/quickCss.css".source = "${../../../extrafiles/quickCss.css}";
+      home.file.".config/kitty/kitty.conf.d".source = "${../../../extrafiles/kitty.conf.d}";
       home.file.".mozilla/firefox/default/chrome".source = "${../../../extrafiles/firefox-chrome}";
       programs.firefox = {
         enable = true;
@@ -79,7 +62,7 @@ in {
                 "NixOS Wiki" = {
                   urls = [
                     {
-                      template = "https://wiki.nixos.org/index.php?";
+                      template = "https://wiki.nixos.org/w/index.php";
                       params = [
                         {
                           name = "search";
@@ -154,12 +137,12 @@ in {
                 url = "https://github.com/gorhill/uBlock/releases/download/1.59.0/uBlock0_1.59.0.firefox.signed.xpi";
                 hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
               })
-              #(buildFirefoxAddon {
-              #  name = "7tv";
-              #  version = "3.1.1";
-              #  url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
-              #  hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
-              #})
+              (buildFirefoxAddon {
+                name = "7tv";
+                version = "3.1.1";
+                url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
+                hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
+              })
               (buildFirefoxAddon {
                 name = "sponsorblock";
                 version = "5.7";
@@ -313,10 +296,6 @@ in {
 
       programs.kitty = {
         enable = true;
-        catppuccin = {
-          flavor = "mocha";
-          enable = true;
-        };
         font = {
           name = "monospace";
           size = 11;
@@ -325,6 +304,9 @@ in {
           enableZshIntegration = true;
           mode = "no-rc";
         };
+        extraConfig = ''
+          globinclude ./kitty.conf.d/**/*.conf
+        '';
       };
 
       programs.vencord = {
@@ -332,8 +314,8 @@ in {
         package = pkgs.vencord;
         themes = {
           system24-catppuccin-mocha = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/refact0r/system24/9d480b7e3bc0dac994a9c496b63d6875368f9a98/theme/flavors/catppuccin-mocha.theme.css";
-            hash = "sha256-e8/3bEYL/Wl9VZENWkusi50inal0ApQOKjpmS8T852Y=";
+            url = "https://raw.githubusercontent.com/refact0r/system24/364004192ed95bc9a8256422a5ff51a6f68400c9/theme/system24.theme.css";
+            hash = "sha256-WJYNWeo1DdgOh7cFne6QSEHQagqapFznqWfeoCsqM+8=";
           };
         };
         plugins = {
@@ -480,24 +462,14 @@ in {
       };
 
       # WM
-      catppuccin.pointerCursor = {
-        flavor = "mocha";
-        accent = "mauve";
-        enable = true;
-      };
       qt.style = {
         name = "kvantum";
-        catppuccin = {
-          flavor = "mocha";
-          accent = "mauve";
-          enable = true;
-        };
       };
       gtk = {
         enable = true;
         cursorTheme = {
-          name = "catppuccin-mocha-blue-cursors";
-          package = pkgs.catppuccin-cursors.mochaMauve;
+          package = pkgs.catppuccin-cursors.mochaLight;
+          name = "catppuccin-mocha-light-cursors";
         };
         font = {
           name = "sans-serif";
@@ -528,10 +500,6 @@ in {
       programs.rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
-        catppuccin = {
-          enable = true;
-          flavor = "mocha";
-        };
         extraConfig = {
             modi = "run,drun,window";
             icon-theme = "Oranchelo";
@@ -550,10 +518,6 @@ in {
 
       programs.waybar = {
         enable = true;
-        catppuccin = {
-          enable = true;
-          flavor = "mocha";
-        };
         settings = {
           mainBar = {
             layer = "top";
@@ -674,68 +638,72 @@ in {
         };
         style = ''
           * {
-            color: @text;
+            color: #ffffff;
             font-family: sans-serif;
             transition: 0.5s;
           }
 
           window#waybar {
-            background: shade(@base, 0.9);
-            border: 2px solid alpha(@crust, 0.3);
+            background: #000000;
+            border-top: 0 solid;
+            border-bottom: 2px solid #ffffff;
           }
 
           .modules-left {
-            background-color: @surface1;
+            background-color: #161616;
             padding-left: 20px;
             padding-right: 20px;
-            border-top-right-radius: 100px;
-            border-bottom-right-radius: 100px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: 2px solid #ffffff;
           }
           .modules-center {
-            background-color: @surface1;
+            background-color: #161616;
             padding-left: 20px;
             padding-right: 20px;
-            border-radius: 100px;
+            border-radius: 0;
+            border-bottom: 2px solid #ffffff;
           }
           .modules-right {
-            background-color: @surface1;
+            background-color: #161616;
             padding-left: 20px;
             padding-right: 20px;
-            border-top-left-radius: 100px;
-            border-bottom-left-radius: 100px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-bottom: 2px solid #ffffff;
           }
 
           #pulseaudio {
-            color: @green;
+            color: #36ff36;
           }
           #pulseaudio.bluetooth {
-            color: @blue;
+            color: #2c7deb;
           }
           #pulseaudio.muted {
-            color: @red;
+            color: #ff3636;
           }
 
           #custom-brightness {
-            color: @yellow;
+            color: #ffff36;
           }
 
           #network {
-            color: @red;
+            color: #ff3636;
           }
           #bluetooth {
-            color: @peach;
+            color: #ff8636;
           }
           #cpu {
-            color: @green;
+            color: #36ff36;
           }
           #memory {
-            color: @sky;
+            color: #36ffff;
           }
           #disk {
-            color: @blue;
+            color: #2c7deb;
           }
           #idle_inhibitor {
-            color: @mauve;
+            color: #ff36ff;
           }
 
           #workspaces {
@@ -747,27 +715,27 @@ in {
             margin-left: 3px;
             margin-right: 3px;
             padding: 0;
-            background-color: @base;
-            border-radius: 100px;
+            background-color: #000000;
+            border-radius: 0px;
           }
           #workspaces button.active {
-            background-color: @lavender;
+            background-color: #ffffff;
           }
           #workspaces button.active * {
-            color: @base;
+            color: #000000;
           }
           #workspaces button:hover {
-            background-color: @text;
+            background-color: #ffffff;
           }
           #workspaces button:hover * {
-            color: @base;
+            color: #000000;
           }
           #workspaces button * {
             padding: 0;
             margin: 0;
             margin-left: 3px;
             margin-right: 3px;
-            color: @sapphire;
+            color: #2c7deb;
           }
 
           .modules-left * {
@@ -781,13 +749,13 @@ in {
           }
           
           #battery {
-            color: @green;
+            color: #36ff36;
           }
           #battery.charging {
-            color: @yellow;
+            color: #ffff36;
           }
           #battery.warning:not(.charging) {
-            color: @red;
+            color: #ff3636;
           }
         '';
       };
@@ -816,11 +784,6 @@ in {
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
         xwayland.enable = true;
         systemd.variables = ["--all"];
-        catppuccin = {
-          enable = true;
-          flavor = "mocha";
-          accent = "mauve";
-        };
         settings = {
           "$mod" = "SUPER";
 
@@ -832,8 +795,8 @@ in {
             gaps_in = 5;
             gaps_out = 20;
             border_size = 2;
-            "col.inactive_border" = "$crust";
-            "col.active_border" = "$mauve";
+            "col.inactive_border" = "#000000";
+            "col.active_border" = "#ffffff";
             resize_on_border = false;
             allow_tearing = false;
             layout = "master";
@@ -852,7 +815,7 @@ in {
           ];
 
           decoration = {
-            rounding = 10;
+            rounding = 0;
 
             active_opacity = 1.0;
             inactive_opacity = 0.95;
@@ -860,7 +823,6 @@ in {
             drop_shadow = true;
             shadow_range = 4;
             shadow_render_power = 3;
-            "col.shadow" = "rgba(1a1a1aee)";
 
             blur = {
               enabled = true;
@@ -958,8 +920,8 @@ in {
           env = [
             "XCURSOR_SIZE,24"
             "HYPRCURSOR_SIZE,24"
-            "XCURSOR_THEME,catppuccin-mocha-blue-cursors"
-            "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors"
+            "XCURSOR_THEME,catppuccin-mocha-light-cursors"
+            "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
             "MOZ_ENABLE_WAYLAND,1"
             "WLR_NO_HARDWARE_CURSORS,1"
           ];

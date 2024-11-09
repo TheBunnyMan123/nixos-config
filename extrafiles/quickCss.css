@@ -1,0 +1,27 @@
+:root {
+  --font: "MesloLGS Nerd Font Mono" !important;
+  --bg-0: #000000 !important;
+  --bg-1: #161616 !important;
+  --bg-2: #373737 !important;
+  --bg-3: #434343 !important;
+  --hover: #808080 !important;
+  --active: #707070 !important;
+  --selected: var(--active) !important;
+  --txt-0: #ffffff !important;
+  --txt-1: #ffffff !important;
+  --txt-2: #c0c0c0 !important;
+  --txt-3: #a0a0a0 !important;
+
+	--pink: #ff5eff !important;
+	--pink-1: #d45cfa !important;
+	--pink-2: #a959f4 !important;
+	--purple: #5129e4 !important;
+	--purple-1: #4b23b8 !important;
+	--purple-2: #451d8d !important;
+	--cyan: #36ffff !important;
+	--yellow: #ffff36 !important;
+	--green: #36ff36 !important;
+	--green-1: #2bcc2b !important;
+	--green-2: #209920 !important;
+}
+

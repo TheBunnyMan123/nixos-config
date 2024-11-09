@@ -2,3 +2,7 @@
 
 #TabsToolbar{ visibility: collapse !important }
 
+* {
+   font-family: "MesloLGS Nerd Font Mono" !important;
+}
+

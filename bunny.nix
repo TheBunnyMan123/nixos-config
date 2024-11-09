@@ -332,6 +332,10 @@
               telescope-nvim
               vim-tmux-navigator
             ];
+            
+            extraConfig = ''
+              set notgc
+            '';
 
             extraLuaConfig = ''
               ${"\n"}

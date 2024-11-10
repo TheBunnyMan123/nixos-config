@@ -7,7 +7,7 @@ zstyle ':vcs_info:git:*' formats '%b '
 NEWLINE=$'\n'
 
 setopt PROMPT_SUBST
-PROMPT='${(r:$COLUMNS::-:)}${NEWLINE}%F{blue}%n%f%F{white}%f@%F{green}%m%f %B%F{white}:%f%b %F{magenta}%d%f %F{yellow}${vcs_info_msg_0_}%f${NEWLINE}%B%F{red}${?##0}%f>%b '
+PROMPT='${(r:$COLUMNS::-:)}${NEWLINE}%F{cyan}%n%f%F{white}%f@%F{green}%m%f %B%F{white}:%f%b %F{magenta}%d%f %F{yellow}${vcs_info_msg_0_}%f${NEWLINE}%B%F{red}${?##0}%f>%b '
 
 # Transient prompt. see https://www.zsh.org/mla/users/2019/msg00633.html
 zle-line-init() {

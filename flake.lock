@@ -54,11 +54,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1730433912,
-        "narHash": "sha256-3mjdtgH0SmtTOW8Ra3M5a6Ax3gM0aX9SiGtPGP1fqYM=",
+        "lastModified": 1732393044,
+        "narHash": "sha256-LSUELp3lZIFXd7xMiBjD4LXJqTbTN6rdHg3Ueu4jJNw=",
         "owner": "Figura-Goofballs",
         "repo": "FigManager",
-        "rev": "8471dbdab7c64e64b4a0f3d0c265311ba6a43fc1",
+        "rev": "0ef89e267e0e6ce3bf34faf21c1d5b894e714685",
         "type": "github"
       },
       "original": {

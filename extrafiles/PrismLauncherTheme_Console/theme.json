@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "AlternateBase": "#000000",
+    "Base": "#000000",
+    "BrightText": "#ff3636",
+    "Button": "#000000",
+    "ButtonText": "#ffffff",
+    "Highlight": "#ffffff",
+    "HighlightedText": "#000000",
+    "Link": "#36ffff",
+    "Text": "#ffffff",
+    "TooltipBase": "#ffffff",
+    "TooltipText": "#000000",
+    "Window": "#000000",
+    "WindowText": "#ffffff",
+    "fadeAmount": 0.5,
+    "fadeColor": "#000000"
+  },
+  "name": "Terminal",
+  "widgets": "Fusion"
+}
+

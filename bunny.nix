@@ -44,6 +44,7 @@
           gpp
           fok-quote.packages.${pkgs.system}.default
           codeberg-cli
+          cargo rust-analyzer
         ];
 
         extraHomeConfig = {
@@ -149,6 +150,7 @@
               # C/C++
               bear
               ccls
+              rust-analyzer # Rust
             ];
 
             plugins = with pkgs.vimPlugins; [
@@ -252,8 +254,17 @@
                         }
                       })
                     end,
+                      settings = {
+                        Lua = {}
+                      }
+                  }
+                  lspconfig.rust_analyzer.setup{
                     settings = {
-                      Lua = {}
+                      ['rust-analyzer'] = {
+                        diagnostics = {
+                          enable = false;
+                        }
+                      }
                     }
                   }
                 '';
@@ -333,10 +344,6 @@
               vim-tmux-navigator
             ];
             
-            extraConfig = ''
-              set notgc
-            '';
-
             extraLuaConfig = ''
               ${"\n"}
               vim.opt.guicursor = ""

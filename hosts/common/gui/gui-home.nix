@@ -16,6 +16,7 @@ in {
     bunny = {
       home.file.".config/vesktop/settings/quickCss.css".source = "${../../../extrafiles/quickCss.css}";
       home.file.".config/kitty/kitty.conf.d".source = "${../../../extrafiles/kitty.conf.d}";
+      home.file.".local/share/PrismLauncher/themes/Console".source = "${../../../extrafiles/PrismLauncherTheme_Console}";
       home.file.".mozilla/firefox/default/chrome".source = "${../../../extrafiles/firefox-chrome}";
       programs.firefox = {
         enable = true;

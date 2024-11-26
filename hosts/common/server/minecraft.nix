@@ -27,6 +27,7 @@
           PoolloverNathan = "b0639a61-e7f9-4d5c-8078-d4e9b05d9e9c";
           GNamimates = "e4b91448-3b58-4c1f-8339-d40f75ecacc4";
           AuriaFoxGirl = "93ab815f-92ab-4ea0-a768-c576896c52a8";
+          DogCatbird3 = "fd0b1460-1dea-43c7-a35f-6a485034c8e4";
         };
         serverProperties = {
           enable-command-block = true;
@@ -57,6 +58,12 @@
               {
                 uuid = "1dcce150-0064-4905-879c-43ef64dd97d7";
                 name = "TheKillerBunny";
+                level = 4;
+                bypassPlayerLimit = true;
+              }
+              {
+                uuid = "fd0b1460-1dea-43c7-a35f-6a485034c8e4";
+                name = "DogCatbird3";
                 level = 4;
                 bypassPlayerLimit = true;
               }

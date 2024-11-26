@@ -35,6 +35,7 @@
           sshfs
           ffmpeg
           github-cli
+          stgit
           fzf
           stow
           w3m

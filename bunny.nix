@@ -142,6 +142,7 @@
 
             extraPackages = with pkgs; [
               # Language Servers
+              kotlin-language-server #Kotlin
               jdt-language-server # Java
               vscode-langservers-extracted # HTML/CSS/JSON/ESLint
               nixd # Nix
@@ -222,6 +223,7 @@
                   lspconfig.ccls.setup{}
                   lspconfig.nixd.setup{}
                   lspconfig.bashls.setup{}
+                  lspconfig.kotlin_language_server.setup{}
                   lspconfig.html.setup {
                     capabilities = capabilities,
                   }

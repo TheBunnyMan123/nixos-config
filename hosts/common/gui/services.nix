@@ -29,7 +29,6 @@
   programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
-  services.printing.enable = true;
   services.flatpak.enable = true;
 
   # Enable sound with pipewire.

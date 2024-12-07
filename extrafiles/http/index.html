@@ -10,13 +10,14 @@
       <li><a port="8096">Jellyfin</a></li>
       <li><a port="8384">Syncthing</a></li>
       <li><a port="7867">MCDash</a></li>
+      <li><a port="631">CUPS</a></li>
     </ul>
     
     <style>
     </style>
     <script>
       document.querySelectorAll("a").forEach((elem) => {
-        elem.href = (window.location.hostname+":"+elem.attributes.port.value)
+         elem.href = `http://${window.location.hostname}:${elem.attributes.port.value}`
         elem.innerHTML = elem.innerHTML + " - " + (window.location.hostname+":"+elem.attributes.port.value)
       })
     </script>

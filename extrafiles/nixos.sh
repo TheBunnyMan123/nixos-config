@@ -18,7 +18,8 @@ case "$CMD" in
   up|update|upgrade)
     if [ $# == 0 ]
     then
-      ARGS=(--recreate-lock-file)
+      nix flake update
+      exit
     else
       ARGS=()
       INPUTS="$@"

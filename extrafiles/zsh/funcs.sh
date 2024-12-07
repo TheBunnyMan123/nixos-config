@@ -26,3 +26,8 @@ mvtotrash() {
 runpkg() {
   bash -c "nix run nixpkgs#$1"
 }
+
+chmodReadOnlyDirectory() {
+  sudo chmod -R 644 "$1"; sudo find "$1" -type d -exec chmod +x {} +
+}
+

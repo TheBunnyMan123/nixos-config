@@ -11,6 +11,15 @@
     systems.url = "github:nix-systems/default-linux";
     fok-quote.url = "github:fokohetman/fok-quote";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nathan = {
+       url = "github:PoolloverNathan/nixos";
+       inputs = {
+         nixpkgs.follows = "nixpkgs";
+         catppuccin.follows = "catppuccin";
+         fokquote.follows = "fok-quote";
+         home-manager.follows = "home-manager";
+       };
+    };
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -69,6 +78,7 @@
       Desktop = lib.nixosSystem rec {
         system = "x86_64-linux"; 
         modules = [
+          inputs.nathan.nixosModules.nathan-nosudo
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           ./hosts/desktop

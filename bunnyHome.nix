@@ -1,8 +1,8 @@
 {
    pkgs,
-   outputs,
+   config,
    ...
-}: {   
+}: rec {
    home = {
       sessionVariables = {
          QT_STYLE_OVERRIDE = "kvantum";
@@ -353,6 +353,18 @@
    programs.zsh = {
       enable = true;
       enableCompletion = true;
+      
+      shellAliases = {
+         sudo = "sudo -p \"$(echo \"\\033[38;5;240m[\\033[38;5;1mSUDO\\033[38;5;240m] \\033[38;5;14mPassword\\033[0m: \")\"";
+         l = "ls -al";
+         ll = "ls -l";
+         ls = "eza --color=auto";
+         grep = "grep --color=auto";
+         rm = "mvtotrash";
+         espeak="espeak -a 200 -g 0 -k 16 -p 46";
+         espeak-ng="espeak-ng -a 200 -g 0 -k 16 -p 46";
+         yt-dlp="yt-dlp --download-archive ./yt-dlp-archive -o \"%(playlist_index)s - %(title)s [%(id)s].%(ext)s\" --merge-output-format mkv --write-description --embed-chapters --sub-lang en --embed-subs --embed-metadata --embed-info-json";
+      };
 
       autosuggestion = {
          enable = true;
@@ -362,6 +374,7 @@
          extended = true;
          ignoreDups = true;
          ignoreSpace = true;
+         append = true;
          path = "$HOME/.zsh_history";
          save = 10000;
          share = true;
@@ -383,7 +396,10 @@
          autoload -Uz vcs_info
          precmd() { vcs_info }
 
-         ${builtins.readFile(./extrafiles/zsh/aliases.sh)}
+         EDITOR="${config.programs.neovim.finalPackage}/bin/nvim"
+         VISUAL="${config.programs.neovim.finalPackage}/bin/nvim"
+         PAGER="${pkgs.w3m}/bin/w3m"
+
          ${builtins.readFile(./extrafiles/zsh/envvars.sh)}
          ${builtins.readFile(./extrafiles/zsh/funcs.sh)}
          ${builtins.readFile(./extrafiles/zsh/prompt.sh)}

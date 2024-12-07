@@ -55,8 +55,7 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       corefonts
-      nerdfonts
-    ];
+    ] ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
   };
 
   catppuccin = {

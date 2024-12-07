@@ -25,9 +25,6 @@
 
     brightnessctl
 
-    (callPackage ../../../packages/calculator.nix { })
-    (callPackage ../../../packages/timer.nix { })
-    (callPackage ../../../packages/turbowarp-appimage.nix { })
     spotify
     keepassxc
     gimp

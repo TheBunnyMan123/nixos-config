@@ -43,6 +43,15 @@
 #    };
 #  };
 
+   systemd.tmpfiles = {
+      rules = [
+         # Set public directory
+         "d /public 0777 root root - -"
+         # Set bunny and root allowed to write to /etc/nixos
+         "A /etc/nixos - - - - user::rwx,user:bunny:rwx,group::rwx,mask::rwx,other::r-x"
+      ];
+   };
+
   services.syncthing = {
     enable = true;
     user = "bunny";

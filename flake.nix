@@ -11,6 +11,13 @@
     systems.url = "github:nix-systems/default-linux";
     fok-quote.url = "github:fokohetman/fok-quote";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nixos-utils = {
+      url = "github:TheBunnyMan123/NixosUtils";
+      inputs = {
+         nixpkgs.follows = "nixpkgs";
+         home-manager.follows = "home-manager";
+      };
+    };
     nathan = {
        url = "github:PoolloverNathan/nixos";
        inputs = {
@@ -33,59 +40,26 @@
   let
     inherit (self) outputs;
     inherit catppuccin;
-      buildFirefoxAddon = lib.makeOverridable (
-        {
-          pkgs ? nixpkgs.legacyPackages."x86_64-linux" ,
-          fetchFirefoxAddon ? pkgs.fetchFirefoxAddon,
-          stdenv ? pkgs.stdenv,
-          name,
-          version,
-          url,
-          hash,
-          fixedExtid ? null,
-          ...
-        }:
-        let
-          extid = if fixedExtid == null then "nixos@${name}" else fixedExtid;
-        in stdenv.mkDerivation {
-          inherit name version;
-
-          src = fetchFirefoxAddon { inherit url hash name; fixedExtid = extid; };
-
-          preferLocalBuild = true;
-          allowSubstitutes = true;
-
-          buildCommand = ''
-            dist="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
-            mkdir -p "$dist"
-            ls $src
-            install -v -m644 "$src/${extid}.xpi" "$dist/${extid}.xpi"
-          '';
-        }
-      );
-    
     lib = nixpkgs.lib // home-manager.lib;
-  in rec {
-    createUser = import ./createUser.nix;
-
+  in {
     nixosModules = {
-      bunny = import ./bunny.nix;
+      mkBunny = import ./bunny.nix;
       vencord = import ./modules/vencord.nix;
-      inherit buildFirefoxAddon;
     };
 
     nixosConfigurations = {  
       Desktop = lib.nixosSystem rec {
         system = "x86_64-linux"; 
         modules = [
-          inputs.nathan.nixosModules.nathan-nosudo
+          (inputs.nathan.mkNathan { canSudo = false; large = false; })
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
           ./hosts/desktop
         ];
 
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
+          inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
         };
       };
       Laptop = lib.nixosSystem rec {
@@ -97,7 +71,8 @@
         ];
 
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
+          inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
         };
       };
       Server = lib.nixosSystem rec {
@@ -109,7 +84,8 @@
         ];
 
         specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
-          inherit inputs outputs createUser homeStateVersion systemStateVersion fok-quote system;
+          inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
         };
       };
     };

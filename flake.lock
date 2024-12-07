@@ -504,6 +504,24 @@
         "type": "github"
       }
     },
+    "flake-utils_8": {
+      "inputs": {
+        "systems": "systems_11"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "fok-quote": {
       "inputs": {
         "flake-utils": "flake-utils_2",
@@ -1281,15 +1299,14 @@
           "nixpkgs"
         ],
         "nixvim": "nixvim",
-        "phoneip": "phoneip",
         "sadan4": "sadan4"
       },
       "locked": {
-        "lastModified": 1731957882,
-        "narHash": "sha256-aBt64T96lj/QCNCUpf2RlRmx3AMi46HW88N9NKfr4GM=",
+        "lastModified": 1733557193,
+        "narHash": "sha256-ttPqhpF5qwIZEqKcQZzd0rzKscWawx70zqjVoN+v4ZI=",
         "owner": "PoolloverNathan",
         "repo": "nixos",
-        "rev": "2ef7e776d6cd947409a8f5ff4724474bae31b1d4",
+        "rev": "af6843419b7d8c9ea3022949c8a6aec336cb4034",
         "type": "github"
       },
       "original": {
@@ -1420,6 +1437,30 @@
       "original": {
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
+        "type": "github"
+      }
+    },
+    "nixos-utils": {
+      "inputs": {
+        "flake-utils": "flake-utils_8",
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733554120,
+        "narHash": "sha256-nkSy9JLXDwgOcKFGYD8/+8Te2Ijd6a93+crOgehE6xo=",
+        "owner": "TheBunnyMan123",
+        "repo": "NixosUtils",
+        "rev": "0954465f657271c406cc69873dab3fef49fe29a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TheBunnyMan123",
+        "repo": "NixosUtils",
         "type": "github"
       }
     },
@@ -1714,11 +1755,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1733530998,
-        "narHash": "sha256-1P2rCr8FgbP1CN1H2XQOtuOFqjRNXkxHqZmvK/pbt7M=",
+        "lastModified": 1733554674,
+        "narHash": "sha256-YVvIoxhDCGYYDQhEj0+XtiTd4msUjjIXhE98AFenvDI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b35bbebaf9637f6a10e7a368981fc9ff69d07374",
+        "rev": "9e479b56f56dc09cc23d265c2957e3ed0f2fa7fe",
         "type": "github"
       },
       "original": {
@@ -1748,18 +1789,6 @@
         "owner": "NuschtOS",
         "repo": "search",
         "type": "github"
-      }
-    },
-    "phoneip": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-jN6apalpnI8m+HPxRmyvKzcuPM1shJZ4/1RzhE0t068=",
-        "type": "file",
-        "url": "http://100.69.15.27:2380/api/ip"
-      },
-      "original": {
-        "type": "file",
-        "url": "http://100.69.15.27:2380/api/ip"
       }
     },
     "pre-commit-hooks": {
@@ -1797,9 +1826,10 @@
         "impermanence": "impermanence",
         "nathan": "nathan",
         "nix-minecraft": "nix-minecraft",
+        "nixos-utils": "nixos-utils",
         "nixpkgs": "nixpkgs_11",
         "nur": "nur_2",
-        "systems": "systems_11"
+        "systems": "systems_12"
       }
     },
     "sadan4": {
@@ -1929,6 +1959,21 @@
       }
     },
     "systems_11": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_12": {
       "locked": {
         "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",

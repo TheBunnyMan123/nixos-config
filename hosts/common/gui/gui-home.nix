@@ -2,10 +2,9 @@
   pkgs,
   inputs,
   outputs,
+  buildFirefoxAddon,
   ...
-}: let
-  inherit (outputs.nixosModules) buildFirefoxAddon;
-in {
+}: {
   users.users.bunny.packages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
@@ -14,6 +13,8 @@ in {
   ];
   home-manager.users = {
     bunny = {
+      imports = [ outputs.nixosModules.vencord ];
+
       home.file.".config/vesktop/settings/quickCss.css".source = "${../../../extrafiles/quickCss.css}";
       home.file.".config/kitty/kitty.conf.d".source = "${../../../extrafiles/kitty.conf.d}";
       home.file.".local/share/PrismLauncher/themes/Console".source = "${../../../extrafiles/PrismLauncherTheme_Console}";
@@ -142,7 +143,7 @@ in {
                 name = "7tv";
                 version = "3.1.1";
                 url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
-                hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
+                hash = "sha256-mo/A+7G3ydDz9yyv8o62js2UHDcYLRsOtCp9J88PAp0=";
               })
               (buildFirefoxAddon {
                 name = "sponsorblock";

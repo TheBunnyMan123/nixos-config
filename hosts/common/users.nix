@@ -6,11 +6,13 @@
   inputs,
   ...
 }: {
-  users.mutableUsers = false;
+  config.users.mutableUsers = false;
 
   imports = [
     (
       createUser {
+        inherit homeStateVersion;
+
         name = "root";
         hashedPassword = "$y$j9T$r7Q60T/F48oyLnK8OnVXT.$cbSoNXPw3WbC9nW.nvQ5VpXYmwC3HmIuQoykavM4lGD";
         shell = pkgs.bash;
@@ -44,8 +46,12 @@
       }
     )
 
-    outputs.nixosModules.bunny
+    (outputs.nixosModules.mkBunny {
+      inherit homeStateVersion;
+
+      canSudo = true;
+    })
   ];
 
-  environment.pathsToLink = [ "/share/zsh" ];
+  config.environment.pathsToLink = [ "/share/zsh" ];
 }

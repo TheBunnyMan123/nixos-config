@@ -22,6 +22,8 @@
 
    systemd.tmpfiles = {
       rules = [
+         # /bin/bash symlink because people like to be not POSIX compatible
+         "L+ /bin/bash - - - - ${pkgs.bashInteractive}/bin/bash"
          # Set public directory
          "d /public 0777 root root - -"
          # Set bunny and root allowed to write to /etc/nixos

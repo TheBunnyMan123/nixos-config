@@ -23,6 +23,8 @@
     nautilus
     par2cmdline-turbo
 
+    pinta
+
     brightnessctl
 
     spotify

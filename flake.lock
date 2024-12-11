@@ -1451,11 +1451,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733554120,
-        "narHash": "sha256-nkSy9JLXDwgOcKFGYD8/+8Te2Ijd6a93+crOgehE6xo=",
+        "lastModified": 1733633595,
+        "narHash": "sha256-IE+ldzxfgm0FLbIOGYOZfl9Mk1+S9vgunnAR9lzyaTk=",
         "owner": "TheBunnyMan123",
         "repo": "NixosUtils",
-        "rev": "0954465f657271c406cc69873dab3fef49fe29a4",
+        "rev": "6a1933dbe10924f7449af0160fe035c2eaad3f0a",
         "type": "github"
       },
       "original": {

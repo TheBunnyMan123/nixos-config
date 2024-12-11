@@ -10,7 +10,6 @@
    pkgs,
    fok-quote,
    createUser,
-   outputs,
    ...
 }: {imports = [(createUser {
    inherit canSudo canTTY canViewJournal linger home uid homeStateVersion;
@@ -21,6 +20,10 @@
    groups = ["libvirtd" "docker" "adbusers"];
    systemUser = false;
    description = "TheKillerBunny / TheBunnyMan123";
+
+   shellInitFile = pkgs.writeShellScript "bunny-shell-init.sh" ''
+      PS1="[\u@\h: \w]$ "
+   '';
 
    packages = with pkgs; [
       yazi

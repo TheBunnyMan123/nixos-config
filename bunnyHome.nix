@@ -96,7 +96,7 @@
       extraPackages = with pkgs; [
 # Language Servers
          kotlin-language-server #Kotlin
-         jdt-language-server # Java
+         #jdt-language-server # Java
          vscode-langservers-extracted # HTML/CSS/JSON/ESLint
          nixd # Nix
          lua-language-server # Lua
@@ -226,16 +226,16 @@
             '';
             type = "lua";
          }
-         {
-            plugin = nvim-jdtls;
-            config = ''
-               require('jdtls').start_or_attach({
-                  cmd = {'${pkgs.jdt-language-server}/bin/jdtls'},
-                  root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-               })
-            '';
-            type = "lua";
-         }
+         #{
+         #   plugin = nvim-jdtls;
+         #   config = ''
+         #      require('jdtls').start_or_attach({
+         #         cmd = {'${pkgs.jdt-language-server}/bin/jdtls'},
+         #         root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+         #      })
+         #   '';
+         #   type = "lua";
+         #}
          {
             plugin = nvim-cmp;
             config = ''

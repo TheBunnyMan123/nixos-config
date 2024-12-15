@@ -36,6 +36,7 @@
       stgit
       fzf
       w3m
+      discordo
       fok-quote.packages.${pkgs.system}.default
    ];
 

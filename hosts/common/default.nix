@@ -36,6 +36,7 @@
 
   services.libinput.touchpad.disableWhileTyping = false;
 
+  boot.kernelModules = [ "sg" ];
   boot.kernel.sysctl = { "vm.swappiness" = 5; };
 
   networking = {

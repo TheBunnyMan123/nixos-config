@@ -2,8 +2,16 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  libbluray = pkgs.libbluray.override {
+    withAACS = true;
+    withBDplus = true;
+  };
+in {
   environment.systemPackages = with pkgs; [
+    makemkv
+    handbrake
+
     wlr-randr
     networkmanagerapplet
     flameshot
@@ -31,10 +39,11 @@
     keepassxc
     gimp
     obs-studio
-    vlc
+    (pkgs.vlc.override { inherit libbluray; })
     libsForQt5.qtstyleplugin-kvantum
     easyeffects
     inkscape
+    obsidian
 
     xdg-desktop-portal-hyprland
     xdg-desktop-portal-gtk

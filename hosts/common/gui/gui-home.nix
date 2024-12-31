@@ -163,6 +163,12 @@
                 url = "https://github.com/ajayyy/DeArrow/releases/download/1.7.1/FirefoxSignedInstaller.xpi";
                 hash = "sha256-xwAMcMT8zG6byAOAAT3rHMmAdyjeNG1vVjZkITcu9ug=";
               })
+              (buildFirefoxAddon {
+                name = "indie-wiki-buddy";
+                version = "3.12.0";
+                url = "https://addons.mozilla.org/firefox/downloads/file/4405306/indie_wiki_buddy-3.12.0.xpi";
+                hash = "sha256-2rtLMvuiFQJ3pWS3dLAQVLCf0snb/pP3a7NXxfOMyiQ=";
+              })
             ];
             settings = {
               # Misc

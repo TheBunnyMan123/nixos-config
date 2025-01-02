@@ -10,7 +10,7 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   services.displayManager.sddm = {
-    enable = true;
+    enable = false;
     package = pkgs.kdePackages.sddm;
     theme = "catppuccin-mocha";
     wayland.enable = true;

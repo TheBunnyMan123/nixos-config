@@ -15,6 +15,23 @@
     bunny = {
       imports = [ outputs.nixosModules.vencord ];
 
+      programs.thunderbird = {
+        enable = true;
+        package = pkgs.thunderbird-128.override {
+          extraPolicies.ExtensionSettings = {
+            "{47ef7cc0-2201-11da-8cd6-0800200c9a66}" = {
+              installation_mode = "normal_installed";
+              install_url = "https://addons.thunderbird.net/thunderbird/downloads/file/1030815/correct_identity-2.4.1-tb.xpi";
+            };
+          };
+        };
+        profiles = {
+          default = {
+            isDefault = true;
+          };
+        };
+      };
+
       home.file.".config/vesktop/settings/quickCss.css".source = "${../../../extrafiles/quickCss.css}";
       home.file.".config/kitty/kitty.conf.d".source = "${../../../extrafiles/kitty.conf.d}";
       home.file.".local/share/PrismLauncher/themes/Console".source = "${../../../extrafiles/PrismLauncherTheme_Console}";

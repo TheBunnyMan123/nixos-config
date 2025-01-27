@@ -894,7 +894,7 @@
             "$mod, F, exec, firefox-esr"
             "$mod, Q, exec, kitty"
             "$mod, C, killactive,"
-            "$mod SHIFT, C, exit,"
+            "$mod SHIFT, C, kill,"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, R, exec, rofi -show drun"

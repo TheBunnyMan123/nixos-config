@@ -22,7 +22,7 @@
 
    systemd.tmpfiles = {
       rules = [
-         # /bin/bash symlink because people like to be not POSIX compatible
+         # /bin/bash symlink because people like to be not POSIX compliant
          "L+ /bin/bash - - - - ${pkgs.bashInteractive}/bin/bash"
          # Set public directory
          "d /public 0777 root root - -"

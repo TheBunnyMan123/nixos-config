@@ -141,179 +141,43 @@
       plugins = with pkgs.vimPlugins; [
          {
             plugin = which-key-nvim;
-            config = ''
-               vim.o.timeout = true
-               vim.o.timeoutlen = 500
-
-               vim.g.mapleader = " "
-
-               local wk = require("which-key")
-               wk.add(
-                  { "<leader>tr", ":NvimTreeFocus<CR>", desc = "File Tree" }
-               )
-               wk.add(
-                  { "<leader>ctr", ":NvimTreeClose<CR>", desc = "Close File Tree" }
-               )
-
-               wk.add(
-                  { "<leader>ff", ":Telescope find_files<CR>", desc = "Find Files" }
-               )
-               wk.add(
-                  { "<leader>gf", ":Telescope git_files<CR>", desc = "Git Files" }
-               )
-               wk.add(
-                 { "<leader>bf", ":buffers<CR>", desc = "Buffers" }
-               )
-               wk.add(
-                  { "<leader>ut", ":UndotreeToggle<CR>", desc = "Toggle Undo Tree" }
-               )
-               '';
+            config = builtins.readFile ./extrafiles/neovim/which-key.lua;
             type = "lua";
          }
          {
             plugin = nvim-treesitter.withAllGrammars;
-            config = ''
-               local configs = require("nvim-treesitter.configs")
-
-               configs.setup({
-                  highlight = { enable = true },
-                  indent = { enable = false },
-               })
-            '';
+            config = builtins.readFile ./extrafiles/neovim/treesitter.lua;
             type = "lua";
          }
          {
             plugin = lsp-zero-nvim;
-            config = ''
-               local lsp_zero = require('lsp-zero')
-
-               lsp_zero.on_attach(function(client, bufnr)
-                  -- see :help lsp-zero-keybindings
-                  -- to learn the available actions
-                  lsp_zero.default_keymaps({buffer = bufnr})
-               end)
-               '';
+            config = builtins.readFile ./extrafiles/neovim/lsp-zero.lua;
             type = "lua";
          }
          {
             plugin = nvim-lspconfig;
-            config = ''
-               local lspconfig = require('lspconfig')
-               local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-               capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-               lspconfig.ccls.setup{}
-               lspconfig.nixd.setup{}
-               lspconfig.bashls.setup{}
-               lspconfig.kotlin_language_server.setup{}
-               lspconfig.html.setup {
-                  capabilities = capabilities,
-               }
-               lspconfig.jsonls.setup {
-                  capabilities = capabilities,
-               }
-               lspconfig.cssls.setup {
-                  capabilities = capabilities,
-               }
-               lspconfig.eslint.setup({
-                  on_attach = function(client, bufnr)
-                  vim.api.nvim_create_autocmd("BufWritePre", {
-                     buffer = bufnr,
-                     command = "EslintFixAll",
-                  })
-               end,
-            })
-            lspconfig.lua_ls.setup {
-               on_init = function(client)
-                  local path = client.workspace_folders[1].name
-                  if vim.loop.fs_stat(path..'/.luarc.json') or vim.loop.fs_stat(path..'/.luarc.jsonc') then
-                     return
-                  end
-
-                  client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-                     workspace = {
-                        checkThirdParty = false,
-                        library = {
-                           vim.env.VIMRUNTIME
-                        }
-                     }
-                 })
-               end,
-               settings = {
-                  Lua = {}
-               }
-            }
-            lspconfig.rust_analyzer.setup{
-               settings = {
-                  ['rust-analyzer'] = {
-                     diagnostics = {
-                        enable = false;
-                     }
-                  }
-               }
-            }
-            '';
+            config = builtins.readFile ./extrafiles/neovim/lspconfig.lua;
             type = "lua";
          }
-         #{
-         #   plugin = nvim-jdtls;
-         #   config = ''
-         #      require('jdtls').start_or_attach({
-         #         cmd = {'${pkgs.jdt-language-server}/bin/jdtls'},
-         #         root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-         #      })
-         #   '';
-         #   type = "lua";
-         #}
+         {
+            plugin = presence-nvim;
+            config = builtins.readFile ./extrafiles/neovim/presence.lua;
+            type = "lua";
+         }
          {
             plugin = nvim-cmp;
-            config = ''
-               local cmp = require('cmp')
-               local cmp_action = require('lsp-zero').cmp_action()
-
-               cmp.setup({
-                  mapping = cmp.mapping.preset.insert({
-                     -- `Enter` key to confirm completion
-                     ['<CR>'] = cmp.mapping.confirm({select = false}),
-
-                     -- Ctrl+Space to trigger completion menu
-                     ['<C-Space'] = cmp.mapping.complete(),
-
-                     -- Navigate between snippet placeholder
-                     ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-                     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-                     -- Scroll up and down in the completion documentation
-                     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-                     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-                  }),
-                  snippet = {
-                  expand = function(args)
-                  require('luasnip').lsp_expand(args.body)
-               end,
-               },
-               sources = cmp.config.sources({
-                  { name = 'nvim_lsp' },
-                  { name = 'snippy' },
-                  }, {
-                     { name = 'buffer' },
-                 })
-              })
-            '';
+            config = builtins.readFile ./extrafiles/neovim/cmp.lua;
             type = "lua";
          }
          {
             plugin = nvim-tree-lua;
             config = ''
-               require("nvim-tree").setup{}
+               require("nvim-tree").setup {}
             '';
             type = "lua";
          }
          {
             plugin = undotree;
-            config = ''
-               '';
             type = "lua";
          }
 

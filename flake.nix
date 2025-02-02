@@ -18,15 +18,15 @@
          home-manager.follows = "home-manager";
       };
     };
-    nathan = {
-       url = "github:PoolloverNathan/nixos";
-       inputs = {
-         nixpkgs.follows = "nixpkgs";
-         catppuccin.follows = "catppuccin";
-         fokquote.follows = "fok-quote";
-         home-manager.follows = "home-manager";
-       };
-    };
+    #nathan = {
+    #   url = "github:PoolloverNathan/nixos";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     catppuccin.follows = "catppuccin";
+    #     fokquote.follows = "fok-quote";
+    #     home-manager.follows = "home-manager";
+    #   };
+    #};
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";

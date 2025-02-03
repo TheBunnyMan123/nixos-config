@@ -1,3 +1,7 @@
+{
+   fok-quote,
+   createUser
+}:
 { 
    homeStateVersion,
    canSudo ? false,
@@ -8,8 +12,6 @@
    uid ? 1000
 }: {
    pkgs,
-   fok-quote,
-   createUser,
    ...
 }: {
    imports = [(createUser {

@@ -43,7 +43,7 @@
     lib = nixpkgs.lib // home-manager.lib;
   in {
     nixosModules = {
-      mkBunny = import ./bunny.nix;
+      mkBunny = import ./bunny.nix { inherit fok-quote; inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser; };
       vencord = import ./modules/vencord.nix;
     };
 

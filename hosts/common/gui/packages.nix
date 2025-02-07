@@ -11,6 +11,7 @@ in {
   environment.systemPackages = with pkgs; [
     makemkv
     handbrake
+    ladybird
 
     wlr-randr
     networkmanagerapplet

@@ -339,7 +339,7 @@
         package = pkgs.vencord;
         themes = {
           system24-catppuccin-mocha = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/refact0r/system24/364004192ed95bc9a8256422a5ff51a6f68400c9/theme/system24.theme.css";
+            url = "https://raw.githubusercontent.com/refact0r/system24/dbffeb2ad136d41dedd75e680ca73b2ccac969a4/theme/system24.theme.css";
             hash = "sha256-WJYNWeo1DdgOh7cFne6QSEHQagqapFznqWfeoCsqM+8=";
           };
         };
@@ -476,6 +476,8 @@
             showFolderIcon = 1;
           };
           PlainFolderIcon.enabled = true;
+          FullUserInChatbox.enabled = true;
+          IrcColors.enabled = true;
         };
         userPlugins = {
           NewPluginsManager = "github:sqaaakoi/vc-newpluginsmanager/6f6fa79ea1dabaebf3c176eb1e61a4a80c6d9f97";
@@ -487,11 +489,20 @@
       };
 
       # WM
+      dconf.settings = {
+         "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+         };
+      };
       qt.style = {
         name = "kvantum";
       };
       gtk = {
-        enable = true;
+         enable = true;
+         theme = {
+            name = "Adwaita-dark";
+            package = pkgs.gnome-themes-extra;
+         };
         cursorTheme = {
           package = pkgs.catppuccin-cursors.mochaLight;
           name = "catppuccin-mocha-light-cursors";

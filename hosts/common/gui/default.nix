@@ -6,7 +6,6 @@
   imports = [
     ./packages.nix
     ./services.nix
-    ./gui-home.nix
   ];
 
   boot.plymouth = {

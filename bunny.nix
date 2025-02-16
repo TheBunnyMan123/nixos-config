@@ -8,10 +8,12 @@
    canTTY ? true,
    canViewJournal ? canSudo,
    linger ? true,
+   gui ? false,
    home ? "/home/bunny",
    uid ? 1000
 }: {
    pkgs,
+   lib,
    ...
 }: {
    imports = [(createUser {
@@ -46,7 +48,7 @@
       extraHomeConfig = {
          imports = [ ./bunnyHome.nix ];
       };
-   })];
+   })] ++ lib.optional gui ./hosts/common/gui/gui-home.nix;
    programs.zsh.enable = true;
 }
 

@@ -3,6 +3,7 @@
   outputs,
   createUser,
   homeStateVersion,
+  gui,
   inputs,
   ...
 }: {
@@ -47,7 +48,7 @@
     )
 
     (outputs.nixosModules.mkBunny {
-      inherit homeStateVersion;
+      inherit homeStateVersion gui;
 
       canSudo = true;
     })

@@ -57,9 +57,9 @@
           ./hosts/desktop
         ];
 
-        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
+        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; gui = true; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
-          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
         };
       };
       Laptop = lib.nixosSystem rec {
@@ -70,9 +70,9 @@
           ./hosts/laptop
         ];
 
-        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; in {
+        specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; gui = true; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
-          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
         };
       };
       Server = lib.nixosSystem rec {

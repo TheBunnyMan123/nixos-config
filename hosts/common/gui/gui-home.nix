@@ -33,6 +33,7 @@
 
    programs.chromium = {
       enable = true;
+      commandLineArgs = [ "--disable-gpu-compositing" ];
       extensions = [
          "ddkjiahejlhfcafbddmgiahcphecmpfh" # ublock origin (lite)
          "enamippconapkdmgfgjchkhakpfinmaj" # dearrow
@@ -858,7 +859,7 @@ wayland.windowManager.hyprland = {
             "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
             "[workspace 2 silent] sleep 7 && keepassxc"
             "[workspace 3 silent] sleep 5 && vesktop"
-            "[workspace 2 silent] sleep 5 && firefox-esr"
+            "[workspace 2 silent] sleep 5 && chromium"
             "clipse -listen"
       ];
 

@@ -5,7 +5,10 @@
   imports = [
     ./minecraft.nix
   ];
-  
+
+   services.gitea = {
+    enable = true;
+   };
   services.jellyfin = {
     enable = true;
     openFirewall = true;

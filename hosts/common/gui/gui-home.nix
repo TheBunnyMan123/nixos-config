@@ -29,6 +29,8 @@
       qt6Packages.qtstyleplugin-kvantum
       prismlauncher
       imagemagick
+      blockbench
+      jetbrains.idea-community-bin
    ];
 
    programs.chromium = {

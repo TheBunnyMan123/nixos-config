@@ -37,54 +37,16 @@
       enable = true;
 
       settings = {
-         logo = {
-            source = "/home/bunny/fastfetch/3ds.txt";
-            type = "file";
-            padding = {
-               right = 1;
-            };
-            color = {
-               "1" = "reset_light_blue";
-               "2" = "reset_red";
-               "3" = "reset_light_white";
-               "4" = "dim_white";
-               "5" = "dim_light_black";
-               "6" = "reset_light_red";
-               "7" = "reset_yellow";
-               "8" = "reset_light_green";
-               "9" = "reset_light_cyan";
-            };
-         };
          modules = [
-            "break"
-            {
-               type = "host";
-               format = "Nintendo 3DS XL";
-            }
-            {
-               type = "os";
-               format = "Horizon 11.17.0-50U";
-            }
-            {
-               type = "bootmgr";
-               format = "Luma3DS 13.2";
-            }
+            "host"
+            "os"
+            "bootmgr"
             "uptime"
             "terminal"
             "shell"
             "break"
-            {
-               type = "gpu";
-               format = "DMP PICA @ 268 MHz";
-            }
-            {
-               type = "cpu";
-               format = "Dual-core ARM11 MPCore @ 268 MHz";
-            }
-            {
-               type = "cpu";
-               format = "Single-core ARM9 @ 134 MHz";
-            }
+            "gpu"
+            "cpu"
             "disk"
             "memory"
             "swap"

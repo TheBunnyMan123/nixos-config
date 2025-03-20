@@ -2,13 +2,19 @@
    pkgs,
    config,
    ...
-}: rec {
+}: {
    home = {
       sessionVariables = {
          QT_STYLE_OVERRIDE = "kvantum";
          GTK_USE_PORTAL = 1;
          WLR_NO_HARDWARE_CURSORS = 1;
      };
+   };
+
+   catppuccin = {
+     flavor = "mocha";
+     accent = "mauve";
+     enable = true;
    };
 
    nixpkgs.config.allowUnfree = true;
@@ -31,6 +37,10 @@
    programs.yazi = {
       enable = true;
       enableZshIntegration = true;
+      catppuccin = {
+        enable = true;
+        flavor = "mocha";
+      };
    };
 
    programs.fastfetch = {
@@ -75,10 +85,18 @@
 
    programs.bat = {
       enable = true;
+      catppuccin = {
+        flavor = "mocha";
+        enable = true;
+      };
    };
 
    programs.btop = {
       enable = true;
+      catppuccin = {
+        flavor = "mocha";
+        enable = true;
+      };
    };
 
    programs.neovim = {
@@ -142,6 +160,12 @@
             plugin = undotree;
             type = "lua";
          }
+         {
+           plugin = catppuccin-nvim;
+           config = ''
+             '';
+           type = "lua";
+         }
 
          markdown-preview-nvim
          cmp-snippy
@@ -199,11 +223,14 @@
                bind-key -T copy-mode-vi v send-keys -X begin-selection
                bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
                bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-
-               source ${./extrafiles/tmux.conf}
             '';
          }
       ];
+
+      catppuccin = {
+        flavor = "mocha";
+        enable = true;
+      };
    };
 
    programs.zsh = {
@@ -268,6 +295,10 @@
 
       syntaxHighlighting = {
          enable = true;
+         catppuccin = {
+           flavor = "mocha";
+           enable = true;
+         };
       };
    };
 }

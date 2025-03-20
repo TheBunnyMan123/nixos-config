@@ -49,32 +49,37 @@ local function rgb(r, g, b)
     end
   })
 end
+local function hex(hex)
+  local r, g, b = hex:match("#(%x%x)(%x%x)(%x%x)")
+
+  return rgb(tonumber("0x" .. r), tonumber("0x" .. g), tonumber("0x" .. b))
+end
 
 local colors = {
-  rgb(0, 0, 0);
-  rgb(221, 38, 38);
-  rgb(38, 221, 38);
-  rgb(221, 221, 38);
-  rgb(38, 38, 221);
-  rgb(221, 38, 221);
-  rgb(38, 221, 221);
-  rgb(192, 192, 192);
-  rgb(64, 64, 64);
-  rgb(255, 54, 54);
-  rgb(54, 255, 54);
-  rgb(255, 255, 54);
-  rgb(54, 54, 255);
-  rgb(255, 54, 255);
-  rgb(54, 255, 255);
-  rgb(255, 255, 255);
+  hex("#45475a");
+  hex("#f38ba8");
+  hex("#a6e3a1");
+  hex("#f9e2af");
+  hex("#89b4fa");
+  hex("#f5c2e7");
+  hex("#94e2d5");
+  hex("#bac2de");
+  hex("#585b70");
+  hex("#f38ba8");
+  hex("#a6e3a1");
+  hex("#f9e2af");
+  hex("#89b4fa");
+  hex("#f5c2e7");
+  hex("#94e2d5");
+  hex("#bac2de");
 }
 local extracolors = {
-  mark1_foreground = rgb(0, 0, 0);
-  mark1_background = rgb(54, 128, 255);
-  mark2_foreground = rgb(0, 0, 0);
-  mark2_background = rgb(255, 255, 255);
-  mark3_foreground = rgb(0, 0, 0);
-  mark3_background = rgb(216, 54, 255);
+  mark1_foreground = hex("#1e1e2e");
+  mark1_background = hex("#b4befe");
+  mark2_foreground = hex("#1e1e2e");
+  mark2_background = hex("#cba6f7");
+  mark3_foreground = hex("#1e1e2e");
+  mark3_background = hex("#74c7ec");
 }
 
 local iter = 0

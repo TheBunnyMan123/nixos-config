@@ -1,18 +1,46 @@
 :root {
+  --ctp-rosewater: #f5e0dc;
+  --ctp-flamingo: #f2cdcd;
+  --ctp-pink: #fec2e7;
+  --ctp-mauve: #cba6f7;
+  --ctp-red: #f38ba8;
+  --ctp-maroon: #eba0ac;
+  --ctp-peach: #fab387;
+  --ctp-yellow: #f9e2af;
+  --ctp-green: #a6e3a1;
+  --ctp-teal: #94e29d;
+  --ctp-sky: #89dceb;
+  --ctp-blue: #89b4fa;
+  --ctp-lavender: #b4befe;
+  --ctp-text: #cdd6f4;
+  --ctp-subtext1: #bac2de;
+  --ctp-subtext0: #a6adc8;
+  --ctp-overlay2: #9399b2;
+  --ctp-overlay1: #7f849c;
+  --ctp-overlay0: #6c7086;
+  --ctp-surface2: #585b70;
+  --ctp-surface1: #45475a;
+  --ctp-surface0: #313244;
+  --ctp-base: #1e1e2e;
+  --ctp-mantle: #181825;
+  --ctp-crust: #11111b;
+}
+
+:root {
   /* Container Tabs (mainly) */
-  --uc-identity-color-blue: #3636ff;
-  --uc-identity-color-turquoise: #36ffff;
-  --uc-identity-color-green: #36ff36;
-  --uc-identity-color-yellow: #ffff36;
-  --uc-identity-color-orange: #ff8636;
-  --uc-identity-color-red: #ff3636;
-  --uc-identity-color-pink: #ff36ff;
-  --uc-identity-color-purple: #7d2ceb;
+  --uc-identity-color-blue: var(--ctp-blue);
+  --uc-identity-color-turquoise: var(--ctp-teal);
+  --uc-identity-color-green: var(--ctp-green);
+  --uc-identity-color-yellow: var(--ctp-yellow);
+  --uc-identity-color-orange: var(--ctp-peach);
+  --uc-identity-color-red: var(--ctp-red);
+  --uc-identity-color-pink: var(--ctp-pink);
+  --uc-identity-color-purple: var(--ctp-purple);
 
   /* Color Scheme */
-  --uc-base-color: #000000;
-  --uc-highlight-color: #ffffff;
-  --uc-inverted-color: #ffffff;
-  --uc-muted-color: #c0c0c0;
+  --uc-base-color: var(--ctp-base);
+  --uc-highlight-color: var(--ctp-mauve);
+  --uc-inverted-color: var(--ctp-text);
+  --uc-muted-color: var(--ctp-subtext0);
 }
 

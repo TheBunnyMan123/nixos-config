@@ -157,50 +157,44 @@
                 version = "5.2.0.9";
                 url = "https://github.com/mbnuqw/sidebery/releases/download/v5.2.0/sidebery-5.2.0.9.xpi";
                 hash = "sha256-iF/2SE5bYy9mJU8lCGm8IXW0pugxxDtepFbqInDNaHE=";
-                })
-            (buildFirefoxAddon {
-             name = "keepassxc";
-             version = "1.9.3";
-             url = "https://github.com/keepassxreboot/keepassxc-browser/releases/download/1.9.3/keepassxc-browser_1.9.3_firefox.zip";
-             hash = "sha256-+Z3DW7GXpqBxSTiQBPEH9E/uxCYkq9Ad/3yUGwKyKgI=";
-             fixedExtid = "keepassxc-browser@keepassxc.org";
-             })
-            (buildFirefoxAddon {
-             name = "ublock";
-             version = "1.59.0";
-             url = "https://github.com/gorhill/uBlock/releases/download/1.59.0/uBlock0_1.59.0.firefox.signed.xpi";
-             hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
-             })
-            (buildFirefoxAddon {
-             name = "7tv";
-             version = "3.1.1";
-             url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
-             hash = "sha256-mo/A+7G3ydDz9yyv8o62js2UHDcYLRsOtCp9J88PAp0=";
-             })
-            (buildFirefoxAddon {
-             name = "sponsorblock";
-             version = "5.7";
-             url = "https://github.com/ajayyy/SponsorBlock/releases/download/5.7/FirefoxSignedInstaller.xpi";
-             hash = "sha256-ZP1ygz9pkai4/RQ6IP/Sty0NN2sDiDA7d7Ke8GyZmy0=";
-             })
-            (buildFirefoxAddon {
-             name = "stylus";
-             version = "1.5.51";
-             url = "https://addons.mozilla.org/firefox/downloads/file/4338993/styl_us-1.5.51.xpi";
-             hash = "sha256-TXwYSvLYH0DDXzPHfEBA3EIFkI289l58mfr9fSbkgU8=";
-             })
-            (buildFirefoxAddon {
-             name = "dearrow";
-             version = "1.7.1";
-             url = "https://github.com/ajayyy/DeArrow/releases/download/1.7.1/FirefoxSignedInstaller.xpi";
-             hash = "sha256-xwAMcMT8zG6byAOAAT3rHMmAdyjeNG1vVjZkITcu9ug=";
-             })
-            (buildFirefoxAddon {
-             name = "indie-wiki-buddy";
-             version = "3.12.0";
-             url = "https://addons.mozilla.org/firefox/downloads/file/4405306/indie_wiki_buddy-3.12.0.xpi";
-             hash = "sha256-2rtLMvuiFQJ3pWS3dLAQVLCf0snb/pP3a7NXxfOMyiQ=";
-             })
+              })
+              (buildFirefoxAddon {
+                name = "keepassxc";
+                version = "1.9.3";
+                url = "https://github.com/keepassxreboot/keepassxc-browser/releases/download/1.9.3/keepassxc-browser_1.9.3_firefox.zip";
+                hash = "sha256-+Z3DW7GXpqBxSTiQBPEH9E/uxCYkq9Ad/3yUGwKyKgI=";
+                fixedExtid = "keepassxc-browser@keepassxc.org";
+              })
+              (buildFirefoxAddon {
+                name = "ublock";
+                version = "1.59.0";
+                url = "https://github.com/gorhill/uBlock/releases/download/1.59.0/uBlock0_1.59.0.firefox.signed.xpi";
+                hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
+              })
+              #(buildFirefoxAddon {
+              #  name = "7tv";
+              #  version = "3.1.1";
+              #  url = "https://github.com/SevenTV/Extension/releases/download/v3.1.1/7tv-webextension-ext.xpi";
+              #  hash = "sha256-1CKdE+m6UtEQY169X4NTCrI03mh3s2Pn43ddbiWEseI=";
+              #})
+              (buildFirefoxAddon {
+                name = "sponsorblock";
+                version = "5.7";
+                url = "https://github.com/ajayyy/SponsorBlock/releases/download/5.7/FirefoxSignedInstaller.xpi";
+                hash = "sha256-ZP1ygz9pkai4/RQ6IP/Sty0NN2sDiDA7d7Ke8GyZmy0=";
+              })
+              (buildFirefoxAddon {
+                name = "stylus";
+                version = "1.5.51";
+                url = "https://addons.mozilla.org/firefox/downloads/file/4338993/styl_us-1.5.51.xpi";
+                hash = "sha256-TXwYSvLYH0DDXzPHfEBA3EIFkI289l58mfr9fSbkgU8=";
+              })
+              (buildFirefoxAddon {
+                name = "dearrow";
+                version = "1.7.1";
+                url = "https://github.com/ajayyy/DeArrow/releases/download/1.7.1/FirefoxSignedInstaller.xpi";
+                hash = "sha256-xwAMcMT8zG6byAOAAT3rHMmAdyjeNG1vVjZkITcu9ug=";
+              })
             ];
             settings = {
 # Misc
@@ -334,11 +328,20 @@
       };
    };
 
-   programs.kitty = {
-      enable = true;
-      font = {
-         name = "monospace";
-         size = 11;
+      programs.kitty = {
+        enable = true;
+        catppuccin = {
+          flavor = "mocha";
+          enable = true;
+        };
+        font = {
+          name = "monospace";
+          size = 11;
+        };
+        shellIntegration = {
+          enableZshIntegration = true;
+          mode = "no-rc";
+        };
       };
       shellIntegration = {
          enableZshIntegration = true;
@@ -349,20 +352,20 @@
          '';
    };
 
-   programs.vencord = {
-      enable = true;
-      package = pkgs.vencord;
-      themes = {
+      programs.vencord = {
+        enable = true;
+        package = pkgs.vencord;
+        themes = {
          system24-catppuccin-mocha = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/refact0r/system24/dbffeb2ad136d41dedd75e680ca73b2ccac969a4/theme/system24.theme.css";
-            hash = "sha256-WJYNWeo1DdgOh7cFne6QSEHQagqapFznqWfeoCsqM+8=";
-         };
-      };
-      plugins = {
-         Experiments.enabled = true;
-         AutomodContext.enabled = true;
-         BetterRoleContext.enabled = true;
-         CopyEmojiMarkdown = {
+            url = "https://raw.githubusercontent.com/refact0r/system24/9d480b7e3bc0dac994a9c496b63d6875368f9a98/theme/flavors/catppuccin-mocha.theme.css";
+            hash = "sha256-e8/3bEYL/Wl9VZENWkusi50inal0ApQOKjpmS8T852Y=";
+          };
+        };
+        plugins = {
+          Experiments.enabled = true;
+          AutomodContext.enabled = true;
+          BetterRoleContext.enabled = true;
+          CopyEmojiMarkdown = {
             enabled = true;
             copyUnicode = true;
          };
@@ -505,26 +508,43 @@
 
 # WM
    dconf.settings = {
-      "org/gnome/desktop/interface" = {
-         color-scheme = "prefer-dark";
-      };
+     "org/gnome/desktop/interface" = {
+       color-scheme = "prefer-dark";
+     };
+   };
+   catppuccin.pointerCursor = {
+     flavor = "mocha";
+     accent = "mauve";
+     enable = true;
    };
    qt.style = {
-      name = "kvantum";
+     name = "kvantum";
+     catppuccin = {
+       flavor = "mocha";
+       accent = "mauve";
+       enable = true;
+     };
    };
    gtk = {
-      enable = true;
-      theme = {
-         name = "Adwaita-dark";
-         package = pkgs.gnome-themes-extra;
-      };
-      cursorTheme = {
-         package = pkgs.catppuccin-cursors.mochaLight;
-         name = "catppuccin-mocha-light-cursors";
-      };
-      font = {
-         name = "sans-serif";
-      };
+     enable = true;
+     cursorTheme = {
+       name = "catppuccin-mocha-blue-cursors";
+       package = pkgs.catppuccin-cursors.mochaMauve;
+     };
+     font = {
+       name = "sans-serif";
+     };
+     theme = {
+       name = "Adwaita-dark";
+       package = pkgs.gnome-themes-extra;
+     };
+   };
+   cursorTheme = {
+     package = pkgs.catppuccin-cursors.mochaLight;
+     name = "catppuccin-mocha-light-cursors";
+   };
+   font = {
+     name = "sans-serif";
    };
 
    services = {
@@ -552,25 +572,33 @@
       enable = true;
       package = pkgs.rofi-wayland;
       extraConfig = {
-         modi = "run,drun,window";
-         icon-theme = "Oranchelo";
-         show-icons = true;
-         terminal = "kitty";
-         drun-display-format = "{icon} {name}";
-         location = 0;
-         disable-history = false;
-         hide-scrollbar = true;
-         display-drun = "   Apps ";
-         display-run = "   Run ";
-         display-window = " 󰕰  Window";
-         sidebar-mode = true;
+        modi = "run,drun,window";
+        icon-theme = "Oranchelo";
+        show-icons = true;
+        terminal = "kitty";
+        drun-display-format = "{icon} {name}";
+        location = 0;
+        disable-history = false;
+        hide-scrollbar = true;
+        display-drun = "   Apps ";
+        display-run = "   Run ";
+        display-window = " 󰕰  Window";
+        sidebar-mode = true;
+      };
+      catppuccin = {
+        enable = true;
+        flavor = "mocha";
       };
    };
 
    programs.waybar = {
       enable = true;
-      settings = {
-         mainBar = {
+        catppuccin = {
+          enable = true;
+          flavor = "mocha";
+        };
+        settings = {
+          mainBar = {
             layer = "top";
             position = "top";
             height = 43;
@@ -660,101 +688,95 @@
                on-click = "xterm -class netman -e power-menu";
             };
             "tray" = {
-               icon-size = 15;
-               spacing = 3;
+              icon-size = 15;
+              spacing = 3;
             };
             "clock" = {
-               timezone = "America/Chicago";
-               tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-               format-alt = "  {:%m/%d/%Y}";
-               format = "󰥔  {:%I:%M %p}";
+              timezone = "America/Chicago";
+              tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+              format-alt = "  {:%m/%d/%Y}";
+              format = "󰥔  {:%I:%M %p}";
             };
             "battery" = {
-               states = {
-                  warning = 30;
-                  critical = 15;
-               };
-               format = "{icon} {capacity}%";
-               format-charging = "󰂄 {capacity}%";
-               format-alt = "{icon} {capacity}%";
-               max-volume = 100.0;
-               reverse-scrolling = 1;
-               format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+              states = {
+                warning = 30;
+                critical = 15;
+              };
+              format = "{icon} {capacity}%";
+              format-charging = "󰂄 {capacity}%";
+              format-alt = "{icon} {capacity}%";
+              max-volume = 100.0;
+              reverse-scrolling = 1;
+              format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
             };
             "custom/clipboard" = {
-               format = "󰅍";
-               on-click = "kitty --class netman -e clipse";
+              format = "󰅍";
+              on-click = "kitty --class netman -e clipse";
             };
-         };
-      };
-      style = ''
-         * {
-color: #ffffff;
+            style = ''
+              * {
+color: @text;
        font-family: sans-serif;
 transition: 0.5s;
-         }
+              }
 
-      window#waybar {
-background: #000000;
-            border-top: 0 solid;
-            border-bottom: 2px solid #ffffff;
-      }
+            window#waybar {
+background: shade(@base, 0.9);
+border: 2px solid alpha(@crust, 0.3);
+            }
 
-      .modules-left {
-         background-color: #161616;
-         padding-left: 20px;
-         padding-right: 20px;
-         border-top-right-radius: 0;
-         border-bottom-right-radius: 0;
-         border-bottom: 2px solid #ffffff;
-      }
-      .modules-center {
-         background-color: #161616;
-         padding-left: 20px;
-         padding-right: 20px;
-         border-radius: 0;
-         border-bottom: 2px solid #ffffff;
-      }
-      .modules-right {
-         background-color: #161616;
-         padding-left: 20px;
-         padding-right: 20px;
-         border-top-left-radius: 0;
-         border-bottom-left-radius: 0;
-         border-bottom: 2px solid #ffffff;
-      }
+            .modules-left {
+              background-color: @surface1;
+              padding-left: 20px;
+              padding-right: 20px;
+              border-top-right-radius: 100px;
+              border-bottom-right-radius: 100px;
+            }
+            .modules-center {
+              background-color: @surface1;
+              padding-left: 20px;
+              padding-right: 20px;
+              border-radius: 100px;
+            }
+            .modules-right {
+              background-color: @surface1;
+              padding-left: 20px;
+              padding-right: 20px;
+              border-top-left-radius: 100px;
+              border-bottom-left-radius: 100px;
+            }
 
 #pulseaudio {
-color: #36ff36;
+color: @green;
 }
 #pulseaudio.bluetooth {
-color: #2c7deb;
+color: @blue;
 }
 #pulseaudio.muted {
-color: #ff3636;
+color: @red;
 }
 
 #custom-brightness {
-color: #ffff36;
+color: @yellow;
 }
 
 #network {
-color: #ff3636;
+color: @red;
 }
 #bluetooth {
-color: #ff8636;
+color: @peach;
 }
 #cpu {
-color: #36ff36;
+color: @green;
 }
 #memory {
-color: #36ffff;
+color: @sky;
 }
 #disk {
-color: #2c7deb;
+color: @blue;
 }
 #idle_inhibitor {
-color: #ff36ff;
+color: @mauve;
 }
 
 #workspaces {
@@ -766,27 +788,27 @@ margin: 0;
         margin-left: 3px;
         margin-right: 3px;
 padding: 0;
-         background-color: #000000;
-         border-radius: 0px;
+         background-color: @base;
+         border-radius: 100px;
 }
 #workspaces button.active {
-   background-color: #ffffff;
+  background-color: @lavender;
 }
 #workspaces button.active * {
-color: #000000;
+color: @base;
 }
 #workspaces button:hover {
-   background-color: #ffffff;
+  background-color: @text;
 }
 #workspaces button:hover * {
-color: #000000;
+color: @base;
 }
 #workspaces button * {
 padding: 0;
 margin: 0;
         margin-left: 3px;
         margin-right: 3px;
-color: #2c7deb;
+color: @sapphire;
 }
 
 .modules-left * {
@@ -800,15 +822,16 @@ margin: 7px;
 }
 
 #battery {
-color: #36ff36;
+color: @green;
 }
 #battery.charging {
-color: #ffff36;
+color: @yellow;
 }
 #battery.warning:not(.charging) {
-color: #ff3636;
+color: @red;
 }
 '';
+};
 };
 
 programs.zsh.initExtraFirst = ''
@@ -819,205 +842,167 @@ fi
 '';
 
 services.hyprpaper = {
-   enable = false;
-   settings = {
-      ipc = "off";
-      splash = false;
-      splash_offset = 2.0;
+  enable = false;
+  settings = {
+    ipc = "off";
+    splash = false;
+    splash_offset = 2.0;
 
-      preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
-      wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
-   };
+    preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
+    wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
+  };
 };
 
 wayland.windowManager.hyprland = {
-   enable = true;
-   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-   xwayland.enable = true;
-   systemd.variables = ["--all"];
-   settings = {
-      "$mod" = "SUPER";
+  enable = true;
+  package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  xwayland.enable = true;
+  systemd.variables = ["--all"];
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "mauve";
+  };
+  settings = {
+    "$mod" = "SUPER";
 
-      misc = {
-         force_default_wallpaper = 2;
+    misc = {
+      force_default_wallpaper = 2;
+    };
+
+    general = {
+      gaps_in = 5;
+      gaps_out = 20;
+      border_size = 2;
+      "col.inactive_border" = "$crust";
+      "col.active_border" = "$mauve";
+      resize_on_border = false;
+      allow_tearing = false;
+      layout = "master";
+    };
+
+    exec-once = [
+      "waybar"
+        "swaync"
+        "[workspace 1 silent] sleep 5 && kitty"
+        "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
+        "[workspace 2 silent] sleep 7 && keepassxc"
+        "[workspace 3 silent] sleep 5 && vesktop"
+        "[workspace 2 silent] sleep 5 && chromium"
+        "clipse -listen"
+    ];
+
+    decoration = {
+      rounding = 10;
+
+      active_opacity = 1.0;
+      inactive_opacity = 0.95;
+
+      drop_shadow = true;
+      shadow_range = 4;
+      shadow_render_power = 3;
+      "col.shadow" = "rgba(1a1a1aee)";
+
+      blur = {
+        enabled = true;
+        size = 3;
+        passes = 1;
+        vibrancy = 0.1696;
       };
+    };
 
-<<<<<<< HEAD
-      general = {
-         gaps_in = 5;
-         gaps_out = 20;
-         border_size = 2;
-         "col.inactive_border" = "rgba(000000ff)";
-         "col.active_border" = "rgba(ffffffff)";
-         resize_on_border = false;
-         allow_tearing = false;
-         layout = "master";
-      };
-      programs.zsh.initExtraFirst = ''
-        if [[ "$(tty)" == "/dev/tty1" ]]
-        then
-          exec Hyprland
-        fi
-      '';
-
-      services.hyprpaper = {
-        enable = true;
-        settings = {
-          ipc = "off";
-          splash = false;
-          splash_offset = 2.0;
-
-          preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
-          wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
-        };
-      };
-
-      exec-once = [
-         "hypridle"
-            "waybar"
-            "swaync"
-            "[workspace 1 silent] sleep 5 && kitty"
-            "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
-            "[workspace 2 silent] sleep 7 && keepassxc"
-            "[workspace 3 silent] sleep 5 && vesktop"
-            "[workspace 2 silent] sleep 5 && chromium"
-            "clipse -listen"
-      ];
-
-      decoration = {
-         rounding = 0;
-
-         active_opacity = 1.0;
-         inactive_opacity = 0.95;
-
-            drop_shadow = true;
-            shadow_range = 4;
-            shadow_render_power = 3;
-
-            blur = {
-              enabled = true;
-              size = 3;
-              passes = 1;
-              vibrancy = 0.1696;
-            };
-          };
-
-          master = {
-            #
-          };
-
-          input = {
-            kb_layout = "us";
-
-            follow_mouse = 1;
-            sensitivity = 0;
-
-            touchpad = {
-              natural_scroll = false;
-              disable_while_typing = false;
-            };
-          };
-
-          animations = {
-            enabled = true;
-            size = 3;
-            passes = 1;
-            vibrancy = 0.1696;
-         };
-      };
-
-      master = {
+    master = {
 #
+    };
+
+    input = {
+      kb_layout = "us";
+
+      follow_mouse = 1;
+      sensitivity = 0;
+
+      touchpad = {
+        natural_scroll = false;
+        disable_while_typing = false;
       };
+    };
 
-      input = {
-         kb_layout = "us";
+    animations = {
+      enabled = true;
+      bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
-         follow_mouse = 1;
-         sensitivity = 0;
+      animation = [
+        "windows, 0, 0, myBezier"
+          "windowsOut, 0, 0, default, popin 80%"
+          "border, 0, 0, default"
+          "borderangle, 0, 0, default"
+          "fade, 0, 0, default"
+          "workspaces, 1, 4, default"
+      ];
+    };
 
-         touchpad = {
-            natural_scroll = false;
-            disable_while_typing = false;
-         };
-      };
-
-      animations = {
-         enabled = true;
-         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
-         animation = [
-            "windows, 0, 0, myBezier"
-               "windowsOut, 0, 0, default, popin 80%"
-               "border, 0, 0, default"
-               "borderangle, 0, 0, default"
-               "fade, 0, 0, default"
-               "workspaces, 1, 4, default"
-         ];
-      };
-
-      bind = [
+    bind = [
 # Volume
-         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
-            ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-            ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-            ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-            "bind=$mod, N, layoutmsg, swapwithmaster master"
-            "$mod, F, exec, firefox-esr"
-            "$mod, Q, exec, kitty"
-            "$mod, C, killactive,"
-            "$mod, M, exit,"
-            "$mod, V, togglefloating,"
-            "$mod, R, exec, rofi -show drun"
-            ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"$HOME/Pictures/scrn-%m-%d-%y-%H-%M-%S.png")"' ''
-            "$mod, D, fullscreen,"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ --limit 1 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        "bind=$mod, N, layoutmsg, swapwithmaster master"
+        "$mod, F, exec, firefox-esr"
+        "$mod, Q, exec, kitty"
+        "$mod, C, killactive,"
+        "$mod, M, exit,"
+        "$mod, V, togglefloating,"
+        "$mod, R, exec, rofi -show drun"
+        ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"$HOME/Pictures/scrn-%m-%d-%y-%H-%M-%S.png")"' ''
+        "$mod, D, fullscreen,"
 
 # Movement
-            "$mod, L, movefocus, r"
-            "$mod, J, movefocus, d"
-            "$mod, K, movefocus, u"
-            "$mod, H, movefocus, l"
-            "$mod, right, movefocus, r"
-            "$mod, down, movefocus, d"
-            "$mod, up, movefocus, u"
-            "$mod, left, movefocus, l"
-            ] ++ (# Workspaces
-                  builtins.concatLists(builtins.genList(
-                        x: let
-                        wspace = let
-                        c = (x + 1) / 10;
-                        in builtins.toString(x + 1 - (c * 10));
-                        in [
-                        "$mod, ${wspace}, workspace, ${toString(x + 1)}"
-                        "$mod SHIFT, ${wspace}, movetoworkspace, ${toString(x + 1)}"
-                        ]
-                        ) 10)
-                 );
+        "$mod, L, movefocus, r"
+        "$mod, J, movefocus, d"
+        "$mod, K, movefocus, u"
+        "$mod, H, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, down, movefocus, d"
+        "$mod, up, movefocus, u"
+        "$mod, left, movefocus, l"
+        ] ++ (# Workspaces
+            builtins.concatLists(builtins.genList(
+                x: let
+                wspace = let
+                c = (x + 1) / 10;
+                in builtins.toString(x + 1 - (c * 10));
+                in [
+                "$mod, ${wspace}, workspace, ${toString(x + 1)}"
+                "$mod SHIFT, ${wspace}, movetoworkspace, ${toString(x + 1)}"
+                ]
+                ) 10)
+            );
 
-      bindm = [
-         "$mod, mouse:272, movewindow"
-            "$mod, mouse:273, resizewindow"
-      ];
+    bindm = [
+      "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+    ];
 
-      windowrulev2 = [
-         "suppressevent maximize, class:.*"
-            "float, class:(netman)"
-            "tile, initialClass:([Mm]inecraft.*)"
-            "workspace 3, class:(vesktop)"
-            "float, initialTitle:Picture-in-Picture"
-            "size 544 306, initialTitle:Picture-in-Picture"
-            "move 1340 80, initialTitle:Picture-in-Picture"
-      ];
+    windowrulev2 = [
+      "suppressevent maximize, class:.*"
+        "float, class:(netman)"
+        "tile, initialClass:([Mm]inecraft.*)"
+        "workspace 3, class:(vesktop)"
+        "float, initialTitle:Picture-in-Picture"
+        "size 544 306, initialTitle:Picture-in-Picture"
+        "move 1340 80, initialTitle:Picture-in-Picture"
+    ];
 
-      env = [
-         "XCURSOR_SIZE,24"
-            "HYPRCURSOR_SIZE,24"
-            "XCURSOR_THEME,catppuccin-mocha-light-cursors"
-            "HYPRCURSOR_THEME,catppuccin-mocha-light-cursors"
-            "MOZ_ENABLE_WAYLAND,1"
-            "WLR_NO_HARDWARE_CURSORS,1"
-      ];
+    env = [
+      "XCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
+        "XCURSOR_THEME,catppuccin-mocha-blue-cursors"
+        "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors"
+        "MOZ_ENABLE_WAYLAND,1"
+        "WLR_NO_HARDWARE_CURSORS,1"
+    ];
 
       cursor = {
          no_hardware_cursors = true;

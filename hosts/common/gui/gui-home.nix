@@ -567,7 +567,7 @@ wayland.windowManager.hyprland = {
                      }
                      ];
 
-                     iconUpdateURL = "https://www.startpage.com/favicon.ico";
+                     icon = "https://www.startpage.com/favicon.ico";
                      updateInterval = 7 * 24 * 60 * 60 * 1000; # every week
                         definedAliases = [ "@sp" ];
                   };

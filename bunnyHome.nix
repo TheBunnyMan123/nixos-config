@@ -34,12 +34,9 @@
       ];
    };
 
-   programs.ssh = {
-     enable = true;
-     extraConfig = ''
-       RemoteCommand=tmux new -A
-     '';
-   };
+   home.file.".ssh/rc".source = ''
+       tmux new -A
+   '';
 
    programs.yazi = {
       enable = true;

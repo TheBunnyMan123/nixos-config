@@ -34,7 +34,7 @@
       ];
    };
 
-   home.file.".ssh/rc".source = ''
+   home.file.".ssh/rc".text = ''
        tmux new -A
    '';
 

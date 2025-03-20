@@ -2,7 +2,7 @@
 
 :root {
   --panel-background: var(--uc-base-color) !important;
-  --panel-border-color: #ffffff !important;
+  --panel-border-color: var(--ctp-crust) !important;
   --panel-color: var(--uc-inverted-color) !important;
   --arrowpanel-background: var(--panel-background) !important;
   --arrowpanel-border-color: var(--panel-border-color) !important;
@@ -17,20 +17,20 @@
   --button-hover-color: var(--uc-base-color) !important;
   --button-bgcolor: var(--uc-base-color) !important;
 
-  --panel-disabled-color: #595959;
-  --panel-seperator-color: #ffffff;
+  --panel-disabled-color: var(--ctp-overlay2);
+  --panel-seperator-color: var(--ctp-crust);
 
-  --lwt-frame: #ffffff !important;
+  --lwt-frame: var(--ctp-crust) !important;
   --lwt-accent-color: var(--lwt-frame) !important;
   --lwt-text-color: var(--uc-inverted-color) !important;
 
   --toolbar-field-color: var(--uc-inverted-color) !important;
 
-  --toolbar-field-focus-color: #ffffff !important;
-  --toolbar-field-focus-background-color: #212121 !important;
-  --toolbar-field-focus-border-color: #ffffff !important;
+  --toolbar-field-focus-color: var(--uc-inverted-color) !important;
+  --toolbar-field-focus-background-color: var(--ctp-crust) !important;
+  --toolbar-field-focus-border-color: transparent !important;
 
-  --toolbar-field-background-color: #000000 !important;
+  --toolbar-field-background-color: var(--lwt-frame) !important;
   --lwt-toolbar-field-highlight: var(--uc-inverted-color) !important;
   --lwt-toolbar-field-highlight-text: var(--uc-highlight-color) !important;
   --urlbar-popup-url-color: var(--uc-base-color) !important;
@@ -48,32 +48,31 @@
   --lwt-sidebar-background-color: var(--lwt-frame) !important;
   --sidebar-background-color: var(--lwt-sidebar-background-color) !important;
 
-  --urlbar-box-bgcolor: #212121 !important;
+  --urlbar-box-bgcolor: var(--ctp-crust) !important;
   --urlbar-box-text-color: var(--uc-muted-color) !important;
   --urlbar-box-hover-bgcolor: var(--uc-base-color) !important;
   --urlbar-box-hover-text-color: var(--uc-inverted-color) !important;
-  --urlbar-box-focus-bgcolor: #212121 !important;
+  --urlbar-box-focus-bgcolor: var(--ctp-crust) !important;
 
   --lwt-sidebar-background-color: var(--uc-base-color) !important;
   --lwt-sidebar-text-color: var(--uc-inverted-color) !important;
 }
 
 splitter {
-  background-color: #ffffff !important;
+  background-color: var(--ctp-crust) !important;
   border: none !important;
-  width: 1px !important;
 }
 
 menupopup {
   --panel-background: var(--uc-base-color) !important;
-  --panel-border-color: #ffffff !important;
+  --panel-border-color: var(--ctp-crust) !important;
   --panel-color: var(--uc-inverted-color) !important;
 }
 
 menuitem {
   background-color: var(--uc-base-color) !important;
   color: var(--uc-inverted-color) !important;
-  border-color: #ffffff !important;
+  border-color: var(--ctp-crust) !important;
 }
 
 menu:where([_moz-menuactive="true"]:not([disabled="true"])),

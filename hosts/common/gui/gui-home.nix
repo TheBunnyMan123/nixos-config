@@ -842,6 +842,7 @@ wayland.windowManager.hyprland = {
          force_default_wallpaper = 2;
       };
 
+<<<<<<< HEAD
       general = {
          gaps_in = 5;
          gaps_out = 20;
@@ -851,6 +852,24 @@ wayland.windowManager.hyprland = {
          resize_on_border = false;
          allow_tearing = false;
          layout = "master";
+      };
+      programs.zsh.initExtraFirst = ''
+        if [[ "$(tty)" == "/dev/tty1" ]]
+        then
+          exec Hyprland
+        fi
+      '';
+
+      services.hyprpaper = {
+        enable = true;
+        settings = {
+          ipc = "off";
+          splash = false;
+          splash_offset = 2.0;
+
+          preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
+          wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
+        };
       };
 
       exec-once = [
@@ -871,7 +890,35 @@ wayland.windowManager.hyprland = {
          active_opacity = 1.0;
          inactive_opacity = 0.95;
 
-         blur = {
+            drop_shadow = true;
+            shadow_range = 4;
+            shadow_render_power = 3;
+
+            blur = {
+              enabled = true;
+              size = 3;
+              passes = 1;
+              vibrancy = 0.1696;
+            };
+          };
+
+          master = {
+            #
+          };
+
+          input = {
+            kb_layout = "us";
+
+            follow_mouse = 1;
+            sensitivity = 0;
+
+            touchpad = {
+              natural_scroll = false;
+              disable_while_typing = false;
+            };
+          };
+
+          animations = {
             enabled = true;
             size = 3;
             passes = 1;

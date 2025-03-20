@@ -36,14 +36,18 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, nur, impermanence, ... } @inputs:
+  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, ... } @inputs:
   let
     inherit (self) outputs;
     inherit catppuccin;
     lib = nixpkgs.lib // home-manager.lib;
-  in {
+  in rec {
     nixosModules = {
-      mkBunny = import ./bunny.nix { inherit fok-quote; inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser; };
+      mkBunny = import ./bunny.nix {
+        inherit fok-quote catppuccin;
+        inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser;
+        inherit (outputs.nixosModules) vencord;
+      };
       vencord = import ./modules/vencord.nix;
     };
 

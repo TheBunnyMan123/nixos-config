@@ -2,7 +2,7 @@
    fok-quote,
    createUser,
    catppuccin,
-   outputs
+   vencord
 }:
 { 
    homeStateVersion,
@@ -18,12 +18,12 @@
    lib,
    ...
 }: {
+   home-manager.users.bunny.imports = [
+     catppuccin.homeManagerModules.catppuccin
+   ];
+
    imports = [(createUser {
       inherit canSudo canTTY canViewJournal linger home uid homeStateVersion;
-  home-manager.users.bunny.imports = [
-    catppuccin.homeManagerModules.catppuccin
-    outputs.nixosModules.vencord
-  ];
 
       name = "bunny";
       hashedPassword = "$y$j9T$E4hYDO/sYjg3hYSTroc5W0$oTFU06Ubm0evVrs/rDlpxQF.RQe8bcBPwPsWxpSe8yC";

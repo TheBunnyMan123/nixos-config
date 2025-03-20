@@ -37,10 +37,6 @@
    programs.yazi = {
       enable = true;
       enableZshIntegration = true;
-      catppuccin = {
-        enable = true;
-        flavor = "mocha";
-      };
    };
 
    programs.fastfetch = {
@@ -85,18 +81,10 @@
 
    programs.bat = {
       enable = true;
-      catppuccin = {
-        flavor = "mocha";
-        enable = true;
-      };
    };
 
    programs.btop = {
       enable = true;
-      catppuccin = {
-        flavor = "mocha";
-        enable = true;
-      };
    };
 
    programs.neovim = {
@@ -227,10 +215,6 @@
          }
       ];
 
-      catppuccin = {
-        flavor = "mocha";
-        enable = true;
-      };
    };
 
    programs.zsh = {
@@ -295,10 +279,6 @@
 
       syntaxHighlighting = {
          enable = true;
-         catppuccin = {
-           flavor = "mocha";
-           enable = true;
-         };
       };
    };
 }

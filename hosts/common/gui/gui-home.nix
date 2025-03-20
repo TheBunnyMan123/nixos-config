@@ -192,20 +192,22 @@
               format = "󰅍";
               on-click = "kitty --class netman -e clipse";
             };
-            style = ''
-              * {
+          };
+        };
+      style = ''
+             * {
 color: @text;
        font-family: sans-serif;
 transition: 0.5s;
-              }
+             }
 
-            window#waybar {
+          window#waybar {
 background: shade(@base, 0.9);
 border: 2px solid alpha(@crust, 0.3);
-            }
+          }
 
-            .modules-left {
-              background-color: @surface1;
+          .modules-left {
+             background-color: @surface1;
               padding-left: 20px;
               padding-right: 20px;
               border-top-right-radius: 100px;
@@ -310,8 +312,6 @@ color: @yellow;
 color: @red;
 }
 '';
-         };
-      };
    };
 
 programs.zsh.initExtraFirst = ''

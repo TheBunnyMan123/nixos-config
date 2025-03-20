@@ -202,7 +202,7 @@
       prefix = "C-Space";
       secureSocket = true;
       shell = "${pkgs.zsh}/bin/zsh";
-      terminal = "xterm-kitty";
+      terminal = "screen-256color";
       extraConfig = ''set -sg terminal-overrides ",*:RGB"'';
 
       plugins = with pkgs.tmuxPlugins; [

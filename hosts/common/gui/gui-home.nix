@@ -24,7 +24,6 @@
      enable = true;
      cursorTheme = {
        name = "catppuccin-mocha-mauve-cursors";
-       package = pkgs.catppuccin-cursors.mochaMauve;
      };
      font = {
        name = "sans-serif";

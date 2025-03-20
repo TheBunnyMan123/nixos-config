@@ -34,6 +34,13 @@
       ];
    };
 
+   programs.ssh = {
+     enable = true;
+     extraConfig = ''
+       RemoteCommand=tmux new -A
+     '';
+   };
+
    programs.yazi = {
       enable = true;
       enableZshIntegration = true;

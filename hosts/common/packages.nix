@@ -5,7 +5,12 @@
   ...
 }: {
   nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config.packageOverrides = pkgs: {
+    wrangler = pkgs.wrangler.overrideAttrs {
+      dontCheckForBrokenSymlinks = true; # Temporary fix for nixpkgs#381980
+    };
+  };
+  
   environment.systemPackages = with pkgs; [
     inputs.figmanager.packages."${system}".default
     (callPackage ../../packages/icat.nix      { })

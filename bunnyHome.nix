@@ -252,17 +252,6 @@
          size = 10000;
       };
 
-      initExtraFirst = ''
-         if (( $+commands[Hyprland] ))
-         then
-            if [[ "$(tty)" != "/dev/tty1" ]]
-            then
-               test -z "$TMUX" && (tmux attach &> /dev/null || tmux new-session)
-            fi
-         else
-            test -z "$TMUX" && (tmux attach &> /dev/null || tmux new-session)
-         fi
-      '';
       initExtra = ''
          autoload -Uz vcs_info
          precmd() { vcs_info }

@@ -470,8 +470,8 @@ wayland.windowManager.hyprland = {
     env = [
       "XCURSOR_SIZE,24"
         "HYPRCURSOR_SIZE,24"
-        "XCURSOR_THEME,catppuccin-mocha-blue-cursors"
-        "HYPRCURSOR_THEME,catppuccin-mocha-blue-cursors"
+        "XCURSOR_THEME,catppuccin-mocha-mauve-cursors"
+        "HYPRCURSOR_THEME,catppuccin-mocha-mauve-cursors"
         "MOZ_ENABLE_WAYLAND,1"
         "WLR_NO_HARDWARE_CURSORS,1"
     ];

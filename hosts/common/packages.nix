@@ -38,6 +38,7 @@
     adguardhome
     nginx
     mutt
+    acpi
   ];
 
   programs.gnupg = {

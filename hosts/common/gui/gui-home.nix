@@ -202,8 +202,7 @@ transition: 0.5s;
              }
 
           window#waybar {
-background: shade(@base, 0.9);
-border: 2px solid alpha(@crust, 0.3);
+background: @base;
           }
 
           .modules-left {
@@ -465,6 +464,8 @@ wayland.windowManager.hyprland = {
         "float, initialTitle:Picture-in-Picture"
         "size 544 306, initialTitle:Picture-in-Picture"
         "move 1340 80, initialTitle:Picture-in-Picture"
+        "size 544 306, initialTitle:Picture in Picture"
+        "move 1340 80, initialTitle:Picture in Picture"
     ];
 
     env = [

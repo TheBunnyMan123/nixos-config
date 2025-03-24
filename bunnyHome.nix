@@ -34,10 +34,6 @@
       ];
    };
 
-   home.file.".ssh/rc".text = ''
-       tmux new -A
-   '';
-
    programs.yazi = {
       enable = true;
       enableZshIntegration = true;
@@ -251,6 +247,13 @@
          share = true;
          size = 10000;
       };
+
+      initExtraFirst = ''
+         if [[ $- =~ i ]] && [[ -n "$SSH_TTY" ]] && [[ -z "$TMUX" ]] # If we are in an interactove shell instance, we are in an ssh session, and we are not already in tmux
+         then
+            exec tmux new -A
+         fi
+      '';
 
       initExtra = ''
          autoload -Uz vcs_info

@@ -47,6 +47,7 @@
         inherit fok-quote catppuccin;
         inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser;
         inherit (outputs.nixosModules) vencord;
+        guiHome = import ./hosts/common/gui/gui-home.nix;
       };
       vencord = import ./modules/vencord.nix;
     };
@@ -64,6 +65,7 @@
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; gui = true; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
           inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
+          guiHome = import ./hosts/common/gui/gui-home.nix;
         };
       };
       Laptop = lib.nixosSystem rec {
@@ -77,6 +79,7 @@
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; gui = true; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
           inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
+          guiHome = import ./hosts/common/gui/gui-home.nix;
         };
       };
       Server = lib.nixosSystem rec {
@@ -90,6 +93,7 @@
         specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
           inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
+          guiHome = import ./hosts/common/gui/gui-home.nix;
         };
       };
     };

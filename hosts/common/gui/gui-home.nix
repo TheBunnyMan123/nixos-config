@@ -1,27 +1,25 @@
 {
-   pkgs,
    inputs,
-   outputs,
    buildFirefoxAddon,
    ...
-}: {home-manager.users.bunny = {
+}: {gui ? false}: {pkgs, lib, ...}: {home-manager.users.bunny = {
    imports = [ ../../../modules/vencord.nix ];
 
   catppuccin = {
-    enable = true;
+    enable = gui;
     flavor = "mocha";
     accent = "mauve";
   };
    catppuccin.cursors = {
      flavor = "mocha";
      accent = "mauve";
-     enable = true;
+     enable = gui;
    };
    qt.style = {
      name = "kvantum";
    };
    gtk = {
-     enable = true;
+     enable = gui;
      cursorTheme = {
        name = "catppuccin-mocha-mauve-cursors";
      };
@@ -36,7 +34,7 @@
 
    services = {
       hypridle = {
-         enable = true;
+         enable = gui;
          settings = {
             general = {
                after_sleep_cmd = "hyprctl dispatch dpms on";
@@ -56,7 +54,7 @@
    };
 
    programs.rofi = {
-      enable = true;
+      enable = gui;
       package = pkgs.rofi-wayland;
       extraConfig = {
         modi = "run,drun,window";
@@ -75,7 +73,7 @@
    };
 
    programs.waybar = {
-      enable = true;
+      enable = gui;
         settings = {
           mainBar = {
             layer = "top";
@@ -333,9 +331,9 @@ services.hyprpaper = {
 };
 
 wayland.windowManager.hyprland = {
-  enable = true;
+  enable = gui;
   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-  xwayland.enable = true;
+  xwayland.enable = gui;
   systemd.variables = ["--all"];
   settings = {
     "$mod" = "SUPER";
@@ -483,7 +481,7 @@ wayland.windowManager.hyprland = {
    };
 };
    programs.thunderbird = {
-      enable = true;
+      enable = gui;
       package = pkgs.thunderbird-128.override {
          extraPolicies.ExtensionSettings = {
             "{47ef7cc0-2201-11da-8cd6-0800200c9a66}" = {
@@ -509,7 +507,7 @@ wayland.windowManager.hyprland = {
    ];
 
    programs.chromium = {
-      enable = true;
+      enable = gui;
       commandLineArgs = [ "--disable-gpu-compositing" ];
       extensions = [
          "ddkjiahejlhfcafbddmgiahcphecmpfh" # ublock origin (lite)
@@ -526,7 +524,7 @@ wayland.windowManager.hyprland = {
    home.file.".local/share/PrismLauncher/themes/Console".source = "${../../../extrafiles/PrismLauncherTheme_Console}";
    home.file.".mozilla/firefox/default/chrome".source = "${../../../extrafiles/firefox-chrome}";
    programs.firefox = {
-      enable = true;
+      enable = gui;
       package = pkgs.firefox-esr;
       languagePacks = [
          "en-US"
@@ -802,7 +800,7 @@ wayland.windowManager.hyprland = {
    };
 
       programs.kitty = {
-        enable = true;
+        enable = gui;
         font = {
           name = "monospace";
           size = 11;
@@ -816,7 +814,7 @@ wayland.windowManager.hyprland = {
           '';
       };
 programs.vencord = {
-  enable = true;
+  enable = gui;
   package = pkgs.vencord;
   themes = {
          system24-catppuccin-mocha = pkgs.fetchurl {
@@ -966,11 +964,11 @@ programs.vencord = {
       };
    };
    programs.vesktop = {
-      enable = true;
+      enable = gui;
    };
 
    dconf = {
-     enable = true;
+     enable = gui;
      settings = {
        "org/gnome/desktop/interface" = {
          color-scheme = "prefer-dark";

@@ -2,7 +2,8 @@
    fok-quote,
    createUser,
    catppuccin,
-   vencord
+   vencord,
+   guiHome
 }:
 { 
    homeStateVersion,
@@ -52,8 +53,8 @@
       ];
 
       extraHomeConfig = {
-         imports = [ ./bunnyHome.nix ];
+         imports = [ ./bunnyHome.nix (guiHome {inherit gui;}) ];
       };
-   })] ++ lib.optional gui ./hosts/common/gui/gui-home.nix;
+   })];
 }
 

@@ -13,6 +13,8 @@ in {
     handbrake
     ladybird
 
+    android-studio
+
     wlr-randr
     networkmanagerapplet
     flameshot

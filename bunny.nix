@@ -23,7 +23,7 @@
      catppuccin.homeManagerModules.catppuccin
    ];
 
-   imports = [(createUser {
+   imports = [ (guiHome {inherit gui;}) (createUser {
       inherit canSudo canTTY canViewJournal linger home uid homeStateVersion;
 
       name = "bunny";
@@ -53,8 +53,8 @@
       ];
 
       extraHomeConfig = {
-         imports = [ ./bunnyHome.nix (guiHome {inherit gui;}) ];
+         imports = [ ./bunnyHome.nix ];
       };
-   })];
+   })];         
 }
 

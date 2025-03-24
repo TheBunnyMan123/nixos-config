@@ -1,8 +1,12 @@
 {
    inputs,
-   buildFirefoxAddon,
+   buildFirefoxAddon
+}: {
+   gui ? false
+}: {
+   pkgs, 
    ...
-}: {gui ? false}: {pkgs, lib, ...}: {home-manager.users.bunny = {
+}: {home-manager.users.bunny = {
    imports = [ ../../../modules/vencord.nix ];
 
   catppuccin = {

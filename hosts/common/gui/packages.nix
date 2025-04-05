@@ -13,6 +13,7 @@ in {
     handbrake
     ladybird
 
+    (callPackage ../../../packages/worldographer-2025.nix {})
     android-studio
 
     wlr-randr

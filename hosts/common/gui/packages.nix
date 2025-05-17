@@ -15,6 +15,7 @@ in {
 
     (callPackage ../../../packages/worldographer-2025.nix {})
     android-studio
+    audacity
 
     wlr-randr
     networkmanagerapplet
@@ -34,6 +35,8 @@ in {
     vulkan-tools
     nautilus
     par2cmdline-turbo
+
+    libreoffice-qt6
 
     pinta
 

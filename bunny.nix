@@ -2,7 +2,6 @@
    fok-quote,
    createUser,
    catppuccin,
-   vencord,
    guiHome
 }:
 { 
@@ -20,7 +19,7 @@
    ...
 }: {
    home-manager.users.bunny.imports = [
-     catppuccin.homeManagerModules.catppuccin
+     catppuccin.homeModules.catppuccin
    ];
 
    imports = [ (guiHome {inherit gui;}) (createUser {
@@ -38,10 +37,12 @@
       '';
 
       packages = with pkgs; [
+         lazygit
          yazi
          coreutils-full
          (callPackage ./packages/icat.nix   { })
          (callPackage ./packages/remote.nix { })
+         (callPackage ./packages/automux.nix   { })
          sshfs
          ffmpeg
          github-cli

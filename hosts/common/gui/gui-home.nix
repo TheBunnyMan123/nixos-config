@@ -5,10 +5,9 @@
    gui ? false
 }: {
    pkgs, 
+   lib,
    ...
 }: {home-manager.users.bunny = {
-   imports = [ ../../../modules/vencord.nix ];
-
   catppuccin = {
     enable = gui;
     flavor = "mocha";
@@ -540,15 +539,8 @@ wayland.windowManager.hyprland = {
           globinclude ../../../kitty.conf.d/**/*.conf
           '';
       };
-programs.vencord = {
-  enable = gui;
-  package = pkgs.vencord;
-  themes = {
-         system24-catppuccin-mocha = pkgs.fetchurl {
-            url = "https://raw.githubusercontent.com/refact0r/system24/9d480b7e3bc0dac994a9c496b63d6875368f9a98/theme/flavors/catppuccin-mocha.theme.css";
-            hash = "sha256-e8/3bEYL/Wl9VZENWkusi50inal0ApQOKjpmS8T852Y=";
-          };
-        };
+programs.vesktop.vencord = {
+        settings = {
         plugins = {
           Experiments.enabled = true;
           AutomodContext.enabled = true;
@@ -685,13 +677,10 @@ programs.vencord = {
          FullUserInChatbox.enabled = true;
          IrcColors.enabled = true;
       };
-      userPlugins = {
-         NewPluginsManager = "github:sqaaakoi/vc-newpluginsmanager/6f6fa79ea1dabaebf3c176eb1e61a4a80c6d9f97";
-         MessageLoggerEnhanced = "github:syncxv/vc-message-logger-enhanced/3fb2fe04b8e38813290309836983309a83ffe00c";
-      };
+        };
    };
    programs.vesktop = {
-      enable = gui;
+      enable = true;
    };
 
    dconf = {

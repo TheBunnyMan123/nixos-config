@@ -46,10 +46,8 @@
       mkBunny = import ./bunny.nix {
         inherit fok-quote catppuccin;
         inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser;
-        inherit (outputs.nixosModules) vencord;
         guiHome = import ./hosts/common/gui/gui-home.nix {inherit inputs; inherit (outputs.nixosModules) buildFirefoxAddon;};
       };
-      vencord = import ./modules/vencord.nix;
     };
 
     nixosConfigurations = {  

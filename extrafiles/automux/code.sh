@@ -18,5 +18,5 @@ else
    SESSION="$(tmux display-message -p "#S")"
 fi
 
-tmux rename-window -t "$SESSION:" "$NAME" \; send-keys "exec nvim" Enter \; split-window -h lazygit \; split-window
+tmux rename-window -t "$SESSION:" "$NAME" \; send-keys "exec nvim +\":Telescope find_files\"" Enter \; split-window -h lazygit \; split-window
 

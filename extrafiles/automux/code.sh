@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xeo pipefail
+set -eo pipefail
 
 NAME="$(pwd | grep --color=never -oE "[^/]+$" | sed "s/[^a-zA-Z0-9 -_]//g")"
 SESSION=""
@@ -18,5 +18,5 @@ else
    SESSION="$(tmux display-message -p "#S")"
 fi
 
-tmux new-window -t "$SESSION:" -n "$NAME" nvim \; split-window -h lazygit \; split-window
+tmux rename-window -t "$SESSION:" "$NAME" \; send-keys "exec nvim" Enter \; split-window -h lazygit \; split-window
 

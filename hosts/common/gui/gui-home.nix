@@ -359,7 +359,7 @@ wayland.windowManager.hyprland = {
     exec-once = [
       "waybar"
         "swaync"
-        "[workspace 1 silent] sleep 5 && kitty"
+        "[workspace 1 silent] sleep 5 && kitty -c tmux new -A"
         "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
         "[workspace 2 silent] sleep 7 && keepassxc"
         "[workspace 3 silent] sleep 5 && vesktop"

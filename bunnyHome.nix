@@ -248,14 +248,14 @@
          size = 10000;
       };
 
-      initExtraFirst = ''
+      initContent = ''
          if [[ $- =~ i ]] && [[ -n "$SSH_TTY" ]] && [[ -z "$TMUX" ]] # If we are in an interactove shell instance, we are in an ssh session, and we are not already in tmux
          then
             exec tmux new -A
          fi
-      '';
 
-      initExtra = ''
+         eval "$(direnv hook zsh)"
+
          autoload -Uz vcs_info
          precmd() { vcs_info }
 

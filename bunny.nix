@@ -43,6 +43,7 @@
          (callPackage ./packages/icat.nix   { })
          (callPackage ./packages/remote.nix { })
          (callPackage ./packages/automux.nix   { })
+         direnv
          sshfs
          ffmpeg
          github-cli

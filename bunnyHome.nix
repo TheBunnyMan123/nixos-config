@@ -34,7 +34,7 @@
       ];
       aliases = {
          lg-specific = "log --graph --abbrev-commit --decorate --pretty=\"format:%s <%C(yellow)%h%C(reset)>%n%C(blue)%ci %C(green)(%cr)%n%C()%an <%C(yellow)%ae%C(reset)>%n\"";
-         lg = "lg --all";
+         lg = "lg-specific --all";
          graph = "lg";
       };
    };

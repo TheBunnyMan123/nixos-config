@@ -11,6 +11,7 @@
     systems.url = "github:nix-systems/default-linux";
     fok-quote.url = "github:fokohetman/fok-quote";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    bunny_bot.url = "github:TheBunnyMan123/bunny_bot-rs";
     nixos-utils = {
       url = "github:TheBunnyMan123/NixosUtils";
       inputs = {
@@ -36,7 +37,7 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, catppuccin, nixpkgs, home-manager, fok-quote, ... } @inputs:
+  outputs = { self, catppuccin, bunny_bot, nixpkgs, home-manager, fok-quote, ... } @inputs:
   let
     inherit (self) outputs;
     inherit catppuccin;
@@ -89,6 +90,7 @@
         specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
           inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
+          dcbot = bunny_bot.packages."x86_64-linux".default;
         };
       };
     };

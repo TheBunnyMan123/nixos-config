@@ -1,5 +1,6 @@
 {
   lib,
+  dcbot,
   ...
 }: {
   imports = [
@@ -20,6 +21,17 @@
     enable = true;
     listen = "[::]:80";
     root = ../../../extrafiles/http;
+  };
+
+  systemd.services.discord-bot = {
+     enable = true;
+     after = [ "network-online.target" ];
+     wants = [ "network-online.target" ];
+     script = ''bash -c 'BOT_TOKEN="$(cat /srv/dc-bot-token)" ${dcbot}/bin/bunny_bot' '';
+     user = "bunnybot";
+     group = "bunnybot";
+
+     restartIfChanged = true;
   };
 }
 

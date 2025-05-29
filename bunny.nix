@@ -56,6 +56,7 @@
 
       extraHomeConfig = {
          imports = [ ./bunnyHome.nix ];
+         catppuccin.enable = gui;
       };
    })];         
 }

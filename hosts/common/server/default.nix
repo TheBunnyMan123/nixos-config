@@ -28,8 +28,6 @@
      after = [ "network-online.target" ];
      wants = [ "network-online.target" ];
      script = ''bash -c 'BOT_TOKEN="$(cat /srv/dc-bot-token)" ${dcbot}/bin/bunny_bot' '';
-     user = "bunnybot";
-     group = "bunnybot";
 
      restartIfChanged = true;
   };

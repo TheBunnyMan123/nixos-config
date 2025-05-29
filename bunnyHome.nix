@@ -14,7 +14,6 @@
    catppuccin = {
      flavor = "mocha";
      accent = "mauve";
-     enable = true;
    };
 
    nixpkgs.config.allowUnfree = true;

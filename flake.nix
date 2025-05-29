@@ -87,9 +87,9 @@
           ./hosts/server
         ];
 
-        specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; in {
+        specialArgs = let homeStateVersion = "24.05"; systemStateVersion = "24.05"; gui = false; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
-          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
           dcbot = bunny_bot.packages."x86_64-linux".default;
         };
       };

@@ -8,18 +8,10 @@
     ./services.nix
   ];
 
+   programs.dconf.enable = true;
+
   boot.plymouth = {
     enable = true;
-  };
-
-  fileSystems."/home/bunny/.config/vesktop/settings" = {
-    device = "/home/bunny/.config/Vencord/settings";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/home/bunny/.config/vesktop/themes" = {
-    device = "/home/bunny/.config/Vencord/themes";
-    options = [ "bind" ];
   };
 
   security.pam.services.hyprlock = {};

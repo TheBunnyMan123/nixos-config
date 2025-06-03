@@ -28,6 +28,8 @@ in {
     clipse
     wl-clipboard
     hypridle
+    hyprpaper
+    timewall
     grimblast
     nwg-look
     xterm

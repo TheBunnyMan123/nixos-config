@@ -35,8 +35,8 @@
      };
    };
 
-   services = {
-      hypridle = {
+
+      services.hypridle = {
          enable = gui;
          settings = {
             general = {
@@ -54,7 +54,6 @@
             ];
          };
       };
-   };
 
    programs.rofi = {
       enable = gui;
@@ -322,14 +321,9 @@ fi
 '';
 
 services.hyprpaper = {
-  enable = false;
+  enable = true;
   settings = {
-    ipc = "off";
-    splash = false;
-    splash_offset = 2.0;
-
-    preload = [ "${../../../extrafiles/catppuccin_triangle.png}" ];
-    wallpaper = [ ",${../../../extrafiles/catppuccin_triangle.png}" ];
+    wallpaper = ", /home/bunny/solace-wallpaper-pack/Lake 1.png";
   };
 };
 
@@ -359,7 +353,7 @@ wayland.windowManager.hyprland = {
     exec-once = [
       "waybar"
         "swaync"
-        "[workspace 1 silent] sleep 5 && kitty -c tmux new -A"
+        "[workspace 1 silent] sleep 5 && kitty -c 'tmux new -A'"
         "[workspace 1 silent] sleep 7 && kitty -e bash -c 'TERM=xterm-kitty yazi'"
         "[workspace 2 silent] sleep 7 && keepassxc"
         "[workspace 3 silent] sleep 5 && vesktop"
@@ -428,6 +422,7 @@ wayland.windowManager.hyprland = {
         "$mod, R, exec, rofi -show drun"
         ''$mod, S, exec, bash -c 'grimblast --freeze copysave area "$(date +"$HOME/Pictures/scrn-%m-%d-%y-%H-%M-%S.png")"' ''
         "$mod, D, fullscreen,"
+        "SUPER_SHIFT, L, exec, hyprctl --batch \"dispatch resizeactive 1440 1440; dispatch centerwindow\""
 
 # Movement
         "$mod, L, movefocus, r"
@@ -522,6 +517,7 @@ wayland.windowManager.hyprland = {
       ];
    };
 
+   home.file.".config/timewall".source = "${../../../extrafiles/timewall}";
    home.file.".config/kitty/kitty.conf.d".source = "${../../../extrafiles/kitty.conf.d}";
    home.file.".local/share/PrismLauncher/themes/Console".source = "${../../../extrafiles/PrismLauncherTheme_Console}";
 
@@ -536,11 +532,11 @@ wayland.windowManager.hyprland = {
           mode = "no-rc";
         };
         extraConfig = ''
-          globinclude ../../../kitty.conf.d/**/*.conf
+          globinclude ./kitty.conf.d/*.conf
           '';
       };
 programs.vesktop.vencord = {
-        settings = {
+     settings = {
         plugins = {
           Experiments.enabled = true;
           AutomodContext.enabled = true;
@@ -677,7 +673,11 @@ programs.vesktop.vencord = {
          FullUserInChatbox.enabled = true;
          IrcColors.enabled = true;
       };
-        };
+      enabledThemes = ["midnight.css"];
+     };
+     themes = {
+        midnight = ../../../extrafiles/midnight-discord-theme.css;
+     };
    };
    programs.vesktop = {
       enable = true;

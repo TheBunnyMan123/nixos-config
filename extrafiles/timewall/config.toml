@@ -1,0 +1,24 @@
+# Configuration file for timewall
+
+# Dynamic location service
+# [geoclue]
+# enable = true
+# cache_fallback = true
+# prefer = false
+# timeout = 1000
+
+# Set your geographical location coordinates here
+# [location]
+# lat = 51.11
+# lon = 17.02
+
+# Uncomment and adjust the following section to use a custom wallpaper setter command.
+# The example uses `swww`: https://github.com/LGFae/swww.
+# [setter]
+command = ['hyprctl', 'hyprpaper', 'reload,%f']
+# overlap = 0
+# quiet = true
+
+# Change how often the wallpaper is updated in daemon mode
+# [daemon]
+# update_interval_seconds = 300

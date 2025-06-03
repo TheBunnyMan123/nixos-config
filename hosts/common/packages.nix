@@ -28,7 +28,7 @@
     rcs
     bat
     w3m
-    jdk21
+    (jdk23.override {enableJavaFX = true;})
     syncthing
     distrobox
     docker

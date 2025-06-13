@@ -38,6 +38,13 @@
   boot.kernelModules = [ "sg" ];
   boot.kernel.sysctl = { "vm.swappiness" = 5; };
 
+  security.sudo.enable = false;
+  security.sudo-rs = {
+    enable = true;
+    execWheelOnly = true;
+    wheelNeedsPassword = true;
+  };
+
   networking = {
     wireless = {
       enable = true;

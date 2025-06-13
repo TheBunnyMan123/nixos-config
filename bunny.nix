@@ -2,7 +2,6 @@
    fok-quote,
    createUser,
    catppuccin,
-   timewall,
    guiHome
 }:
 { 
@@ -19,10 +18,6 @@
    lib,
    ...
 }: {
-   nixpkgs.overlays = [
-      timewall.overlays.default
-   ];
-
    home-manager.users.bunny.imports = [
      catppuccin.homeModules.catppuccin
    ];

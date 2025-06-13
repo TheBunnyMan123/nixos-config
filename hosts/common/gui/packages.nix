@@ -58,7 +58,7 @@ in {
     xdg-desktop-portal-gtk
     xdg-desktop-portal
     flatpak
-    mono5
+    mono
     gparted
     wineWowPackages.stable
   ];

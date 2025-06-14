@@ -226,7 +226,6 @@
       enableCompletion = true;
       
       shellAliases = {
-         sudo = "sudo -p \"$(echo \"\\033[38;5;240m[\\033[38;5;1mSUDO\\033[38;5;240m] \\033[38;5;14mPassword\\033[0m: \")\"";
          l = "ls -al";
          ll = "ls -l";
          ls = "eza --color=auto";

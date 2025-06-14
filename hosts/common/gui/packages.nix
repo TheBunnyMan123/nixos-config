@@ -37,6 +37,7 @@ in {
     vulkan-tools
     nautilus
     par2cmdline-turbo
+    aseprite
 
     libreoffice-qt6
 

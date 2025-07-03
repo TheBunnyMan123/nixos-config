@@ -56,22 +56,22 @@ local function hex(hex)
 end
 
 local colors = {
-  hex("#45475a");
-  hex("#f38ba8");
-  hex("#a6e3a1");
-  hex("#f9e2af");
-  hex("#89b4fa");
-  hex("#f5c2e7");
-  hex("#94e2d5");
-  hex("#bac2de");
-  hex("#585b70");
-  hex("#f38ba8");
-  hex("#a6e3a1");
-  hex("#f9e2af");
-  hex("#89b4fa");
-  hex("#f5c2e7");
-  hex("#94e2d5");
-  hex("#bac2de");
+  hex("#46425e");
+  hex("#d67782");
+  hex("#c2ffa6");
+  hex("#ebbd8c");
+  hex("#a7cfeb");
+  hex("#ff90b7");
+  hex("#b3e0f2");
+  hex("#e6d3b9");
+  hex("#70749d");
+  hex("#ff6973");
+  hex("#6bffa4");
+  hex("#ea9971");
+  hex("#9dbae3");
+  hex("#ff63a2");
+  hex("#00b9be");
+  hex("#8e9cb3");
 }
 local extracolors = {
   mark1_foreground = hex("#1e1e2e");

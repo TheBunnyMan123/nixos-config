@@ -82,9 +82,8 @@
             position = "top";
             height = 43;
 
-            modules-left = ["hyprland/workspaces"];
-            modules-center = ["clock" "pulseaudio" "custom/brightness" "custom/clipboard" "custom/poweroff"]; 
-            modules-right = ["network" "bluetooth" "cpu" "memory" "disk" "idle_inhibitor" "battery" "tray"];
+            modules-left = ["hyprland/workspaces" "clock"];
+            modules-right = ["network" "memory" "disk" "idle_inhibitor" "battery" "tray"];
 
             "custom/brightness" = {
                exec = "while true; do brightnessctl | grep -oE \"[0-9]+%\"; done";
@@ -108,19 +107,6 @@
                   deactivated = "󰢠";
                };
             };
-            "bluetooth" = {
-               on-click = "xterm -class netman -e bluetuith";
-               format = "󰂯 {status}";
-               format-disabled = "󰂲";
-               format-connected = "󰂱 {num_connections} connected";
-               tooltip-format = "{controller_alias}\t{controller_address}";
-               tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
-               tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
-            };
-            "cpu" = {
-               interval = 10;
-               format = "  {usage}%";
-            };
             "disk" = {
                interval = 30;
                format = "  {percentage_used}%";
@@ -141,30 +127,6 @@
                format-ethernet = "󰈀  {essid}";
 
                tooltip-format = "Interface: {ifname}\nIP: {ipaddr}\nSSID: {essid}\nStrength Strength: {signaldBm} dBm\nFrequency: {frequency}\nBandwidth: {bandwidthUpBits}  {bandwidthDownBits}  bits";
-            };
-            "pulseaudio" = {
-               format = "{icon} {volume}%";
-               format-icons = {
-                  default = ["󰕿" "󰖀" "󰕾"];
-                  default-muted = "󰸈";
-                  headphone = "󰋋";
-                  headphone-muted = "󰟎";
-                  speaker = "󰓃";
-                  speaker-muted = "󰓄";
-                  hdmi = "󰡁";
-                  headset = "󰋎";
-                  headset-muted = "󰋐";
-                  car = "";
-                  phone = "󰏲";
-                  phone-muted = "";
-               };
-               scroll-step = 1;
-               max-volume = 100;
-               on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-            };
-            "custom/poweroff" = {
-               format = "󰐥";
-               on-click = "xterm -class netman -e power-menu";
             };
             "tray" = {
               icon-size = 15;
@@ -188,78 +150,37 @@
               reverse-scrolling = 1;
               format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
             };
-            "custom/clipboard" = {
-              format = "󰅍";
-              on-click = "kitty --class netman -e clipse";
-            };
           };
         };
       style = ''
              * {
-color: @text;
+color: rgb(0.1, 0.1, 0.1);
        font-family: sans-serif;
 transition: 0.5s;
              }
 
           window#waybar {
-background: @base;
+background: transparent;
           }
 
           .modules-left {
-             background-color: @surface1;
-              padding-left: 20px;
-              padding-right: 20px;
-              border-top-right-radius: 100px;
-              border-bottom-right-radius: 100px;
+         background-color: rgba(0.1, 0.1, 0.1, 0.1);
+              margin: 10px;
+              padding: 0;
+              border-radius: 10px;
             }
             .modules-center {
-              background-color: @surface1;
-              padding-left: 20px;
-              padding-right: 20px;
-              border-radius: 100px;
+               background: transparent;
             }
             .modules-right {
-              background-color: @surface1;
-              padding-left: 20px;
-              padding-right: 20px;
-              border-top-left-radius: 100px;
-              border-bottom-left-radius: 100px;
+         background-color: rgba(0.1, 0.1, 0.1, 0.1);
+              margin: 10px;
+              padding: 0;
+              border-radius: 10px;
             }
 
-#pulseaudio {
-color: @green;
-}
-#pulseaudio.bluetooth {
-color: @blue;
-}
-#pulseaudio.muted {
-color: @red;
-}
-
-#custom-brightness {
-color: @yellow;
-}
-
-#network {
-color: @red;
-}
-#bluetooth {
-color: @peach;
-}
-#cpu {
-color: @green;
-}
-#memory {
-color: @sky;
-}
-#disk {
-color: @blue;
-}
-#idle_inhibitor {
-color: @mauve;
-}
-
 #workspaces {
+margin: 0;
 padding: 0;
          font-family: "MesloLGS Nerd Font Mono";
 }
@@ -268,37 +189,33 @@ margin: 0;
         margin-left: 3px;
         margin-right: 3px;
 padding: 0;
-         background-color: @base;
-         border-radius: 100px;
+         background-color: rgba(0.1, 0.1, 0.1, 0.1);
 }
 #workspaces button.active {
-  background-color: @lavender;
+  background-color: rgba(1, 1, 1, 0.1);
 }
 #workspaces button.active * {
-color: @base;
+color: rgb(1, 1, 1);
 }
 #workspaces button:hover {
-  background-color: @text;
+  background-color: rgba(1, 1, 1, 0.1);
 }
 #workspaces button:hover * {
-color: @base;
+color: rgb(0.1, 0.1, 0.1);
 }
 #workspaces button * {
 padding: 0;
 margin: 0;
         margin-left: 3px;
         margin-right: 3px;
-color: @sapphire;
+color: rgb(1, 1, 1);
 }
 
 .modules-left * {
-margin: 7px;
-}
-.modules-center * {
-margin: 7px;
+margin: 5px;
 }
 .modules-right * {
-margin: 7px;
+margin: 5px;
 }
 
 #battery {
@@ -323,7 +240,8 @@ fi
 services.hyprpaper = {
   enable = true;
   settings = {
-    wallpaper = ", /home/bunny/solace-wallpaper-pack/Lake 1.png";
+    preload = "${../../../wallpaper.png}";
+    wallpaper = ", ${../../../wallpaper.png}";
   };
 };
 
@@ -336,7 +254,7 @@ wayland.windowManager.hyprland = {
     "$mod" = "SUPER";
 
     misc = {
-      force_default_wallpaper = 2;
+      #force_default_wallpaper = 2;
     };
 
     general = {

@@ -45,9 +45,8 @@
   in rec {
     nixosModules = {
       mkBunny = import ./bunny.nix {
-        inherit fok-quote catppuccin;
+        inherit fok-quote inputs catppuccin;
         inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser;
-        guiHome = import ./hosts/common/gui/gui-home.nix {inherit inputs; inherit (outputs.nixosModules) buildFirefoxAddon;};
       };
     };
 

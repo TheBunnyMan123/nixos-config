@@ -2,7 +2,7 @@
    fok-quote,
    createUser,
    catppuccin,
-   guiHome
+   inputs
 }:
 { 
    homeStateVersion,
@@ -22,7 +22,7 @@
      catppuccin.homeModules.catppuccin
    ];
 
-   imports = [ (guiHome {inherit gui;}) (createUser {
+   imports = [ (createUser {
       inherit canSudo canTTY canViewJournal linger home uid homeStateVersion;
 
       name = "bunny";
@@ -55,8 +55,9 @@
       ];
 
       extraHomeConfig = {
-         imports = [ ./bunnyHome.nix ];
+         imports = [ ./bunnyHome.nix ] ++ lib.optional gui ./bunnyGuiHome.nix ;
          catppuccin.enable = gui;
+         wayland.windowManager.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
       };
    })];         
 }

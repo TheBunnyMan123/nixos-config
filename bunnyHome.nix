@@ -197,7 +197,10 @@
       secureSocket = true;
       shell = "${pkgs.zsh}/bin/zsh";
       terminal = "tmux-256color";
-      extraConfig = ''set -sg terminal-overrides ",*:RGB,*:Tc,tmux-256color:RGB,tmux-256color:Tc"'';
+      extraConfig = ''
+         set -sg terminal-overrides ",*:RGB,*:Tc,tmux-256color:RGB,tmux-256color:Tc"
+         source ${./extrafiles/tmux-theme.conf}
+      '';
 
       plugins = with pkgs.tmuxPlugins; [
          sensible

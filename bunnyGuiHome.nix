@@ -328,6 +328,7 @@
          '';
       };
 
+      vesktop.enable = true;
       vesktop.vencord = {
          settings = {
             plugins = {

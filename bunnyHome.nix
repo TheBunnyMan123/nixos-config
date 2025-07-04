@@ -11,11 +11,6 @@
      };
    };
 
-   catppuccin = {
-     flavor = "mocha";
-     accent = "mauve";
-   };
-
    nixpkgs.config.allowUnfree = true;
 
    programs.git = {

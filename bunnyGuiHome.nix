@@ -8,6 +8,8 @@
       name = "kvantum";
    };
 
+   catppuccin.enable = lib.mkForce false;
+
    catppuccin.cursors = {
       enable = true;
       flavor = "mocha";

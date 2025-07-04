@@ -153,10 +153,9 @@
             type = "lua";
          }
          {
-           plugin = catppuccin-nvim;
-           config = ''
-             '';
-           type = "lua";
+            plugin = catppuccin-nvim;
+            config = builtins.readFile ./extrafiles/neovim/catppuccin.lua;
+            type = "lua";
          }
 
          markdown-preview-nvim

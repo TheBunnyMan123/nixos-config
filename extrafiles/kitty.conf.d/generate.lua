@@ -58,20 +58,20 @@ end
 local colors = {
   hex("#46425e");
   hex("#d67782");
-  hex("#c2ffa6");
-  hex("#ebbd8c");
-  hex("#a7cfeb");
-  hex("#ff90b7");
-  hex("#b3e0f2");
-  hex("#e6d3b9");
-  hex("#70749d");
-  hex("#ff6973");
   hex("#6bffa4");
   hex("#ea9971");
-  hex("#9dbae3");
+  hex("#a7cfeb");
   hex("#ff63a2");
   hex("#00b9be");
   hex("#8e9cb3");
+  hex("#70749d");
+  hex("#ff6973");
+  hex("#c2ffa6");
+  hex("#ebbd8c");
+  hex("#9dbae3");
+  hex("#ff90b7");
+  hex("#b3e0f2");
+  hex("#e6d3b9");
 }
 local extracolors = {
   mark1_foreground = hex("#1e1e2e");

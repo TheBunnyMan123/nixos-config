@@ -8,14 +8,6 @@
       name = "kvantum";
    };
 
-   catppuccin = {
-      enable = true;
-      rofi.enable = false;
-
-      flavor = "mocha";
-      accent = "mauve";
-   };
-
    catppuccin.cursors = {
       enable = true;
       flavor = "mocha";
@@ -250,6 +242,7 @@
                margin-left: 3px;
                margin-right: 3px;
                background-color: rgba(0.1, 0.1, 0.1, 0.1);
+               border-radius: 15px;
             }
 
             #workspaces button * {

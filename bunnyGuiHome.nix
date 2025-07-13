@@ -54,15 +54,6 @@
             ];
          };
       };
-
-      hyprpaper = {
-         enable = true;
-
-         settings = {
-            preload = "${./wallpaper.png}";
-            wallpaper = ", ${./wallpaper.png}";
-         };
-      };
    };
 
    programs = {
@@ -469,7 +460,13 @@
             };
          };
       };
+
+      mpvpaper = {
+         enable = true;
+      };
    };
+   xdg.configFile."mpvpaper/pauselist".source = lib.mkDefault ./extrafiles/empty.txt;
+   xdg.configFile."mpvpaper/stoplist".source = lib.mkDefault ./extrafiles/empty.txt;
 
    home = {
       packages = with pkgs; [
@@ -552,6 +549,7 @@
             "waybar"
             "swaync"
             "clipse -listen"
+            "mpvpaper all -o \"--loop-file=inf --interpolation --video-sync=display-resample --no-cache --profile=low-latency\" ${./extrafiles/shader-render.mp4}"
 
             "[workspace 1 silent] kitty -c 'tmux new -A'"
             "[workspace 2 silent] keepassxc"

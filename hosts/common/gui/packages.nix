@@ -17,6 +17,8 @@ in {
     android-studio
     audacity
 
+    teamspeak6-client
+
     wlr-randr
     networkmanagerapplet
     flameshot

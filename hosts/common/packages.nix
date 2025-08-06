@@ -39,9 +39,6 @@
     nginx
     mutt
     acpi
-
-    cargo
-    rustc
   ];
 
   programs.gnupg = {

@@ -54,6 +54,15 @@
             ];
          };
       };
+
+      hyprpaper = {
+         enable = true;
+         
+         settings = {
+            preload = [ "${./wallpaper.png}" ];
+            wallpaper = [ ", ${./wallpaper.png}" ];
+         };
+      };
    };
 
    programs = {
@@ -460,10 +469,6 @@
                IrcColors.enabled = true;
             };
          };
-      };
-
-      mpvpaper = {
-         enable = true;
       };
    };
    xdg.configFile."mpvpaper/pauselist".source = lib.mkDefault ./extrafiles/empty.txt;

@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     inputs.figmanager.packages."${system}".default
     (callPackage ../../packages/icat.nix      { })
-    (callPackage ../../packages/asciidots.nix { })
+    # (callPackage ../../packages/asciidots.nix { })
     (callPackage ../../packages/power.nix     { })
     (callPackage ../../packages/nixos.nix     { })
     (callPackage ../../packages/page.nix      { })

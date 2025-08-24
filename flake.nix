@@ -60,6 +60,20 @@
           ./hosts/desktop
         ];
 
+        specialArgs = let homeStateVersion = "25.05"; systemStateVersion = "25.05"; gui = true; in {
+          inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
+          inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;
+        };
+      };
+      DesktopOld = lib.nixosSystem rec {
+        system = "x86_64-linux"; 
+        modules = [
+          # (inputs.nathan.mkNathan { canSudo = false; large = false; })
+          catppuccin.nixosModules.catppuccin
+          home-manager.nixosModules.home-manager
+          ./hosts/desktop_old
+        ];
+
         specialArgs = let homeStateVersion = "23.05"; systemStateVersion = "23.05"; gui = true; in {
           inherit (inputs.nixos-utils.nixosModules."x86_64-linux") createUser buildFirefoxAddon;
           inherit inputs outputs homeStateVersion systemStateVersion fok-quote system gui;

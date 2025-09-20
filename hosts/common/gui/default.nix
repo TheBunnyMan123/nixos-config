@@ -48,6 +48,7 @@
       noto-fonts-emoji
       noto-fonts-color-emoji
       corefonts
+      vista-fonts
     ] ++ (builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts));
   };
 

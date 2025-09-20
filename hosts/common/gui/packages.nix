@@ -13,7 +13,9 @@ in {
     handbrake
     ladybird
 
-    (callPackage ../../../packages/worldographer-2025.nix {})
+    (callPackage ../../../packages/tilp.nix {})
+    cemu-ti
+
     android-studio
     audacity
 
@@ -22,7 +24,7 @@ in {
     wlr-randr
     networkmanagerapplet
     flameshot
-    rofi-wayland
+    rofi
     waybar
     swaynotificationcenter
     grim

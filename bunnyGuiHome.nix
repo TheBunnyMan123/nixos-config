@@ -68,7 +68,7 @@
    programs = {
       rofi = {
          enable = true;
-         package = pkgs.rofi-wayland;
+         package = pkgs.rofi;
          font = "monospace 12";
          modes = ["run" "drun"];
          terminal = "${config.programs.kitty.package}/bin/kitty";

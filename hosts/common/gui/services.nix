@@ -9,21 +9,7 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  services.displayManager.sddm = {
-    enable = false;
-    package = pkgs.kdePackages.sddm;
-    theme = "catppuccin-mocha";
-    wayland.enable = true;
-  };
-
   environment.systemPackages = [
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "Noto Sans";
-      fontSize = "9";
-      background = ../../../extrafiles/catppuccin_triangle.png;
-      loginBackground = true;
-    })
   ];
 
   programs.hyprland.enable = true;

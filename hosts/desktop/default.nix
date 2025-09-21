@@ -11,7 +11,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
 
     ../common
-    ../common/virtualization.nix
+    # ../common/virtualization.nix
     ../common/gaming
     ../common/gui
     ./hardware-configuration.nix
